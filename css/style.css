@@ -898,38 +898,41 @@ textarea ~ .field-error-message.show {
 
 /* Responsive: su tablet e mobile i tooltip vanno sotto IL LABEL */
 @media (max-width: 1400px) {
-    .field-error-message {
-        position: absolute;
-        left: 0 !important;
-        top: auto !important;
-        bottom: auto !important;
-        transform: none !important;
-        margin-top: 3px;
-        white-space: normal;
-        max-width: 100%;
-        min-width: auto;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-
-    /* Posiziona l'errore subito dopo il label */
+    /* Form group deve essere relative per posizionamento assoluto */
     .form-group {
         position: relative;
         margin-bottom: 22px;
     }
 
+        /* Calcola altezza del label per posizionare l'errore */
         .form-group label {
             display: block;
-            margin-bottom: 0; /* Rimosso margine per attaccare l'errore */
+            margin-bottom: 8px; /* Spazio normale tra label e input */
         }
 
-            /* L'errore va tra label e input */
-            .form-group label + .field-error-message {
-                position: relative !important;
-                display: block;
-                margin-top: 3px;
-                margin-bottom: 5px;
-            }
+    .field-error-message {
+        position: absolute !important;
+        left: 0 !important;
+        top: 28px !important; /* Circa altezza del label + piccolo margine */
+        transform: none !important;
+        margin: 0;
+        white-space: normal;
+        max-width: calc(100% - 20px);
+        min-width: auto;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        z-index: 10;
+    }
+
+    /* Per textarea (label più margine) */
+    textarea ~ .field-error-message {
+        top: 28px !important;
+    }
+
+    /* Per select */
+    select ~ .field-error-message {
+        top: 28px !important;
+    }
 
     /* NASCONDI COMPLETAMENTE le frecce */
     .field-error-message::before,
@@ -939,34 +942,33 @@ textarea ~ .field-error-message.show {
 
     .field-error-message.show {
         left: 0 !important;
+        top: 28px !important;
         transform: none !important;
     }
 
-    /* TEXTAREA */
-    textarea ~ .field-error-message {
-        position: relative !important;
-        margin-top: 3px;
-        margin-bottom: 5px;
-        transform: none !important;
+    /* CHECKBOX - va sotto il label della checkbox */
+    .checkbox-group {
+        position: relative;
     }
 
-        textarea ~ .field-error-message::before,
-        textarea ~ .field-error-message::after {
-            display: none !important;
+        .checkbox-group .field-error-message {
+            position: absolute !important;
+            left: 0 !important;
+            top: 26px !important; /* Altezza checkbox + label */
+            transform: none !important;
         }
 
-    /* CHECKBOX */
-    .checkbox-group .field-error-message {
-        position: relative !important;
-        left: 0 !important;
-        margin-top: 3px;
-        transform: none !important;
-    }
+            .checkbox-group .field-error-message::before,
+            .checkbox-group .field-error-message::after {
+                display: none !important;
+            }
 
-        .checkbox-group .field-error-message::before,
-        .checkbox-group .field-error-message::after {
-            display: none !important;
-        }
+    /* Aggiungi padding-top agli input per fare spazio all'errore */
+    .form-group.error input,
+    .form-group.error select,
+    .form-group.error textarea {
+        margin-top: 32px; /* Spazio per il messaggio di errore */
+    }
 }
 
 /* Mobile: messaggi ancora più compatti */
@@ -974,12 +976,18 @@ textarea ~ .field-error-message.show {
     .field-error-message {
         font-size: 12px;
         padding: 6px 10px;
+        top: 26px !important; /* Label più piccolo su mobile */
     }
 
     .form-group {
         margin-bottom: 24px;
     }
-}
+
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            margin-top: 28px;
+        }
 }
 .submit-btn {
     /* TEMA NERO
