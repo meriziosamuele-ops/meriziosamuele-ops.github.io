@@ -896,12 +896,13 @@ textarea ~ .field-error-message.show {
     transform: translateY(-50%);
 }
 
-/* Responsive: su tablet e mobile i tooltip vanno sotto IL LABEL */
+/* Sostituisci la parte @media (max-width: 1400px) esistente con questa */
 @media (max-width: 1400px) {
-
     .contatti-wrapper {
-        display: flex;
-        align-items: stretch; /* Stessa altezza automatica */
+        display: grid !important;
+        grid-template-columns: 1fr 1fr; /* Due colonne su tablet */
+        gap: 60px;
+        align-items: stretch; /* Stessa altezza */
     }
 
     .info-rapida,
@@ -909,6 +910,7 @@ textarea ~ .field-error-message.show {
         display: flex;
         flex-direction: column;
     }
+
     /* Form group deve essere relative per posizionamento assoluto */
     .form-group {
         position: relative;
@@ -918,13 +920,13 @@ textarea ~ .field-error-message.show {
         /* Calcola altezza del label per posizionare l'errore */
         .form-group label {
             display: block;
-            margin-bottom: 8px; /* Spazio normale tra label e input */
+            margin-bottom: 8px;
         }
 
     .field-error-message {
         position: absolute !important;
         left: 0 !important;
-        top: 28px !important; /* Circa altezza del label + piccolo margine */
+        top: 28px !important;
         transform: none !important;
         margin: 0;
         white-space: normal;
@@ -935,17 +937,14 @@ textarea ~ .field-error-message.show {
         z-index: 10;
     }
 
-    /* Per textarea (label più margine) */
     textarea ~ .field-error-message {
         top: 28px !important;
     }
 
-    /* Per select */
     select ~ .field-error-message {
         top: 28px !important;
     }
 
-    /* NASCONDI COMPLETAMENTE le frecce */
     .field-error-message::before,
     .field-error-message::after {
         display: none !important;
@@ -957,7 +956,6 @@ textarea ~ .field-error-message.show {
         transform: none !important;
     }
 
-    /* CHECKBOX - va sotto il label della checkbox */
     .checkbox-group {
         position: relative;
     }
@@ -965,7 +963,7 @@ textarea ~ .field-error-message.show {
         .checkbox-group .field-error-message {
             position: absolute !important;
             left: 0 !important;
-            top: 26px !important; /* Altezza checkbox + label */
+            top: 26px !important;
             transform: none !important;
         }
 
@@ -974,20 +972,24 @@ textarea ~ .field-error-message.show {
                 display: none !important;
             }
 
-    /* Aggiungi padding-top agli input per fare spazio all'errore */
     .form-group.error input,
     .form-group.error select,
     .form-group.error textarea {
-        margin-top: 32px; /* Spazio per il messaggio di errore */
+        margin-top: 32px;
     }
 }
 
-/* Mobile: messaggi ancora più compatti */
+/* Mobile: una colonna + messaggi compatti */
 @media (max-width: 768px) {
+    .contatti-wrapper {
+        grid-template-columns: 1fr !important; /* Una colonna su mobile */
+        gap: 30px;
+    }
+
     .field-error-message {
         font-size: 12px;
         padding: 6px 10px;
-        top: 26px !important; /* Label più piccolo su mobile */
+        top: 26px !important;
     }
 
     .form-group {
