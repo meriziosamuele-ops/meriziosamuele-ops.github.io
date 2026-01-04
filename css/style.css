@@ -896,13 +896,15 @@ textarea ~ .field-error-message.show {
     transform: translateY(-50%);
 }
 
-/* Responsive: su tablet e mobile i tooltip vanno sotto */
+/* Responsive: su tablet e mobile i tooltip vanno sotto IL LABEL */
 @media (max-width: 1400px) {
     .field-error-message {
+        position: absolute;
         left: 0 !important;
-        top: calc(100% + 3px) !important; /* Vicinissimo al campo */
+        top: auto !important;
+        bottom: auto !important;
         transform: none !important;
-        margin-top: 0;
+        margin-top: 3px;
         white-space: normal;
         max-width: 100%;
         min-width: auto;
@@ -910,20 +912,41 @@ textarea ~ .field-error-message.show {
         overflow-wrap: break-word;
     }
 
-        /* NASCONDI COMPLETAMENTE le frecce */
-        .field-error-message::before,
-        .field-error-message::after {
-            display: none !important;
+    /* Posiziona l'errore subito dopo il label */
+    .form-group {
+        position: relative;
+        margin-bottom: 22px;
+    }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0; /* Rimosso margine per attaccare l'errore */
         }
 
-        .field-error-message.show {
-            left: 0 !important;
-            transform: none !important;
-        }
+            /* L'errore va tra label e input */
+            .form-group label + .field-error-message {
+                position: relative !important;
+                display: block;
+                margin-top: 3px;
+                margin-bottom: 5px;
+            }
+
+    /* NASCONDI COMPLETAMENTE le frecce */
+    .field-error-message::before,
+    .field-error-message::after {
+        display: none !important;
+    }
+
+    .field-error-message.show {
+        left: 0 !important;
+        transform: none !important;
+    }
 
     /* TEXTAREA */
     textarea ~ .field-error-message {
-        top: calc(100% + 3px) !important;
+        position: relative !important;
+        margin-top: 3px;
+        margin-bottom: 5px;
         transform: none !important;
     }
 
@@ -932,14 +955,11 @@ textarea ~ .field-error-message.show {
             display: none !important;
         }
 
-        textarea ~ .field-error-message.show {
-            transform: none !important;
-        }
-
     /* CHECKBOX */
     .checkbox-group .field-error-message {
+        position: relative !important;
         left: 0 !important;
-        top: calc(100% + 3px) !important;
+        margin-top: 3px;
         transform: none !important;
     }
 
@@ -947,16 +967,6 @@ textarea ~ .field-error-message.show {
         .checkbox-group .field-error-message::after {
             display: none !important;
         }
-
-        .checkbox-group .field-error-message.show {
-            left: 0 !important;
-            transform: none !important;
-        }
-
-    /* Riduci margine bottom dei form-group per compensare */
-    .form-group {
-        margin-bottom: 22px; /* Era 16px, aumentato per dare spazio all'errore */
-    }
 }
 
 /* Mobile: messaggi ancora più compatti */
@@ -964,12 +974,12 @@ textarea ~ .field-error-message.show {
     .field-error-message {
         font-size: 12px;
         padding: 6px 10px;
-        top: calc(100% + 2px) !important; /* Ancora più vicino */
     }
 
     .form-group {
-        margin-bottom: 24px; /* Più spazio tra i campi */
+        margin-bottom: 24px;
     }
+}
 }
 .submit-btn {
     /* TEMA NERO
