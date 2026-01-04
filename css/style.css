@@ -898,6 +898,17 @@ textarea ~ .field-error-message.show {
 
 /* Responsive: su tablet e mobile i tooltip vanno sotto IL LABEL */
 @media (max-width: 1400px) {
+
+    .contatti-wrapper {
+        display: flex;
+        align-items: stretch; /* Stessa altezza automatica */
+    }
+
+    .info-rapida,
+    .form-container {
+        display: flex;
+        flex-direction: column;
+    }
     /* Form group deve essere relative per posizionamento assoluto */
     .form-group {
         position: relative;
