@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://studiolegale-gigliotti.it/sitemap.xml
+da sostituire con dominio reale
