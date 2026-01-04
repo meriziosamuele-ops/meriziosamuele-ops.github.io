@@ -1520,182 +1520,276 @@ footer {
     padding: 0 40px;
 }
 
-@media (max-width: 768px) {
-    .hero {
-        height: 75vh; /* Era non specificato, ora ridotto */
-        margin-top: 75px;
-    }
-    
-    .hero h1 {
-        font-size: 48px; /* Più piccolo del 52px attuale */
-    }
-    
-    .hero-subtitle {
-        font-size: 20px; /* Aggiunto, era 24px fisso */
-        margin-bottom: 30px;
-    }
-    
-    .cta-button {
-        padding: 16px 40px; /* Ridotto */
-        font-size: 16px;
-    }
-    
-    .section-title {
-        font-size: 42px;
-    }
-    
-    .chi-sono-content,
-    .contatti-wrapper {
-        grid-template-columns: 1fr;
-        gap: 40px; /* Aggiunto spacing */
-    }
-    
-    .servizi-grid {
-        grid-template-columns: 1fr;
-        gap: 25px; /* Ridotto da 35px */
-    }
-    
-    .header-content {
-        flex-direction: column;
-        gap: 20px;
-        padding: 0 20px; /* Ridotto padding laterale */
-    }
-    
-    nav {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap; /* IMPORTANTE: permette wrap su schermi stretti */
-    }
-    
-    nav a {
-        margin: 0 12px 8px 12px; /* Margin top/bottom per wrap */
-        font-size: 15px;
-    }
-    
-    .content {
-        padding: 70px 25px; /* Ridotto da 100px */
-    }
-    
-    .form-container {
-        padding: 35px 25px; /* Era 30px 20px */
-    }
-    
-    .info-rapida {
-        padding: 35px 25px; /* Era 30px 20px */
-    }
-    
-    footer {
-        padding: 50px 20px 30px; /* Ridotto padding laterale */
-    }
-    
-    .footer-main {
-        grid-template-columns: 1fr;
-        gap: 35px; /* Ridotto da 40px */
-        text-align: center;
-    }
-    
-    .footer-section,
-    .footer-section.right,
-    .footer-section.center {
-        text-align: center;
-        margin-top: 0; /* Rimuovi margin-top su mobile */
-    }
-    
-    .footer-link {
-        display: block;
-        margin-bottom: 12px; /* Più spazio tra link */
-    }
-    
-    .footer-link:hover {
-        padding-left: 0;
-    }
-    
-    .footer-logo {
-        font-size: 42px;
-    }
-    
-    /* Testimonianze single column già ok */
-    
-    /* Ottimizza chi-sono photos per mobile */
-    .chi-sono-image,
-    .chi-sono-image-2 {
-        height: 350px; /* Ridotto da 400px */
-    }
-}
+/* ==================== RESPONSIVE MOBILE OTTIMIZZATO ==================== */
 
-/* Dopo la media query esistente @media (max-width: 768px), aggiungi: */
-
-/* TABLET MEDIO (max 992px) */
+/* TABLET (max 992px) */
 @media (max-width: 992px) {
     .header-content {
-        padding: 0 30px;
+        padding: 0 25px;
     }
-    
+
     nav a {
-        margin-left: 25px;
+        margin-left: 20px;
         font-size: 15px;
     }
-    
+
     .servizi-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 25px;
     }
-    
+
     .content {
-        padding: 80px 30px;
+        padding: 70px 25px;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
     }
 }
 
-/* MOBILE PICCOLO (max 480px) */
-@media (max-width: 480px) {
+/* MOBILE (max 768px) */
+@media (max-width: 768px) {
+    /* HEADER */
+    header {
+        padding: 12px 0;
+    }
+
+    .header-content {
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    nav {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+        nav a {
+            margin: 0;
+            font-size: 13px;
+            padding: 6px 10px;
+        }
+
+            nav a::after {
+                display: none; /* Rimuovi underline animato su mobile */
+            }
+
+    /* HERO */
     .hero {
-        height: 70vh;
-        margin-top: 70px;
+        margin-top: 60px;
+        height: 60vh;
+        min-height: 400px;
     }
-    
-    .hero h1 {
-        font-size: 38px;
-    }
-    
+
+        .hero h1 {
+            font-size: 42px;
+        }
+
     .hero-subtitle {
         font-size: 18px;
+        margin-bottom: 30px;
     }
-    
+
     .cta-button {
         padding: 15px 35px;
         font-size: 15px;
         letter-spacing: 1px;
     }
-    
-    .section-title {
-        font-size: 36px;
-    }
-    
+
+    /* CONTENT */
     .content {
         padding: 60px 20px;
     }
-    
+
+    .section-title {
+        font-size: 38px;
+        margin-bottom: 35px;
+    }
+
+    /* CHI SONO */
+    .chi-sono-intro {
+        margin: 40px auto 35px;
+    }
+
+    .intro-paragraph-large {
+        font-size: 18px;
+    }
+
+    .intro-paragraph-medium {
+        font-size: 17px;
+    }
+
+    .chi-sono-photos {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin: 40px auto;
+    }
+
+    .chi-sono-image,
+    .chi-sono-image-2 {
+        height: 400px;
+    }
+
+    .chi-sono-two-columns {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin: 40px auto 0;
+    }
+
+    /* SERVIZI */
+    .servizi-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .servizio-card {
+        padding: 25px 20px;
+    }
+
+    /* TESTIMONIANZE */
+    .testimonials-section {
+        padding: 60px 0;
+    }
+
+    .testimonials-intro {
+        font-size: 16px;
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .testimonial-card {
+        padding: 25px 20px;
+    }
+
+    /* CONTATTI */
+    .contatti-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .info-rapida {
+        padding: 30px 20px;
+    }
+
+    .form-container {
+        padding: 30px 20px;
+    }
+
+        .form-container h3 {
+            font-size: 24px;
+        }
+
+    /* FOOTER */
+    footer {
+        padding: 50px 20px 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-section,
+    .footer-section.center,
+    .footer-section.right {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .footer-logo {
+        font-size: 36px;
+    }
+
+    .footer-link {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+        .footer-link:hover {
+            padding-left: 0;
+        }
+
+    /* FULL WIDTH SECTIONS */
+    .full-width-section {
+        padding: 60px 0;
+    }
+
+        .full-width-section .content {
+            padding: 0 20px;
+        }
+}
+
+/* MOBILE PICCOLO (max 480px) */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 26px;
+    }
+
     nav a {
-        margin-left: 15px;
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+
+    .hero {
+        height: 55vh;
+        min-height: 350px;
+    }
+
+        .hero h1 {
+            font-size: 36px;
+        }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .cta-button {
+        padding: 13px 30px;
         font-size: 14px;
     }
-    
-    .logo {
-        font-size: 32px;
+
+    .section-title {
+        font-size: 34px;
     }
-    
+
+    .content {
+        padding: 50px 15px;
+    }
+
+    .chi-sono-image,
+    .chi-sono-image-2 {
+        height: 350px;
+    }
+
+    .servizio-card,
+    .testimonial-card {
+        padding: 20px 15px;
+    }
+
     .form-container,
     .info-rapida {
         padding: 25px 15px;
     }
-    
-    .testimonial-card {
-        padding: 25px 20px;
-    }
-    
+
     .modal-content {
-        padding: 35px 25px;
+        padding: 30px 20px;
+        width: 95%;
+    }
+
+    .footer-logo {
+        font-size: 32px;
     }
 }
 
@@ -1704,18 +1798,51 @@ footer {
     .hero h1 {
         font-size: 32px;
     }
-    
-    .hero-subtitle {
-        font-size: 16px;
-    }
-    
+
     .section-title {
-        font-size: 32px;
+        font-size: 30px;
     }
-    
+
+    .logo {
+        font-size: 24px;
+    }
+
     nav a {
-        margin-left: 10px;
-        font-size: 13px;
+        font-size: 11px;
+        padding: 4px 6px;
+    }
+}
+
+/* ==================== OTTIMIZZAZIONI TOUCH ==================== */
+
+/* Disabilita hover su touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .servizio-card:hover,
+    .testimonial-card:hover,
+    .info-rapida:hover,
+    .form-container:hover,
+    .chi-sono-image:hover::before,
+    .chi-sono-image-2:hover::before {
+        transform: none;
+    }
+
+    .chi-sono-image:hover::before,
+    .chi-sono-image-2:hover::before {
+        left: -100%;
+    }
+}
+
+/* Aumenta area touch */
+@media (max-width: 768px) {
+    nav a,
+    .cta-button,
+    .footer-link,
+    .submit-btn {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 /* ==================== TITOLO BIANCO CON LINEA ORO ==================== */
@@ -1728,28 +1855,4 @@ footer {
 .section-title[style*="color: #ffffff"]::after,
 .section-title[style*="color:#ffffff"]::after {
     background: #D4AF37 !important;
-}
-
-/* ==================== OTTIMIZZAZIONI TOUCH ==================== */
-
-/* Aumenta area cliccabile su mobile */
-@media (max-width: 768px) {
-    nav a,
-    .footer-link,
-    .footer-info-item a {
-        padding: 8px 5px;
-        min-height: 44px; /* Standard iOS/Android touch target */
-        display: inline-flex;
-        align-items: center;
-    }
-    
-    /* Disabilita effetti hover su touch devices */
-    @media (hover: none) {
-        .servizio-card:hover,
-        .testimonial-card:hover,
-        .info-rapida:hover,
-        .form-container:hover {
-            transform: none;
-        }
-    }
 }
