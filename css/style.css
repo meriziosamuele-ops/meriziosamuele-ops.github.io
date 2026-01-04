@@ -896,8 +896,7 @@ textarea ~ .field-error-message.show {
     transform: translateY(-50%);
 }
 
-/* Responsive: su mobile i tooltip vanno sotto */
-/* Responsive: su tablet e mobile i tooltip vanno sotto */
+/* Responsive: su tablet e mobile i tooltip vanno sotto SENZA freccia */
 @media (max-width: 1400px) {
     .field-error-message {
         left: 0;
@@ -911,27 +910,10 @@ textarea ~ .field-error-message.show {
         overflow-wrap: break-word;
     }
 
-        /* Freccia SOPRA (punta verso l'alto) */
-        .field-error-message::before {
-            right: auto;
-            left: 15px; /* Posiziona a sinistra */
-            top: -12px; /* Sopra il tooltip */
-            bottom: auto;
-            transform: none;
-            border: 6px solid transparent;
-            border-bottom-color: #dc3545; /* Freccia rossa verso alto */
-            border-right-color: transparent;
-        }
-
+        /* NASCONDI le frecce su tablet/mobile */
+        .field-error-message::before,
         .field-error-message::after {
-            right: auto;
-            left: 16px;
-            top: -10px;
-            bottom: auto;
-            transform: none;
-            border: 5px solid transparent;
-            border-bottom-color: #f8d7da; /* Freccia rosa verso alto */
-            border-right-color: transparent;
+            display: none;
         }
 
         .field-error-message.show {
@@ -945,20 +927,9 @@ textarea ~ .field-error-message.show {
         transform: translateY(5px);
     }
 
-        textarea ~ .field-error-message::before {
-            top: -12px;
-            left: 15px;
-            right: auto;
-            transform: none;
-            border-bottom-color: #dc3545;
-        }
-
+        textarea ~ .field-error-message::before,
         textarea ~ .field-error-message::after {
-            top: -10px;
-            left: 16px;
-            right: auto;
-            transform: none;
-            border-bottom-color: #f8d7da;
+            display: none;
         }
 
         textarea ~ .field-error-message.show {
@@ -972,20 +943,9 @@ textarea ~ .field-error-message.show {
         transform: translateY(5px);
     }
 
-        .checkbox-group .field-error-message::before {
-            right: auto;
-            left: 15px;
-            top: -12px;
-            transform: none;
-            border-bottom-color: #dc3545;
-        }
-
+        .checkbox-group .field-error-message::before,
         .checkbox-group .field-error-message::after {
-            right: auto;
-            left: 16px;
-            top: -10px;
-            transform: none;
-            border-bottom-color: #f8d7da;
+            display: none;
         }
 
         .checkbox-group .field-error-message.show {
