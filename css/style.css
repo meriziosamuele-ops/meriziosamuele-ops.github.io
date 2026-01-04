@@ -903,9 +903,11 @@ textarea ~ .field-error-message.show {
         top: 100%;
         transform: translateY(5px);
         margin-top: 5px;
-        white-space: normal;
+        white-space: normal; 
         max-width: 100%;
         min-width: auto;
+        word-wrap: break-word; 
+        overflow-wrap: break-word; 
     }
     
     .field-error-message::before {
