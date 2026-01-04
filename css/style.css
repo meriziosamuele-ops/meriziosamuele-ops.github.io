@@ -896,12 +896,12 @@ textarea ~ .field-error-message.show {
     transform: translateY(-50%);
 }
 
-/* Responsive: su tablet e mobile i tooltip vanno sotto SENZA freccia */
+/ /* Responsive: su tablet e mobile i tooltip vanno sotto SENZA freccia */
 @media (max-width: 1400px) {
     .field-error-message {
-        left: 0;
-        top: 100%;
-        transform: translateY(5px);
+        left: 0 !important;
+        top: 100% !important;
+        transform: translateY(8px) !important;
         margin-top: 5px;
         white-space: normal;
         max-width: 100%;
@@ -909,48 +909,45 @@ textarea ~ .field-error-message.show {
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
-
-        /* NASCONDI le frecce su tablet/mobile */
+        /* NASCONDI COMPLETAMENTE le frecce */
         .field-error-message::before,
         .field-error-message::after {
-            display: none;
+            display: none !important;
         }
 
         .field-error-message.show {
-            left: 0;
-            transform: translateY(8px);
+            left: 0 !important;
+            transform: translateY(8px) !important;
         }
-
-    /* TEXTAREA */
+    /* TEXTAREA - senza freccia */
     textarea ~ .field-error-message {
-        top: 100%;
-        transform: translateY(5px);
+        top: 100% !important;
+        transform: translateY(8px) !important;
     }
 
         textarea ~ .field-error-message::before,
         textarea ~ .field-error-message::after {
-            display: none;
+            display: none !important;
         }
 
         textarea ~ .field-error-message.show {
-            transform: translateY(8px);
+            transform: translateY(8px) !important;
         }
-
-    /* CHECKBOX */
+    /* CHECKBOX - senza freccia */
     .checkbox-group .field-error-message {
-        left: 0;
-        top: 100%;
-        transform: translateY(5px);
+        left: 0 !important;
+        top: 100% !important;
+        transform: translateY(8px) !important;
     }
 
         .checkbox-group .field-error-message::before,
         .checkbox-group .field-error-message::after {
-            display: none;
+            display: none !important;
         }
 
         .checkbox-group .field-error-message.show {
-            left: 0;
-            transform: translateY(8px);
+            left: 0 !important;
+            transform: translateY(8px) !important;
         }
 }
 .submit-btn {
