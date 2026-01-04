@@ -896,9 +896,10 @@ textarea ~ .field-error-message.show {
     transform: translateY(-50%);
 }
 
-/ /* Responsive: su tablet e mobile i tooltip vanno sotto SENZA freccia */
+/* Responsive: su tablet e mobile - tooltip sotto SENZA freccia */
 @media (max-width: 1400px) {
     .field-error-message {
+        position: absolute;
         left: 0 !important;
         top: 100% !important;
         transform: translateY(8px) !important;
@@ -906,47 +907,23 @@ textarea ~ .field-error-message.show {
         white-space: normal;
         max-width: 100%;
         min-width: auto;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
     }
-        /* NASCONDI COMPLETAMENTE le frecce */
+
         .field-error-message::before,
-        .field-error-message::after {
-            display: none !important;
-        }
-
-        .field-error-message.show {
-            left: 0 !important;
-            transform: translateY(8px) !important;
-        }
-    /* TEXTAREA - senza freccia */
-    textarea ~ .field-error-message {
-        top: 100% !important;
-        transform: translateY(8px) !important;
-    }
-
+        .field-error-message::after,
         textarea ~ .field-error-message::before,
-        textarea ~ .field-error-message::after {
-            display: none !important;
-        }
-
-        textarea ~ .field-error-message.show {
-            transform: translateY(8px) !important;
-        }
-    /* CHECKBOX - senza freccia */
-    .checkbox-group .field-error-message {
-        left: 0 !important;
-        top: 100% !important;
-        transform: translateY(8px) !important;
-    }
-
+        textarea ~ .field-error-message::after,
         .checkbox-group .field-error-message::before,
         .checkbox-group .field-error-message::after {
+            content: none !important;
             display: none !important;
         }
 
+        .field-error-message.show,
+        textarea ~ .field-error-message.show,
         .checkbox-group .field-error-message.show {
             left: 0 !important;
+            top: 100% !important;
             transform: translateY(8px) !important;
         }
 }
