@@ -897,7 +897,7 @@ textarea ~ .field-error-message.show {
 }
 
 /* Responsive: su mobile i tooltip vanno sotto */
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
     .field-error-message {
         left: 0;
         top: 100%;
