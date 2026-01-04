@@ -896,7 +896,7 @@ textarea ~ .field-error-message.show {
     transform: translateY(-50%);
 }
 
-/* Sostituisci la parte @media (max-width: 1400px) esistente con questa */
+/* Responsive: su tablet e mobile i tooltip vanno sotto IL LABEL */
 @media (max-width: 1400px) {
     .contatti-wrapper {
         display: grid !important;
