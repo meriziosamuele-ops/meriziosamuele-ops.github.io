@@ -897,88 +897,101 @@ textarea ~ .field-error-message.show {
 }
 
 /* Responsive: su mobile i tooltip vanno sotto */
+/* Responsive: su tablet e mobile i tooltip vanno sotto */
 @media (max-width: 1400px) {
     .field-error-message {
         left: 0;
         top: 100%;
         transform: translateY(5px);
         margin-top: 5px;
-        white-space: normal; 
+        white-space: normal;
         max-width: 100%;
         min-width: auto;
-        word-wrap: break-word; 
-        overflow-wrap: break-word; 
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
-    
-    .field-error-message::before {
-        right: auto;
-        left: 20px;
-        top: -6px;
-        bottom: auto;
-        transform: translateY(0) rotate(90deg);
-    }
-    
-    .field-error-message::after {
-        right: auto;
-        left: 20px;
-        top: -5px;
-        bottom: auto;
-        transform: translateY(0) rotate(90deg);
-        margin-right: 0;
-    }
-    
-    .field-error-message.show {
-        left: 0;
-        transform: translateY(8px);
-    }
-    
+
+        /* Freccia SOPRA (punta verso l'alto) */
+        .field-error-message::before {
+            right: auto;
+            left: 15px; /* Posiziona a sinistra */
+            top: -12px; /* Sopra il tooltip */
+            bottom: auto;
+            transform: none;
+            border: 6px solid transparent;
+            border-bottom-color: #dc3545; /* Freccia rossa verso alto */
+            border-right-color: transparent;
+        }
+
+        .field-error-message::after {
+            right: auto;
+            left: 16px;
+            top: -10px;
+            bottom: auto;
+            transform: none;
+            border: 5px solid transparent;
+            border-bottom-color: #f8d7da; /* Freccia rosa verso alto */
+            border-right-color: transparent;
+        }
+
+        .field-error-message.show {
+            left: 0;
+            transform: translateY(8px);
+        }
+
+    /* TEXTAREA */
     textarea ~ .field-error-message {
         top: 100%;
         transform: translateY(5px);
     }
-    
-    textarea ~ .field-error-message::before {
-        top: -6px;
-        left: 20px;
-        right: auto;
-        transform: translateY(0) rotate(90deg);
-    }
-    
-    textarea ~ .field-error-message::after {
-        top: -5px;
-        left: 20px;
-        right: auto;
-        transform: translateY(0) rotate(90deg);
-    }
-    
-    textarea ~ .field-error-message.show {
-        transform: translateY(8px);
-    }
-    
+
+        textarea ~ .field-error-message::before {
+            top: -12px;
+            left: 15px;
+            right: auto;
+            transform: none;
+            border-bottom-color: #dc3545;
+        }
+
+        textarea ~ .field-error-message::after {
+            top: -10px;
+            left: 16px;
+            right: auto;
+            transform: none;
+            border-bottom-color: #f8d7da;
+        }
+
+        textarea ~ .field-error-message.show {
+            transform: translateY(8px);
+        }
+
+    /* CHECKBOX */
     .checkbox-group .field-error-message {
         left: 0;
         top: 100%;
         transform: translateY(5px);
     }
-    
-    .checkbox-group .field-error-message::before {
-        right: auto;
-        left: 20px;
-        top: -6px;
-        transform: translateY(0) rotate(90deg);
-    }
-    
-    .checkbox-group .field-error-message::after {
-        right: auto;
-        left: 20px;
-        top: -5px;
-        transform: translateY(0) rotate(90deg);
-    }
-    
-    .checkbox-group .field-error-message.show {
-        left: 0;
-        transform: translateY(8px);
-    }
+
+        .checkbox-group .field-error-message::before {
+            right: auto;
+            left: 15px;
+            top: -12px;
+            transform: none;
+            border-bottom-color: #dc3545;
+        }
+
+        .checkbox-group .field-error-message::after {
+            right: auto;
+            left: 16px;
+            top: -10px;
+            transform: none;
+            border-bottom-color: #f8d7da;
+        }
+
+        .checkbox-group .field-error-message.show {
+            left: 0;
+            transform: translateY(8px);
+        }
 }
 .submit-btn {
     /* TEMA NERO
