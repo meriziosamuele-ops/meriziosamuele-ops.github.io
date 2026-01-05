@@ -903,7 +903,7 @@ textarea ~ .field-error-message.show {
         grid-template-columns: 1fr 1fr; /* Due colonne su tablet */
         gap: 60px;
         align-items: stretch; /* Stessa altezza */
-        padding: 30px;
+        padding: 60px;
     }
 
     .info-rapida,
