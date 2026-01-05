@@ -13,6 +13,38 @@
         color: #2c2c2c;
         line-height: 1.8;
     }
+
+    /* ============================================
+   FONT LOCALI - GDPR COMPLIANT
+   ============================================ */
+
+/* Great Vibes - Regular */
+@font-face {
+    font-family: 'Great Vibes';
+    src: url('../fonts/Great_Vibes/GreatVibes-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Cormorant Garamond - Regular (400) */
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('../fonts/Cormorant_Garamond/CormorantGaramond-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Cormorant Garamond - Bold (700) */
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('../fonts/Cormorant_Garamond/CormorantGaramond-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
     header {
         background: #ffffff;
         padding: 30px 0;
