@@ -18,7 +18,6 @@ body {
 
 /* ============================================
    FONT LOCALI - GDPR COMPLIANT
-   Adattato alla tua struttura di cartelle
    ============================================ */
 
 /* Great Vibes - Regular */
@@ -42,7 +41,7 @@ body {
 /* Cormorant Garamond - Bold (700) */
 @font-face {
     font-family: 'Cormorant Garamond';
-    src: url('../fonts/Cormorant_Garamond/CormorantGaramond3-Bold.ttf') format('truetype');
+    src: url('../fonts/Cormorant_Garamond/CormorantGaramond-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
