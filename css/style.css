@@ -1014,8 +1014,14 @@ textarea ~ .field-error-message.show {
 /* Mobile: una colonna + messaggi compatti */
 @media (max-width: 768px) {
     .contatti-wrapper {
-        grid-template-columns: 1fr !important; /* Una colonna su mobile */
+        grid-template-columns: 1fr !important;
         gap: 30px;
+        align-items: stretch; /* Allineamento perfetto */
+    }
+
+    .info-rapida,
+    .form-container {
+        height: auto;
     }
 
     .field-error-message {
@@ -1028,11 +1034,11 @@ textarea ~ .field-error-message.show {
         margin-bottom: 24px;
     }
 
-        .form-group.error input,
-        .form-group.error select,
-        .form-group.error textarea {
-            margin-top: 28px;
-        }
+    .form-group.error input,
+    .form-group.error select,
+    .form-group.error textarea {
+        margin-top: 28px;
+    }
 }
 .submit-btn {
     /* TEMA NERO
