@@ -629,7 +629,6 @@ nav a:hover::after {
     padding: 60px;
     border-radius: 2px;
     border-left: 4px solid #8B4513;
-    height: fit-content;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -697,7 +696,6 @@ nav a:hover::after {
     padding: 70px;
     border: 2px solid #e0e0e0;
     border-radius: 2px;
-    height: fit-content;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -2009,4 +2007,15 @@ footer {
 .section-title[style*="color: #ffffff"]::after,
 .section-title[style*="color:#ffffff"]::after {
     background: #D4AF37 !important;
+}
+/* ==================== FIX DEFINITIVO ALLINEAMENTO CONTATTI ==================== */
+
+.contatti-wrapper {
+    align-items: stretch !important; /* Forza stessa altezza */
+}
+
+.info-rapida,
+.form-container {
+    display: flex;
+    flex-direction: column;
 }
