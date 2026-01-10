@@ -1778,6 +1778,20 @@ footer {
     }
 }
 
+/* Animation delays */
+.delay-01 { animation-delay: 0.1s; transition-delay: 0.1s; }
+.delay-02 { animation-delay: 0.2s; transition-delay: 0.2s; }
+.delay-03 { animation-delay: 0.3s; transition-delay: 0.3s; }
+.delay-04 { animation-delay: 0.4s; transition-delay: 0.4s; }
+.delay-05 { animation-delay: 0.5s; transition-delay: 0.5s; }
+
+/* Footer iscrizione ordine */
+.footer-iscrizione-ordine {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #f5f5f5;
+}
+
 /* ==================== SEZIONI A LARGHEZZA PIENA ==================== */
 
 .full-width-section {
