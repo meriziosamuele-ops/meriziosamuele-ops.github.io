@@ -2249,6 +2249,84 @@ footer {
         font-size: 12px;
     }
     
+    /* SEZIONI SPECIALI HOMEPAGE */
+    /* Sezione Contatti Rapida (sfondo scuro) */
+    section[style*="background: #3A2318"] {
+        padding: 40px 0 !important;
+    }
+    
+    section[style*="background: #3A2318"] h2 {
+        font-size: 26px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    section[style*="background: #3A2318"] p {
+        font-size: 14px !important;
+        margin-bottom: 12px !important;
+    }
+    
+    section[style*="background: #3A2318"] a[href^="tel"] {
+        font-size: 16px !important;
+        display: block !important;
+        margin-bottom: 10px !important;
+    }
+    
+    section[style*="background: #3A2318"] div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-bottom: 25px !important;
+    }
+    
+    section[style*="background: #3A2318"] .cta-button {
+        padding: 10px 25px !important;
+        font-size: 13px !important;
+    }
+    
+    /* Sezione Dove Siamo */
+    section.content[style*="padding-top: 80px"] {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+    
+    section.content div[style*="background: #f8f9fa"] {
+        padding: 25px 20px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    section.content div[style*="background: #f8f9fa"] h3 {
+        font-size: 18px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    section.content div[style*="background: #f8f9fa"] p {
+        font-size: 14px !important;
+        margin-bottom: 8px !important;
+    }
+    
+    section.content div[style*="background: #f8f9fa"] .cta-button {
+        padding: 8px 20px !important;
+        font-size: 12px !important;
+    }
+    
+    /* Perché Sceglierci - griglia 2 colonne */
+    .content > div[style*="display: grid"][style*="grid-template-columns"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+    }
+    
+    .content > div[style*="display: grid"] > div {
+        padding: 18px 15px !important;
+    }
+    
+    .content > div[style*="display: grid"] h3 {
+        font-size: 16px !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .content > div[style*="display: grid"] p {
+        font-size: 13px !important;
+    }
+    
     /* FOOTER - Compatto */
     footer {
         padding: 30px 20px 15px;
