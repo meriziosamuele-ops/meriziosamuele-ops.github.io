@@ -718,69 +718,115 @@ nav a:hover::after {
     }
 }
 
-/* ==================== SERVIZI ==================== */
+/* ==================== PAGINA SERVIZI ==================== */
 
-.servizi-grid {
+.servizi-intro-section {
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+.servizi-intro-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.servizi-intro-text {
+    font-size: 19px;
+    color: #3d3d3d;
+    line-height: 1.9;
+    margin-top: 40px;
+}
+
+.servizi-codice-rosso-section {
+    margin-top: 100px;
+    padding: 60px 40px;
+    background: #f8f9fa;
+    margin-left: -40px;
+    margin-right: -40px;
+}
+
+.servizi-codice-rosso-content {
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+.servizi-codice-rosso-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 35px;
-    margin-top: 60px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
 }
 
-.servizio-card {
-    background: #ffffff;
-    padding: 35px 30px;
-    border: 1px solid #e8e8e8;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
+.servizi-altri-section {
+    margin-top: 100px;
 }
 
-.servizio-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #8B4513 0%, #A0522D 100%);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+.servizi-altri-container {
+    max-width: 900px;
+    margin: 60px auto;
 }
 
-.servizio-card:hover::before {
-    transform: scaleX(1);
+.servizi-metodo-section {
+    margin-top: 100px;
+    padding: 60px 40px;
+    background: #f8f9fa;
+    margin-left: -40px;
+    margin-right: -40px;
 }
 
-.servizio-card:hover {
-    border-color: #8B4513;
-    box-shadow: 0 8px 30px rgba(139, 69, 19, 0.12);
-    transform: translateY(-5px);
+.servizi-metodo-container {
+    max-width: 1000px;
+    margin: 60px auto;
 }
 
-.servizio-card h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
-    color: #8B4513;
-    font-weight: 600;
-    position: relative;
-    z-index: 1;
-    transition: color 0.3s ease;
+.servizi-metodo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
 }
 
-.servizio-card:hover h3 {
-    color: #A0522D;
+.servizi-cta-section {
+    margin-top: 100px;
+    text-align: center;
+    padding: 80px 40px;
 }
 
-.servizio-card p {
-    color: #4a4a4a;
-    line-height: 1.7;
-    font-size: 16px;
-    position: relative;
-    z-index: 1;
+.servizi-cta-text {
+    font-size: 19px;
+    color: #3d3d3d;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+.servizi-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.servizi-cta-primary {
+    display: inline-block;
+    border-color: #2c2c2c;
+    color: #2c2c2c;
+}
+
+.servizi-cta-secondary {
+    display: inline-block;
+    background: #3A2318;
+    color: white;
+    border-color: #3A2318;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .servizi-codice-rosso-grid,
+    .servizi-metodo-grid {
+        grid-template-columns: 1fr;
+    }
+}
 /* ==================== CONTATTI ==================== */
 
 .contatti-intro {
