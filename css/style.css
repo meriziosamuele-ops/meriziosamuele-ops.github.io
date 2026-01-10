@@ -317,6 +317,70 @@ nav a:hover::after {
     width: 120px;
 }
 
+/* ==================== SEZIONI HOMEPAGE - PULITE DA INLINE STYLES ==================== */
+
+/* Sezione Presentazione */
+.presentazione-section {
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+.presentazione-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.presentazione-text {
+    font-size: 19px;
+    color: #3d3d3d;
+    line-height: 1.9;
+    margin-top: 40px;
+}
+
+.presentazione-cta {
+    margin-top: 35px;
+    display: inline-block;
+    border-color: #2c2c2c;
+    color: #2c2c2c;
+}
+
+/* Sezione Aree Specializzazione */
+.specializzazione-intro {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.specializzazione-cta-container {
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 30px;
+}
+
+.specializzazione-cta {
+    display: inline-block;
+    border-color: #2c2c2c;
+    color: #2c2c2c;
+}
+
+/* Sezione Perché Scegliermi */
+.perche-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.perche-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 60px auto 0;
+}
 /* ==================== SEZIONE TESTIMONIANZE ==================== */
 
 .testimonials-section {
@@ -341,6 +405,7 @@ nav a:hover::after {
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .testimonial-card {
@@ -403,6 +468,7 @@ nav a:hover::after {
 .testimonials-disclaimer {
     text-align: center;
     margin-top: 60px;
+    padding: 0 20px;
 }
 
 .testimonials-disclaimer p {
@@ -411,13 +477,14 @@ nav a:hover::after {
     font-style: italic;
 }
 
-/* Responsive */
+/* Responsive Tablet */
 @media (max-width: 992px) {
     .testimonials-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
+/* Responsive Mobile */
 @media (max-width: 768px) {
     .testimonials-grid {
         grid-template-columns: 1fr;
@@ -427,6 +494,114 @@ nav a:hover::after {
         padding: 60px 0;
     }
 }
+/* Sezione Contatti Rapida (sfondo scuro) */
+.contatti-rapida-section {
+    width: 100%;
+    padding: 80px 0;
+    background: #3A2318;
+}
+
+.contatti-rapida-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    text-align: center;
+}
+
+.contatti-rapida-title {
+    color: #ffffff !important;
+}
+
+.contatti-rapida-text {
+    font-size: 19px;
+    color: #ffffff !important;
+    margin-bottom: 15px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contatti-rapida-subtitle {
+    font-size: 17px;
+    color: #ffffff !important;
+    margin-bottom: 40px;
+}
+
+.contatti-rapida-numeri {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.contatti-rapida-numero {
+    color: #D4AF37 !important;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.contatti-rapida-cta {
+    display: inline-block;
+}
+
+/* Sezione Dove Siamo */
+.dove-siamo-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.dove-siamo-container {
+    max-width: 900px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.dove-siamo-box {
+    background: #f8f9fa;
+    padding: 40px;
+    border-left: 4px solid #8B4513;
+    margin-bottom: 30px;
+}
+
+.dove-siamo-box h3 {
+    font-size: 24px;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+}
+
+.dove-siamo-indirizzo {
+    font-size: 18px;
+    color: #3d3d3d;
+    margin-bottom: 10px;
+}
+
+.dove-siamo-tribunali {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.dove-siamo-mappa-btn {
+    display: inline-block;
+    border-color: #2c2c2c;
+    color: #2c2c2c;
+    padding: 12px 35px;
+    font-size: 14px;
+}
+
+.dove-siamo-info {
+    font-size: 16px;
+    color: #666;
+}
+
+.dove-siamo-info a {
+    color: #8B4513;
+}
+
+
+
 
 /* ==================== CHI SONO - LAYOUT NUOVO ==================== */
 
