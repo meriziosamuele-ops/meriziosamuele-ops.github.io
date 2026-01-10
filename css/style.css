@@ -338,7 +338,7 @@ nav a:hover::after {
     margin-top: 40px;
 }
 
-.presentazione-cta {
+.cta-scopri {
     margin-top: 35px;
     display: inline-block;
     border-color: #2c2c2c;
@@ -346,7 +346,7 @@ nav a:hover::after {
 }
 
 /* Sezione Aree Specializzazione */
-.specializzazione-intro {
+.aree-intro {
     text-align: center;
     font-size: 18px;
     color: #666;
@@ -356,13 +356,17 @@ nav a:hover::after {
     margin-right: auto;
 }
 
-.specializzazione-cta-container {
+.servizi-home {
+    margin-top: 60px;
+}
+
+.servizi-cta {
     text-align: center;
     margin-top: 50px;
     padding-bottom: 30px;
 }
 
-.specializzazione-cta {
+.cta-servizi {
     display: inline-block;
     border-color: #2c2c2c;
     color: #2c2c2c;
@@ -381,6 +385,7 @@ nav a:hover::after {
     max-width: 1000px;
     margin: 60px auto 0;
 }
+
 /* ==================== SEZIONE TESTIMONIANZE ==================== */
 
 .testimonials-section {
@@ -477,7 +482,7 @@ nav a:hover::after {
     font-style: italic;
 }
 
-/* Responsive */
+/* Responsive Testimonianze */
 @media (max-width: 992px) {
     .testimonials-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -494,8 +499,8 @@ nav a:hover::after {
     }
 }
 
-/* Sezione Contatti Rapida (sfondo scuro) */
-.contatti-rapida-section {
+/* ==================== SEZIONE CONTATTI RAPIDA ==================== */
+.contatti-rapida {
     width: 100%;
     padding: 80px 0;
     background: #3A2318;
@@ -508,11 +513,11 @@ nav a:hover::after {
     text-align: center;
 }
 
-.contatti-rapida-title {
+.contatti-rapida .section-title {
     color: #ffffff !important;
 }
 
-.contatti-rapida-text {
+.contatti-rapida-intro {
     font-size: 19px;
     color: #ffffff !important;
     margin-bottom: 15px;
@@ -527,7 +532,7 @@ nav a:hover::after {
     margin-bottom: 40px;
 }
 
-.contatti-rapida-numeri {
+.contatti-rapida-telefoni {
     display: flex;
     justify-content: center;
     gap: 40px;
@@ -535,18 +540,14 @@ nav a:hover::after {
     margin-bottom: 40px;
 }
 
-.contatti-rapida-numero {
+.telefono-link {
     color: #D4AF37 !important;
     text-decoration: none;
     font-size: 24px;
     font-weight: 600;
 }
 
-.contatti-rapida-cta {
-    display: inline-block;
-}
-
-/* Sezione Dove Siamo */
+/* ==================== SEZIONE DOVE SIAMO ==================== */
 .dove-siamo-section {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -565,7 +566,7 @@ nav a:hover::after {
     margin-bottom: 30px;
 }
 
-.dove-siamo-box h3 {
+.dove-siamo-title {
     font-size: 24px;
     color: #2c2c2c;
     margin-bottom: 20px;
@@ -583,7 +584,7 @@ nav a:hover::after {
     margin-bottom: 20px;
 }
 
-.dove-siamo-mappa-btn {
+.cta-mappa {
     display: inline-block;
     border-color: #2c2c2c;
     color: #2c2c2c;
@@ -591,15 +592,33 @@ nav a:hover::after {
     font-size: 14px;
 }
 
-.dove-siamo-info {
+.dove-siamo-orari {
     font-size: 16px;
     color: #666;
 }
 
-.dove-siamo-info a {
+.email-link {
     color: #8B4513;
 }
 
+/* ==================== FOOTER ==================== */
+.footer-iscrizione {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #f5f5f5;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .perche-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contatti-rapida-telefoni {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
 
 /* ==================== CHI SONO - LAYOUT NUOVO ==================== */
 
