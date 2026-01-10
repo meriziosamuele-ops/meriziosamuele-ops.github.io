@@ -155,7 +155,7 @@
 <!-- SEZIONE TESTIMONIANZE -->
 <section class="testimonials-section">
     <div class="content">
-        <h2 class="section-title">Cosa Dicono i Clienti</h2>
+        <h2 class="section-title">Cosa Dicono i Miei Clienti</h2>
         <p class="testimonials-intro">
             La fiducia dei miei assistiti è il valore più importante per me.
         </p>
@@ -360,6 +360,39 @@
     </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+    // Animazioni scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .section-title').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Header scroll effect
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+</script>
 </body>
 </html>

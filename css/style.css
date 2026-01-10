@@ -275,8 +275,8 @@ nav a:hover::after {
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 0 8px 25px rgba(0,0,0,0.4);
 }
 
-/* ==================== SEZIONI HOMEPAGE - PULITE DA INLINE STYLES ==================== */
 
+/* ==================== SEZIONI HOMEPAGE - PULITE DA INLINE STYLES ==================== */
 
 /* ==================== CONTENT ==================== */
 .content {
@@ -703,76 +703,6 @@ nav a:hover::after {
     margin-bottom: 20px;
 }
 
-/* Sezioni con margini */
-.section-spacing-100 {
-    margin-top: 100px;
-}
-
-/* CTA finale chi-sono */
-.chi-sono-cta-section {
-    margin-top: 100px;
-    text-align: center;
-    padding: 80px 40px;
-    background: #f8f9fa;
-    margin-left: -40px;
-    margin-right: -40px;
-}
-
-.chi-sono-cta-text {
-    font-size: 19px;
-    color: #3d3d3d;
-    margin-bottom: 40px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.cta-button-outline {
-    display: inline-block;
-    border-color: #2c2c2c;
-    color: #2c2c2c;
-}
-
-/* Valori professionali - spacing cards */
-.valori-container {
-    max-width: 900px;
-    margin: 60px auto;
-}
-
-.valori-card {
-    margin-bottom: 30px;
-}
-
-.valori-card:last-child {
-    margin-bottom: 0;
-}
-
-/* Qualifiche - container centrato */
-.qualifiche-container {
-    max-width: 800px;
-    margin: 60px auto;
-    text-align: center;
-}
-
-.qualifiche-card {
-    margin-bottom: 25px;
-}
-
-.qualifiche-card:last-child {
-    margin-bottom: 0;
-}
-
-/* Servizi grid con delays */
-.servizi-grid-spacing {
-    margin-top: 60px;
-}
-
-/* Footer iscrizione ordine */
-.footer-iscrizione-ordine {
-    margin-top: 25px;
-    font-size: 13px;
-    color: #f5f5f5;
-}
 /* Responsive */
 @media (max-width: 768px) {
     .chi-sono-photos,
