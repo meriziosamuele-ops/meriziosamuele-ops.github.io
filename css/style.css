@@ -2672,9 +2672,10 @@ footer {
     }
 
     .footer-credits {
-        font-size: 11px;
+        font-size: 10px;
         margin-top: 12px;
         padding-top: 12px;
+        line-height: 1.4;
     }
 
     .tribunali-list {
@@ -2705,6 +2706,53 @@ footer {
         font-size: 11px;
     }
 
+    /* INDEX: Aree di specializzazione - testo introduttivo */
+    .specializzazione-intro {
+        font-size: 13px;
+        margin-bottom: 30px;
+        line-height: 1.5;
+    }
+
+    /* INDEX: Sezione Dove Siamo */
+    .dove-siamo-section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .dove-siamo-container {
+        margin: 25px auto;
+    }
+
+    .dove-siamo-box {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .dove-siamo-box h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .dove-siamo-indirizzo {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .dove-siamo-tribunali {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .dove-siamo-mappa-btn {
+        padding: 8px 20px;
+        font-size: 11px;
+    }
+
+    .dove-siamo-info {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
     /* Perché scegliermi */
     .perche-section {
         padding-top: 40px;
@@ -2716,46 +2764,7 @@ footer {
         margin: 30px auto 0;
     }
 
-    /* Dove siamo */
-    .dove-siamo-section {
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-
-    .dove-siamo-container {
-        margin: 25px auto;
-    }
-
-    .dove-siamo-box {
-        padding: 25px;
-        margin-bottom: 20px;
-    }
-
-    .dove-siamo-box h3 {
-        font-size: 18px;
-        margin-bottom: 12px;
-    }
-
-    .dove-siamo-indirizzo {
-        font-size: 14px;
-        margin-bottom: 8px;
-    }
-
-    .dove-siamo-tribunali {
-        font-size: 13px;
-        margin-bottom: 12px;
-    }
-
-    .dove-siamo-mappa-btn {
-        padding: 8px 20px;
-        font-size: 12px;
-    }
-
-    .dove-siamo-info {
-        font-size: 13px;
-    }
-
-    /* Chi sono */
+    /* CHI SONO: Approccio Professionale e Qualifiche */
     .chi-sono-intro {
         margin: 25px auto 20px;
     }
@@ -2774,9 +2783,10 @@ footer {
         margin: 25px auto;
     }
 
+    /* NON ridurre altezza foto chi sono */
     .chi-sono-image,
     .chi-sono-image-2 {
-        height: 250px;
+        height: 400px;
     }
 
     .chi-sono-two-columns {
@@ -2785,10 +2795,33 @@ footer {
     }
 
     .column-paragraph {
-        margin-bottom: 12px;
+        margin-bottom: 10px;
+        font-size: 13px;
+        line-height: 1.5;
     }
 
-    /* Servizi */
+    /* Chi sono: Valori e Qualifiche containers */
+    .valori-container,
+    .qualifiche-container {
+        margin: 30px auto;
+    }
+
+    .valori-card,
+    .qualifiche-card {
+        margin-bottom: 20px;
+    }
+
+    .chi-sono-text {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .chi-sono-cta-text {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    /* SERVIZI: Focus Codice Rosso - testo introduttivo */
     .servizi-intro-section {
         padding-top: 40px;
         padding-bottom: 30px;
@@ -2800,6 +2833,29 @@ footer {
         margin-top: 20px;
     }
 
+    .servizi-focus-container {
+        margin: 25px auto;
+    }
+
+    .servizi-focus-intro {
+        margin-bottom: 20px;
+    }
+
+    .servizi-focus-paragraph {
+        margin-bottom: 10px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .servizi-grid-2col {
+        gap: 15px;
+    }
+
+    .servizio-card-subtitle {
+        font-size: 16px;
+    }
+
+    /* SERVIZI: Altri Servizi Offerti */
     .servizi-altri-section,
     .section-spacing-100 {
         margin-top: 40px;
@@ -2827,8 +2883,9 @@ footer {
     }
 
     .servizi-cta-text {
-        font-size: 14px;
+        font-size: 13px;
         margin-bottom: 20px;
+        line-height: 1.5;
     }
 
     .servizi-cta-buttons {
@@ -2840,32 +2897,11 @@ footer {
         font-size: 11px;
     }
 
-    .servizi-focus-container {
-        margin: 25px auto;
-    }
-
-    .servizi-focus-intro {
-        margin-bottom: 20px;
-    }
-
-    .servizi-focus-paragraph {
-        margin-bottom: 12px;
-        font-size: 13px;
-    }
-
-    .servizi-grid-2col {
-        gap: 15px;
-    }
-
-    .servizio-card-subtitle {
-        font-size: 16px;
-    }
-
-    /* Contatti */
+    /* CONTATTI: Testo intro e testo sotto mappa */
     .contatti-intro {
-        font-size: 14px;
+        font-size: 13px;
         margin-bottom: 30px;
-        line-height: 1.6;
+        line-height: 1.5;
     }
 
     .contatti-wrapper {
@@ -2891,7 +2927,7 @@ footer {
     }
 
     .contatti-mappa-descrizione p {
-        font-size: 13px;
+        font-size: 12px;
         line-height: 1.5;
     }
 
