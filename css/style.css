@@ -2667,12 +2667,12 @@ footer {
     }
 
     .footer-legal {
-        font-size: 7px;
+        font-size: 10px;
         margin-bottom: 10px;
     }
 
     .footer-credits {
-        font-size: 7px;
+        font-size: 10px;
         margin-top: 12px;
         padding-top: 12px;
         line-height: 1.4;
@@ -2694,20 +2694,6 @@ footer {
 
     /* Fix card che si sviluppano in orizzontale */
     .perche-grid,
-    .servizi-grid-2col,
-    .servizi-metodo-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .dove-siamo-box,
-    .valori-card,
-    .qualifiche-card,
-    .servizi-altri-card {
-        padding: 15px;
-    }
-
-        .perche-grid,
     .servizi-grid-2col,
     .servizi-metodo-grid {
         grid-template-columns: 1fr;
