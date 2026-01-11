@@ -319,7 +319,7 @@ nav a:hover::after {
     width: 120px;
 }
 
-/* Sezione Presentazione */
+/* ==================== SEZIONE PRESENTAZIONE ==================== */
 .presentazione-section {
     padding-top: 80px;
     padding-bottom: 60px;
@@ -345,7 +345,7 @@ nav a:hover::after {
     color: #2c2c2c;
 }
 
-/* Sezione Aree Specializzazione */
+/* ==================== SEZIONE AREE SPECIALIZZAZIONE ==================== */
 .specializzazione-intro {
     text-align: center;
     font-size: 18px;
@@ -368,7 +368,7 @@ nav a:hover::after {
     color: #2c2c2c;
 }
 
-/* Sezione Perché Scegliermi */
+/* ==================== SEZIONE PERCHÉ SCEGLIERMI ==================== */
 .perche-section {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -381,8 +381,8 @@ nav a:hover::after {
     max-width: 1000px;
     margin: 60px auto 0;
 }
-/* ==================== SEZIONE TESTIMONIANZE ==================== */
 
+/* ==================== SEZIONE TESTIMONIANZE ==================== */
 .testimonials-section {
     width: 100%;
     padding: 80px 0;
@@ -477,24 +477,7 @@ nav a:hover::after {
     font-style: italic;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .testimonials-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .testimonials-section {
-        padding: 60px 0;
-    }
-}
-
-/* Sezione Contatti Rapida (sfondo scuro) */
+/* ==================== SEZIONE CONTATTI RAPIDA ==================== */
 .contatti-rapida-section {
     width: 100%;
     padding: 80px 0;
@@ -546,7 +529,7 @@ nav a:hover::after {
     display: inline-block;
 }
 
-/* Sezione Dove Siamo */
+/* ==================== SEZIONE DOVE SIAMO ==================== */
 .dove-siamo-section {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -598,6 +581,53 @@ nav a:hover::after {
 
 .dove-siamo-info a {
     color: #8B4513;
+}
+
+/* ==================== INDEX.HTML - CLASSI SPECIFICHE ==================== */
+
+/* Hero delays */
+.hero-subtitle-delay {
+    animation-delay: 0.2s;
+}
+
+.hero-cta-delay {
+    animation-delay: 0.4s;
+}
+
+/* Servizi grid spacing */
+.servizi-grid-spacing {
+    margin-top: 60px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 992px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Testimonianze */
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonials-section {
+        padding: 60px 0;
+    }
+    
+    /* Perché Grid */
+    .perche-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    /* Contatti Rapida */
+    .contatti-rapida-numeri {
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 
 
