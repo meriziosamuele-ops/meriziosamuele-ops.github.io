@@ -360,39 +360,7 @@
     </div>
 </footer>
 
-<script>
-    // Animazioni scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+<script src="js/script.js"></script>
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .section-title').forEach(el => {
-        observer.observe(el);
-    });
-
-    // Header scroll effect
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('header');
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-        
-        lastScroll = currentScroll;
-    });
-</script>
 </body>
 </html>
