@@ -2670,6 +2670,7 @@ footer {
         font-size: 10px;
         margin-top: 12px;
         padding-top: 12px;
+        background: red !important;  /* TEST - diventa rosso se funziona */
         line-height: 1.4;
     }
 
