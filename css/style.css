@@ -2678,6 +2678,10 @@ footer {
         line-height: 1.4;
     }
 
+    .footer-credits a {
+        font-size: 10px;
+    }
+
     .tribunali-list {
         font-size: 12px;
         line-height: 1.6;
@@ -2686,6 +2690,21 @@ footer {
     .footer-iscrizione-ordine {
         margin-top: 15px;
         font-size: 11px;
+    }
+
+    /* Fix card che si sviluppano in orizzontale */
+    .perche-grid,
+    .servizi-grid-2col,
+    .servizi-metodo-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .dove-siamo-box,
+    .valori-card,
+    .qualifiche-card,
+    .servizi-altri-card {
+        padding: 15px;
     }
 
     /* Presentazione homepage */
