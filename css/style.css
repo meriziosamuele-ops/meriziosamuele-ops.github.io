@@ -478,6 +478,8 @@ nav a:hover::after {
 }
 
 /* ==================== SEZIONE CONTATTI RAPIDA ==================== */
+
+/* ==================== SEZIONE CONTATTI RAPIDA ==================== */
 .contatti-rapida-section {
     width: 100%;
     padding: 80px 0;
@@ -493,6 +495,10 @@ nav a:hover::after {
 
 .contatti-rapida-title {
     color: #ffffff !important;
+}
+
+.contatti-rapida-title::after {
+    background: #D4AF37 !important;
 }
 
 .contatti-rapida-text {
@@ -2363,17 +2369,7 @@ footer {
         justify-content: center;
     }
 }
-/* ==================== TITOLO BIANCO CON LINEA ORO ==================== */
 
-.section-title[style*="color: #ffffff"],
-.section-title[style*="color:#ffffff"] {
-    color: #ffffff !important;
-}
-
-.section-title[style*="color: #ffffff"]::after,
-.section-title[style*="color:#ffffff"]::after {
-    background: #D4AF37 !important;
-}
 /* ==================== FIX DEFINITIVO ALLINEAMENTO CONTATTI ==================== */
 
 .contatti-wrapper {
