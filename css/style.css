@@ -2707,6 +2707,56 @@ footer {
         padding: 15px;
     }
 
+        .perche-grid,
+    .servizi-grid-2col,
+    .servizi-metodo-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .dove-siamo-box,
+    .valori-card,
+    .qualifiche-card,
+    .servizi-altri-card {
+        padding: 15px;
+    }
+
+    /* AGGIUNGI QUESTE RIGHE PER DE-ZOOMMARE DI PIÙ */
+    .chi-sono-two-columns,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .servizio-card,
+    .testimonial-card {
+        padding: 12px 10px;
+    }
+
+    .servizio-card h3 {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .servizio-card p,
+    .testimonial-text {
+        font-size: 11px;
+        line-height: 1.3;
+    }
+
+    .testimonial-stars {
+        font-size: 12px;
+    }
+
+    .author-name {
+        font-size: 11px;
+    }
+
+    .author-location,
+    .testimonial-service {
+        font-size: 10px;
+    }
+
     /* Presentazione homepage */
     .presentazione-section {
         padding-top: 40px;
