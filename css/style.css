@@ -2667,15 +2667,14 @@ footer {
     }
 
     .footer-credits {
-        font-size: 10px;
+        font-size: 8px !important;  /* molto piccolo */
         margin-top: 12px;
         padding-top: 12px;
-        background: red !important;  /* TEST - diventa rosso se funziona */
         line-height: 1.4;
     }
 
     .footer-credits a {
-        font-size: 10px;
+        font-size: 8px !important;
     }
 
     .tribunali-list {
