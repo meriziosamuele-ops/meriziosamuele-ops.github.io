@@ -127,6 +127,11 @@ header {
     border-bottom: 1px solid #e0e0e0;
     box-shadow: 0 2px 10px rgba(0,0,0,.05);
     transition: transform .3s ease, box-shadow .3s ease;
+    margin-top: 3px;
+}
+
+header.no-progress {
+    margin-top: 0;
 }
 
 header.scrolled {
@@ -1923,12 +1928,12 @@ td {
    ============================================ */
 .scroll-progress {
     position: fixed;
-    top: 80px;  
+    top: 0;
     left: 0;
     width: 100%;
     height: 3px;
     background: linear-gradient(90deg, #8B4513, #D4AF37);
-    z-index: 999;  
+    z-index: 10001; 
     transform-origin: left;
     transform: scaleX(0);
     transition: transform .1s ease;
@@ -1981,12 +1986,12 @@ td {
 @media (max-width: 768px) {
     /* Header */
     header { padding: 12px 0; }
-    .header-content { padding: 0 20px; flex-direction: row; gap: 20px; position: relative; justify-content: space-between; }
-    .logo { font-size: 24px; position: static; left: 50%; transform: none; }
+    .header-content { padding: 0 20px; flex-direction: column; gap: 20px; position: relative; justify-content: center; }
+    .logo { font-size: 24px; position: absolute; left: 50%; transform: translateX(-50%); }
     nav a { margin: 0 15px; }
     
     /* Nav Toggle */
-    .nav-toggle { display: block; position: static; right: 20px; }
+    .nav-toggle { display: block; position: absolute; right: 20px; }
     nav {
         position: fixed;
         top: 0;
