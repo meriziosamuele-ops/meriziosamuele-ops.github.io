@@ -3724,10 +3724,11 @@ footer .footer-text a:hover {
     left: 0;
     height: 3px;
     background: linear-gradient(90deg, #8B4513, #D4AF37);
-    z-index: 9999;
+    z-index: 1001;
     transform-origin: left;
     transform: scaleX(0);
     transition: transform 0.1s ease;
+    pointer-events: none;
 }
 
 /* ==================== RESPONSIVE ADJUSTMENTS ==================== */
