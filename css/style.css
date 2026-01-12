@@ -2447,7 +2447,65 @@ footer {
 }
 
 /* ==================== FIX LANDSCAPE MOBILE ==================== */
-/* Previene zoom eccessivo su telefoni in orizzontale */
+
+/* LANDSCAPE GENERICO - Tutti i telefoni in orizzontale */
+@media (max-width: 900px) and (orientation: landscape) {
+    /* Forza card a singola colonna in landscape */
+    .perche-grid,
+    .servizi-grid,
+    .servizi-grid-2col,
+    .servizi-metodo-grid,
+    .testimonials-grid,
+    .chi-sono-two-columns {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+
+    /* Padding ridotto per card */
+    .servizio-card,
+    .testimonial-card {
+        padding: 15px 12px;
+    }
+
+    .dove-siamo-box,
+    .valori-card,
+    .qualifiche-card,
+    .servizi-altri-card {
+        padding: 15px;
+    }
+
+    /* Font leggibili per landscape medio-alto */
+    .servizio-card h3 {
+        font-size: 18px;
+    }
+
+    .servizio-card p,
+    .testimonial-text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .testimonial-stars {
+        font-size: 14px;
+    }
+
+    .author-name {
+        font-size: 14px;
+    }
+
+    .author-location,
+    .testimonial-service {
+        font-size: 12px;
+    }
+
+    .column-paragraph,
+    .chi-sono-two-columns p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+}
+
+/* LANDSCAPE SCHERMI BASSI - Solo telefoni con altezza ridotta */
 @media (max-height: 500px) and (orientation: landscape) {
     .hero {
         height: 100vh;
