@@ -289,6 +289,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    initCookieBanner();
+    initBackToTop();
+    initMobileMenu();
+    initScrollProgress();
 });
 
 // ==================== FORM SUBMISSION ====================
@@ -459,3 +464,167 @@ function handleOutsideClick(e) {
         closeModal();
     }
 }
+
+// ==================== COOKIE BANNER GDPR ====================
+
+function initCookieBanner() {
+    // Controlla se l'utente ha già fatto una scelta
+    const cookieConsent = localStorage.getItem('cookieConsent');
+    
+    if (!cookieConsent) {
+        // Mostra banner dopo 1 secondo
+        setTimeout(() => {
+            const banner = document.querySelector('.cookie-banner');
+            if (banner) {
+                banner.classList.add('show');
+            }
+        }, 1000);
+    }
+}
+
+function acceptCookies() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    hideCookieBanner();
+    
+    // Qui puoi attivare Google Analytics o altri servizi
+    console.log('Cookies accettati');
+}
+
+function rejectCookies() {
+    localStorage.setItem('cookieConsent', 'rejected');
+    hideCookieBanner();
+    
+    console.log('Cookies rifiutati - solo essenziali');
+}
+
+function hideCookieBanner() {
+    const banner = document.querySelector('.cookie-banner');
+    if (banner) {
+        banner.classList.remove('show');
+    }
+}
+
+// ==================== BACK TO TOP BUTTON ====================
+
+function initBackToTop() {
+    const backToTopBtn = document.querySelector('.back-to-top');
+    
+    if (!backToTopBtn) return;
+    
+    // Mostra/nascondi bottone in base allo scroll
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.pageYOffset;
+        
+        if (scrollPosition > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+        
+        // Nascondi temporaneamente durante lo scroll (optional)
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            if (scrollPosition > 300) {
+                backToTopBtn.classList.add('visible');
+            }
+        }, 150);
+    });
+    
+    // Click per tornare su
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// ==================== MENU HAMBURGER MOBILE ====================
+
+function initMobileMenu() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('nav');
+    const navOverlay = document.querySelector('.nav-overlay');
+    const navLinks = document.querySelectorAll('nav a');
+    
+    if (!navToggle || !nav) return;
+    
+    // Toggle menu
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+    });
+    
+    // Chiudi cliccando sull'overlay
+    if (navOverlay) {
+        navOverlay.addEventListener('click', () => {
+            closeMenu();
+        });
+    }
+    
+    // Chiudi cliccando su un link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            closeMenu();
+        });
+    });
+    
+    // Chiudi con ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+    
+    function toggleMenu() {
+        navToggle.classList.toggle('active');
+        nav.classList.toggle('active');
+        if (navOverlay) {
+            navOverlay.classList.toggle('active');
+        }
+        
+        // Previeni scroll del body quando menu è aperto
+        if (nav.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }
+    
+    function closeMenu() {
+        navToggle.classList.remove('active');
+        nav.classList.remove('active');
+        if (navOverlay) {
+            navOverlay.classList.remove('active');
+        }
+        document.body.style.overflow = '';
+    }
+    
+    // Chiudi menu quando si ridimensiona la finestra sopra 768px
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            closeMenu();
+        }
+    });
+}
+
+// ==================== SCROLL PROGRESS BAR ====================
+
+function initScrollProgress() {
+    const progressBar = document.querySelector('.scroll-progress');
+    
+    if (!progressBar) return;
+    
+    window.addEventListener('scroll', () => {
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.pageYOffset / windowHeight);
+        
+        progressBar.style.transform = `scaleX(${scrolled})`;
+    });
+}
+
+
+// Event listeners per i bottoni dei cookie (globali)
+window.acceptCookies = acceptCookies;
+window.rejectCookies = rejectCookies;

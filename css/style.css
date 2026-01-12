@@ -3386,3 +3386,379 @@ footer .footer-text a {
 footer .footer-text a:hover {
     color: #D4AF37;
 }
+
+/* ==================== COOKIE BANNER GDPR ==================== */
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #2c2c2c;
+    color: #ffffff;
+    padding: 25px 20px;
+    z-index: 10000;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cookie-banner.show {
+    transform: translateY(0);
+}
+
+.cookie-banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.cookie-banner-text {
+    flex: 1;
+}
+
+.cookie-banner-text h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #D4AF37;
+    font-weight: 600;
+}
+
+.cookie-banner-text p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.cookie-banner-text a {
+    color: #D4AF37;
+    text-decoration: underline;
+}
+
+.cookie-banner-actions {
+    display: flex;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.cookie-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.cookie-btn-accept {
+    background: #D4AF37;
+    color: #2c2c2c;
+}
+
+.cookie-btn-accept:hover {
+    background: #C19B2E;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+.cookie-btn-reject {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #666;
+}
+
+.cookie-btn-reject:hover {
+    border-color: #999;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Mobile Cookie Banner */
+@media (max-width: 768px) {
+    .cookie-banner {
+        padding: 20px 15px;
+    }
+    
+    .cookie-banner-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .cookie-banner-text h4 {
+        font-size: 16px;
+    }
+    
+    .cookie-banner-text p {
+        font-size: 13px;
+    }
+    
+    .cookie-banner-actions {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .cookie-btn {
+        width: 100%;
+        padding: 14px 20px;
+    }
+}
+
+/* ==================== BACK TO TOP BUTTON ==================== */
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #8B4513;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 998;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: #A0522D;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+}
+
+.back-to-top:active {
+    transform: translateY(-2px);
+}
+
+/* Mobile Back to Top */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+}
+
+/* ==================== MENU HAMBURGER MOBILE ==================== */
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1002;
+}
+
+.hamburger {
+    width: 28px;
+    height: 20px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #2c2c2c;
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0px;
+}
+
+.hamburger span:nth-child(2) {
+    top: 9px;
+}
+
+.hamburger span:nth-child(3) {
+    top: 18px;
+}
+
+/* Animazione X quando aperto */
+.nav-toggle.active .hamburger span:nth-child(1) {
+    top: 9px;
+    transform: rotate(135deg);
+}
+
+.nav-toggle.active .hamburger span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+.nav-toggle.active .hamburger span:nth-child(3) {
+    top: 9px;
+    transform: rotate(-135deg);
+}
+
+/* Overlay scuro */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+    
+    .header-content {
+        position: relative;
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 280px;
+        background: white;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        flex-direction: column;
+        padding: 80px 0 20px 0;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        overflow-y: auto;
+        gap: 0;
+    }
+    
+    nav.active {
+        right: 0;
+    }
+    
+    nav a {
+        width: 100%;
+        text-align: left;
+        padding: 18px 30px;
+        margin: 0;
+        font-size: 16px;
+        border-bottom: 1px solid #f0f0f0;
+        transition: all 0.3s ease;
+    }
+    
+    nav a:hover {
+        background: #f8f9fa;
+        color: #8B4513;
+        padding-left: 40px;
+    }
+    
+    nav a::after {
+        display: none;
+    }
+    
+    /* Logo mobile centrato */
+    .header-content {
+        justify-content: center;
+    }
+    
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .nav-toggle {
+        position: absolute;
+        right: 20px;
+    }
+}
+
+/* Tablet - mantieni menu normale */
+@media (min-width: 769px) and (max-width: 992px) {
+    nav a {
+        margin-left: 15px;
+        font-size: 14px;
+    }
+}
+
+/* ==================== SCROLL PROGRESS BAR (BONUS) ==================== */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37);
+    z-index: 9999;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.1s ease;
+}
+
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+
+/* Quando cookie banner è visibile, sposta back-to-top */
+.cookie-banner.show ~ .back-to-top {
+    bottom: 120px;
+}
+
+@media (max-width: 768px) {
+    .cookie-banner.show ~ .back-to-top {
+        bottom: 180px;
+    }
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+
+/* Focus visibile per navigazione tastiera */
+.cookie-btn:focus-visible,
+.back-to-top:focus-visible,
+.nav-toggle:focus-visible {
+    outline: 3px solid #D4AF37;
+    outline-offset: 2px;
+}
+
+/* Riduci animazioni se l'utente ha impostato reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .cookie-banner,
+    .back-to-top,
+    nav,
+    .hamburger span {
+        transition-duration: 0.01ms !important;
+    }
+}
