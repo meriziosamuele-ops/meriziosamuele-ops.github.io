@@ -1718,7 +1718,7 @@ td {
 }
 
 /* ============================================
-   COOKIE BANNER
+   COOKIE BANNER - GDPR COMPLIANT
    ============================================ */
 .cookie-banner {
     position: fixed;
@@ -1786,9 +1786,10 @@ td {
     flex-shrink: 0;
 }
 
+/* GDPR: Pulsanti in EGUAL RISALTO */
 .cookie-btn {
     padding: 14px 35px;
-    border: none;
+    border: 2px solid #D4AF37;
     border-radius: 3px;
     font-size: 15px;
     font-weight: 700;
@@ -1797,30 +1798,34 @@ td {
     transition: all .3s ease;
     font-family: 'Cormorant Garamond', serif;
     text-transform: uppercase;
+    background: transparent;
+    color: #fff;
 }
 
 .cookie-btn-accept {
     background: #D4AF37;
     color: #2c2c2c;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, .3);
+    border-color: #D4AF37;
 }
 
 .cookie-btn-accept:hover {
     background: #C19B2E;
+    border-color: #C19B2E;
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(212, 175, 55, .5);
 }
 
 .cookie-btn-reject {
     background: transparent;
-    color: #fff;
-    border: 2px solid rgba(255, 255, 255, .3);
+    color: #D4AF37;
+    border-color: #D4AF37;
 }
 
 .cookie-btn-reject:hover {
-    border-color: #fff;
-    background: rgba(255, 255, 255, .1);
+    background: #D4AF37;
+    color: #2c2c2c;
     transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, .5);
 }
 
 /* ============================================
