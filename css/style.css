@@ -2673,13 +2673,15 @@ footer {
         line-height: 1.4;
     }
 
-    .footer-credits a {
+    .footer-credits {
         font-size: 8px !important;
+        margin-top: 12px !important;
+        padding-top: 12px !important;
+        line-height: 1.4 !important;
     }
 
-    .tribunali-list {
-        font-size: 12px;
-        line-height: 1.6;
+    .footer-credits a {
+        font-size: 8px !important;
     }
 
     .footer-iscrizione-ordine {
