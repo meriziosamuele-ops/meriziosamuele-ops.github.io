@@ -1725,42 +1725,44 @@ td {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(135deg, #3A2318 0%, #2C1810 100%);
+    background: transparent;
     color: #fff;
-    padding: 30px 25px;
-    padding-bottom: calc(30px + env(safe-area-inset-bottom));
+    padding: 0;
     z-index: 10000;
     transform: translateY(100%);
     transition: transform .4s cubic-bezier(.4, 0, .2, 1);
-    box-shadow: 0 -8px 40px rgba(0, 0, 0, .4);
-    border-top: 3px solid #D4AF37;
     will-change: transform;
     -webkit-transform: translateY(100%);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-.cookie-banner.show {
-    transform: translateY(0);
-    -webkit-transform: translateY(0);
-}
-
-.cookie-banner.hide {
-    transform: translateY(calc(100% + env(safe-area-inset-bottom) + 50px));
-    -webkit-transform: translateY(calc(100% + env(safe-area-inset-bottom) + 50px));
-    visibility: hidden;
-    opacity: 0;
-    transition: transform .4s cubic-bezier(.4, 0, .2, 1), opacity .4s ease, visibility 0s .4s;
     pointer-events: none;
 }
 
 .cookie-banner-content {
+    background: linear-gradient(135deg, #3A2318 0%, #2C1810 100%);
+    padding: 30px 25px;
+    box-shadow: 0 -8px 40px rgba(0, 0, 0, .4);
+    border-top: 3px solid #D4AF37;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
+    pointer-events: auto;
+}
+
+.cookie-banner.show {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    pointer-events: auto;
+}
+
+.cookie-banner.hide {
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    visibility: hidden;
+    opacity: 0;
+    transition: transform .4s cubic-bezier(.4, 0, .2, 1), opacity .4s ease, visibility 0s .4s;
+    pointer-events: none;
 }
 
 .cookie-banner-text {
@@ -1801,7 +1803,7 @@ td {
     flex-shrink: 0;
 }
 
-/* GDPR: Pulsanti in EGUAL RISALTO */
+/* GDPR: Pulsanti in EGUAL RISALTO - Stile identico */
 .cookie-btn {
     padding: 14px 35px;
     border: 2px solid #D4AF37;
@@ -1814,18 +1816,26 @@ td {
     font-family: 'Cormorant Garamond', serif;
     text-transform: uppercase;
     background: transparent;
-    color: #fff;
+    color: #D4AF37;
 }
 
-.cookie-btn-accept {
+.cookie-btn:hover {
     background: #D4AF37;
     color: #2c2c2c;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, .5);
+}
+
+/* Manteniamo le classi per compatibilità ma stile identico */
+.cookie-btn-accept {
+    background: transparent;
+    color: #D4AF37;
     border-color: #D4AF37;
 }
 
 .cookie-btn-accept:hover {
-    background: #C19B2E;
-    border-color: #C19B2E;
+    background: #D4AF37;
+    color: #2c2c2c;
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(212, 175, 55, .5);
 }
@@ -1915,7 +1925,7 @@ td {
     position: absolute;
     height: 2.5px;
     width: 100%;
-    background: #2c2c2c;
+    background: #8B4513;
     border-radius: 3px;
     opacity: 1;
     left: 0;
@@ -2032,7 +2042,7 @@ td {
         right: -100%;
         height: 100vh;
         width: 280px;
-        background: white;
+        background: linear-gradient(135deg, #3A2318 0%, #2C1810 100%);
         transition: right .3s cubic-bezier(.4, 0, .2, 1);
         flex-direction: column;
         padding: 80px 0 20px;
@@ -2044,14 +2054,15 @@ td {
     nav.active { right: 0; }
     nav a {
         width: 100%;
-        text-align: left;
+        text-align: center;
         padding: 18px 30px;
         margin: 0;
         font-size: 16px;
-        border-bottom: 1px solid #f0f0f0;
+        color: #D4AF37;
+        border-bottom: 1px solid rgba(212, 175, 55, .2);
         transition: all .3s ease;
     }
-    nav a:hover { background: #f8f9fa; color: #8B4513; padding-left: 40px; }
+    nav a:hover { background: rgba(212, 175, 55, .1); color: #fff; padding-left: 30px; }
     nav a::after { display: none; }
     
     /* Hero */
@@ -2148,8 +2159,11 @@ td {
     th, td { padding: 10px; font-size: 14px; }
     
     /* Cookie Banner */
-    .cookie-banner { padding: 25px 20px; }
-    .cookie-banner-content { flex-direction: column; gap: 25px; }
+    .cookie-banner-content { 
+        flex-direction: column; 
+        gap: 25px; 
+        padding: 25px 20px;
+    }
     .cookie-banner-text h4 { font-size: 20px; margin-bottom: 10px; }
     .cookie-banner-text p { font-size: 14px; }
     .cookie-banner-actions { width: 100%; flex-direction: column; gap: 12px; }
