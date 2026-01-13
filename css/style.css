@@ -938,15 +938,67 @@ nav a:hover::after {
 }
 
 .contatti-mappa-container {
-    margin: 40px 0;
     box-shadow: 0 4px 15px rgba(0,0,0,.1);
     border-radius: 4px;
     overflow: hidden;
+    width: 100%;
 }
 
 .maps-iframe {
     border: 0;
     border-radius: 4px;
+}
+
+/* Wrapper Mappa + QR */
+.mappa-qr-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    margin: 40px 0 2rem;
+}
+
+.qr-code-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 2px;
+    padding: 2rem;
+    border-left: 4px solid #8B4513;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.qr-code-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+}
+
+.qr-code-content {
+    text-align: center;
+}
+
+.qr-code-content h3 {
+    font-size: 1.3rem;
+    color: #2c2c2c;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.qr-code-content p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.qr-code-image {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
 }
 
 .contatti-mappa-descrizione {
@@ -2107,6 +2159,13 @@ td {
     .info-rapida, .form-container { padding: 25px 18px; }
     .form-container h3 { font-size: 22px; }
     .contatti-rapida-numeri { flex-direction: column; gap: 20px; }
+
+    /* QR Code Mobile */
+    .mappa-qr-wrapper {grid-template-columns: 1fr;gap: 1.5rem;}
+    .qr-code-container {padding: 1.5rem;}
+    .qr-code-content h3 {font-size: 1.1rem;}
+    .qr-code-content p {font-size: 0.85rem; margin-bottom: 1rem;}
+    .qr-code-image {width: 180px; height: 180px;}
     
     /* Form Errors - Mobile */
     .form-group { 
