@@ -2293,7 +2293,7 @@ td {
     .intro-paragraph-large, .intro-paragraph-medium { font-size: 14px; line-height: 1.6; }
 }
 
-@media (max-height: 500px) and (orientation: landscape) {
+@media (max-width: 900) and (max-height: 500px) and (orientation: landscape) {
     .hero { height: 100vh; min-height: auto; }
     .hero h1 { font-size: 24px; }
     .hero-subtitle { font-size: 13px; }
