@@ -1579,11 +1579,11 @@ footer {
 }
 
 .footer-credits {
-    font-size: 12px;
     color: #d4d4d4;
     margin-top: 20px;
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, .15);
+    font-size: 12px;
 }
 
 .footer-credits a {
@@ -2289,6 +2289,8 @@ td {
     .author-name { font-size: 14px; }
     .author-location, .testimonial-service { font-size: 12px; }
     .column-paragraph, .chi-sono-two-columns p { font-size: 14px; line-height: 1.6; }
+    .chi-sono-intro-text { font-size: 14px; line-height: 1.6; }
+    .intro-paragraph-large, .intro-paragraph-medium { font-size: 14px; line-height: 1.6; }
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
@@ -2341,7 +2343,7 @@ td {
     .footer-bottom { margin-top: 20px; padding-top: 15px; }
     .footer-legal { font-size: 11px !important; margin-bottom: 10px; }
     .footer-legal a { font-size: 11px !important; }
-    .footer-credits { font-size: 11px !important; margin-top: 12px !important; padding-top: 12px !important; line-height: 1.4 !important; }
+    .footer-credits {font-size: 11px !important; margin-top: 12px !important; padding-top: 12px !important; line-height: 1.4 !important; word-wrap: break-word; overflow-wrap: break-word;}
     .footer-credits a { font-size: 11px !important; }
     .tribunali-list { font-size: 12px !important; line-height: 1.6 !important; }
     .footer-iscrizione-ordine { margin-top: 15px; font-size: 11px !important; }
