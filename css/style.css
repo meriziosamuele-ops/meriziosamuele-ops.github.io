@@ -1961,6 +1961,14 @@ td {
 /* ============================================
    MENU HAMBURGER
    ============================================ */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1002;
+}
 
 .hamburger {
     width: 20px;
@@ -1993,9 +2001,29 @@ td {
     transform: rotate(135deg);
 }
 
+.nav-toggle.active .hamburger span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
 .nav-toggle.active .hamburger span:nth-child(3) {
     top: 6px;
     transform: rotate(-135deg);
+}
+
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.nav-overlay.active {
+    display: block;
+    opacity: 1;
 }
 
 /* ============================================
