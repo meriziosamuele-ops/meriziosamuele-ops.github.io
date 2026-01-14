@@ -968,7 +968,7 @@ nav a:hover::after {
     background: #f8f9fa;
     border-radius: 2px;
     padding: 2rem;
-    border-left: 4px solid #8B4513;
+    border-left: 4px solid #3A2318;
     transition: transform .3s ease, box-shadow .3s ease;
 }
 
@@ -1033,7 +1033,7 @@ nav a:hover::after {
 .dove-siamo-box {
     background: #f8f9fa;
     padding: 40px;
-    border-left: 4px solid #8B4513;
+    border-left: 4px solid #3A2318;
     margin-bottom: 30px;
 }
 
@@ -1429,7 +1429,7 @@ textarea ~ .field-error-message::after {
 }
 
 .modal-close-btn {
-    background: #8B4513;
+    background: #3A2318;
     color: white;
     padding: 15px 45px;
     border: none;
