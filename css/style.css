@@ -9,6 +9,7 @@
 
 html {
     scroll-behavior: smooth;
+    height: 100%;
 }
 
 body {
@@ -17,6 +18,8 @@ body {
     color: #2c2c2c;
     line-height: 1.7;
     overflow-x: hidden;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
 }
 
 /* ============================================
@@ -199,6 +202,7 @@ nav a:hover::after {
 .hero {
     margin-top: 80px;
     height: 85vh;
+    height: calc(var(--vh, 1vh) * 85);
     background: linear-gradient(rgba(26, 31, 58, .65), rgba(26, 31, 58, .65)),
                 url('../img/piazza-duomo-lodi.jpg') center/cover no-repeat;
     display: flex;
@@ -1784,7 +1788,7 @@ td {
     transform: translateY(100%);
     transition: transform .4s cubic-bezier(.4, 0, .2, 1);
     box-shadow: 0 -8px 40px rgba(0, 0, 0, .4);
-    border-top: 3px solid #fff;
+    border-top: 3px solid #D4AF37;
     will-change: transform;
     -webkit-transform: translateY(100%);
     pointer-events: none;

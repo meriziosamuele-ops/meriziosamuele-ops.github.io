@@ -628,3 +628,20 @@ function initScrollProgress() {
 // Event listeners per i bottoni dei cookie (globali)
 window.acceptCookies = acceptCookies;
 window.rejectCookies = rejectCookies;
+
+
+// Fix per Safari Mobile - nasconde la barra degli indirizzi
+function setViewportHeight() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+setViewportHeight();
+window.addEventListener('resize', setViewportHeight);
+window.addEventListener('orientationchange', setViewportHeight);
+
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        window.scrollTo(0, 1);
+    }, 100);
+});
