@@ -1779,12 +1779,12 @@ td {
     right: 0;
     background: linear-gradient(135deg, #3A2318 0%, #2C1810 100%);
     color: #fff;
-    padding: 30px 25px 25px;
+    padding: 30px 25px;
     z-index: 10000;
     transform: translateY(100%);
     transition: transform .4s cubic-bezier(.4, 0, .2, 1);
     box-shadow: 0 -8px 40px rgba(0, 0, 0, .4);
-    border-top: 3px solid #D4AF37;
+    border-top: 3px solid #fff;
     will-change: transform;
     -webkit-transform: translateY(100%);
     pointer-events: none;
