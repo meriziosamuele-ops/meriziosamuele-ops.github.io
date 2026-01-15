@@ -269,15 +269,22 @@
 <div class="cookie-banner">
     <div class="cookie-banner-content">
         <div class="cookie-banner-text">
+            <h4>Questo sito utilizza i cookie</h4>
             <p>
-                Questo sito utilizza cookie tecnici necessari per il corretto funzionamento. 
-                Continuando la navigazione accetti il loro utilizzo. 
-                <a href="cookie-policy.html">Maggiori informazioni</a>
+                Utilizziamo cookie tecnici necessari per il funzionamento del sito. 
+                Desideriamo anche mostrarti la nostra posizione su <strong>Google Maps</strong>, 
+                che installerà cookie di terze parti.
+            </p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                <a href="cookie-policy.html" style="text-decoration: underline;">Leggi l'informativa completa</a>
             </p>
         </div>
         <div class="cookie-banner-actions">
-            <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">
-                HO CAPITO
+            <button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()">
+                ACCETTA TUTTO
+            </button>
+            <button class="cookie-btn cookie-btn-reject" onclick="acceptOnlyEssential()">
+                SOLO ESSENZIALI
             </button>
         </div>
     </div>

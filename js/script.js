@@ -645,3 +645,70 @@ window.addEventListener('load', () => {
         window.scrollTo(0, 1);
     }, 100);
 });
+
+// ==================== GESTIONE COOKIE BANNER E GOOGLE MAPS ====================
+
+// Controlla se l'utente ha già fatto una scelta
+function checkCookieConsent() {
+    const consent = localStorage.getItem('cookieConsent');
+    if (!consent) {
+        // Nessuna scelta salvata, mostra il banner
+        document.querySelector('.cookie-banner').classList.add('show');
+    } else {
+        // Scelta già salvata, carica Maps se necessario
+        if (consent === 'all') {
+            loadGoogleMaps();
+        }
+    }
+}
+
+// Utente accetta tutti i cookie (incluso Google Maps)
+function acceptAllCookies() {
+    localStorage.setItem('cookieConsent', 'all');
+    document.querySelector('.cookie-banner').classList.remove('show');
+    loadGoogleMaps();
+}
+
+// Utente accetta solo cookie essenziali (NO Google Maps)
+function acceptOnlyEssential() {
+    localStorage.setItem('cookieConsent', 'essential');
+    document.querySelector('.cookie-banner').classList.remove('show');
+    showMapPlaceholder();
+}
+
+// Carica Google Maps
+function loadGoogleMaps() {
+    const mapContainers = document.querySelectorAll('.map-container');
+    
+    mapContainers.forEach(container => {
+        const iframe = container.querySelector('iframe');
+        if (iframe && iframe.dataset.src) {
+            // Sposta l'URL da data-src a src per caricare la mappa
+            iframe.src = iframe.dataset.src;
+            // Rimuovi il placeholder se presente
+            const placeholder = container.querySelector('.map-placeholder');
+            if (placeholder) {
+                placeholder.remove();
+            }
+        }
+    });
+}
+
+// Mostra placeholder al posto della mappa
+function showMapPlaceholder() {
+    const mapContainers = document.querySelectorAll('.map-container');
+    
+    mapContainers.forEach(container => {
+        const iframe = container.querySelector('iframe');
+        const placeholder = container.querySelector('.map-placeholder');
+        
+        if (iframe && placeholder) {
+            // Nascondi iframe, mostra placeholder
+            iframe.style.display = 'none';
+            placeholder.style.display = 'flex';
+        }
+    });
+}
+
+// Esegui al caricamento della pagina
+document.addEventListener('DOMContentLoaded', checkCookieConsent);
