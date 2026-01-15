@@ -687,6 +687,10 @@ nav a:hover::after {
     margin-bottom: 0;
 }
 
+.column-paragraph {
+    font-size: 15;
+}
+
 .chi-sono-photos {
     display: grid;
     grid-template-columns: 1fr 1fr;
