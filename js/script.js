@@ -646,34 +646,58 @@ window.addEventListener('load', () => {
     }, 100);
 });
 
-// ==================== GESTIONE COOKIE BANNER E GOOGLE MAPS ====================
+// ==================== COOKIE CONSENT & GOOGLE MAPS - SISTEMA COMPLETO ====================
 
-// Controlla se l'utente ha già fatto una scelta
+// Funzione che controlla il consenso al caricamento della pagina
 function checkCookieConsent() {
-    const consent = localStorage.getItem('cookieConsent');
+    const consent = getCookieConsent();
+    const banner = document.querySelector('.cookie-banner');
+    
     if (!consent) {
         // Nessuna scelta salvata, mostra il banner
-        document.querySelector('.cookie-banner').classList.add('show');
+        if (banner) {
+            banner.classList.add('show');
+        }
     } else {
-        // Scelta già salvata, carica Maps se necessario
+        // Scelta già salvata
         if (consent === 'all') {
             loadGoogleMaps();
+        } else if (consent === 'essential') {
+            showMapPlaceholder();
         }
     }
 }
 
+// Legge il consenso salvato
+function getCookieConsent() {
+    return localStorage.getItem('cookieConsent');
+}
+
+// Salva il consenso
+function setCookieConsent(value) {
+    localStorage.setItem('cookieConsent', value);
+}
+
 // Utente accetta tutti i cookie (incluso Google Maps)
 function acceptAllCookies() {
-    localStorage.setItem('cookieConsent', 'all');
-    document.querySelector('.cookie-banner').classList.remove('show');
+    setCookieConsent('all');
+    hideBanner();
     loadGoogleMaps();
 }
 
 // Utente accetta solo cookie essenziali (NO Google Maps)
 function acceptOnlyEssential() {
-    localStorage.setItem('cookieConsent', 'essential');
-    document.querySelector('.cookie-banner').classList.remove('show');
+    setCookieConsent('essential');
+    hideBanner();
     showMapPlaceholder();
+}
+
+// Nasconde il banner
+function hideBanner() {
+    const banner = document.querySelector('.cookie-banner');
+    if (banner) {
+        banner.classList.remove('show');
+    }
 }
 
 // Carica Google Maps
@@ -681,15 +705,20 @@ function loadGoogleMaps() {
     const mapContainers = document.querySelectorAll('.map-container');
     
     mapContainers.forEach(container => {
-        const iframe = container.querySelector('iframe');
-        if (iframe && iframe.dataset.src) {
-            // Sposta l'URL da data-src a src per caricare la mappa
-            iframe.src = iframe.dataset.src;
-            // Rimuovi il placeholder se presente
-            const placeholder = container.querySelector('.map-placeholder');
-            if (placeholder) {
-                placeholder.remove();
+        const iframe = container.querySelector('iframe[data-src]');
+        const placeholder = container.querySelector('.map-placeholder');
+        
+        if (iframe) {
+            // Carica la mappa spostando l'URL da data-src a src
+            if (iframe.dataset.src && !iframe.src) {
+                iframe.src = iframe.dataset.src;
             }
+            iframe.style.display = 'block';
+        }
+        
+        // Nascondi il placeholder se presente
+        if (placeholder) {
+            placeholder.style.display = 'none';
         }
     });
 }
@@ -702,13 +731,37 @@ function showMapPlaceholder() {
         const iframe = container.querySelector('iframe');
         const placeholder = container.querySelector('.map-placeholder');
         
-        if (iframe && placeholder) {
-            // Nascondi iframe, mostra placeholder
+        if (iframe) {
+            // Nascondi iframe
             iframe.style.display = 'none';
+        }
+        
+        if (placeholder) {
+            // Mostra placeholder
             placeholder.style.display = 'flex';
         }
     });
 }
 
+// Funzione chiamata quando l'utente clicca "Carica la mappa" nel placeholder
+function enableGoogleMaps() {
+    setCookieConsent('all');
+    loadGoogleMaps();
+}
+
 // Esegui al caricamento della pagina
-document.addEventListener('DOMContentLoaded', checkCookieConsent);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', checkCookieConsent);
+} else {
+    // DOM già caricato
+    checkCookieConsent();
+}
+
+// BACKWARD COMPATIBILITY: mantieni la vecchia funzione acceptCookies se usata altrove
+function acceptCookies() {
+    acceptAllCookies();
+}
+
+function rejectCookies() {
+    acceptOnlyEssential();
+}
