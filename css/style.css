@@ -946,14 +946,14 @@ nav a:hover::after {
 }
 
 .contatti-mappa-container {
-    box-shadow: 0 4px 15px rgba(0,0,0,.1);
-    border-radius: 4px;
-    overflow: hidden;
-    width: 100%;
     position: relative;
+    width: 100%;
     height: 450px;
     margin: 30px 0;
+    overflow: hidden;
+    border-radius: 4px;
     background: #f8f9fa;
+    box-shadow: 0 4px 15px rgba(0,0,0,.1);
 }
 
 .maps-iframe {
@@ -1029,7 +1029,7 @@ nav a:hover::after {
    GOOGLE MAPS - CARICAMENTO CONDIZIONALE
    ============================================ */
 .map-placeholder {
-    display: flex; /* ✅ CORRETTO: Visibile di default */
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
@@ -1044,8 +1044,7 @@ nav a:hover::after {
     z-index: 10;
 }
 
-/* Nascondi placeholder quando mappa è caricata */
-.map-container.map-loaded .map-placeholder {
+.contatti-mappa-container.map-loaded .map-placeholder {
     display: none;
 }
 
@@ -1121,13 +1120,13 @@ nav a:hover::after {
     letter-spacing: 1.5px;
     text-transform: uppercase;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    border: none;
+    border: 2px solid;
 }
 
 .btn-view-map {
     background: #D4AF37;
     color: #2c2c2c;
-    border: 2px solid #D4AF37;
+    border-color: #D4AF37;
     display: inline-block;
 }
 
@@ -1141,7 +1140,7 @@ nav a:hover::after {
 .btn-enable-map {
     background: transparent;
     color: #fff;
-    border: 2px solid #fff;
+    border-color: #fff;
 }
 
 .btn-enable-map:hover {
@@ -1150,19 +1149,17 @@ nav a:hover::after {
     box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
 }
 
-.map-container iframe {
-    display: none; /* Nascosto di default */
+.contatti-mappa-container iframe {
+    display: none;
     width: 100%;
     height: 100%;
     border: 0;
 }
 
-/* Mostra iframe quando mappa è caricata */
-.map-container.map-loaded iframe {
+.contatti-mappa-container.map-loaded iframe {
     display: block;
 }
 
-/* Animazione ingresso placeholder */
 @keyframes placeholderFadeIn {
     from {
         opacity: 0;
@@ -1174,7 +1171,7 @@ nav a:hover::after {
     }
 }
 
-.map-placeholder:not(.map-loaded .map-placeholder) {
+.map-placeholder {
     animation: placeholderFadeIn 0.4s ease-out;
 }
 
