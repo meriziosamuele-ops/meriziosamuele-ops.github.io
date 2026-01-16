@@ -810,6 +810,9 @@ nav a:hover::after {
     color: white;
 }
 
+.cta-button.notizie-cta {
+    margin-bottom: 60px;
+}
 
 /* ============================================
    CHI SONO
