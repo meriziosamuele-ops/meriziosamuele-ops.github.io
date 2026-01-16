@@ -654,10 +654,11 @@ function checkCookieConsent() {
     const banner = document.querySelector('.cookie-banner');
     
     if (!consent) {
-        // Nessuna scelta salvata, mostra il banner
+        // Nessuna scelta salvata, mostra il banner E il placeholder
         if (banner) {
             banner.classList.add('show');
         }
+        showMapPlaceholder(); // ✅ AGGIUNTO: Mostra placeholder finché utente non decide
     } else {
         // Scelta già salvata
         if (consent === 'all') {
@@ -697,6 +698,7 @@ function hideBanner() {
     const banner = document.querySelector('.cookie-banner');
     if (banner) {
         banner.classList.remove('show');
+        banner.classList.add('hide'); // ✅ Aggiunto per animazione uscita
     }
 }
 
@@ -713,13 +715,10 @@ function loadGoogleMaps() {
             if (iframe.dataset.src && !iframe.src) {
                 iframe.src = iframe.dataset.src;
             }
-            iframe.style.display = 'block';
         }
         
-        // Nascondi il placeholder se presente
-        if (placeholder) {
-            placeholder.style.display = 'none';
-        }
+        // Aggiungi classe per mostrare iframe e nascondere placeholder
+        container.classList.add('map-loaded'); // ✅ Usa classe invece di style inline
     });
 }
 
@@ -728,18 +727,8 @@ function showMapPlaceholder() {
     const mapContainers = document.querySelectorAll('.map-container');
     
     mapContainers.forEach(container => {
-        const iframe = container.querySelector('iframe');
-        const placeholder = container.querySelector('.map-placeholder');
-        
-        if (iframe) {
-            // Nascondi iframe
-            iframe.style.display = 'none';
-        }
-        
-        if (placeholder) {
-            // Mostra placeholder
-            placeholder.style.display = 'flex';
-        }
+        // Rimuovi classe se presente (per tornare a mostrare placeholder)
+        container.classList.remove('map-loaded'); // ✅ Usa classe invece di style inline
     });
 }
 
