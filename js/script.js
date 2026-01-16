@@ -658,7 +658,7 @@ function checkCookieConsent() {
         if (banner) {
             banner.classList.add('show');
         }
-        showMapPlaceholder(); // ✅ AGGIUNTO: Mostra placeholder finché utente non decide
+        showMapPlaceholder();
     } else {
         // Scelta già salvata
         if (consent === 'all') {
@@ -698,17 +698,16 @@ function hideBanner() {
     const banner = document.querySelector('.cookie-banner');
     if (banner) {
         banner.classList.remove('show');
-        banner.classList.add('hide'); // ✅ Aggiunto per animazione uscita
+        banner.classList.add('hide');
     }
 }
 
 // Carica Google Maps
 function loadGoogleMaps() {
-    const mapContainers = document.querySelectorAll('.map-container');
+    const mapContainers = document.querySelectorAll('.contatti-mappa-container'); // ✅ CAMBIATO
     
     mapContainers.forEach(container => {
         const iframe = container.querySelector('iframe[data-src]');
-        const placeholder = container.querySelector('.map-placeholder');
         
         if (iframe) {
             // Carica la mappa spostando l'URL da data-src a src
@@ -718,17 +717,17 @@ function loadGoogleMaps() {
         }
         
         // Aggiungi classe per mostrare iframe e nascondere placeholder
-        container.classList.add('map-loaded'); // ✅ Usa classe invece di style inline
+        container.classList.add('map-loaded');
     });
 }
 
 // Mostra placeholder al posto della mappa
 function showMapPlaceholder() {
-    const mapContainers = document.querySelectorAll('.map-container');
+    const mapContainers = document.querySelectorAll('.contatti-mappa-container'); // ✅ CAMBIATO
     
     mapContainers.forEach(container => {
         // Rimuovi classe se presente (per tornare a mostrare placeholder)
-        container.classList.remove('map-loaded'); // ✅ Usa classe invece di style inline
+        container.classList.remove('map-loaded');
     });
 }
 
