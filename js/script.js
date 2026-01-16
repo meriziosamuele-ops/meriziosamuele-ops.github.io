@@ -290,111 +290,114 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ==================== FORM SUBMISSION ====================
+    
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Verifica manualmente tutti i campi prima di inviare
+            let isValid = true;
+            let firstInvalidField = null;
+            
+            // Aggiungi touched a tutti i campi per mostrare errori
+            const allInputs = this.querySelectorAll('input:not([type="checkbox"]), textarea, select');
+            allInputs.forEach(input => {
+                if (input.value.trim() !== '' || input.hasAttribute('required')) {
+                    input.classList.add('touched');
+                }
+                
+                // Controlla validità
+                if (!input.checkValidity()) {
+                    isValid = false;
+                    if (!firstInvalidField) {
+                        firstInvalidField = input;
+                    }
+                    
+                    // Mostra errore per questo campo
+                    if (input.validity.valueMissing) {
+                        if (input.id === 'nome') {
+                            showFieldError(input, 'Per favore inserisci il tuo nome e cognome');
+                        } else if (input.id === 'email') {
+                            showFieldError(input, 'Per favore inserisci la tua email');
+                        } else if (input.id === 'materia') {
+                            showFieldError(input, 'Per favore seleziona una materia di interesse');
+                        } else if (input.id === 'messaggio') {
+                            showFieldError(input, 'Per favore descrivi la tua richiesta');
+                        }
+                    } else if (input.validity.typeMismatch && input.id === 'email') {
+                        showFieldError(input, 'Inserisci un indirizzo email valido');
+                    }
+                }
+                
+                // Validazione speciale per nome
+                if (input.id === 'nome') {
+                    const value = input.value.trim();
+                    const words = value.split(/\s+/).filter(word => word.length > 0);
+                    
+                    if (value === '' || words.length < 2 || words.some(word => word.length < 2)) {
+                        isValid = false;
+                        input.classList.add('js-invalid');
+                        if (!firstInvalidField) {
+                            firstInvalidField = input;
+                        }
+                        
+                        if (value === '') {
+                            showFieldError(input, 'Per favore inserisci il tuo nome e cognome');
+                        } else if (words.length < 2) {
+                            showFieldError(input, 'Per favore inserisci sia nome che cognome');
+                        } else {
+                            showFieldError(input, 'Nome e cognome devono contenere almeno 2 caratteri ciascuno');
+                        }
+                    }
+                }
+            });
+            
+            // Controlla checkbox privacy
+            const privacyCheckbox = this.querySelector('#privacy');
+            if (privacyCheckbox && !privacyCheckbox.checked) {
+                isValid = false;
+                if (!firstInvalidField) {
+                    firstInvalidField = privacyCheckbox;
+                }
+                showFieldError(privacyCheckbox, 'Devi accettare il trattamento dei dati per procedere');
+            }
+            
+            if (!isValid) {
+                // Mostra modal di errore invece del tooltip del browser
+                showModal('error', 'Compila tutti i campi', 'Per favore, completa tutti i campi obbligatori prima di inviare il form.');
+                
+                // Scrolla al primo campo con errore
+                if (firstInvalidField) {
+                    firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    setTimeout(() => {
+                        firstInvalidField.focus();
+                    }, 500);
+                }
+                return;
+            }
+            
+            // Se tutto è valido, mostra modal di successo
+            showModal('success', 'Messaggio Inviato!', 'Grazie per averci contattato. Ti risponderemo al più presto.');
+            
+            // Reset form e rimuovi classi touched
+            this.reset();
+            document.querySelectorAll('.touched').forEach(el => {
+                el.classList.remove('touched', 'js-valid', 'js-invalid');
+            });
+            
+            // Rimuovi tutti i messaggi di errore
+            document.querySelectorAll('.field-error-message').forEach(el => {
+                el.remove();
+            });
+        });
+    }
+
     initCookieBanner();
     initBackToTop();
     initMobileMenu();
     initScrollProgress();
-});
-
-// ==================== FORM SUBMISSION ====================
-
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Verifica manualmente tutti i campi prima di inviare
-    let isValid = true;
-    let firstInvalidField = null;
-    
-    // Aggiungi touched a tutti i campi per mostrare errori
-    const allInputs = this.querySelectorAll('input:not([type="checkbox"]), textarea, select');
-    allInputs.forEach(input => {
-        if (input.value.trim() !== '' || input.hasAttribute('required')) {
-            input.classList.add('touched');
-        }
-        
-        // Controlla validità
-        if (!input.checkValidity()) {
-            isValid = false;
-            if (!firstInvalidField) {
-                firstInvalidField = input;
-            }
-            
-            // Mostra errore per questo campo
-            if (input.validity.valueMissing) {
-                if (input.id === 'nome') {
-                    showFieldError(input, 'Per favore inserisci il tuo nome e cognome');
-                } else if (input.id === 'email') {
-                    showFieldError(input, 'Per favore inserisci la tua email');
-                } else if (input.id === 'materia') {
-                    showFieldError(input, 'Per favore seleziona una materia di interesse');
-                } else if (input.id === 'messaggio') {
-                    showFieldError(input, 'Per favore descrivi la tua richiesta');
-                }
-            } else if (input.validity.typeMismatch && input.id === 'email') {
-                showFieldError(input, 'Inserisci un indirizzo email valido');
-            }
-        }
-        
-        // Validazione speciale per nome
-        if (input.id === 'nome') {
-            const value = input.value.trim();
-            const words = value.split(/\s+/).filter(word => word.length > 0);
-            
-            if (value === '' || words.length < 2 || words.some(word => word.length < 2)) {
-                isValid = false;
-                input.classList.add('js-invalid');
-                if (!firstInvalidField) {
-                    firstInvalidField = input;
-                }
-                
-                if (value === '') {
-                    showFieldError(input, 'Per favore inserisci il tuo nome e cognome');
-                } else if (words.length < 2) {
-                    showFieldError(input, 'Per favore inserisci sia nome che cognome');
-                } else {
-                    showFieldError(input, 'Nome e cognome devono contenere almeno 2 caratteri ciascuno');
-                }
-            }
-        }
-    });
-    
-    // Controlla checkbox privacy
-    const privacyCheckbox = this.querySelector('#privacy');
-    if (!privacyCheckbox.checked) {
-        isValid = false;
-        if (!firstInvalidField) {
-            firstInvalidField = privacyCheckbox;
-        }
-        showFieldError(privacyCheckbox, 'Devi accettare il trattamento dei dati per procedere');
-    }
-    
-    if (!isValid) {
-        // Mostra modal di errore invece del tooltip del browser
-        showModal('error', 'Compila tutti i campi', 'Per favore, completa tutti i campi obbligatori prima di inviare il form.');
-        
-        // Scrolla al primo campo con errore
-        if (firstInvalidField) {
-            firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            setTimeout(() => {
-                firstInvalidField.focus();
-            }, 500);
-        }
-        return;
-    }
-    
-    // Se tutto è valido, mostra modal di successo
-    showModal('success', 'Messaggio Inviato!', 'Grazie per averci contattato. Ti risponderemo al più presto.');
-    
-    // Reset form e rimuovi classi touched
-    this.reset();
-    document.querySelectorAll('.touched').forEach(el => {
-        el.classList.remove('touched', 'js-valid', 'js-invalid');
-    });
-    
-    // Rimuovi tutti i messaggi di errore
-    document.querySelectorAll('.field-error-message').forEach(el => {
-        el.remove();
-    });
 });
 
 // ==================== MODAL FUNCTIONS ====================
@@ -624,11 +627,9 @@ function initScrollProgress() {
     });
 }
 
-
 // Event listeners per i bottoni dei cookie (globali)
 window.acceptCookies = acceptCookies;
 window.rejectCookies = rejectCookies;
-
 
 // Fix per Safari Mobile - nasconde la barra degli indirizzi
 function setViewportHeight() {
@@ -704,7 +705,7 @@ function hideBanner() {
 
 // Carica Google Maps
 function loadGoogleMaps() {
-    const mapContainers = document.querySelectorAll('.contatti-mappa-container'); // ✅ CAMBIATO
+    const mapContainers = document.querySelectorAll('.contatti-mappa-container');
     
     mapContainers.forEach(container => {
         const iframe = container.querySelector('iframe[data-src]');
@@ -723,7 +724,7 @@ function loadGoogleMaps() {
 
 // Mostra placeholder al posto della mappa
 function showMapPlaceholder() {
-    const mapContainers = document.querySelectorAll('.contatti-mappa-container'); // ✅ CAMBIATO
+    const mapContainers = document.querySelectorAll('.contatti-mappa-container');
     
     mapContainers.forEach(container => {
         // Rimuovi classe se presente (per tornare a mostrare placeholder)
@@ -743,15 +744,6 @@ if (document.readyState === 'loading') {
 } else {
     // DOM già caricato
     checkCookieConsent();
-}
-
-// BACKWARD COMPATIBILITY: mantieni la vecchia funzione acceptCookies se usata altrove
-function acceptCookies() {
-    acceptAllCookies();
-}
-
-function rejectCookies() {
-    acceptOnlyEssential();
 }
 
 // ==================== CARICATORE AUTOMATICO NOTIZIE RSS ====================
