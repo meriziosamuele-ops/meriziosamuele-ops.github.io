@@ -753,3 +753,171 @@ function acceptCookies() {
 function rejectCookies() {
     acceptOnlyEssential();
 }
+
+// ==================== CARICATORE AUTOMATICO NOTIZIE RSS ====================
+
+// Fonti RSS gratuite di notizie legali italiane
+const RSS_FEEDS = [
+    {
+        url: 'https://www.altalex.com/feed',
+        categoria: 'Diritto',
+        color: '#8B4513'
+    },
+    {
+        url: 'https://www.diritto.it/feed/',
+        categoria: 'Normativa',
+        color: '#A0522D'
+    }
+];
+
+// Funzione per caricare e mostrare le notizie
+async function loadAutomaticNews() {
+    const newsGrid = document.querySelector('.notizie-grid');
+    
+    if (!newsGrid) {
+        console.log('Elemento .notizie-grid non trovato');
+        return;
+    }
+    
+    // Mostra loading
+    newsGrid.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #999;">
+            <p style="font-size: 18px;">Caricamento notizie in corso...</p>
+        </div>
+    `;
+    
+    try {
+        const allNews = [];
+        
+        // Carica notizie da tutte le fonti RSS
+        for (const feed of RSS_FEEDS) {
+            try {
+                const response = await fetch(
+                    `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`
+                );
+                const data = await response.json();
+                
+                if (data.status === 'ok' && data.items) {
+                    // Aggiungi categoria e colore a ogni notizia
+                    data.items.forEach(item => {
+                        allNews.push({
+                            ...item,
+                            categoria: feed.categoria,
+                            color: feed.color
+                        });
+                    });
+                }
+            } catch (error) {
+                console.error(`Errore caricamento feed ${feed.url}:`, error);
+            }
+        }
+        
+        // Ordina per data (più recenti prima)
+        allNews.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+        
+        // Mostra solo le prime 3 notizie
+        const latestNews = allNews.slice(0, 3);
+        
+        if (latestNews.length === 0) {
+            newsGrid.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #999;">
+                    <p style="font-size: 18px;">Nessuna notizia disponibile al momento.</p>
+                </div>
+            `;
+            return;
+        }
+        
+        // Genera HTML per ogni notizia
+        newsGrid.innerHTML = '';
+        latestNews.forEach((item, index) => {
+            const card = createNewsCard(item, index);
+            newsGrid.innerHTML += card;
+        });
+        
+        // Riattiva animazioni fade-in
+        setTimeout(() => {
+            document.querySelectorAll('.notizia-card').forEach(card => {
+                card.classList.add('visible');
+            });
+        }, 100);
+        
+    } catch (error) {
+        console.error('Errore generale caricamento notizie:', error);
+        newsGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #999;">
+                <p style="font-size: 18px;">Errore nel caricamento delle notizie. Riprova più tardi.</p>
+            </div>
+        `;
+    }
+}
+
+// Funzione per creare HTML di una singola notizia
+function createNewsCard(item, index) {
+    // Formatta la data in italiano
+    const date = new Date(item.pubDate);
+    const formattedDate = date.toLocaleDateString('it-IT', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+    
+    // Pulisci descrizione da HTML tags
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = item.description || item.content || '';
+    let cleanText = tempDiv.textContent || tempDiv.innerText || '';
+    
+    // Tronca descrizione a 150 caratteri
+    if (cleanText.length > 150) {
+        cleanText = cleanText.substring(0, 150) + '...';
+    }
+    
+    // Determina classe delay per animazione
+    const delayClass = index === 1 ? 'delay-01' : index === 2 ? 'delay-02' : '';
+    
+    return `
+        <article class="notizia-card ${delayClass}">
+            <div class="notizia-meta">
+                <span class="notizia-data">${formattedDate}</span>
+                <span class="notizia-categoria" style="background: ${item.color}15; color: ${item.color};">
+                    ${item.categoria}
+                </span>
+            </div>
+            <h3 class="notizia-titolo">${escapeHtml(item.title)}</h3>
+            <p class="notizia-excerpt">${escapeHtml(cleanText)}</p>
+            <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="notizia-link">
+                Leggi di più →
+            </a>
+        </article>
+    `;
+}
+
+// Funzione per escape HTML (sicurezza)
+function escapeHtml(text) {
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, m => map[m]);
+}
+
+// ==================== INIZIALIZZAZIONE ====================
+
+// Carica notizie quando il DOM è pronto
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadAutomaticNews);
+} else {
+    loadAutomaticNews();
+}
+
+// OPZIONALE: Ricarica notizie ogni 5 minuti (300000ms)
+setInterval(loadAutomaticNews, 300000);
+
+// Funzione pubblica per ricaricare manualmente le notizie
+function reloadNews() {
+    loadAutomaticNews();
+}
+
+window.reloadNews = reloadNews;
