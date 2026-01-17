@@ -1929,6 +1929,10 @@ footer {
     color: #D4AF37;
 }
 
+.tribunali-list span {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
 /* ============================================
    PRIVACY POLICY
    ============================================ */
