@@ -883,7 +883,7 @@ nav a:hover::after {
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     max-width: 1200px;
-    margin: 30px auto 0;
+    margin: 10px auto 0;
 }
 
 .chi-sono-two-columns .chi-sono-text {
