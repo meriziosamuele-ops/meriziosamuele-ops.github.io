@@ -327,49 +327,174 @@ nav a:hover::after {
    PRESENTAZIONE
    ============================================ */
 .presentazione-section {
-    padding: 80px 40px 60px;
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #2c2416 0%, #3A2318 50%, #4a3020 100%);
+}
+
+.presentazione-bg-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-image: url('../img/avv.Gigliotti-seduta.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 .presentazione-container {
-    max-width: 1200px;
+    position: relative;
+    max-width: 1400px;
     margin: 0 auto;
-    text-align: center;
+    padding: 80px 40px;
+    z-index: 2;
+}
+
+.presentazione-section .section-title {
+    font-size: 48px;
+    color: #D4AF37;
+    margin-bottom: 60px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-align: left;
+    position: relative;
+    display: inline-block;
+}
+
+.presentazione-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 120px;
+    height: 3px;
+    background: #D4AF37;
 }
 
 .presentazione-content {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 60px;
-    margin-top: 50px;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
     align-items: center;
 }
 
+.presentazione-image-wrapper {
+    position: relative;
+    height: 600px;
+}
+
 .presentazione-image {
-    width: 100%;
+    position: absolute;
+    width: 85%;
     height: 500px;
     background-image: url('../img/avv.Gigliotti-in-piedi.jpg');
-    background-position: center;
     background-size: cover;
-    border-radius: 2px;
-    box-shadow: 0 20px 60px rgba(0,0,0,.1);
+    background-position: center;
+    box-shadow: 0 30px 80px rgba(0,0,0,.4);
+    border: 8px solid rgba(212, 175, 55, 0.3);
+    z-index: 2;
+    top: 50px;
+    left: 0;
+}
+
+.presentazione-image::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    right: 30px;
+    bottom: 30px;
+    border: 2px solid #D4AF37;
+    z-index: -1;
+}
+
+.presentazione-decorative-box {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    bottom: 0;
+    right: 0;
+    z-index: 1;
 }
 
 .presentazione-text-wrapper {
-    text-align: left;
+    color: #fff;
 }
 
 .presentazione-text {
     font-size: 19px;
-    color: #3d3d3d;
+    color: #e8e8e8;
     line-height: 1.9;
     margin: 0;
+    text-align: left;
 }
 
 .presentazione-cta {
-    margin-top: 35px;
+    margin-top: 45px;
     display: inline-block;
-    border-color: #2c2c2c;
-    color: #2c2c2c;
+    padding: 18px 50px;
+    background: transparent;
+    border: 2px solid #D4AF37;
+    color: #D4AF37;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.presentazione-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #D4AF37;
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.presentazione-cta:hover {
+    color: #2c2416;
+}
+
+.presentazione-cta:hover::before {
+    left: 0;
+}
+
+.stats-overlay {
+    position: absolute;
+    bottom: 30px;
+    left: -50px;
+    background: rgba(212, 175, 55, 0.95);
+    padding: 30px 40px;
+    color: #2c2416;
+    z-index: 3;
+    box-shadow: 0 20px 40px rgba(0,0,0,.3);
+}
+
+.stats-number {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.stats-label {
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 /* ============================================
