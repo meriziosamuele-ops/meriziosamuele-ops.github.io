@@ -835,7 +835,6 @@ nav a:hover::after {
     background-size: cover;
     border-radius: 2px;
     box-shadow: 0 20px 60px rgba(0,0,0,.1);
-    position: sticky;
     top: 120px;
     overflow: hidden;
     order: 2;
