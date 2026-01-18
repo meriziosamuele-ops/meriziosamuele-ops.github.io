@@ -415,7 +415,6 @@ nav a:hover::after {
 
 .presentazione-text-wrapper {
     color: #2c2c2c;
-    text-align: center;
 }
 
 .presentazione-text {
@@ -484,7 +483,7 @@ nav a:hover::after {
 }
 
 .stats-label {
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 1px;
     color: #f5f5f5;
     font-family: 'Cormorant Garamond', serif;
