@@ -473,11 +473,13 @@ nav a:hover::after {
 }
 
 .stats-number {
-    font-size: 48px;
+    font-size: 22px;
     font-weight: 700;
     line-height: 1;
     margin-bottom: 5px;
     color: #D4AF37;
+    font-family: 'Great Vibes', cursive;
+
 }
 
 .stats-label {
@@ -485,6 +487,7 @@ nav a:hover::after {
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #f5f5f5;
+    font-family: 'Great Vibes', cursive;
 }
 
 /* ============================================
