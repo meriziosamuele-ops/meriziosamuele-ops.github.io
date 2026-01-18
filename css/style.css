@@ -475,7 +475,7 @@ nav a:hover::after {
 
 .stats-number {
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1;
     margin-bottom: 5px;
     color: #D4AF37;
@@ -3059,6 +3059,8 @@ td {
     .presentazione-image {
         height: 280px;
         width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
     
     .presentazione-decorative-box {
@@ -3080,6 +3082,11 @@ td {
         font-size: 14px;
     }
     
+    .presentazione-text-wrapper {
+        order: 2;
+        text-align: center;
+    }
+    
     .presentazione-text {
         font-size: 14px;
         line-height: 1.6;
@@ -3089,6 +3096,8 @@ td {
         margin-top: 20px;
         padding: 10px 30px;
         font-size: 11px;
+        display: block;
+        text-align: center;
     }
     
     /* Chi Sono Hero Landscape */
