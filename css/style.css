@@ -2528,36 +2528,6 @@ td {
     .testimonials-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
     .notizie-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
     
-    /* Mappa + QR Code Tablet */
-    .mappa-qr-wrapper {
-        grid-template-columns: 1fr 250px;
-        gap: 1.5rem;
-    }
-    
-    .qr-code-image {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .qr-code-content h3 {
-        font-size: 1.2rem;
-    }
-}
-
-/* ============================================
-   RESPONSIVE - MOBILE
-   ============================================ */
-/* ============================================
-   RESPONSIVE - TABLET
-   ============================================ */
-@media (max-width: 992px) {
-    .header-content { padding: 0 25px; }
-    nav a { margin-left: 20px; font-size: 15px; }
-    .servizi-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
-    .content { padding: 70px 25px; }
-    .testimonials-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
-    .notizie-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
-    
     /* Presentazione Tablet */
     .presentazione-section { min-height: 70vh; }
     .presentazione-container { padding: 60px 30px; }
@@ -2705,6 +2675,7 @@ td {
     
     .presentazione-text-wrapper {
         order: 2;
+        text-align: center;
     }
     
     .presentazione-text {
@@ -2716,6 +2687,8 @@ td {
         margin-top: 35px;
         padding: 15px 40px;
         font-size: 13px;
+        display: block;
+        text-align: center;
     }
     
     /* Chi Sono Hero Mobile */
