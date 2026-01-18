@@ -817,58 +817,31 @@ nav a:hover::after {
 /* ============================================
    CHI SONO
    ============================================ */
-.chi-sono-intro {
-    max-width: 900px;
-    margin: 60px auto 50px;
-}
-
-.chi-sono-intro-text {
-    text-align: center;
-    margin-bottom: 0;
-}
-
-.intro-paragraph-large {
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-.intro-paragraph-medium {
-    font-size: 19px;
-    margin-bottom: 0;
-}
-
-.column-paragraph {
-    font-size: 18px;
-}
-
-.chi-sono-photos {
+/* Sezione hero con foto e testo affiancati */
+.chi-sono-hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: 60px;
     max-width: 1200px;
     margin: 60px auto;
+    align-items: start;
 }
 
-.chi-sono-image, .chi-sono-image-2 {
+.chi-sono-hero-image {
     width: 100%;
-    height: 600px;
+    height: 650px;
+    background-image: url('../img/avv.Gigliotti-seduta.jpg');
     background-position: center;
     background-size: cover;
     border-radius: 2px;
     box-shadow: 0 20px 60px rgba(0,0,0,.1);
-    position: relative;
+    position: sticky;
+    top: 120px;
     overflow: hidden;
 }
 
-.chi-sono-image {
-    background-image: url('../img/avv.Gigliotti-seduta.jpg');
-}
-
-.chi-sono-image-2 {
-    background-image: url('../img/avv.Gigliotti-in-piedi.jpg');
-}
-
-.chi-sono-image::before, .chi-sono-image-2::before {
+/* Effetto riflesso luminoso al hover */
+.chi-sono-hero-image::before {
     content: '';
     position: absolute;
     top: 0;
@@ -879,8 +852,29 @@ nav a:hover::after {
     transition: left .5s ease;
 }
 
-.chi-sono-image:hover::before, .chi-sono-image-2:hover::before {
+.chi-sono-hero-image:hover::before {
     left: 100%;
+}
+
+.chi-sono-hero-text {
+    padding-top: 20px;
+}
+
+.intro-paragraph-large {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.intro-paragraph-medium {
+    font-size: 19px;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.column-paragraph {
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
 .chi-sono-two-columns {
@@ -893,10 +887,6 @@ nav a:hover::after {
 
 .chi-sono-two-columns .chi-sono-text {
     margin-bottom: 0;
-}
-
-.column-paragraph {
-    margin-bottom: 20px;
 }
 
 .section-spacing-100 {
@@ -951,7 +941,6 @@ nav a:hover::after {
 .qualifiche-card:last-child {
     margin-bottom: 0;
 }
-
 /* ============================================
    CONTATTI
    ============================================ */
