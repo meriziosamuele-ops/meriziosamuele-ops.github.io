@@ -468,7 +468,7 @@ nav a:hover::after {
     background: #F5F1E8;
     border: 2px solid #D4AF37;
     padding: 30px 40px;
-    color: #D4AF37;
+    color: #3A2318;
     z-index: 3;
     box-shadow: 0 20px 40px rgba(58, 35, 24, .3);
 }
@@ -3239,6 +3239,8 @@ td {
     
     .presentazione-image {
         height: 220px;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
     
     .presentazione-decorative-box {
@@ -3267,6 +3269,8 @@ td {
         margin-top: 15px;
         padding: 8px 25px;
         font-size: 10px;
+        display: block;
+        text-align: center;
     }
     
     /* Chi Sono Hero Landscape Altezza ridotta */
