@@ -332,20 +332,7 @@ nav a:hover::after {
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #2c2416 0%, #3A2318 50%, #4a3020 100%);
-}
-
-.presentazione-bg-image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background-image: url('../img/avv.Gigliotti-seduta.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.3;
-    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+    background: #ffffff;
 }
 
 .presentazione-container {
@@ -362,16 +349,17 @@ nav a:hover::after {
     margin-bottom: 60px;
     font-weight: 400;
     letter-spacing: 2px;
-    text-align: left;
+    text-align: center;
     position: relative;
-    display: inline-block;
+    display: block;
 }
 
 .presentazione-section .section-title::after {
     content: '';
     position: absolute;
     bottom: -15px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 120px;
     height: 3px;
     background: #D4AF37;
@@ -396,7 +384,7 @@ nav a:hover::after {
     background-image: url('../img/avv.Gigliotti-in-piedi.jpg');
     background-size: cover;
     background-position: center;
-    box-shadow: 0 30px 80px rgba(0,0,0,.4);
+    box-shadow: 0 30px 80px rgba(0,0,0,.15);
     border: 8px solid rgba(212, 175, 55, 0.3);
     z-index: 2;
     top: 50px;
@@ -418,7 +406,7 @@ nav a:hover::after {
     position: absolute;
     width: 300px;
     height: 300px;
-    background: rgba(212, 175, 55, 0.1);
+    background: rgba(212, 175, 55, 0.05);
     border: 2px solid rgba(212, 175, 55, 0.3);
     bottom: 0;
     right: 0;
@@ -426,12 +414,12 @@ nav a:hover::after {
 }
 
 .presentazione-text-wrapper {
-    color: #fff;
+    color: #2c2c2c;
 }
 
 .presentazione-text {
     font-size: 19px;
-    color: #e8e8e8;
+    color: #3d3d3d;
     line-height: 1.9;
     margin: 0;
     text-align: left;
@@ -466,7 +454,7 @@ nav a:hover::after {
 }
 
 .presentazione-cta:hover {
-    color: #2c2416;
+    color: #ffffff;
 }
 
 .presentazione-cta:hover::before {
@@ -481,7 +469,7 @@ nav a:hover::after {
     padding: 30px 40px;
     color: #2c2416;
     z-index: 3;
-    box-shadow: 0 20px 40px rgba(0,0,0,.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,.2);
 }
 
 .stats-number {
