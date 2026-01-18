@@ -465,7 +465,7 @@ nav a:hover::after {
     position: absolute;
     bottom: 30px;
     left: -50px;
-    background: #fff;
+    background: #F5F1E8;
     border: 2px solid #D4AF37;
     padding: 30px 40px;
     color: #D4AF37;
