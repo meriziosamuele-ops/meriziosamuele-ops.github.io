@@ -759,6 +759,16 @@ const RSS_FEEDS = [
         url: 'https://www.diritto.it/feed/',
         categoria: 'Normativa',
         color: '#A0522D'
+    },
+    {
+        url: 'https://www.studiocataldi.it/rss.asp',
+        categoria: 'Giurisprudenza',
+        color: '#A0522D'
+    },
+    {
+        url: 'https://www.brocardi.it/rss/',
+        categoria: 'Sentenze',
+        color: '#A0522D'
     }
 ];
 
