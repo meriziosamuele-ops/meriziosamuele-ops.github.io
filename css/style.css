@@ -465,7 +465,7 @@ nav a:hover::after {
     position: absolute;
     bottom: 30px;
     left: -50px;
-    background: #F5F1E8;
+    background: #FBF8F1;
     border: 2px solid #D4AF37;
     padding: 30px 40px;
     color: #D4AF37;
@@ -3057,7 +3057,7 @@ td {
     }
     
     .presentazione-image {
-        height: 600px;
+        height: 280px;
         width: 100%;
         background-size: contain;
         background-repeat: no-repeat;
@@ -3108,7 +3108,7 @@ td {
     }
     
     .chi-sono-hero-image {
-        height: 600px;
+        height: 350px;
     }
     
     .chi-sono-hero-text {
