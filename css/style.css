@@ -327,20 +327,42 @@ nav a:hover::after {
    PRESENTAZIONE
    ============================================ */
 .presentazione-section {
-    padding: 80px 0 60px;
+    padding: 80px 40px 60px;
 }
 
 .presentazione-container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     text-align: center;
+}
+
+.presentazione-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.presentazione-image {
+    width: 100%;
+    height: 500px;
+    background-image: url('../img/avv.Gigliotti-in-piedi.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: 2px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.1);
+}
+
+.presentazione-text-wrapper {
+    text-align: left;
 }
 
 .presentazione-text {
     font-size: 19px;
     color: #3d3d3d;
     line-height: 1.9;
-    margin-top: 40px;
+    margin: 0;
 }
 
 .presentazione-cta {
@@ -883,7 +905,7 @@ nav a:hover::after {
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     max-width: 1200px;
-    margin: 10px auto 0;
+    margin: 60px auto 0;
 }
 
 .chi-sono-two-columns .chi-sono-text {
