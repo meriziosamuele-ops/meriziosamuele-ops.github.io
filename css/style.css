@@ -465,7 +465,7 @@ nav a:hover::after {
     position: absolute;
     bottom: 30px;
     left: -50px;
-    background: #D4C4B0;
+    background: #C8B8A0;
     border: 2px solid #D4AF37;
     padding: 10px 20px;
     color: #D4AF37;
@@ -478,7 +478,7 @@ nav a:hover::after {
     font-weight: 400;
     line-height: 1;
     margin-bottom: 5px;
-    color: #8B4513;
+    color: #D4AF37;
     font-family: 'Cormorant Garamond', serif;
 
 }
@@ -486,7 +486,7 @@ nav a:hover::after {
 .stats-label {
     font-size: 16px;
     letter-spacing: 1px;
-    color: #3d3d3d;
+    color: #fff;
     font-family: 'Cormorant Garamond', serif;
 }
 
