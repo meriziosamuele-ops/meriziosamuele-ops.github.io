@@ -829,7 +829,7 @@ nav a:hover::after {
 
 .chi-sono-hero-image {
     width: 100%;
-    height: 650px;
+    height: 600px;
     background-image: url('../img/avv.Gigliotti-seduta.jpg');
     background-position: center;
     background-size: cover;
@@ -838,6 +838,7 @@ nav a:hover::after {
     position: sticky;
     top: 120px;
     overflow: hidden;
+    order: 2;
 }
 
 /* Effetto riflesso luminoso al hover */
@@ -858,6 +859,7 @@ nav a:hover::after {
 
 .chi-sono-hero-text {
     padding-top: 20px;
+    order: 1;
 }
 
 .intro-paragraph-large {
