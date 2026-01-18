@@ -345,7 +345,7 @@ nav a:hover::after {
 
 .presentazione-section .section-title {
     font-size: 48px;
-    color: #D4AF37;
+    color: #3A2318;
     margin-bottom: 60px;
     font-weight: 400;
     letter-spacing: 2px;
@@ -362,7 +362,7 @@ nav a:hover::after {
     transform: translateX(-50%);
     width: 120px;
     height: 3px;
-    background: #D4AF37;
+    background: #3A2318;
 }
 
 .presentazione-content {
@@ -384,8 +384,8 @@ nav a:hover::after {
     background-image: url('../img/avv.Gigliotti-in-piedi.jpg');
     background-size: cover;
     background-position: center;
-    box-shadow: 0 30px 80px rgba(0,0,0,.15);
-    border: 8px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 30px 80px rgba(58, 35, 24, .25);
+    border: 8px solid rgba(58, 35, 24, 0.15);
     z-index: 2;
     top: 50px;
     left: 0;
@@ -398,7 +398,7 @@ nav a:hover::after {
     left: -30px;
     right: 30px;
     bottom: 30px;
-    border: 2px solid #D4AF37;
+    border: 2px solid #8B7355;
     z-index: -1;
 }
 
@@ -406,8 +406,8 @@ nav a:hover::after {
     position: absolute;
     width: 300px;
     height: 300px;
-    background: rgba(212, 175, 55, 0.05);
-    border: 2px solid rgba(212, 175, 55, 0.3);
+    background: rgba(139, 115, 85, 0.08);
+    border: 2px solid rgba(139, 115, 85, 0.25);
     bottom: 0;
     right: 0;
     z-index: 1;
@@ -430,8 +430,8 @@ nav a:hover::after {
     display: inline-block;
     padding: 18px 50px;
     background: transparent;
-    border: 2px solid #D4AF37;
-    color: #D4AF37;
+    border: 2px solid #3A2318;
+    color: #3A2318;
     text-decoration: none;
     font-size: 14px;
     letter-spacing: 2px;
@@ -448,7 +448,7 @@ nav a:hover::after {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: #D4AF37;
+    background: #3A2318;
     transition: left 0.4s ease;
     z-index: -1;
 }
@@ -465,11 +465,11 @@ nav a:hover::after {
     position: absolute;
     bottom: 30px;
     left: -50px;
-    background: rgba(212, 175, 55, 0.95);
+    background: #3A2318;
     padding: 30px 40px;
-    color: #2c2416;
+    color: #D4AF37;
     z-index: 3;
-    box-shadow: 0 20px 40px rgba(0,0,0,.2);
+    box-shadow: 0 20px 40px rgba(58, 35, 24, .3);
 }
 
 .stats-number {
@@ -477,12 +477,14 @@ nav a:hover::after {
     font-weight: 700;
     line-height: 1;
     margin-bottom: 5px;
+    color: #D4AF37;
 }
 
 .stats-label {
     font-size: 14px;
     letter-spacing: 1px;
     text-transform: uppercase;
+    color: #f5f5f5;
 }
 
 /* ============================================
