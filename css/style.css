@@ -940,14 +940,14 @@ nav a:hover::after {
 
 .chi-sono-hero-image {
     width: 100%;
-    height: 600px;
+    height: 570px;
     background-image: url('../img/avv.Gigliotti-seduta.jpg');
     background-position: center;
     background-size: cover;
     border-radius: 2px;
     box-shadow: 0 20px 60px rgba(0,0,0,.1);
     top: 120px;
-    margin-top: 20px;
+    margin-top: 30px;
     overflow: hidden;
     order: 2;
 }
@@ -995,7 +995,7 @@ nav a:hover::after {
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     max-width: 1200px;
-    margin: 60px auto 0;
+    margin: 20px auto 0;
 }
 
 .chi-sono-two-columns .chi-sono-text {
