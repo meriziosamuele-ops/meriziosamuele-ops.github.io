@@ -1,17 +1,99 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <!-- ========================================
+   META TAG SEO + OPEN GRAPH + CANONICAL
+   Da inserire nel <head> di contatti.html
+   ======================================== -->
+
+    <!-- META TAG BASE -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Avv. Chiara Gigliotti" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- TITLE E DESCRIPTION -->
     <title>Contatti - Studio Legale Gigliotti Lodi</title>
-    <meta name="description" content="Contatta lo Studio Legale Gigliotti a Lodi. Tel: 0371 940630 - Cell: 339 3177557. Corso Archinti 76, Lodi." />
-    
+    <meta name="description" content="Contatta lo Studio Legale Gigliotti a Lodi. Tel: 0371 940630 - Cell: 339 3177557. Corso Archinti 76, Lodi. Richiedi una consulenza legale." />
+    <meta name="keywords" content="contatti avvocato Lodi, studio legale Lodi contatti, consulenza legale Lodi, appuntamento avvocato" />
+
+    <!-- CANONICAL URL (evita contenuti duplicati) -->
+    <link rel="canonical" href="https://avvocatochiaragigliotti.com/contatti.html" />
+
+    <!-- OPEN GRAPH (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://avvocatochiaragigliotti.com/contatti.html" />
+    <meta property="og:title" content="Contatti - Studio Legale Gigliotti" />
+    <meta property="og:description" content="Richiedi una consulenza legale. Tel: 0371 940630 - Cell: 339 3177557. Corso Archinti 76, Lodi." />
+    <meta property="og:image" content="https://avvocatochiaragigliotti.com/img/avv.Gigliotti-seduta.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:site_name" content="Studio Legale Gigliotti" />
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://avvocatochiaragigliotti.com/contatti.html" />
+    <meta name="twitter:title" content="Contatti - Studio Legale Gigliotti" />
+    <meta name="twitter:description" content="Richiedi una consulenza legale a Lodi. Tel: 0371 940630 - Cell: 339 3177557." />
+    <meta name="twitter:image" content="https://avvocatochiaragigliotti.com/img/avv.Gigliotti-seduta.jpg" />
+
+    <!-- GEO TAG (SEO Locale) -->
+    <meta name="geo.region" content="IT-LO" />
+    <meta name="geo.placename" content="Lodi" />
+    <meta name="geo.position" content="45.3139;9.5031" />
+    <meta name="ICBM" content="45.3139, 9.5031" />
+
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- Schema.org Breadcrumb (MANTIENI QUESTO che hai già) -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://avvocatochiaragigliotti.com/"
+    },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contatti",
+        "item": "https://avvocatochiaragigliotti.com/contatti.html"
+    }]
+    }
+    </script>
+
+    <!-- Schema.org ContactPage (MANTIENI QUESTO che hai già) -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contatti - Studio Legale Gigliotti",
+    "description": "Contatta lo Studio Legale Gigliotti per consulenze legali a Lodi, Milano e Cremona",
+    "url": "https://avvocatochiaragigliotti.com/contatti.html",
+    "mainEntity": {
+        "@type": "Attorney",
+        "name": "Chiara Gigliotti",
+        "telephone": "+39-0371-940630",
+        "email": "studiolegale.gigliotti.lodi@gmail.com",
+        "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Corso Archinti, 76",
+        "addressLocality": "Lodi",
+        "postalCode": "26900",
+        "addressCountry": "IT"
+        }
+    }
+    }
+    </script>
 </head>
 <body>
 

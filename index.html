@@ -1,65 +1,107 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <!-- ========================================
+    META TAG SEO + OPEN GRAPH + CANONICAL
+    Da inserire nel <head> di index.html
+    ======================================== -->
+
+    <!-- META TAG BASE -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Avv. Chiara Gigliotti" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- TITLE E DESCRIPTION -->
     <title>Avvocato Chiara Gigliotti - Studio Legale Lodi, Milano, Cremona</title>
     <meta name="description" content="Studio Legale Avv. Chiara Gigliotti a Lodi. Specializzata in diritto penale, Codice Rosso, diritto di famiglia e tutela vittime di violenza. Oltre 20 anni di esperienza dal 2003." />
-    <meta name="keywords" content="avvocato Lodi, studio legale Lodi, avvocato diritto famiglia Lodi, avvocato penalista Lodi, avvocato civilista Lodi" />
-    <meta name="author" content="Avv. Chiara Gigliotti" />
-    
-    <!-- Favicon -->
+    <meta name="keywords" content="avvocato Lodi, studio legale Lodi, avvocato diritto famiglia Lodi, avvocato penalista Lodi, Codice Rosso, tutela vittime violenza, gratuito patrocinio Lodi" />
+
+    <!-- CANONICAL URL (evita contenuti duplicati) -->
+    <link rel="canonical" href="https://avvocatochiaragigliotti.com/" />
+
+    <!-- OPEN GRAPH (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://avvocatochiaragigliotti.com/" />
+    <meta property="og:title" content="Studio Legale Gigliotti - Avvocato Chiara Gigliotti a Lodi" />
+    <meta property="og:description" content="Assistenza legale qualificata a Lodi, Milano e Cremona. Specializzata in diritto penale, Codice Rosso, diritto di famiglia. Oltre 20 anni di esperienza." />
+    <meta property="og:image" content="https://avvocatochiaragigliotti.com/img/avv.Gigliotti-seduta.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:site_name" content="Studio Legale Gigliotti" />
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://avvocatochiaragigliotti.com/" />
+    <meta name="twitter:title" content="Studio Legale Gigliotti - Avvocato Chiara Gigliotti" />
+    <meta name="twitter:description" content="Assistenza legale specializzata in diritto penale, Codice Rosso e diritto di famiglia a Lodi, Milano e Cremona." />
+    <meta name="twitter:image" content="https://avvocatochiaragigliotti.com/img/avv.Gigliotti-seduta.jpg" />
+
+    <!-- GEO TAG (SEO Locale) -->
+    <meta name="geo.region" content="IT-LO" />
+    <meta name="geo.placename" content="Lodi" />
+    <meta name="geo.position" content="45.3139;9.5031" />
+    <meta name="ICBM" content="45.3139, 9.5031" />
+
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Studio Legale Gigliotti - Avvocato Lodi" />
-    <meta property="og:description" content="Assistenza legale qualificata a Lodi, Milano e Cremona" />
-    <meta property="og:type" content="website" />
     
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "Attorney",
-      "name": "Chiara Gigliotti",
-      "description": "Avvocato specializzato in diritto penale, Codice Rosso, diritto di famiglia e tutela vittime di violenza. Oltre 20 anni di esperienza.",
-      "url": "https://studiolegale-gigliotti.it",
-      "telephone": "+39-0371-940630",
-      "address": {
+    "@context": "https://schema.org",
+    "@type": "Attorney",
+    "name": "Chiara Gigliotti",
+    "alternateName": "Studio Legale Gigliotti",
+    "description": "Avvocato specializzato in diritto penale, Codice Rosso, diritto di famiglia e tutela vittime di violenza. Oltre 20 anni di esperienza dal 2003.",
+    "url": "https://avvocatochiaragigliotti.com",
+    "image": "https://avvocatochiaragigliotti.com/img/avv.Gigliotti-seduta.jpg",
+    "telephone": "+39-0371-940630",
+    "email": "studiolegale.gigliotti.lodi@gmail.com",
+    "foundingDate": "2003",
+    "address": {
         "@type": "PostalAddress",
         "streetAddress": "Corso Archinti, 76",
         "addressLocality": "Lodi",
         "addressRegion": "LO",
         "postalCode": "26900",
         "addressCountry": "IT"
-      },
-      "geo": {
+    },
+    "geo": {
         "@type": "GeoCoordinates",
         "latitude": "45.3139",
         "longitude": "9.5031"
-      },
-      "areaServed": [
+    },
+    "areaServed": [
         {
-          "@type": "City",
-          "name": "Lodi"
+        "@type": "City",
+        "name": "Lodi"
         },
         {
-          "@type": "City",
-          "name": "Milano"
+        "@type": "City",
+        "name": "Milano"
         },
         {
-          "@type": "City",
-          "name": "Cremona"
+        "@type": "City",
+        "name": "Cremona"
         }
-      ],
-      "priceRange": "$$",
-      "openingHours": "Mo-Fr 09:00-18:00",
-      "paymentAccepted": "Cash, Credit Card, Bank Transfer"
+    ],
+    "priceRange": "$$",
+    "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+    "knowsAbout": [
+        "Diritto Penale",
+        "Codice Rosso",
+        "Diritto di Famiglia",
+        "Tutela Vittime di Violenza",
+        "Reati Sostanze Stupefacenti",
+        "Gratuito Patrocinio"
+    ]
     }
     </script>
 </head>
