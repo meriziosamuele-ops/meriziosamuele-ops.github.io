@@ -3069,7 +3069,7 @@ td {
        CHI SONO HERO - Altezza Ridotta
        ============================================ */
     .chi-sono-hero {grid-template-columns: 1fr 1.3fr;gap: 35px;margin: 40px auto;}
-    .chi-sono-hero-image { height: 400px;background-size: cover;background-position: center top;}
+    .chi-sono-hero-image { height: 570px;background-size: cover;background-position: center top;}
     .intro-paragraph-large {font-size: 16px;line-height: 1.6;margin-bottom: 14px;}
 
     .intro-paragraph-medium,
