@@ -772,91 +772,6 @@ const RSS_FEEDS = [
     }
 ];
 
-// CORS proxy per fetchare RSS direttamente
-const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
-
-// Parser RSS/XML con supporto multiplo formato
-function parseRSSFeed(xmlText, feedConfig) {
-    const parser = new DOMParser();
-    const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-    
-    // Controlla errori di parsing
-    if (xmlDoc.querySelector('parsererror')) {
-        throw new Error('Errore parsing XML');
-    }
-    
-    const items = [];
-    
-    // Prova formato RSS 2.0 (item)
-    let itemElements = xmlDoc.querySelectorAll('item');
-    
-    // Se non trova item, prova formato Atom (entry)
-    if (itemElements.length === 0) {
-        itemElements = xmlDoc.querySelectorAll('entry');
-    }
-    
-    itemElements.forEach(item => {
-        // RSS 2.0
-        let title = item.querySelector('title')?.textContent || '';
-        let link = item.querySelector('link')?.textContent || item.querySelector('link')?.getAttribute('href') || '';
-        let description = item.querySelector('description')?.textContent || item.querySelector('content')?.textContent || item.querySelector('summary')?.textContent || '';
-        let pubDate = item.querySelector('pubDate')?.textContent || item.querySelector('published')?.textContent || item.querySelector('updated')?.textContent || '';
-        
-        // Pulisci link da spazi
-        link = link.trim();
-        
-        if (title && link) {
-            items.push({
-                title: title.trim(),
-                link,
-                description: description.trim(),
-                pubDate,
-                categoria: feedConfig.categoria,
-                color: feedConfig.color
-            });
-        }
-    });
-    
-    return items;
-}
-
-// Funzione per caricare un singolo feed con retry
-async function loadSingleFeed(feed, retries = 1) {
-    for (let attempt = 0; attempt <= retries; attempt++) {
-        try {
-            const response = await fetch(CORS_PROXY + encodeURIComponent(feed.url), {
-                signal: AbortSignal.timeout(15000) // timeout 15 secondi
-            });
-            
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}`);
-            }
-            
-            const xmlText = await response.text();
-            const items = parseRSSFeed(xmlText, feed);
-            
-            if (items.length > 0) {
-                console.log(`Caricati ${items.length} articoli da ${feed.categoria}`);
-                return items;
-            } else {
-                throw new Error('Nessun articolo trovato nel feed');
-            }
-            
-        } catch (error) {
-            if (attempt < retries) {
-                // Attendi prima di ritentare (solo se non è l'ultimo tentativo)
-                await new Promise(resolve => setTimeout(resolve, 2000));
-            } else {
-                // Ultimo tentativo fallito - log silenzioso
-                console.log(`${feed.categoria}: feed non disponibile`);
-                return [];
-            }
-        }
-    }
-    
-    return [];
-}
-
 // Funzione per caricare e mostrare le notizie
 async function loadAutomaticNews() {
     const newsGrid = document.querySelector('.notizie-grid');
@@ -874,35 +789,45 @@ async function loadAutomaticNews() {
     `;
     
     try {
-        // Carica tutti i feed in parallelo
-        const feedPromises = RSS_FEEDS.map(feed => loadSingleFeed(feed));
-        const feedResults = await Promise.all(feedPromises);
+        const allNews = [];
         
-        // Combina tutte le notizie
-        const allNews = feedResults.flat();
+        // Carica notizie da tutte le fonti RSS
+        for (const feed of RSS_FEEDS) {
+            try {
+                const response = await fetch(
+                    `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`
+                );
+                const data = await response.json();
+                
+                if (data.status === 'ok' && data.items) {
+                    // Aggiungi categoria e colore a ogni notizia
+                    data.items.forEach(item => {
+                        allNews.push({
+                            ...item,
+                            categoria: feed.categoria,
+                            color: feed.color
+                        });
+                    });
+                }
+            } catch (error) {
+                console.error(`Errore caricamento feed ${feed.url}:`, error);
+            }
+        }
         
-        if (allNews.length === 0) {
+        // Ordina per data (più recenti prima)
+        allNews.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+        
+        // Mostra solo le prime 3 notizie
+        const latestNews = allNews.slice(0, 3);
+        
+        if (latestNews.length === 0) {
             newsGrid.innerHTML = `
                 <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #999;">
                     <p style="font-size: 18px;">Nessuna notizia disponibile al momento.</p>
-                    <p style="font-size: 14px; margin-top: 10px;">I feed RSS potrebbero essere temporaneamente non disponibili.</p>
-                    <button onclick="reloadNews()" style="margin-top: 20px; padding: 10px 20px; background: #8B4513; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                        Riprova
-                    </button>
                 </div>
             `;
             return;
         }
-        
-        // Ordina per data (più recenti prima)
-        allNews.sort((a, b) => {
-            const dateA = new Date(a.pubDate);
-            const dateB = new Date(b.pubDate);
-            return dateB - dateA;
-        });
-        
-        // Mostra solo le prime 3 notizie
-        const latestNews = allNews.slice(0, 3);
         
         // Genera HTML per ogni notizia
         newsGrid.innerHTML = '';
@@ -918,17 +843,11 @@ async function loadAutomaticNews() {
             });
         }, 100);
         
-        console.log(`Caricate ${latestNews.length} notizie da ${allNews.length} totali`);
-        
     } catch (error) {
         console.error('Errore generale caricamento notizie:', error);
         newsGrid.innerHTML = `
             <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #999;">
-                <p style="font-size: 18px;">Errore nel caricamento delle notizie.</p>
-                <p style="font-size: 14px; margin-top: 10px;">Si è verificato un errore tecnico. Riprova tra qualche minuto.</p>
-                <button onclick="reloadNews()" style="margin-top: 20px; padding: 10px 20px; background: #8B4513; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                    Riprova
-                </button>
+                <p style="font-size: 18px;">Errore nel caricamento delle notizie. Riprova più tardi.</p>
             </div>
         `;
     }
@@ -946,7 +865,7 @@ function createNewsCard(item, index) {
     
     // Pulisci descrizione da HTML tags
     const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = item.description || '';
+    tempDiv.innerHTML = item.description || item.content || '';
     let cleanText = tempDiv.textContent || tempDiv.innerText || '';
     
     // Tronca descrizione a 150 caratteri
@@ -1000,7 +919,6 @@ setInterval(loadAutomaticNews, 300000);
 
 // Funzione pubblica per ricaricare manualmente le notizie
 function reloadNews() {
-    console.log('Ricaricamento notizie...');
     loadAutomaticNews();
 }
 
