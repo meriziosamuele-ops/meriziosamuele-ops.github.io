@@ -772,6 +772,74 @@ const RSS_FEEDS = [
     }
 ];
 
+// CORS proxy per fetchare RSS direttamente
+const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
+
+// Parser RSS/XML
+function parseRSSFeed(xmlText, feedConfig) {
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+    
+    // Controlla errori di parsing
+    if (xmlDoc.querySelector('parsererror')) {
+        throw new Error('Errore parsing XML');
+    }
+    
+    const items = [];
+    const itemElements = xmlDoc.querySelectorAll('item');
+    
+    itemElements.forEach(item => {
+        const title = item.querySelector('title')?.textContent || '';
+        const link = item.querySelector('link')?.textContent || '';
+        const description = item.querySelector('description')?.textContent || '';
+        const pubDate = item.querySelector('pubDate')?.textContent || '';
+        
+        if (title && link) {
+            items.push({
+                title,
+                link,
+                description,
+                pubDate,
+                categoria: feedConfig.categoria,
+                color: feedConfig.color
+            });
+        }
+    });
+    
+    return items;
+}
+
+// Funzione per caricare un singolo feed con retry
+async function loadSingleFeed(feed, retries = 2) {
+    for (let attempt = 0; attempt <= retries; attempt++) {
+        try {
+            const response = await fetch(CORS_PROXY + encodeURIComponent(feed.url), {
+                signal: AbortSignal.timeout(10000) // timeout 10 secondi
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            
+            const xmlText = await response.text();
+            return parseRSSFeed(xmlText, feed);
+            
+        } catch (error) {
+            console.warn(`Tentativo ${attempt + 1} fallito per ${feed.url}:`, error.message);
+            
+            if (attempt === retries) {
+                console.error(`Feed ${feed.url} non disponibile dopo ${retries + 1} tentativi`);
+                return [];
+            }
+            
+            // Attendi prima di ritentare
+            await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+        }
+    }
+    
+    return [];
+}
+
 // Funzione per caricare e mostrare le notizie
 async function loadAutomaticNews() {
     const newsGrid = document.querySelector('.notizie-grid');
@@ -784,50 +852,40 @@ async function loadAutomaticNews() {
     // Mostra loading
     newsGrid.innerHTML = `
         <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #999;">
-            <p style="font-size: 18px;">Caricamento notizie in corso...</p>
+            <p style="font-size: 18px;">📰 Caricamento notizie in corso...</p>
         </div>
     `;
     
     try {
-        const allNews = [];
+        // Carica tutti i feed in parallelo
+        const feedPromises = RSS_FEEDS.map(feed => loadSingleFeed(feed));
+        const feedResults = await Promise.all(feedPromises);
         
-        // Carica notizie da tutte le fonti RSS
-        for (const feed of RSS_FEEDS) {
-            try {
-                const response = await fetch(
-                    `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`
-                );
-                const data = await response.json();
-                
-                if (data.status === 'ok' && data.items) {
-                    // Aggiungi categoria e colore a ogni notizia
-                    data.items.forEach(item => {
-                        allNews.push({
-                            ...item,
-                            categoria: feed.categoria,
-                            color: feed.color
-                        });
-                    });
-                }
-            } catch (error) {
-                console.error(`Errore caricamento feed ${feed.url}:`, error);
-            }
-        }
+        // Combina tutte le notizie
+        const allNews = feedResults.flat();
         
-        // Ordina per data (più recenti prima)
-        allNews.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-        
-        // Mostra solo le prime 3 notizie
-        const latestNews = allNews.slice(0, 3);
-        
-        if (latestNews.length === 0) {
+        if (allNews.length === 0) {
             newsGrid.innerHTML = `
                 <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #999;">
-                    <p style="font-size: 18px;">Nessuna notizia disponibile al momento.</p>
+                    <p style="font-size: 18px;">⚠️ Nessuna notizia disponibile al momento.</p>
+                    <p style="font-size: 14px; margin-top: 10px;">I feed RSS potrebbero essere temporaneamente non disponibili.</p>
+                    <button onclick="reloadNews()" style="margin-top: 20px; padding: 10px 20px; background: #8B4513; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        🔄 Riprova
+                    </button>
                 </div>
             `;
             return;
         }
+        
+        // Ordina per data (più recenti prima)
+        allNews.sort((a, b) => {
+            const dateA = new Date(a.pubDate);
+            const dateB = new Date(b.pubDate);
+            return dateB - dateA;
+        });
+        
+        // Mostra solo le prime 3 notizie
+        const latestNews = allNews.slice(0, 3);
         
         // Genera HTML per ogni notizia
         newsGrid.innerHTML = '';
@@ -843,11 +901,17 @@ async function loadAutomaticNews() {
             });
         }, 100);
         
+        console.log(`✅ Caricate ${latestNews.length} notizie da ${allNews.length} totali`);
+        
     } catch (error) {
         console.error('Errore generale caricamento notizie:', error);
         newsGrid.innerHTML = `
             <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #999;">
-                <p style="font-size: 18px;">Errore nel caricamento delle notizie. Riprova più tardi.</p>
+                <p style="font-size: 18px;">❌ Errore nel caricamento delle notizie.</p>
+                <p style="font-size: 14px; margin-top: 10px;">Si è verificato un errore tecnico. Riprova tra qualche minuto.</p>
+                <button onclick="reloadNews()" style="margin-top: 20px; padding: 10px 20px; background: #8B4513; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                    🔄 Riprova
+                </button>
             </div>
         `;
     }
@@ -865,7 +929,7 @@ function createNewsCard(item, index) {
     
     // Pulisci descrizione da HTML tags
     const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = item.description || item.content || '';
+    tempDiv.innerHTML = item.description || '';
     let cleanText = tempDiv.textContent || tempDiv.innerText || '';
     
     // Tronca descrizione a 150 caratteri
@@ -919,6 +983,7 @@ setInterval(loadAutomaticNews, 300000);
 
 // Funzione pubblica per ricaricare manualmente le notizie
 function reloadNews() {
+    console.log('🔄 Ricaricamento notizie...');
     loadAutomaticNews();
 }
 
