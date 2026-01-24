@@ -2750,12 +2750,33 @@ td {
     .form-group.error textarea { margin-top: 28px; }
     .field-error-message { font-size: 12px; padding: 6px 10px; top: 26px !important; }
     
-    /* Mappa Google - Placeholder con fix cliccabilità iPhone */
+    /* Mappa + QR Code - Layout riordinato per mobile */
+    .mappa-qr-wrapper { 
+        grid-template-columns: 1fr; 
+        gap: 1.5rem; 
+        margin: 20px 0 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* QR Code - appare per primo */
+    .qr-code-container { 
+        padding: 1.2rem; 
+        order: 1;
+    }
+    .qr-code-content h3 { font-size: 1rem; }
+    .qr-code-content p { font-size: 0.8rem; }
+    .qr-code-image { width: 160px; height: 160px; }
+    
+    /* Mappa - appare per seconda, sotto il QR code */
     .contatti-mappa-container { 
         min-height: 300px; 
         position: relative;
         isolation: isolate;
+        order: 2;
     }
+    
+    /* Map Placeholder - Fix completo per iPhone */
     .map-placeholder { 
         padding: 30px 15px; 
         z-index: 1000 !important;
@@ -2805,12 +2826,6 @@ td {
         display: block;
         cursor: pointer;
     }
-    
-    /* QR Code */
-    .qr-code-container { padding: 1.2rem; }
-    .qr-code-content h3 { font-size: 1rem; }
-    .qr-code-content p { font-size: 0.8rem; }
-    .qr-code-image { width: 160px; height: 160px; }
     
     /* Modal e Footer */
     .modal-content { padding: 28px 18px; width: 95%; }
