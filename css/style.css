@@ -2777,6 +2777,7 @@ td {
     
     /* Quando la mappa è caricata */
     .contatti-mappa-container.map-loaded {
+        min-height: 350px;
         height: 350px;
         overflow: hidden;
     }
