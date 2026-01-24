@@ -2770,18 +2770,23 @@ td {
     
     /* Mappa - appare per seconda, sotto il QR code */
     .contatti-mappa-container { 
-        min-height: 300px; 
+        min-height: 500px; 
         position: relative;
         isolation: isolate;
         order: 2;
+        overflow: visible;
     }
     
     /* Map Placeholder - Fix completo per iPhone */
     .map-placeholder { 
-        padding: 30px 15px; 
+        padding: 40px 15px 50px; 
         z-index: 1000 !important;
         position: absolute !important;
         pointer-events: auto !important;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .map-placeholder::before {
         pointer-events: none !important;
