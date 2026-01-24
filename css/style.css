@@ -2772,19 +2772,16 @@ td {
     .contatti-mappa-container { 
         min-height: 500px; 
         position: relative;
-        isolation: isolate;
         order: 2;
-        overflow: visible;
     }
     
-    /* Quando la mappa è caricata, riduci l'altezza */
+    /* Quando la mappa è caricata */
     .contatti-mappa-container.map-loaded {
-        min-height: 350px;
         height: 350px;
         overflow: hidden;
     }
     
-    /* Iframe mappa - riempie completamente il container */
+    /* Iframe mappa - riempie il container */
     .contatti-mappa-container.map-loaded iframe {
         width: 100% !important;
         height: 100% !important;
@@ -2793,43 +2790,31 @@ td {
         left: 0;
     }
     
-    /* Map Placeholder - Fix completo per iPhone */
+    /* Map Placeholder */
     .map-placeholder { 
         padding: 40px 15px 50px; 
-        z-index: 1000 !important;
-        position: absolute !important;
-        pointer-events: auto !important;
         min-height: 500px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
     .map-placeholder::before {
-        pointer-events: none !important;
+        pointer-events: none;
     }
     .map-placeholder-content {
         position: relative;
-        z-index: 1001;
-        pointer-events: auto;
     }
-    .map-placeholder h3 { 
-        font-size: 26px; 
-        pointer-events: none;
-    }
-    .map-placeholder p { 
-        font-size: 15px; 
-        pointer-events: none;
-    }
+    .map-placeholder h3, 
+    .map-placeholder p,
     .map-placeholder svg {
         pointer-events: none;
     }
+    .map-placeholder h3 { font-size: 26px; }
+    .map-placeholder p { font-size: 15px; }
     .map-placeholder-buttons { 
         flex-direction: column; 
         gap: 12px; 
         margin-top: 25px;
-        pointer-events: auto;
-        position: relative;
-        z-index: 1002;
     }
     .btn-view-map,
     .btn-enable-map { 
@@ -2837,14 +2822,8 @@ td {
         font-size: 13px; 
         width: 100%; 
         max-width: 280px;
-        position: relative;
-        z-index: 1003 !important;
         touch-action: manipulation;
-        pointer-events: auto !important;
         -webkit-tap-highlight-color: rgba(0,0,0,0.1);
-        user-select: none;
-        -webkit-user-select: none;
-        display: block;
         cursor: pointer;
     }
     
