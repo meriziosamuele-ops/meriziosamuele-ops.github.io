@@ -2779,8 +2779,18 @@ td {
     
     /* Quando la mappa è caricata, riduci l'altezza */
     .contatti-mappa-container.map-loaded {
-        min-height: 300px;
+        min-height: 350px;
+        height: 350px;
         overflow: hidden;
+    }
+    
+    /* Iframe mappa - riempie completamente il container */
+    .contatti-mappa-container.map-loaded iframe {
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
     
     /* Map Placeholder - Fix completo per iPhone */
