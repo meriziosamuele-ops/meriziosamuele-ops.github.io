@@ -2689,16 +2689,21 @@ td {
 }
 
 @media (max-width: 480px) {
+    /* Header e Navigazione */
     .logo { font-size: 22px; }
     nav a { font-size: 11px; padding: 4px 7px; }
+    
+    /* Hero Section */
     .hero { height: 55vh; min-height: 380px; }
     .hero h1 { font-size: 32px; }
     .hero-subtitle { font-size: 15px; }
+    
+    /* Bottoni e Titoli Globali */
     .cta-button { padding: 12px 26px; font-size: 13px; }
     .section-title { font-size: 30px; }
     .content { padding: 45px 15px; }
     
-    /* Presentazione 480px */
+    /* Presentazione Section */
     .presentazione-section { padding: 40px 0; }
     .presentazione-section .section-title { font-size: 30px; margin-bottom: 35px; }
     .presentazione-content { gap: 35px; }
@@ -2711,7 +2716,7 @@ td {
     .presentazione-text { font-size: 16px; line-height: 1.7; }
     .presentazione-cta { padding: 13px 35px; font-size: 12px; margin-top: 30px; }
     
-    /* Chi Sono Hero 480px */
+    /* Chi Sono Hero */
     .chi-sono-hero { gap: 35px; margin: 35px auto; }
     .chi-sono-hero-image { height: 420px; }
     .intro-paragraph-large { font-size: 16px; margin-bottom: 16px; }
@@ -2722,34 +2727,66 @@ td {
     .chi-sono-cta-section { margin-top: 50px; padding: 50px 15px; }
     .chi-sono-cta-text { font-size: 16px; margin-bottom: 25px; }
     
-    /* Valori e Qualifiche 480px */
+    /* Valori e Qualifiche */
     .valori-container, .qualifiche-container { margin: 35px auto; }
     .valori-card, .qualifiche-card { margin-bottom: 18px; padding: 18px 15px; }
     
-    /* Altre sezioni */
+    /* Chi Sono - Immagini */
     .chi-sono-image, .chi-sono-image-2 { height: 380px; }
-    .servizio-card, .testimonial-card { padding: 20px 15px; min-height: 140px; }
-    .testimonial-card { min-height: 220px; }
+    
+    /* Servizi e Testimonianze */
+    .servizio-card { padding: 20px 15px; min-height: 140px; }
+    .testimonial-card { padding: 20px 15px; min-height: 220px; }
+    
+    /* Notizie */
     .notizia-card { padding: 20px 15px; }
     .notizia-titolo { font-size: 18px; }
     .notizia-excerpt { font-size: 14px; }
+    
+    /* Contatti - Form e Info */
     .form-container, .info-rapida { padding: 22px 15px; }
-    .modal-content { padding: 28px 18px; width: 95%; }
-    .footer-logo { font-size: 28px; }
-    .form-group.error input, .form-group.error select, .form-group.error textarea { margin-top: 28px; }
+    .form-group.error input, 
+    .form-group.error select, 
+    .form-group.error textarea { margin-top: 28px; }
     .field-error-message { font-size: 12px; padding: 6px 10px; top: 26px !important; }
     
-    /* Mappa + QR Code */
-    .contatti-mappa-container {min-height: 300px;}
-    .qr-code-container {padding: 1.2rem;}
-    .qr-code-content h3 {font-size: 1rem;}
-    .qr-code-content p { font-size: 0.8rem;}
-    .qr-code-image {width: 160px;height: 160px;}
-    .map-placeholder h3 {font-size: 26px;}
-    .map-placeholder p {font-size: 15px;}
-    .map-placeholder-buttons {flex-direction: column;gap: 12px;}
+    /* Mappa Google - Placeholder con fix cliccabilità */
+    .contatti-mappa-container { min-height: 300px; }
+    .map-placeholder { 
+        padding: 30px 15px; 
+        z-index: 100;
+    }
+    .map-placeholder-content {
+        position: relative;
+        z-index: 101;
+    }
+    .map-placeholder h3 { font-size: 26px; }
+    .map-placeholder p { font-size: 15px; }
+    .map-placeholder-buttons { 
+        flex-direction: column; 
+        gap: 12px; 
+        margin-top: 25px;
+    }
     .btn-view-map,
-    .btn-enable-map {padding: 12px 28px;font-size: 13px;width: 100%;}
+    .btn-enable-map { 
+        padding: 14px 28px; 
+        font-size: 13px; 
+        width: 100%; 
+        max-width: 280px;
+        position: relative;
+        z-index: 102;
+        touch-action: manipulation;
+    }
+    
+    /* QR Code */
+    .qr-code-container { padding: 1.2rem; }
+    .qr-code-content h3 { font-size: 1rem; }
+    .qr-code-content p { font-size: 0.8rem; }
+    .qr-code-image { width: 160px; height: 160px; }
+    
+    /* Modal e Footer */
+    .modal-content { padding: 28px 18px; width: 95%; }
+    .footer-logo { font-size: 28px; }
 }
 
 @media (max-width: 360px) {
