@@ -2777,6 +2777,12 @@ td {
         overflow: visible;
     }
     
+    /* Quando la mappa è caricata, riduci l'altezza */
+    .contatti-mappa-container.map-loaded {
+        min-height: 300px;
+        overflow: hidden;
+    }
+    
     /* Map Placeholder - Fix completo per iPhone */
     .map-placeholder { 
         padding: 40px 15px 50px; 
