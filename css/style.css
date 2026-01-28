@@ -2966,12 +2966,20 @@ footer {
 }
 
 @media (max-width: 968px) {
-    /* Show hamburger on mobile */
+    /* ===== MOSTRA HAMBURGER SU MOBILE ===== */
     .mobile-menu-toggle {
-        display: flex;
+        display: flex !important; /* Forza visualizzazione */
     }
     
-    /* Mobile menu styles */
+    /* ===== ASSICURA LAYOUT FLEX ===== */
+    nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+    
+    /* ===== MENU MOBILE NASCOSTO DI DEFAULT ===== */
     nav ul {
         position: fixed;
         top: 70px;
@@ -2990,13 +2998,14 @@ footer {
         border-bottom: 2px solid var(--border);
     }
     
-    /* Active state */
+    /* ===== MENU APERTO ===== */
     nav ul.active {
         max-height: 600px;
         opacity: 1;
         padding: 20px 0;
     }
     
+    /* ===== STILE ELEMENTI MENU ===== */
     nav ul li {
         border-bottom: 1px solid var(--border);
         margin: 0 24px;
@@ -3010,7 +3019,7 @@ footer {
         transform: translateY(0);
     }
     
-    /* Stagger animation for menu items */
+    /* ===== ANIMAZIONE STAGGER ===== */
     nav ul.active li:nth-child(1) { transition-delay: 0.05s; }
     nav ul.active li:nth-child(2) { transition-delay: 0.1s; }
     nav ul.active li:nth-child(3) { transition-delay: 0.15s; }
@@ -3021,6 +3030,7 @@ footer {
         border-bottom: none;
     }
     
+    /* ===== STILE LINK ===== */
     nav a:not(.btn-nav) {
         display: block;
         padding: 16px 0;
@@ -3036,6 +3046,7 @@ footer {
         color: var(--accent);
     }
     
+    /* ===== BOTTONE CTA ===== */
     .btn-nav {
         margin: 16px 0 8px;
         display: block;
