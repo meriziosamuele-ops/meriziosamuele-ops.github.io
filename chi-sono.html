@@ -1,359 +1,440 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <!-- ========================================
-   META TAG SEO + OPEN GRAPH + CANONICAL
-   Da inserire nel <head> di chi-sono.html
-   ======================================== -->
-
-    <!-- META TAG BASE -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Avv. Chiara Gigliotti" />
-    <meta name="robots" content="index, follow" />
-
-    <!-- TITLE E DESCRIPTION -->
-    <title>Chi Sono - Avvocato Chiara Gigliotti - Studio Legale Lodi</title>
-    <meta name="description" content="Avv. Chiara Gigliotti, oltre 20 anni di esperienza dal 2003 in diritto penale, Codice Rosso, diritto di famiglia e tutela vittime di violenza a Lodi, Milano e Cremona." />
-    <meta name="keywords" content="avvocato Lodi, Chiara Gigliotti, diritto penale Lodi, Codice Rosso, diritto famiglia Lodi, esperienza avvocato" />
-
-    <!-- CANONICAL URL (evita contenuti duplicati) -->
-    <link rel="canonical" href="https://avvocatochiaragigliotti.com/chi-sono.html" />
-
-    <!-- OPEN GRAPH (Facebook, LinkedIn, WhatsApp) -->
-    <meta property="og:type" content="profile" />
-    <meta property="og:url" content="https://avvocatochiaragigliotti.com/chi-sono.html" />
-    <meta property="og:title" content="Chi Sono - Avvocato Chiara Gigliotti" />
-    <meta property="og:description" content="Oltre 20 anni di esperienza al servizio della giustizia. Specializzata in diritto penale, Codice Rosso e tutela vittime di violenza." />
-    <meta property="og:image" content="https://avvocatochiaragigliotti.com/img/avv.Gigliotti-seduta.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="it_IT" />
-    <meta property="og:site_name" content="Studio Legale Gigliotti" />
-
-    <!-- TWITTER CARD -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://avvocatochiaragigliotti.com/chi-sono.html" />
-    <meta name="twitter:title" content="Chi Sono - Avvocato Chiara Gigliotti" />
-    <meta name="twitter:description" content="Oltre 20 anni di esperienza in diritto penale, Codice Rosso e diritto di famiglia a Lodi, Milano e Cremona." />
-    <meta name="twitter:image" content="https://avvocatochiaragigliotti.com/img/avv.Gigliotti-seduta.jpg" />
-
-    <!-- GEO TAG (SEO Locale) -->
-    <meta name="geo.region" content="IT-LO" />
-    <meta name="geo.placename" content="Lodi" />
-    <meta name="geo.position" content="45.3139;9.5031" />
-    <meta name="ICBM" content="45.3139, 9.5031" />
-
-    <!-- FAVICON -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Sono | Samuele Merizio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-
-    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Schema.org Breadcrumb (MANTIENI QUESTO che hai già) -->
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://avvocatochiaragigliotti.com/"
-    },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Chi Sono",
-        "item": "https://avvocatochiaragigliotti.com/chi-sono.html"
-    }]
-    }
-    </script>
 </head>
 <body>
 
-<header>
-    <div class="header-content">
-        <a href="index.html" class="logo">Avv. Chiara Gigliotti</a>
-        
-        <!-- HAMBURGER BUTTON (visibile solo mobile) -->
-        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        
-        <!-- NAVIGATION -->
-        <nav>
-            <a href="index.html">HOME</a>
-            <a href="chi-sono.html">CHI SONO</a>
-            <a href="servizi.html">SERVIZI</a>
-            <a href="contatti.html">CONTATTI</a>
-        </nav>
-    </div>
-</header>
-
-<section class="hero">
-    <div class="hero-content">
-        <h1 class="fade-in">Chi Sono</h1>
-        <p class="hero-subtitle fade-in">Oltre vent'anni di esperienza al servizio della giustizia</p>
-    </div>
-</section>
-
-<div class="content">
-    <!-- BIOGRAFIA PRINCIPALE -->
-    <section id="biografia">
-        <h2 class="section-title">Il Mio Percorso Professionale</h2>
-        
-        <!-- FOTO E INTRO AFFIANCATE -->
-        <div class="chi-sono-hero">
-            <div class="chi-sono-hero-image slide-in-left"></div>
-            <div class="chi-sono-hero-text fade-in">
-                <p class="intro-paragraph-large">L'Avvocato Chiara Gigliotti, nata a Frosinone il 14 febbraio 1971, offre dal 2003 assistenza legale qualificata a privati e imprese in tutta Italia, con oltre vent'anni di esperienza professionale maturata principalmente presso i Tribunali di Lodi, Milano e Cremona.</p>                
-                <p class="intro-paragraph-medium">La formazione giuridica affonda le radici negli studi conseguiti presso l'<strong>Università degli Studi di Pavia</strong>, prestigioso ateneo che ha forgiato la metodologia di approccio alle questioni legali più complesse.</p><br>
-                <p class="column-paragraph">L'esperienza ventennale nel foro lodigiano mi ha permesso di sviluppare una competenza specialistica in ambiti particolarmente delicati del diritto penale e civile.</p>
-                <p class="column-paragraph">Il mio studio si distingue per la specializzazione in diritto penale, con particolare focus sui reati del Codice Rosso (Legge 69/2019), diritto di famiglia e tutela delle vittime di violenza. Assisto sia vittime che imputati nei procedimenti relativi ai reati contro la persona, con particolare sensibilità nella gestione del rapporto con le vittime e una conoscenza tecnica approfondita degli aspetti procedurali.</p>
-            </div>
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">S.Merizio<span>.</span></a>
+            <ul>
+                <li><a href="metodo.html">Metodo</a></li>
+                <li><a href="servizi.html">Servizi</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="chi-sono.html">Chi Sono</a></li>
+                <li><a href="contatti.html" class="btn-nav">Contattami</a></li>
+            </ul>
         </div>
-        
-        <!-- TESTO SU DUE COLONNE -->
-        <div class="chi-sono-two-columns">
-            <div class="chi-sono-text fade-in">       
-                <p class="column-paragraph">Dal 2020 collaboro attivamente con l'Associazione Donne Contro la Violenza di Crema, centro antiviolenza di riferimento territoriale. Questa partnership rappresenta non solo un impegno professionale, ma una <strong>missione sociale</strong> che mi vede in prima linea nella lotta contro ogni forma di violenza di genere.</p>     
-                <p class="column-paragraph">Sono iscritta all'Albo degli Avvocati di Lodi e nelle liste dei difensori ammessi al patrocinio a spese dello Stato, strumento indispensabile per assicurare che il diritto ad una difesa qualificata non dipenda dalle condizioni economiche del cliente.</p>
-            </div>
-            
-            <div class="chi-sono-text fade-in">
-                <p class="column-paragraph">L'accessibilità del servizio legale è per me un valore fondamentale: l'eccellenza della difesa tecnica deve dipendere esclusivamente dalla <strong>competenza</strong> e dalla <strong>dedizione professionale</strong>, valori che contraddistinguono il mio Studio.</p>
-                <p class="column-paragraph">Nel 2025 ho intrapreso un percorso di formazione specialistica attraverso un corso professionalizzante contro la violenza sulle donne, consolidando ulteriormente le competenze già maturate in questo delicato settore e aggiornando le mie conoscenze alle più recenti metodologie di approccio multidisciplinare alla violenza di genere.</p>
+    </nav>
 
+    <section class="page-hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-user"></i>
+                    <span>La Mia Storia</span>
+                </div>
+                <h1>Ciao, Sono Samuele</h1>
+                <p class="hero-subtitle">
+                    Studente di Ingegneria Informatica con la passione per creare siti web 
+                    che uniscono codice solido e design curato.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- AREE DI SPECIALIZZAZIONE -->
-        <section id="specializzazioni" class="section-spacing-100">
-        <h2 class="section-title">Aree di Specializzazione</h2>
-        
-        <div class="servizi-grid servizi-grid-spacing">
-            <div class="servizio-card scale-in delay-01">
-                <h3>Diritto Penale e Codice Rosso</h3>
-                <p>Difesa specializzata nelle fattispecie previste dalla Legge 69/2019: maltrattamenti in famiglia, stalking e violenza di genere. Tutela delle vittime in ogni fase processuale con particolare attenzione alla tempestività degli interventi.</p>
-            </div>
-            
-            <div class="servizio-card scale-in delay-02">
-                <h3>Diritto di Famiglia</h3>
-                <p>Consulenza strategica in separazioni, divorzi e affidamento minori. Approccio equilibrato che privilegia soluzioni consensuali quando possibile, con determinazione nella tutela giudiziale quando necessario.</p>
-            </div>
-            
-            <div class="servizio-card scale-in delay-03">
-                <h3>Reati in Materia di Stupefacenti</h3>
-                <p>Assistenza tecnica nei procedimenti per detenzione e spaccio di sostanze stupefacenti. Valutazione accurata delle circostanze attenuanti e percorsi di applicazione delle misure alternative.</p>
-            </div>
-            
-            <div class="servizio-card scale-in delay-04">
-                <h3>Patrocinio a Spese dello Stato</h3>
-                <p>Difensore iscritto negli elenchi del gratuito patrocinio. Assistenza legale di eccellenza accessibile a chi possiede i requisiti reddituali, perché il diritto alla difesa non deve conoscere barriere economiche.</p>
-            </div>
-            
-            <div class="servizio-card scale-in delay-05">
-                <h3>Rete Antiviolenza Territoriale</h3>
-                <p>Collaborazione consolidata dal 2020 con l'Associazione Donne Contro la Violenza di Crema. Punto di riferimento legale all'interno della rete di protezione per le vittime di violenza domestica e di genere.</p>
-            </div>
-            
-            <div class="servizio-card scale-in delay-06">
-                <h3>Aggiornamento Professionale</h3>
-                <p>Formazione continua su tematiche di diritto penale e violenza di genere. Partecipazione a percorsi multidisciplinari per garantire un approccio sempre aggiornato e completo alla tutela dei diritti dei clienti.</p>
+    <section class="about-story">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-user-circle"></i>
+                        <p>La tua foto professionale qui</p>
+                    </div>
+                    <div class="story-badge">
+                        <i class="fas fa-code"></i>
+                        <div>
+                            <strong>Ingegneria Informatica</strong>
+                            <span>Università degli Studi di Bergamo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-content">
+                    <h2>Da Studente a Professionista del Web</h2>
+                    <p>
+                        Sto completando la <strong>Laurea Triennale in Ingegneria Informatica</strong> 
+                        all'Università degli Studi di Bergamo. Durante gli studi ho capito che il codice 
+                        non è solo funzionalità, ma architettura, scalabilità e attenzione ai dettagli.
+                    </p>
+                    <p>
+                        Ma l'ingegneria da sola non basta. Un sito tecnicamente perfetto che nessuno 
+                        vuole usare è un fallimento. Per questo ho sviluppato una <strong>passione parallela 
+                        per il design e la user experience</strong>, studiando come le persone interagiscono 
+                        con i prodotti digitali.
+                    </p>
+                    <p>
+                        Il risultato? Siti web che sono belli da vedere, piacevoli da usare e costruiti 
+                        su fondamenta tecniche solide. Il meglio di entrambi i mondi.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- VALORI PROFESSIONALI -->
-    <section id="valori" class="section-spacing-100">
-        <h2 class="section-title">Approccio Professionale</h2>
-        
-        <div class="valori-container">
-            <div class="servizio-card fade-in valori-card">
-                <h3>Competenza Tecnica</h3>
-                <p>Formazione giuridica conseguita presso l'Università degli Studi di Pavia e aggiornamento continuo sulle novità normative e giurisprudenziali, per garantire un'assistenza sempre all'avanguardia nelle questioni legali più complesse.</p>
+    <section class="about-difference">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Cosa Mi Distingue</span>
+                <h2>Perché Sono Diverso</h2>
+                <p>Non sono il classico freelancer. Ecco cosa mi rende unico.</p>
             </div>
-            
-            <div class="servizio-card fade-in valori-card">
-                <h3>Aggiornamento Costante</h3>
-                <p>Partecipazione attiva a corsi di specializzazione e formazione professionale, incluso il percorso 2025 contro la violenza sulle donne, per mantenere le competenze tecniche sempre aggiornate alle evoluzioni legislative.</p>
-            </div>
-            
-            <div class="servizio-card fade-in valori-card">
-                <h3>Attenzione alla Persona</h3>
-                <p>Ogni caso viene affrontato con dedizione, studiando strategie difensive personalizzate e mantenendo sempre un dialogo aperto e trasparente. La riservatezza e la professionalità costituiscono i cardini del mio operato.</p>
-            </div>
-            
-            <div class="servizio-card fade-in valori-card">
-                <h3>Accessibilità del Servizio</h3>
-                <p>Iscrizione nelle liste del Gratuito Patrocinio a spese dello Stato per garantire assistenza legale di eccellenza indipendentemente dalle possibilità economiche.</p>
+
+            <div class="difference-grid">
+                <div class="difference-card">
+                    <div class="difference-number">01</div>
+                    <div class="difference-content">
+                        <div class="difference-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Background Ingegneristico</h3>
+                        <p>
+                            Non sono un designer che ha imparato a programmare o uno sviluppatore 
+                            che usa template. Sono un <strong>ingegnere informatico che ha studiato design</strong>. 
+                            Il risultato? Siti tecnicamente solidi E visivamente impeccabili.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="difference-card">
+                    <div class="difference-number">02</div>
+                    <div class="difference-content">
+                        <div class="difference-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Onestà Radicale</h3>
+                        <p>
+                            Ti dirò se un WordPress economico è sufficiente per te, anche se potrei 
+                            guadagnarci di più sviluppando custom. Ti dirò se quella funzionalità 
+                            è inutile. <strong>La fiducia vale più di un progetto in più</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="difference-card">
+                    <div class="difference-number">03</div>
+                    <div class="difference-content">
+                        <div class="difference-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Velocità di Consegna</h3>
+                        <p>
+                            <strong>2-3 settimane per un sito completo</strong>. Non mesi. 
+                            Lavoro su pochi progetti alla volta per garantire attenzione totale 
+                            e rispetto delle scadenze. Tutti i miei progetti sono stati consegnati in tempo.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- QUALIFICHE E RICONOSCIMENTI -->
-    <section id="qualifiche" class="section-spacing-100">
-        <h2 class="section-title">Qualifiche e Riconoscimenti</h2>
-        
-        <div class="qualifiche-container">
-            <div class="servizio-card fade-in qualifiche-card">
-                <h3>Iscrizione Ordine degli Avvocati</h3>
-                <p>Iscritta all'Ordine degli Avvocati di Lodi dal 2003, con oltre vent'anni di pratica forense continuativa presso i Tribunali di Lodi, Milano e Cremona.</p>
+    <section class="about-skills-honest">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Competenze</span>
+                <h2>Cosa So Fare Davvero</h2>
+                <p>Nessuna percentuale finta. Solo le tecnologie che uso realmente nei miei progetti.</p>
             </div>
-            
-            <div class="servizio-card fade-in qualifiche-card">
-                <h3>Formazione Accademica</h3>
-                <p>Laurea in Giurisprudenza conseguita presso l'Università degli Studi di Pavia, ateneo che mi ha fornito una solida formazione metodologica per affrontare con rigore le questioni legali più complesse.</p>            </div>
-            
-            <div class="servizio-card fade-in qualifiche-card">
-                <h3>Formazione Specializzata</h3>
-                <p>Corso professionalizzante contro la violenza sulle donne (2025) e aggiornamento continuo in materia di Codice Rosso e tutela delle vittime, con approccio multidisciplinare alla violenza di genere.</p>
+
+            <div class="skills-honest-grid">
+                <div class="skill-honest-card">
+                    <div class="skill-honest-header">
+                        <i class="fas fa-palette"></i>
+                        <h3>Design & Prototipazione</h3>
+                    </div>
+                    <ul class="skill-honest-list">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>Figma</strong> per mockup e prototipi interattivi</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>Principi UI/UX</strong> applicati ad ogni progetto</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>Design responsive</strong> mobile-first</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>Color theory & tipografia</strong> per brand identity</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-honest-card">
+                    <div class="skill-honest-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Sviluppo Frontend</h3>
+                    </div>
+                    <ul class="skill-honest-list">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>HTML5 & CSS3</strong> moderno e semantico</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>JavaScript</strong> per interazioni e animazioni</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>React</strong> quando la complessità lo richiede</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>Tailwind CSS</strong> per styling rapido</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-honest-card">
+                    <div class="skill-honest-header">
+                        <i class="fas fa-server"></i>
+                        <h3>Backend & Database</h3>
+                    </div>
+                    <ul class="skill-honest-list">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>Node.js</strong> per API e server-side logic</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>PHP</strong> per form contatti e CMS custom</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>MySQL/PostgreSQL</strong> per database relazionali</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>REST API</strong> design e integrazione</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-honest-card">
+                    <div class="skill-honest-header">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Performance & SEO</h3>
+                    </div>
+                    <ul class="skill-honest-list">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>SEO tecnico</strong> completo (meta, schema, sitemap)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>Lighthouse 90+</strong> su tutti i progetti</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>Google Analytics</strong> setup e tracking</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span><strong>Ottimizzazione immagini</strong> e lazy loading</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA FINALE -->
-    <section class="chi-sono-cta-section">
-        <h2 class="section-title">Hai Bisogno di Assistenza Legale?</h2>
-        <p class="chi-sono-cta-text">
-            Contatta lo Studio per una consulenza. Insieme valuteremo la tua situazione e troveremo la soluzione più adatta alle tue esigenze.
-        </p>
-        <a href="contatti.html" class="cta-button cta-button-outline">CONTATTAMI ORA</a>
+    <section class="about-guarantees">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Le Mie Garanzie</span>
+                <h2>Su Cosa Puoi Contare</h2>
+                <p>Non promesse generiche. Fatti concreti e verificabili.</p>
+            </div>
+
+            <div class="guarantees-grid">
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Risposta in 24h. Sempre.</h3>
+                    <p>
+                        Non "ti ricontatteremo presto". <strong>Entro 24 ore lavorative ricevi risposta</strong>. 
+                        È una promessa che rispetto da quando ho iniziato. Weekend esclusi, ma solitamente 
+                        rispondo anche lì.
+                    </p>
+                </div>
+
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Zero Progetti in Ritardo</h3>
+                    <p>
+                        Se dico 3 settimane, consegno in 3 settimane. <strong>100% dei miei progetti 
+                        consegnati in tempo</strong>. Lavoro su 2-3 progetti max contemporaneamente 
+                        proprio per questo motivo.
+                    </p>
+                </div>
+
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <h3>Preventivo = Prezzo Finale</h3>
+                    <p>
+                        Zero costi nascosti. Il preventivo che ricevi è il prezzo che paghi. 
+                        Se qualcosa richiede più lavoro del previsto, <strong>è un mio problema, 
+                        non il tuo</strong>. L'unica eccezione: nuove richieste che aggiungi a progetto iniziato.
+                    </p>
+                </div>
+
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>15 Giorni Supporto Post-Lancio</h3>
+                    <p>
+                        Il sito va online e hai dubbi? Piccole modifiche? Bug imprevisti? 
+                        <strong>15 giorni di supporto dedicato incluso</strong>. Dopo, resto comunque 
+                        disponibile per manutenzione e nuove funzionalità.
+                    </p>
+                </div>
+
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Codice Pulito e Documentato</h3>
+                    <p>
+                        Niente spaghetti code. Niente hack improvvisati. <strong>Codice leggibile, 
+                        commentato e manutenibile</strong>. Se un domani vuoi un altro sviluppatore, 
+                        capirà cosa ho fatto senza impazzire.
+                    </p>
+                </div>
+
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Comunicazione Costante</h3>
+                    <p>
+                        Non sparisco per settimane. <strong>Aggiornamenti settimanali sullo stato 
+                        del progetto</strong>. Puoi scrivermi quando vuoi via email o WhatsApp. 
+                        Lavoriamo insieme, non in isolamento.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
-</div>
 
-<section class="full-width-section notizie-section">
-    <div class="content">
-        <h2 class="section-title">Ultime Notizie Giuridiche</h2>
-        <p class="notizie-intro">
-            Aggiornamenti normativi, sentenze rilevanti e novità legislative dall'ambito 
-            del diritto penale, di famiglia e delle sostanze stupefacenti.
-        </p>
-        
-        <!-- Le notizie vengono caricate automaticamente da JavaScript -->
-        <div class="notizie-grid">
-            <!-- Caricamento in corso... -->
-        </div>
-        
-        <div class="notizie-cta-container">
-            <a href="https://www.altalex.com" target="_blank" rel="noopener noreferrer" class="cta-button notizie-cta">
-                ALTRE NOTIZIE LEGALI
-            </a>
-        </div>
-    </div>
-</section>
+    <section class="about-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Parliamone?</h2>
+                <p>
+                    Se quello che hai letto ti convince, facciamo una call conoscitiva gratuita. 
+                    30 minuti senza impegno per capire se posso aiutarti. Anche se non lavoreremo 
+                    insieme, ti darò consigli utili per il tuo progetto.
+                </p>
+                <div class="cta-buttons">
+                    <a href="contatti.html" class="btn btn-white">
+                        <span>Prenota una Call Gratuita</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="portfolio.html" class="btn btn-outline-white">
+                        <span>Guarda i Miei Progetti</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
 
-<footer>
-    <div class="footer-content">
-        <div class="footer-main">
-            <!-- Sezione Sinistra: Logo e Info -->
-            <div class="footer-section">
-                <div class="footer-logo">Avv. Chiara Gigliotti</div>
-                <div class="footer-info-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    <a href="https://maps.google.com/?q=Corso+Archinti+76+Lodi" target="_blank">Corso Archinti, 76<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;26900 Lodi (LO)</a>
-                </div>
-                <div class="footer-info-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                    <a href="tel:+390371940630">0371 940630</a>
-                </div>
-                <div class="footer-info-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
-                    <a href="tel:+393393177557">339 3177557</a>
-                </div>
-                <div class="footer-info-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    <a href="mailto:studiolegale.gigliotti.lodi@gmail.com">studiolegale.gigliotti.lodi@gmail.com</a>
-                </div>
-                <div class="footer-info-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    <a href="mailto:chiara.gigliotti@lodi.pecavvocati.it">PEC: chiara.gigliotti@lodi.pecavvocati.it</a>
-                </div>
-            </div>
-
-            <!-- Sezione Centrale: Link Utili -->
-            <div class="footer-section center">
-                <h4>Link Utili</h4>
-                <a href="index.html#home" class="footer-link">Home</a>
-                <a href="chi-sono.html" class="footer-link">Chi Sono</a>
-                <a href="servizi.html#servizi" class="footer-link">Servizi</a>
-                <a href="contatti.html" class="footer-link">Contatti</a>
-                <a href="privacy-policy.html" class="footer-link">Privacy</a>
-                <a href="cookie-policy.html" class="footer-link">Cookie</a>
-            </div>
-
-            <!-- Sezione Destra: Tribunali -->
-            <div class="footer-section right">
-                <h4>Ambito Territoriale</h4>
-                <div class="tribunali-list">
-                    Tutto il territorio nazionale<br>
-                    <span>con specializzazione presso:</span><br>
-                    Tribunale di Lodi<br>
-                    Tribunale di Milano<br>
-                    Tribunale di Cremona
-                </div>
-                <div class="footer-iscrizione-ordine">
-                    Iscritta all'Ordine<br>degli Avvocati di Lodi dal 2003
+                <div class="cta-contact-info">
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <a href="mailto:meriziosamuele@gmail.com">meriziosamuele@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <strong>LinkedIn</strong>
+                            <a href="https://www.linkedin.com/in/samuele-merizio" target="_blank">@samuele-merizio</a>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <strong>GitHub</strong>
+                            <a href="https://github.com/samuelemerizio" target="_blank">@samuelemerizio</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Bottom Footer -->
-        <div class="footer-bottom">
-            <div class="footer-legal">
-                © 2025 Studio Legale Gigliotti - Tutti i diritti riservati
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="footer-logo">S.Merizio<span>.</span></span>
+                    <p>
+                        Sviluppo siti web premium per professionisti e aziende che vogliono 
+                        distinguersi online con una presenza digitale autorevole e performante.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/samuele-merizio" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/samuelemerizio" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:meriziosamuele@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Navigazione</h4>
+                    <a href="index.html">Home</a>
+                    <a href="metodo.html">Metodo</a>
+                    <a href="servizi.html">Servizi</a>
+                    <a href="portfolio.html">Portfolio</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Servizi</h4>
+                    <a href="servizi.html#vetrina">Sito Vetrina</a>
+                    <a href="servizi.html#avanzato">Sito Avanzato</a>
+                    <a href="servizi.html#restyling">Restyling</a>
+                    <a href="contatti.html">Consulenza</a>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Contatti</h4>
+                    <a href="mailto:meriziosamuele@gmail.com">meriziosamuele@gmail.com</a>
+                    <a href="contatti.html">Modulo Contatti</a>
+                    <a href="chi-sono.html">Chi Sono</a>
+                </div>
             </div>
-            <div class="footer-credits">
-                Foto Piazza Duomo: <a href="https://commons.wikimedia.org/wiki/File:Piazza_duomo_lodi.jpg" target="_blank">Yoruno</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">CC BY-SA 3.0</a>, via Wikimedia Commons
+
+            <div class="footer-bottom">
+                <strong>S.Merizio</strong> &copy; 2025. Tutti i diritti riservati. | P.IVA: Coming Soon
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<!-- ==================== COOKIE BANNER ==================== -->
-<div class="cookie-banner">
-    <div class="cookie-banner-content">
-        <div class="cookie-banner-text">
-            <h4>Questo sito utilizza i cookie</h4>
-            <p>
-                Utilizziamo cookie tecnici necessari per il funzionamento del sito. 
-                Desideriamo anche mostrarti la nostra posizione su <strong>Google Maps</strong>, 
-                che installerà cookie di terze parti.
-            </p>
-            <p style="margin-top: 10px; font-size: 0.9em;">
-                <a href="cookie-policy.html">Leggi l'informativa completa</a>
-            </p>
-        </div>
-        <div class="cookie-banner-actions">
-            <button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()">
-                ACCETTA TUTTO
-            </button>
-            <button class="cookie-btn cookie-btn-reject" onclick="acceptOnlyEssential()">
-                SOLO ESSENZIALI
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- ==================== BACK TO TOP BUTTON ==================== -->
-<button class="back-to-top" aria-label="Torna su">
-    ↑
-</button>
-
-<!-- ==================== SCROLL PROGRESS BAR (opzionale) ==================== -->
-<div class="scroll-progress"></div>
-
-<!-- ==================== NAV OVERLAY (per mobile) ==================== -->
-<div class="nav-overlay"></div>
-
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>
