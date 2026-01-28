@@ -2922,11 +2922,12 @@ footer {
    MOBILE NAVIGATION - HAMBURGER MENU
    ============================================ */
 
-.mobile-menu-toggle {
+/* HAMBURGER BUTTON - Nascosto su desktop */
+.nav-toggle {
     display: none;
     flex-direction: column;
     justify-content: center;
-    gap: 5px;
+    align-items: center;
     background: none;
     border: none;
     cursor: pointer;
@@ -2935,14 +2936,15 @@ footer {
     height: 40px;
     position: relative;
     z-index: 1001;
-    transition: transform var(--transition-base);
 }
 
-.mobile-menu-toggle:hover {
-    transform: scale(1.1);
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
-.mobile-menu-toggle span {
+.hamburger span {
     display: block;
     width: 25px;
     height: 3px;
@@ -2952,35 +2954,39 @@ footer {
     transform-origin: center;
 }
 
-/* Hamburger Animation to X */
-.mobile-menu-toggle.active span:nth-child(1) {
+/* ANIMAZIONE X quando menu aperto */
+.nav-toggle.active .hamburger span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
 
-.mobile-menu-toggle.active span:nth-child(2) {
+.nav-toggle.active .hamburger span:nth-child(2) {
     opacity: 0;
 }
 
-.mobile-menu-toggle.active span:nth-child(3) {
+.nav-toggle.active .hamburger span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
 
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
 @media (max-width: 968px) {
-    /* ===== MOSTRA HAMBURGER SU MOBILE ===== */
-    .mobile-menu-toggle {
-        display: flex !important; /* Forza visualizzazione */
+    /* MOSTRA hamburger su mobile */
+    .nav-toggle {
+        display: flex;
     }
     
-    /* ===== ASSICURA LAYOUT FLEX ===== */
+    /* Container flex per allineamento */
     nav .container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        position: relative;
     }
     
-    /* ===== MENU MOBILE NASCOSTO DI DEFAULT ===== */
-    nav ul {
+    /* Menu mobile nascosto di default */
+    nav ul,
+    nav .nav-menu {
         position: fixed;
         top: 70px;
         left: 0;
@@ -2998,14 +3004,14 @@ footer {
         border-bottom: 2px solid var(--border);
     }
     
-    /* ===== MENU APERTO ===== */
-    nav ul.active {
+    /* Menu aperto */
+    nav ul.active,
+    nav .nav-menu.active {
         max-height: 600px;
         opacity: 1;
         padding: 20px 0;
     }
     
-    /* ===== STILE ELEMENTI MENU ===== */
     nav ul li {
         border-bottom: 1px solid var(--border);
         margin: 0 24px;
@@ -3019,7 +3025,7 @@ footer {
         transform: translateY(0);
     }
     
-    /* ===== ANIMAZIONE STAGGER ===== */
+    /* Animazione stagger */
     nav ul.active li:nth-child(1) { transition-delay: 0.05s; }
     nav ul.active li:nth-child(2) { transition-delay: 0.1s; }
     nav ul.active li:nth-child(3) { transition-delay: 0.15s; }
@@ -3030,7 +3036,6 @@ footer {
         border-bottom: none;
     }
     
-    /* ===== STILE LINK ===== */
     nav a:not(.btn-nav) {
         display: block;
         padding: 16px 0;
@@ -3042,11 +3047,6 @@ footer {
         display: none;
     }
     
-    nav a:not(.btn-nav):hover {
-        color: var(--accent);
-    }
-    
-    /* ===== BOTTONE CTA ===== */
     .btn-nav {
         margin: 16px 0 8px;
         display: block;

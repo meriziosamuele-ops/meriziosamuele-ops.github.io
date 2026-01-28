@@ -10,8 +10,8 @@
 // ============================================
 
 function initMobileMenu() {
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const navUl = document.querySelector('nav ul');
+    const menuToggle = document.querySelector('.nav-toggle');
+    const navUl = document.querySelector('nav ul, nav .nav-menu');
     const nav = document.querySelector('nav');
     const body = document.body;
     
