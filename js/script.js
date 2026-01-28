@@ -1,11 +1,173 @@
 // ============================================
 // PORTFOLIO SAMUELE MERIZIO - SCRIPT.JS
+// Complete & Optimized Version with Hamburger Menu
 // ============================================
 
-// ✅ SCROLL REVEAL ANIMATION
+'use strict';
+
+// ============================================
+// 🍔 MOBILE HAMBURGER MENU
+// ============================================
+function initMobileMenu() {
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const navUl = document.querySelector('nav ul');
+    const nav = document.querySelector('nav');
+    const body = document.body;
+    
+    if (menuToggle && navUl) {
+        
+        // Toggle menu on hamburger click
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = nav.contains(event.target);
+            
+            if (!isClickInsideNav && navUl.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+        
+        // Close menu when clicking on a link
+        const navLinks = navUl.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                closeMenu();
+            });
+        });
+        
+        // Close menu on window resize to desktop
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                if (window.innerWidth > 968 && navUl.classList.contains('active')) {
+                    closeMenu();
+                }
+            }, 250);
+        });
+        
+        // Handle escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navUl.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+        
+        // Toggle menu function
+        function toggleMenu() {
+            const isActive = menuToggle.classList.contains('active');
+            
+            if (isActive) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        }
+        
+        // Open menu function
+        function openMenu() {
+            menuToggle.classList.add('active');
+            navUl.classList.add('active');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            body.style.overflow = 'hidden';
+        }
+        
+        // Close menu function
+        function closeMenu() {
+            menuToggle.classList.remove('active');
+            navUl.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            body.style.overflow = '';
+        }
+    }
+}
+
+// ============================================
+// 📜 NAVIGATION SCROLL EFFECT
+// ============================================
+function initNavScrollEffect() {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+    
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        if (scrollTimeout) {
+            window.cancelAnimationFrame(scrollTimeout);
+        }
+        
+        scrollTimeout = window.requestAnimationFrame(() => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    });
+}
+
+// ============================================
+// 🎯 SMOOTH SCROLL FOR ANCHOR LINKS
+// ============================================
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Ignore empty hash or just "#"
+            if (href === '#' || href === '') return;
+            
+            e.preventDefault();
+            
+            const target = document.querySelector(href);
+            if (target) {
+                const navHeight = document.querySelector('nav')?.offsetHeight || 0;
+                const targetPosition = target.offsetTop - navHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Scroll indicator nel hero (se presente)
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+            const aboutSection = document.querySelector('#about');
+            if (aboutSection) {
+                const navHeight = document.querySelector('nav')?.offsetHeight || 0;
+                window.scrollTo({
+                    top: aboutSection.offsetTop - navHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
+        
+        // Hide scroll indicator after scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollIndicator.style.opacity = '0';
+                scrollIndicator.style.pointerEvents = 'none';
+            } else {
+                scrollIndicator.style.opacity = '1';
+                scrollIndicator.style.pointerEvents = 'all';
+            }
+        });
+    }
+}
+
+// ============================================
+// 🎬 SCROLL REVEAL ANIMATION
 // ============================================
 function initScrollReveal() {
     const reveals = document.querySelectorAll('.reveal');
+    if (reveals.length === 0) return;
     
     const checkReveal = () => {
         const windowHeight = window.innerHeight;
@@ -36,161 +198,27 @@ function initScrollReveal() {
     });
 }
 
-// ✅ NAVIGATION SCROLL EFFECT
 // ============================================
-function initNavScrollEffect() {
-    const nav = document.querySelector('nav');
-    
-    let scrollTimeout;
-    window.addEventListener('scroll', () => {
-        if (scrollTimeout) {
-            window.cancelAnimationFrame(scrollTimeout);
-        }
-        
-        scrollTimeout = window.requestAnimationFrame(() => {
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    });
-}
+// ✉️ FORM VALIDATION & HANDLING
+// ============================================
 
-// ✅ SMOOTH SCROLL FOR ANCHOR LINKS + SCROLL INDICATOR
-// ============================================
-function initSmoothScroll() {
-    // Smooth scroll per tutti i link anchor
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            // Ignore empty hash or just "#"
-            if (href === '#' || href === '') return;
-            
-            e.preventDefault();
-            
-            const target = document.querySelector(href);
-            if (target) {
-                const navHeight = document.querySelector('nav').offsetHeight;
-                const targetPosition = target.offsetTop - navHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // Scroll indicator nel hero (se presente)
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    if (scrollIndicator) {
-        scrollIndicator.addEventListener('click', () => {
-            const aboutSection = document.querySelector('#about');
-            if (aboutSection) {
-                const navHeight = document.querySelector('nav').offsetHeight;
-                window.scrollTo({
-                    top: aboutSection.offsetTop - navHeight,
-                    behavior: 'smooth'
-                });
-            }
-        });
-        
-        // Nascondi scroll indicator dopo scroll
-        let scrollTimeout;
-        window.addEventListener('scroll', () => {
-            if (scrollTimeout) clearTimeout(scrollTimeout);
-            
-            if (window.scrollY > 200) {
-                scrollIndicator.style.opacity = '0';
-                scrollIndicator.style.pointerEvents = 'none';
-            } else {
-                scrollIndicator.style.opacity = '1';
-                scrollIndicator.style.pointerEvents = 'all';
-            }
-        });
-    }
-}
-
-// ✅ MOBILE MENU TOGGLE
-// ============================================
-function initMobileMenu() {
-    // Create hamburger button if it doesn't exist
-    const nav = document.querySelector('nav .container');
-    const navUl = nav.querySelector('ul');
-    
-    // Check if menu toggle already exists
-    if (!document.querySelector('.menu-toggle')) {
-        const menuToggle = document.createElement('button');
-        menuToggle.className = 'menu-toggle';
-        menuToggle.setAttribute('aria-label', 'Toggle menu');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.innerHTML = `
-            <span></span>
-            <span></span>
-            <span></span>
-        `;
-        
-        // Insert before ul
-        nav.insertBefore(menuToggle, navUl);
-        
-        // Toggle functionality
-        menuToggle.addEventListener('click', () => {
-            const isOpen = navUl.classList.toggle('mobile-active');
-            menuToggle.classList.toggle('active');
-            menuToggle.setAttribute('aria-expanded', isOpen);
-            
-            // Prevent body scroll when menu is open
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        });
-        
-        // Close menu when clicking on a link
-        navUl.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navUl.classList.remove('mobile-active');
-                menuToggle.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            });
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!nav.contains(e.target) && navUl.classList.contains('mobile-active')) {
-                navUl.classList.remove('mobile-active');
-                menuToggle.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            }
-        });
-    }
-}
-
-// ✅ SHOW FIELD ERROR MESSAGE
-// ============================================
+// Show field error message
 function showFieldError(field, message) {
-    // Rimuovi eventuali errori precedenti
     removeFieldError(field);
     
-    // Aggiungi classe errore al campo
     field.classList.add('error-field');
     
-    // Crea elemento errore
     const errorDiv = document.createElement('div');
     errorDiv.className = 'field-error-message';
     errorDiv.textContent = message;
     errorDiv.setAttribute('data-field-id', field.id);
     
-    // Inserisci dopo il campo
     field.parentElement.appendChild(errorDiv);
     
-    // Animazione di entrata
     setTimeout(() => {
         errorDiv.classList.add('show');
     }, 10);
     
-    // Auto-rimozione dopo 5 secondi
     setTimeout(() => {
         if (errorDiv && errorDiv.parentElement) {
             errorDiv.classList.remove('show');
@@ -203,6 +231,7 @@ function showFieldError(field, message) {
     }, 5000);
 }
 
+// Remove field error message
 function removeFieldError(field) {
     field.classList.remove('error-field');
     const errorMsg = field.parentElement.querySelector(`[data-field-id="${field.id}"]`);
@@ -216,8 +245,7 @@ function removeFieldError(field) {
     }
 }
 
-// ✅ FORM HANDLING WITH VALIDATION
-// ============================================
+// Initialize form handling
 function initFormHandling() {
     const form = document.querySelector('.contact-form');
     if (!form) return;
@@ -226,7 +254,7 @@ function initFormHandling() {
     const emailInput = form.querySelector('#email');
     const messageInput = form.querySelector('#message');
     
-    // ========== VALIDAZIONE NOME (Real-time) ==========
+    // Name validation (real-time)
     if (nameInput) {
         nameInput.addEventListener('input', function() {
             removeFieldError(this);
@@ -247,13 +275,12 @@ function initFormHandling() {
             }
         });
         
-        // Previeni messaggio browser default
         nameInput.addEventListener('invalid', function(e) {
             e.preventDefault();
         });
     }
     
-    // ========== VALIDAZIONE EMAIL (Real-time) ==========
+    // Email validation (real-time)
     if (emailInput) {
         emailInput.addEventListener('input', function() {
             removeFieldError(this);
@@ -272,13 +299,12 @@ function initFormHandling() {
             }
         });
         
-        // Previeni messaggio browser default
         emailInput.addEventListener('invalid', function(e) {
             e.preventDefault();
         });
     }
     
-    // ========== VALIDAZIONE MESSAGGIO (Real-time) ==========
+    // Message validation (real-time)
     if (messageInput) {
         messageInput.addEventListener('input', function() {
             removeFieldError(this);
@@ -296,20 +322,19 @@ function initFormHandling() {
             }
         });
         
-        // Previeni messaggio browser default
         messageInput.addEventListener('invalid', function(e) {
             e.preventDefault();
         });
     }
     
-    // ========== FORM SUBMIT ==========
+    // Form submit
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         const submitBtn = form.querySelector('.btn-submit');
         const originalText = submitBtn.textContent;
         
-        // Rimuovi tutti gli errori visivi precedenti
+        // Remove all previous errors
         document.querySelectorAll('.field-error-message').forEach(el => el.remove());
         document.querySelectorAll('.error-field').forEach(el => el.classList.remove('error-field'));
         
@@ -320,11 +345,11 @@ function initFormHandling() {
             message: messageInput.value.trim()
         };
         
-        // ========== VALIDAZIONE COMPLETA ==========
+        // Complete validation
         let isValid = true;
         let firstInvalidField = null;
         
-        // 1. Validazione NOME
+        // Name validation
         if (!formData.name) {
             showFieldError(nameInput, 'Per favore inserisci il tuo nome completo');
             isValid = false;
@@ -342,7 +367,7 @@ function initFormHandling() {
             }
         }
         
-        // 2. Validazione EMAIL
+        // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!formData.email) {
             showFieldError(emailInput, 'Per favore inserisci la tua email');
@@ -354,7 +379,7 @@ function initFormHandling() {
             if (!firstInvalidField) firstInvalidField = emailInput;
         }
         
-        // 3. Validazione MESSAGGIO
+        // Message validation
         if (!formData.message) {
             showFieldError(messageInput, 'Per favore scrivi un messaggio');
             isValid = false;
@@ -365,7 +390,7 @@ function initFormHandling() {
             if (!firstInvalidField) firstInvalidField = messageInput;
         }
         
-        // Se ci sono errori, mostra modal e scrolla al primo campo
+        // If errors, show modal and scroll to first invalid field
         if (!isValid) {
             showModal('error', 'Compila Tutti i Campi', 'Per favore, completa correttamente tutti i campi obbligatori prima di inviare.');
             
@@ -379,24 +404,24 @@ function initFormHandling() {
         }
         
         // Show loading state
-        submitBtn.textContent = 'Invio in corso...';
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Invio in corso...</span>';
         submitBtn.disabled = true;
         
         try {
-            // ⚠️ IMPORTANTE: Sostituisci con il tuo servizio
-            // Opzioni:
+            // ⚠️ IMPORTANT: Replace with your actual form service
+            // Options:
             // 1. Formspree: https://formspree.io
             // 2. EmailJS: https://www.emailjs.com
-            // 3. Netlify Forms (se hosted su Netlify)
+            // 3. Netlify Forms (if hosted on Netlify)
             
-            // Esempio con Formspree:
+            // Example with Formspree:
             // const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
             //     method: 'POST',
             //     headers: { 'Content-Type': 'application/json' },
             //     body: JSON.stringify(formData)
             // });
             
-            // SIMULAZIONE per demo (rimuovi in produzione)
+            // SIMULATION for demo (remove in production)
             await new Promise(resolve => setTimeout(resolve, 1500));
             const response = { ok: true };
             
@@ -404,7 +429,7 @@ function initFormHandling() {
                 showModal('success', 'Messaggio Inviato!', 'Grazie per avermi contattato. Ti risponderò al più presto.');
                 form.reset();
                 
-                // Rimuovi tutti gli errori
+                // Remove all errors
                 document.querySelectorAll('.field-error-message').forEach(el => el.remove());
                 document.querySelectorAll('.error-field').forEach(el => el.classList.remove('error-field'));
             } else {
@@ -415,16 +440,16 @@ function initFormHandling() {
             console.error('Form error:', error);
             showModal('error', 'Errore di Invio', 'Si è verificato un errore. Riprova più tardi o scrivimi direttamente a meriziosamuele@gmail.com');
         } finally {
-            submitBtn.textContent = originalText;
+            submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
         }
     });
 }
 
-// ✅ SHOW MODAL (SUCCESS/ERROR)
+// ============================================
+// 💬 MODAL (SUCCESS/ERROR)
 // ============================================
 function showModal(type, title, message) {
-    // Crea modal se non esiste
     let modal = document.getElementById('responseModal');
     
     if (!modal) {
@@ -443,25 +468,19 @@ function showModal(type, title, message) {
         `;
         document.body.appendChild(modal);
     } else {
-        // Aggiorna contenuto modal esistente
         modal.querySelector('.modal-icon').className = `modal-icon ${type}`;
         modal.querySelector('.modal-icon').textContent = type === 'success' ? '✓' : '✕';
         modal.querySelector('.modal-title').textContent = title;
         modal.querySelector('.modal-message').textContent = message;
     }
     
-    // Mostra modal
     setTimeout(() => {
         modal.classList.add('show');
     }, 10);
     
-    // Previeni scroll del body
     document.body.style.overflow = 'hidden';
     
-    // Chiudi con ESC
     document.addEventListener('keydown', handleEscKey);
-    
-    // Chiudi cliccando fuori
     modal.addEventListener('click', handleOutsideClick);
 }
 
@@ -469,9 +488,8 @@ function closeModal() {
     const modal = document.getElementById('responseModal');
     if (modal) {
         modal.classList.remove('show');
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = '';
         
-        // Rimuovi event listeners
         document.removeEventListener('keydown', handleEscKey);
         modal.removeEventListener('click', handleOutsideClick);
     }
@@ -489,10 +507,25 @@ function handleOutsideClick(e) {
     }
 }
 
-// Rendi closeModal globale per onclick nel modal
+// Make closeModal global for onclick in modal
 window.closeModal = closeModal;
 
-// ✅ PARALLAX EFFECT FOR HERO (Optional - leggero)
+// ============================================
+// 📅 UPDATE FOOTER YEAR
+// ============================================
+function updateFooterYear() {
+    const footerYear = document.querySelector('.footer-bottom strong');
+    if (footerYear) {
+        const currentYear = new Date().getFullYear();
+        footerYear.parentElement.innerHTML = footerYear.parentElement.innerHTML.replace(
+            /&copy; \d{4}/,
+            `&copy; ${currentYear}`
+        );
+    }
+}
+
+// ============================================
+// 🌊 PARALLAX EFFECT (Optional)
 // ============================================
 function initParallax() {
     const hero = document.querySelector('#hero');
@@ -504,7 +537,6 @@ function initParallax() {
         if (!ticking) {
             window.requestAnimationFrame(() => {
                 const scrolled = window.pageYOffset;
-                // Parallax leggero solo nella viewport hero
                 if (scrolled < window.innerHeight) {
                     hero.style.transform = `translateY(${scrolled * 0.3}px)`;
                 }
@@ -515,65 +547,20 @@ function initParallax() {
     });
 }
 
-// ✅ ADD CURRENT YEAR TO FOOTER
-// ============================================
-function updateFooterYear() {
-    const footerYear = document.querySelector('.footer-bottom strong');
-    if (footerYear) {
-        const currentYear = new Date().getFullYear();
-        // Update only if different from hardcoded year
-        footerYear.parentElement.innerHTML = footerYear.parentElement.innerHTML.replace(
-            /&copy; \d{4}/,
-            `&copy; ${currentYear}`
-        );
-    }
-}
-
-// ✅ INTERSECTION OBSERVER FOR BETTER PERFORMANCE
-// ============================================
-function initIntersectionObserver() {
-    // Alternative più performante al scroll listener
-    // Uncomment se vuoi usare questa invece di initScrollReveal()
-    
-    /*
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -120px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                // Optional: unobserve after reveal
-                // observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    document.querySelectorAll('.reveal').forEach(el => {
-        observer.observe(el);
-    });
-    */
-}
-
 // ============================================
 // 🚀 INITIALIZE ALL
 // ============================================
 function init() {
     // Core functionality
-    initScrollReveal();
+    initMobileMenu();
     initNavScrollEffect();
     initSmoothScroll();
-    initMobileMenu();
+    initScrollReveal();
     initFormHandling();
     
     // Optional enhancements
-    // initParallax(); // Uncomment se vuoi parallax
     updateFooterYear();
-    
-    // Performance optimization
-    // initIntersectionObserver(); // Use this instead of initScrollReveal for better performance
+    // initParallax(); // Uncomment if you want parallax effect
 }
 
 // ============================================
@@ -586,33 +573,37 @@ if (document.readyState === 'loading') {
 }
 
 // ============================================
-// 🛡️ HANDLE ERRORS GRACEFULLY
+// 🛡️ ERROR HANDLING
 // ============================================
 window.addEventListener('error', (e) => {
     console.error('Runtime error:', e.error);
-    // In production, potresti inviare errori a un servizio di monitoring
 });
 
 // ============================================
 // 📱 RESPONSIVE UTILITIES
 // ============================================
-let resizeTimeout;
+let globalResizeTimeout;
 window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-        // Handle resize-specific logic if needed
-        // Es: reset mobile menu on desktop
-        if (window.innerWidth > 768) {
+    clearTimeout(globalResizeTimeout);
+    globalResizeTimeout = setTimeout(() => {
+        // Reset mobile menu on desktop resize
+        if (window.innerWidth > 968) {
             const navUl = document.querySelector('nav ul');
-            const menuToggle = document.querySelector('.menu-toggle');
-            if (navUl) {
-                navUl.classList.remove('mobile-active');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            if (navUl && navUl.classList.contains('active')) {
+                navUl.classList.remove('active');
                 document.body.style.overflow = '';
             }
-            if (menuToggle) {
+            if (menuToggle && menuToggle.classList.contains('active')) {
                 menuToggle.classList.remove('active');
                 menuToggle.setAttribute('aria-expanded', 'false');
             }
         }
     }, 250);
 });
+
+// ============================================
+// ✅ LOG SUCCESS
+// ============================================
+console.log('✅ JavaScript loaded successfully');
+console.log('🎨 Samuele Merizio Portfolio - Menu Hamburger Active');
