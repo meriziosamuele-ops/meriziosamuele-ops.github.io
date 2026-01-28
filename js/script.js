@@ -1,13 +1,14 @@
 // ============================================
-// PORTFOLIO SAMUELE MERIZIO - SCRIPT.JS
-// Complete & Optimized Version with Hamburger Menu
+// SAMUELE MERIZIO - PORTFOLIO WEBSITE
+// JavaScript Main File - Complete Version
 // ============================================
 
 'use strict';
 
 // ============================================
-// 🍔 MOBILE HAMBURGER MENU
+// 1. MOBILE MENU HAMBURGER
 // ============================================
+
 function initMobileMenu() {
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const navUl = document.querySelector('nav ul');
@@ -87,31 +88,34 @@ function initMobileMenu() {
 }
 
 // ============================================
-// 📜 NAVIGATION SCROLL EFFECT
+// 2. NAVBAR SCROLL EFFECT
 // ============================================
+
 function initNavScrollEffect() {
     const nav = document.querySelector('nav');
-    if (!nav) return;
     
-    let scrollTimeout;
-    window.addEventListener('scroll', () => {
-        if (scrollTimeout) {
-            window.cancelAnimationFrame(scrollTimeout);
-        }
-        
-        scrollTimeout = window.requestAnimationFrame(() => {
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
+    if (nav) {
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                window.cancelAnimationFrame(scrollTimeout);
             }
+            
+            scrollTimeout = window.requestAnimationFrame(() => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
         });
-    });
+    }
 }
 
 // ============================================
-// 🎯 SMOOTH SCROLL FOR ANCHOR LINKS
+// 3. SMOOTH SCROLL FOR ANCHOR LINKS
 // ============================================
+
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -124,7 +128,7 @@ function initSmoothScroll() {
             
             const target = document.querySelector(href);
             if (target) {
-                const navHeight = document.querySelector('nav')?.offsetHeight || 0;
+                const navHeight = document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 0;
                 const targetPosition = target.offsetTop - navHeight - 20;
                 
                 window.scrollTo({
@@ -141,7 +145,7 @@ function initSmoothScroll() {
         scrollIndicator.addEventListener('click', () => {
             const aboutSection = document.querySelector('#about');
             if (aboutSection) {
-                const navHeight = document.querySelector('nav')?.offsetHeight || 0;
+                const navHeight = document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 0;
                 window.scrollTo({
                     top: aboutSection.offsetTop - navHeight,
                     behavior: 'smooth'
@@ -149,7 +153,7 @@ function initSmoothScroll() {
             }
         });
         
-        // Hide scroll indicator after scroll
+        // Nascondi scroll indicator dopo scroll
         window.addEventListener('scroll', () => {
             if (window.scrollY > 200) {
                 scrollIndicator.style.opacity = '0';
@@ -163,10 +167,12 @@ function initSmoothScroll() {
 }
 
 // ============================================
-// 🎬 SCROLL REVEAL ANIMATION
+// 4. SCROLL REVEAL ANIMATION
 // ============================================
+
 function initScrollReveal() {
     const reveals = document.querySelectorAll('.reveal');
+    
     if (reveals.length === 0) return;
     
     const checkReveal = () => {
@@ -199,26 +205,31 @@ function initScrollReveal() {
 }
 
 // ============================================
-// ✉️ FORM VALIDATION & HANDLING
+// 5. FORM VALIDATION HELPERS
 // ============================================
 
-// Show field error message
 function showFieldError(field, message) {
+    // Rimuovi eventuali errori precedenti
     removeFieldError(field);
     
+    // Aggiungi classe errore al campo
     field.classList.add('error-field');
     
+    // Crea elemento errore
     const errorDiv = document.createElement('div');
     errorDiv.className = 'field-error-message';
     errorDiv.textContent = message;
     errorDiv.setAttribute('data-field-id', field.id);
     
+    // Inserisci dopo il campo
     field.parentElement.appendChild(errorDiv);
     
+    // Animazione di entrata
     setTimeout(() => {
         errorDiv.classList.add('show');
     }, 10);
     
+    // Auto-rimozione dopo 5 secondi
     setTimeout(() => {
         if (errorDiv && errorDiv.parentElement) {
             errorDiv.classList.remove('show');
@@ -231,7 +242,6 @@ function showFieldError(field, message) {
     }, 5000);
 }
 
-// Remove field error message
 function removeFieldError(field) {
     field.classList.remove('error-field');
     const errorMsg = field.parentElement.querySelector(`[data-field-id="${field.id}"]`);
@@ -245,7 +255,83 @@ function removeFieldError(field) {
     }
 }
 
-// Initialize form handling
+// ============================================
+// 6. MODAL SYSTEM
+// ============================================
+
+function showModal(type, title, message) {
+    // Crea modal se non esiste
+    let modal = document.getElementById('responseModal');
+    
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'responseModal';
+        modal.className = 'modal-overlay';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-icon ${type}">
+                    ${type === 'success' ? '✓' : '✕'}
+                </div>
+                <h3 class="modal-title">${title}</h3>
+                <p class="modal-message">${message}</p>
+                <button class="modal-close-btn" onclick="closeModal()">Chiudi</button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    } else {
+        // Aggiorna contenuto modal esistente
+        modal.querySelector('.modal-icon').className = `modal-icon ${type}`;
+        modal.querySelector('.modal-icon').textContent = type === 'success' ? '✓' : '✕';
+        modal.querySelector('.modal-title').textContent = title;
+        modal.querySelector('.modal-message').textContent = message;
+    }
+    
+    // Mostra modal
+    setTimeout(() => {
+        modal.classList.add('show');
+    }, 10);
+    
+    // Previeni scroll del body
+    document.body.style.overflow = 'hidden';
+    
+    // Chiudi con ESC
+    document.addEventListener('keydown', handleEscKey);
+    
+    // Chiudi cliccando fuori
+    modal.addEventListener('click', handleOutsideClick);
+}
+
+function closeModal() {
+    const modal = document.getElementById('responseModal');
+    if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+        
+        // Rimuovi event listeners
+        document.removeEventListener('keydown', handleEscKey);
+        modal.removeEventListener('click', handleOutsideClick);
+    }
+}
+
+function handleEscKey(e) {
+    if (e.key === 'Escape') {
+        closeModal();
+    }
+}
+
+function handleOutsideClick(e) {
+    if (e.target.classList.contains('modal-overlay')) {
+        closeModal();
+    }
+}
+
+// Rendi closeModal globale per onclick nel modal
+window.closeModal = closeModal;
+
+// ============================================
+// 7. FORM HANDLING WITH VALIDATION
+// ============================================
+
 function initFormHandling() {
     const form = document.querySelector('.contact-form');
     if (!form) return;
@@ -254,7 +340,7 @@ function initFormHandling() {
     const emailInput = form.querySelector('#email');
     const messageInput = form.querySelector('#message');
     
-    // Name validation (real-time)
+    // ========== VALIDAZIONE NOME (Real-time) ==========
     if (nameInput) {
         nameInput.addEventListener('input', function() {
             removeFieldError(this);
@@ -280,7 +366,7 @@ function initFormHandling() {
         });
     }
     
-    // Email validation (real-time)
+    // ========== VALIDAZIONE EMAIL (Real-time) ==========
     if (emailInput) {
         emailInput.addEventListener('input', function() {
             removeFieldError(this);
@@ -304,7 +390,7 @@ function initFormHandling() {
         });
     }
     
-    // Message validation (real-time)
+    // ========== VALIDAZIONE MESSAGGIO (Real-time) ==========
     if (messageInput) {
         messageInput.addEventListener('input', function() {
             removeFieldError(this);
@@ -327,14 +413,14 @@ function initFormHandling() {
         });
     }
     
-    // Form submit
+    // ========== FORM SUBMIT ==========
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         const submitBtn = form.querySelector('.btn-submit');
         const originalText = submitBtn.textContent;
         
-        // Remove all previous errors
+        // Rimuovi tutti gli errori visivi precedenti
         document.querySelectorAll('.field-error-message').forEach(el => el.remove());
         document.querySelectorAll('.error-field').forEach(el => el.classList.remove('error-field'));
         
@@ -345,11 +431,11 @@ function initFormHandling() {
             message: messageInput.value.trim()
         };
         
-        // Complete validation
+        // ========== VALIDAZIONE COMPLETA ==========
         let isValid = true;
         let firstInvalidField = null;
         
-        // Name validation
+        // 1. Validazione NOME
         if (!formData.name) {
             showFieldError(nameInput, 'Per favore inserisci il tuo nome completo');
             isValid = false;
@@ -367,7 +453,7 @@ function initFormHandling() {
             }
         }
         
-        // Email validation
+        // 2. Validazione EMAIL
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!formData.email) {
             showFieldError(emailInput, 'Per favore inserisci la tua email');
@@ -379,7 +465,7 @@ function initFormHandling() {
             if (!firstInvalidField) firstInvalidField = emailInput;
         }
         
-        // Message validation
+        // 3. Validazione MESSAGGIO
         if (!formData.message) {
             showFieldError(messageInput, 'Per favore scrivi un messaggio');
             isValid = false;
@@ -390,7 +476,7 @@ function initFormHandling() {
             if (!firstInvalidField) firstInvalidField = messageInput;
         }
         
-        // If errors, show modal and scroll to first invalid field
+        // Se ci sono errori, mostra modal e scrolla al primo campo
         if (!isValid) {
             showModal('error', 'Compila Tutti i Campi', 'Per favore, completa correttamente tutti i campi obbligatori prima di inviare.');
             
@@ -408,20 +494,20 @@ function initFormHandling() {
         submitBtn.disabled = true;
         
         try {
-            // ⚠️ IMPORTANT: Replace with your actual form service
-            // Options:
+            // ⚠️ IMPORTANTE: Sostituisci con il tuo servizio
+            // Opzioni:
             // 1. Formspree: https://formspree.io
             // 2. EmailJS: https://www.emailjs.com
-            // 3. Netlify Forms (if hosted on Netlify)
+            // 3. Netlify Forms (se hosted su Netlify)
             
-            // Example with Formspree:
+            // Esempio con Formspree:
             // const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
             //     method: 'POST',
             //     headers: { 'Content-Type': 'application/json' },
             //     body: JSON.stringify(formData)
             // });
             
-            // SIMULATION for demo (remove in production)
+            // SIMULAZIONE per demo (rimuovi in produzione)
             await new Promise(resolve => setTimeout(resolve, 1500));
             const response = { ok: true };
             
@@ -429,7 +515,7 @@ function initFormHandling() {
                 showModal('success', 'Messaggio Inviato!', 'Grazie per avermi contattato. Ti risponderò al più presto.');
                 form.reset();
                 
-                // Remove all errors
+                // Rimuovi tutti gli errori
                 document.querySelectorAll('.field-error-message').forEach(el => el.remove());
                 document.querySelectorAll('.error-field').forEach(el => el.classList.remove('error-field'));
             } else {
@@ -447,72 +533,9 @@ function initFormHandling() {
 }
 
 // ============================================
-// 💬 MODAL (SUCCESS/ERROR)
+// 8. UPDATE FOOTER YEAR
 // ============================================
-function showModal(type, title, message) {
-    let modal = document.getElementById('responseModal');
-    
-    if (!modal) {
-        modal = document.createElement('div');
-        modal.id = 'responseModal';
-        modal.className = 'modal-overlay';
-        modal.innerHTML = `
-            <div class="modal-content">
-                <div class="modal-icon ${type}">
-                    ${type === 'success' ? '✓' : '✕'}
-                </div>
-                <h3 class="modal-title">${title}</h3>
-                <p class="modal-message">${message}</p>
-                <button class="modal-close-btn" onclick="closeModal()">Chiudi</button>
-            </div>
-        `;
-        document.body.appendChild(modal);
-    } else {
-        modal.querySelector('.modal-icon').className = `modal-icon ${type}`;
-        modal.querySelector('.modal-icon').textContent = type === 'success' ? '✓' : '✕';
-        modal.querySelector('.modal-title').textContent = title;
-        modal.querySelector('.modal-message').textContent = message;
-    }
-    
-    setTimeout(() => {
-        modal.classList.add('show');
-    }, 10);
-    
-    document.body.style.overflow = 'hidden';
-    
-    document.addEventListener('keydown', handleEscKey);
-    modal.addEventListener('click', handleOutsideClick);
-}
 
-function closeModal() {
-    const modal = document.getElementById('responseModal');
-    if (modal) {
-        modal.classList.remove('show');
-        document.body.style.overflow = '';
-        
-        document.removeEventListener('keydown', handleEscKey);
-        modal.removeEventListener('click', handleOutsideClick);
-    }
-}
-
-function handleEscKey(e) {
-    if (e.key === 'Escape') {
-        closeModal();
-    }
-}
-
-function handleOutsideClick(e) {
-    if (e.target.classList.contains('modal-overlay')) {
-        closeModal();
-    }
-}
-
-// Make closeModal global for onclick in modal
-window.closeModal = closeModal;
-
-// ============================================
-// 📅 UPDATE FOOTER YEAR
-// ============================================
 function updateFooterYear() {
     const footerYear = document.querySelector('.footer-bottom strong');
     if (footerYear) {
@@ -525,8 +548,9 @@ function updateFooterYear() {
 }
 
 // ============================================
-// 🌊 PARALLAX EFFECT (Optional)
+// 9. PARALLAX EFFECT (Optional)
 // ============================================
+
 function initParallax() {
     const hero = document.querySelector('#hero');
     if (!hero) return;
@@ -548,8 +572,34 @@ function initParallax() {
 }
 
 // ============================================
-// 🚀 INITIALIZE ALL
+// 10. ANIMATION ON SCROLL (Optional)
 // ============================================
+
+function initIntersectionObserver() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-visible');
+            }
+        });
+    }, observerOptions);
+
+    const fadeElements = document.querySelectorAll('.card, .stat-item, .process-card, .service-premium-card');
+    
+    fadeElements.forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// ============================================
+// 11. INITIALIZE ALL FUNCTIONS
+// ============================================
+
 function init() {
     // Core functionality
     initMobileMenu();
@@ -557,15 +607,20 @@ function init() {
     initSmoothScroll();
     initScrollReveal();
     initFormHandling();
-    
-    // Optional enhancements
     updateFooterYear();
-    // initParallax(); // Uncomment if you want parallax effect
+    
+    // Optional enhancements (uncomment if needed)
+    // initParallax();
+    // initIntersectionObserver();
+    
+    console.log('✅ JavaScript loaded successfully');
+    console.log('🎨 Samuele Merizio Portfolio');
 }
 
 // ============================================
-// 🎯 START WHEN DOM IS READY
+// 12. START WHEN DOM IS READY
 // ============================================
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
 } else {
@@ -573,37 +628,23 @@ if (document.readyState === 'loading') {
 }
 
 // ============================================
-// 🛡️ ERROR HANDLING
+// 13. ERROR HANDLING
 // ============================================
+
 window.addEventListener('error', (e) => {
     console.error('Runtime error:', e.error);
 });
 
 // ============================================
-// 📱 RESPONSIVE UTILITIES
+// 14. BROWSER DETECTION
 // ============================================
-let globalResizeTimeout;
-window.addEventListener('resize', () => {
-    clearTimeout(globalResizeTimeout);
-    globalResizeTimeout = setTimeout(() => {
-        // Reset mobile menu on desktop resize
-        if (window.innerWidth > 968) {
-            const navUl = document.querySelector('nav ul');
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            if (navUl && navUl.classList.contains('active')) {
-                navUl.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-            if (menuToggle && menuToggle.classList.contains('active')) {
-                menuToggle.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-            }
-        }
-    }, 250);
-});
 
-// ============================================
-// ✅ LOG SUCCESS
-// ============================================
-console.log('✅ JavaScript loaded successfully');
-console.log('🎨 Samuele Merizio Portfolio - Menu Hamburger Active');
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+if (isIOS) {
+    document.body.classList.add('ios-device');
+}
+
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+if (isSafari) {
+    document.body.classList.add('safari-browser');
+}
