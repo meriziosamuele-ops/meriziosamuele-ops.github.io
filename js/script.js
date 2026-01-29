@@ -606,6 +606,7 @@ function init() {
     initNavScrollEffect();
     initSmoothScroll();
     initScrollReveal();
+    initPortfolioAnimations();
     initFormHandling();
     updateFooterYear();
     
@@ -647,4 +648,73 @@ if (isIOS) {
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 if (isSafari) {
     document.body.classList.add('safari-browser');
+}
+
+// ============================================
+// 15. PORTFOLIO PAGE ANIMATIONS
+// ============================================
+
+function initPortfolioAnimations() {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    if (projectCards.length === 0) return;
+    
+    // Intersection Observer per attivare animazioni allo scroll
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                entry.target.classList.add('animated');
+                animatePerformanceCircles(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    projectCards.forEach(card => {
+        observer.observe(card);
+    });
+}
+
+function animatePerformanceCircles(projectCard) {
+    const circles = projectCard.querySelectorAll('.score-circle');
+    
+    circles.forEach((circle, index) => {
+        setTimeout(() => {
+            circle.classList.add('animate');
+            const numberElement = circle.querySelector('.score-number');
+            if (numberElement) {
+                animateCountUp(numberElement);
+            }
+        }, index * 200);
+    });
+}
+
+function animateCountUp(element) {
+    const text = element.textContent;
+    const target = parseInt(text.replace(/\D/g, ''));
+    
+    if (isNaN(target)) return;
+    
+    const duration = 1200;
+    const steps = 50;
+    const increment = target / steps;
+    const stepDuration = duration / steps;
+    
+    let current = 0;
+    element.textContent = '0';
+    
+    const counter = setInterval(() => {
+        current += increment;
+        
+        if (current >= target) {
+            element.textContent = text;
+            clearInterval(counter);
+        } else {
+            element.textContent = Math.floor(current).toString();
+        }
+    }, stepDuration);
 }

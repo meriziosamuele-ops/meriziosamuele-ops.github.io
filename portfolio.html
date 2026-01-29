@@ -6,6 +6,9 @@
     <title>Portfolio | Samuele Merizio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,7 +17,6 @@
     <div class="container">
         <a href="index.html" class="logo">S.Merizio<span>.</span></a>
         
-        <!-- HAMBURGER BUTTON (visibile solo mobile) -->
         <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
             <div class="hamburger">
                 <span></span>
@@ -23,7 +25,6 @@
             </div>
         </button>
         
-        <!-- NAVIGATION -->
         <ul class="nav-menu">
             <li><a href="metodo.html">Metodo</a></li>
             <li><a href="servizi.html">Servizi</a></li>
@@ -42,32 +43,88 @@
                     <i class="fas fa-briefcase"></i>
                     <span>Progetti Reali</span>
                 </div>
-                <h1>Portfolio</h1>
+                <h1>
+                    Performance Certificate,<br/>
+                    <span class="text-gradient">Non Promesse</span>
+                </h1>
                 <p class="hero-subtitle">
-                    Siti web con performance certificate e design su misura.
+                    Ogni progetto include metriche reali di performance e SEO.<br/>
+                    Numeri verificabili, non parole al vento.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="manifesto">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Cosa Significano i Numeri</span>
+                <h2>Come Leggere le Metriche dei Miei Progetti</h2>
+                <p>Prima di vedere i progetti, capiamo cosa significano questi punteggi</p>
+            </div>
+            
+            <div class="manifesto-grid">
+                <div class="manifesto-item">
+                    <div class="manifesto-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Performance Score</h3>
+                    <p>
+                        <strong>Velocità = Conversioni.</strong> Google misura la velocità di caricamento del tuo sito. 
+                        Un punteggio alto (90+) significa: caricamento istantaneo, esperienza utente fluida, 
+                        <strong>più visite che diventano clienti</strong>.
+                    </p>
+                    <div class="metric-box metric-box-performance">
+                        <div class="metric-label">Il Mio Standard</div>
+                        <div class="metric-value">95+ Desktop</div>
+                    </div>
+                </div>
+                
+                <div class="manifesto-item">
+                    <div class="manifesto-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO Score</h3>
+                    <p>
+                        <strong>Visibilità = Crescita.</strong> Ottimizzazione per i motori di ricerca. 
+                        Un punteggio perfetto (100/100) significa: il tuo sito viene trovato su Google, 
+                        <strong>traffico organico gratuito</strong>, autorevolezza nel tuo settore.
+                    </p>
+                    <div class="metric-box metric-box-seo">
+                        <div class="metric-label">Il Mio Standard</div>
+                        <div class="metric-value">100/100</div>
+                        <div class="metric-subtitle">SEO Perfetto</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="portfolio-section">
         <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Case Study</span>
+                <h2>Progetti Reali con Metriche Certificate</h2>
+            </div>
+
             <div class="portfolio-grid">
                 
-                <!-- PROGETTO: AVV. GIGLIOTTI -->
                 <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-badge">Completato</div>
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
+                    <a href="https://avvocatochiaragigliotti.com" target="_blank" rel="noopener noreferrer" class="project-image-link">
+                        <div class="project-image project-image-screenshot">
+                            <img src="img/sito_Avv.Gigliotti.png" alt="Screenshot sito Avvocato Chiara Gigliotti">
+                            <div class="overlay-link">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </a>
                     <div class="project-content">
                         <div class="project-header">
                             <span class="project-category">Studio Legale</span>
-                            <h3>Avv. Gigliotti</h3>
+                            <h3>Avv. Chiara Gigliotti</h3>
                             <p class="project-tagline">Sito vetrina professionale per studio legale</p>
                         </div>
 
-                        <!-- LIGHTHOUSE SCORES -->
                         <div class="lighthouse-scores">
                             <div class="lighthouse-card">
                                 <div class="score-circle desktop">
@@ -76,12 +133,6 @@
                                 </div>
                             </div>
                             <div class="lighthouse-card">
-                                <div class="score-circle mobile">
-                                    <span class="score-number">80+</span>
-                                    <span class="score-label">Mobile</span>
-                                </div>
-                            </div>
-                            <div class="lighthouse-card highlight">
                                 <div class="score-circle perfect">
                                     <span class="score-number">100</span>
                                     <span class="score-label">SEO</span>
@@ -90,14 +141,14 @@
                         </div>
 
                         <div class="performance-note">
-                            <i class="fas fa-trophy"></i>
-                            <span>Performance eccellenti certificate - SEO perfetto Google (100/100)</span>
+                            <span>Performance eccellenti certificate - SEO perfetto Google</span>
                         </div>
 
                         <div class="project-description">
                             <p>
                                 Sito vetrina professionale per studio legale. Design elegante e autorevole 
-                                che trasmette serietà e competenza, con performance tecniche eccellenti.
+                                che trasmette serietà e competenza, con performance tecniche eccellenti 
+                                che garantiscono visibilità su Google e caricamento rapido.
                             </p>
                         </div>
 
@@ -118,7 +169,7 @@
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check-circle"></i>
-                                    <span>Performance ottimizzate (98 desktop)</span>
+                                    <span>Performance ottimizzate (95+ desktop)</span>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check-circle"></i>
@@ -148,7 +199,6 @@
                             </a>
                         </div>
                     </div>
-                </div>
 
             </div>
         </div>
@@ -157,15 +207,25 @@
     <section id="cta-section">
         <div class="container">
             <div class="cta-content">
+                <div class="hero-badge">
+                    <i class="fas fa-gift"></i>
+                    <span>Preventivo senza impegno</span>
+                </div>
                 <h2>Il Tuo Progetto Potrebbe Essere il Prossimo</h2>
                 <p>
-                    Performance certificate. SEO perfetto. Consegna in 2-3 settimane. 
-                    La prima consulenza è gratuita.
+                    Performance certificate. SEO ottimizzato. Consegna in 2-3 settimane.<br/>
+                    Contattami per un preventivo.
                 </p>
-                <a href="contatti.html" class="btn btn-white">
-                    <span>Parliamo del Tuo Progetto</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
+                <div class="cta-buttons">
+                    <a href="contatti.html" class="btn btn-white">
+                        <span>Parliamo del Tuo Progetto</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="servizi.html" class="btn btn-outline-white">
+                        <span>Scopri i Servizi</span>
+                        <i class="fas fa-briefcase"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
