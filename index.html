@@ -1,413 +1,294 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samuele Merizio | Sviluppo Web Professionale</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- FAVICON -->
+    <title>Optiform - Termoformatrici Professionali | Tecnologia Diagnostica Avanzata</title>
+    <meta name="description" content="Termoformatrici professionali con sistema diagnostico intelligente. Quando la macchina si ferma, sai già cosa sostituire.">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">OPTIFORM</a>
+            
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="prodotti.html">Prodotti</a></li>
+                <li><a href="vantaggi.html">Vantaggi</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<nav id="navbar">
-    <div class="container">
-        <a href="index.html" class="logo">S.Merizio<span>.</span></a>
-        
-        <!-- HAMBURGER BUTTON (visibile solo mobile) -->
-        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        
-        <!-- NAVIGATION -->
-        <ul class="nav-menu">
-            <li><a href="metodo.html">Metodo</a></li>
-            <li><a href="servizi.html">Servizi</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="chi-sono.html">Chi Sono</a></li>
-            <li><a href="contatti.html" class="btn-nav">Contattami</a></li>
-        </ul>
-    </div>
-</nav>
-
-    <!-- HERO SECTION -->
-    <section id="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-grid"></div>
-        <div class="container">
-            <div class="hero-content">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
                 <div class="hero-badge">
-                    <i class="fas fa-code"></i>
-                    <span>Sviluppo Web Professionale</span>
+                    Sistema diagnostico avanzato
                 </div>
                 
                 <h1>
-                    Siti web su misura<br>
-                    per il tuo <span class="text-gradient">business</span>
+                    Quando la Macchina Si Ferma,<br>
+                    <span class="highlight-green">Sai Già Cosa Sostituire</span>
                 </h1>
                 
-                <p class="hero-subtitle">
-                    Creo siti web personalizzati che rappresentano il tuo brand in modo professionale. 
-                    Design curato, codice solido, attenzione ai dettagli.
-                </p>
-                
-                <div class="cta-group">
-                    <a href="contatti.html" class="btn btn-primary">
-                        <span>Richiedi Preventivo</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="portfolio.html" class="btn btn-outline">
-                        <span>Esplora i Progetti</span>
-                        <i class="fas fa-briefcase"></i>
-                    </a>
-                </div>
-
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">2-4</span>
-                        <span class="stat-label">Settimane consegna</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">95+</span>
-                        <span class="stat-label">Performance Score</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100</span>
-                        <span class="stat-label">SEO Score</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- VALUE PROPOSITION -->
-    <section class="homepage-value">
-        <div class="container">
-            <div class="section-header">
-                <h2>Come Lavoro</h2>
-                <p>Un approccio metodico per risultati di qualità.</p>
-            </div>
-            
-            <div class="manifesto-grid">
-                <div class="manifesto-item">
-                    <div class="manifesto-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3>Design Personalizzato</h3>
-                    <p>Ogni progetto è studiato specificamente per il tuo brand. Niente template preconfezionati.</p>
-                </div>
-                
-                <div class="manifesto-item">
-                    <div class="manifesto-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Codice di Qualità</h3>
-                    <p>Sviluppo con attenzione alle performance, alla SEO e alla compatibilità cross-browser.</p>
-                </div>
-                
-                <div class="manifesto-item">
-                    <div class="manifesto-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Comunicazione Trasparente</h3>
-                    <p>Aggiornamenti costanti, preventivi chiari e disponibilità durante tutto il progetto.</p>
-                </div>
-            </div>
-            
-            <div class="cta-centered">
-                <a href="chi-sono.html" class="btn btn-primary">
-                    <span>Scopri di Più</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROCESSO -->
-    <section class="homepage-process">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow">Il Processo</span>
-                <h2>Le Fasi del Lavoro</h2>
-            </div>
-
-            <div class="process-grid">
-                <!-- FASE 1 -->
-                <div class="process-card">
-                    <div class="process-badge">
-                        <span class="badge-number">01</span>
-                    </div>
-                    <div class="process-icon-wrapper">
-                        <div class="process-icon">
-                            <i class="fas fa-compass"></i>
-                        </div>
-                    </div>
-                    <h3>Discovery</h3>
-                    <p class="process-lead">Analizziamo insieme il tuo business e definiamo gli obiettivi del progetto.</p>
-                </div>
-
-                <!-- FASE 2 -->
-                <div class="process-card">
-                    <div class="process-badge">
-                        <span class="badge-number">02</span>
-                    </div>
-                    <div class="process-icon-wrapper">
-                        <div class="process-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                    </div>
-                    <h3>Design</h3>
-                    <p class="process-lead">Creo un'anteprima navigabile per darti una visione chiara del risultato finale.</p>
-                </div>
-
-                <!-- FASE 3 -->
-                <div class="process-card">
-                    <div class="process-badge">
-                        <span class="badge-number">03</span>
-                    </div>
-                    <div class="process-icon-wrapper">
-                        <div class="process-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                    </div>
-                    <h3>Sviluppo</h3>
-                    <p class="process-lead">Trasformo il design in un sito funzionante con attenzione a performance e SEO.</p>
-                </div>
-
-                <!-- FASE 4 -->
-                <div class="process-card">
-                    <div class="process-badge">
-                        <span class="badge-number">04</span>
-                    </div>
-                    <div class="process-icon-wrapper">
-                        <div class="process-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                    </div>
-                    <h3>Lancio</h3>
-                    <p class="process-lead">Pubblichiamo il sito e ti fornisco supporto e documentazione per la gestione.</p>
-                </div>
-            </div>
-            
-            <div class="cta-centered">
-                <a href="metodo.html" class="btn btn-primary">
-                    <span>Scopri il Metodo Completo</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PORTFOLIO HIGHLIGHT -->
-    <section class="homepage-portfolio">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow">Progetti Realizzati</span>
-                <h2>Portfolio</h2>
-            </div>
-            
-            <div class="guarantees-grid">
-                <div class="guarantee-card">
-                    <div class="guarantee-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                    <h3>Avv. Gigliotti</h3>
-                    <p>Sito vetrina per studio legale con design professionale e performance ottimizzate</p>
-                    <div class="project-metrics">
-                        <div class="metric-item">
-                            <div class="metric-number">95+</div>
-                            <div class="metric-label">Desktop</div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-number">84+</div>
-                            <div class="metric-label">Mobile</div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-number success">100</div>
-                            <div class="metric-label">SEO</div>
-                        </div>
-                    </div>
-                    <a href="portfolio.html" class="project-link">
-                        Vedi il progetto <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="guarantee-card">
-                    <div class="guarantee-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3>Design Personalizzato</h3>
-                    <p>Ogni sito è progettato su misura per riflettere l'identità del tuo brand in modo unico.</p>
-                </div>
-                
-                <div class="guarantee-card">
-                    <div class="guarantee-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3>Performance Ottimizzate</h3>
-                    <p>Attenzione costante alla velocità di caricamento e all'esperienza utente su tutti i dispositivi.</p>
-                </div>
-            </div>
-            
-            <div class="cta-centered">
-                <a href="portfolio.html" class="btn btn-primary">
-                    <span>Vedi Tutti i Progetti</span>
-                    <i class="fas fa-briefcase"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVIZI -->
-    <section class="homepage-services">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow">Servizi</span>
-                <h2>Cosa Offro</h2>
-                <p>Prezzi trasparenti, senza costi nascosti.</p>
-            </div>
-            
-            <div class="manifesto-grid">
-                <div class="manifesto-item">
-                    <div class="manifesto-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3>Sito Vetrina</h3>
-                    <p>Design personalizzato, SEO ottimizzato, performance elevate, hosting incluso per 1 anno.</p>
-                    <div class="service-pricing-box">
-                        <div class="price-large">€2.200</div>
-                        <div class="price-note">Consegna 2-3 settimane</div>
-                    </div>
-                    <a href="servizi.html#vetrina" class="service-link">
-                        Scopri i dettagli <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="manifesto-item">
-                    <div class="manifesto-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Sito Avanzato</h3>
-                    <p>Funzionalità personalizzate, prenotazioni online, area riservata, integrazioni API.</p>
-                    <div class="service-pricing-box success-border">
-                        <div class="price-large success">Da €3.500</div>
-                        <div class="price-note">Consegna 3-5 settimane</div>
-                    </div>
-                    <a href="servizi.html#avanzato" class="service-link">
-                        Vedi le funzionalità <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="manifesto-item">
-                    <div class="manifesto-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3>Restyling</h3>
-                    <p>Nuovo design moderno, migrazione contenuti, ottimizzazione SEO preservata.</p>
-                    <div class="service-pricing-box warning-border">
-                        <div class="price-large warning">Da €2.000</div>
-                        <div class="price-note">Consegna 2-4 settimane</div>
-                    </div>
-                    <a href="servizi.html#restyling" class="service-link">
-                        Approfondisci <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="cta-centered">
-                <a href="servizi.html" class="btn btn-primary">
-                    <span>Esplora Tutti i Servizi</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA FINALE -->
-    <section id="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Iniziamo a Lavorare Insieme</h2>
                 <p>
-                    Contattami per discutere del tuo progetto e ricevere<br/>
-                    un preventivo dettagliato con tempistiche e costi chiari.
+                    Il display mostra codice componente e posizione fisica della resistenza guasta. Il tecnico prende il ricambio giusto dal magazzino e interviene. Zero diagnosi manuale, zero tempo perso.
                 </p>
+                
                 <div class="cta-buttons">
-                    <a href="contatti.html" class="btn btn-white">
-                        <span>Richiedi Preventivo</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="servizi.html" class="btn btn-outline-white">
-                        <span>Scopri i Servizi</span>
-                        <i class="fas fa-briefcase"></i>
-                    </a>
+                    <a href="prodotti.html" class="cta-button primary">Scopri la Tecnologia</a>
+                    <a href="vantaggi.html" class="cta-button secondary">Vedi i Vantaggi</a>
+                </div>
+            </div>
+
+            <div class="hero-visual"></div>
+        </div>
+    </section>
+
+<!-- Diagnostic Highlight - VERDE (affidabilità) -->
+    <section class="diagnostic-highlight">
+        <div class="container">
+            <div class="diagnostic-content">
+                <h2 class="fade-in-up">
+                    Come Funziona il <span class="highlight-green">Sistema Diagnostico</span>
+                </h2>
+                <p class="fade-in-up">
+                    Una scheda elettronica dedicata lavora in sinergia con il PLC. Monitora costantemente ogni resistenza e, in caso di guasto, identifica immediatamente quale componente sostituire.
+                </p>
+                
+                <div class="diagnostic-features">
+                    <div class="diagnostic-feature fade-in-up">
+                        <div class="feature-number">01</div>
+                        <h4>Monitoraggio Continuo e Autonomo</h4>
+                        <p>La scheda diagnostica verifica ogni resistenza in sequenza con cicli regolari. Lavora in background senza interferire con la produzione: mentre la macchina forma i blister, il sistema controlla lo stato di salute dei componenti.</p>
+                        <div class="feature-benefit">
+                            <strong>Il vantaggio:</strong> La macchina produce a pieno regime mentre la diagnostica lavora in parallelo. Nessun rallentamento, nessuna interruzione per i controlli.
+                        </div>
+                    </div>
+                    
+                    <div class="diagnostic-feature fade-in-up">
+                        <div class="feature-number">02</div>
+                        <h4>Rilevamento Guasti Immediato</h4>
+                        <p>Quando una resistenza presenta anomalie, il sistema lo rileva e segnala il problema istantaneamente sul display. Nessuna diagnosi manuale: il codice identificativo del componente guasto appare automaticamente.</p>
+                        <div class="feature-benefit">
+                            <strong>Il vantaggio:</strong> Eliminata la fase più lunga e complessa: la ricerca del guasto. Il tecnico sa subito cosa è rotto senza smontare, misurare o testare componenti.
+                        </div>
+                    </div>
+                    
+                    <div class="diagnostic-feature fade-in-up">
+                        <div class="feature-number">03</div>
+                        <h4>Localizzazione Fisica Precisa</h4>
+                        <p>Il display non mostra solo quale resistenza è guasta, ma anche la sua posizione esatta sulla macchina. Schema visivo + codice identificativo + zona fisica: il tecnico ha tutte le informazioni per intervenire immediatamente nel punto corretto.</p>
+                        <div class="feature-benefit">
+                            <strong>Il vantaggio:</strong> Zero errori di identificazione. Il tecnico apre lo sportello giusto, rimuove la resistenza indicata, monta il ricambio. Intervento mirato, veloce, preciso.
+                        </div>
+                    </div>
+                    
+                    <div class="diagnostic-feature fade-in-up">
+                        <div class="feature-number">04</div>
+                        <h4>Intervento Semplificato</h4>
+                        <p>Con il componente identificato e localizzato, la sostituzione diventa un'operazione standard. Il magazziniere preleva il ricambio corretto in base al codice visualizzato, il tecnico sostituisce la resistenza seguendo le indicazioni, la macchina riparte.</p>
+                        <div class="feature-benefit">
+                            <strong>Il vantaggio:</strong> Manutenzione accessibile anche a personale con formazione base. Non servono competenze elettroniche avanzate: leggi il codice, cambia il pezzo, riavvia.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+    <!-- Innovation Section - BLU (innovazione tecnologica) -->
+    <section class="innovation">
+        <div class="container">
+            <h2 class="section-title-white fade-in-up">Innovazione <span class="highlight-blue">Tecnologica</span></h2>
+            <p class="section-subtitle fade-in-up">
+                Tre caratteristiche uniche che distinguono le nostre termoformatrici
+            </p>
+            
+            <div class="innovation-grid">
+                <div class="innovation-card fade-in-up">
+                    <h3>Architettura Dual-System</h3>
+                    <p>PLC dedicato al controllo operativo e scheda elettronica separata per la diagnostica. Due sistemi indipendenti che lavorano in parallelo senza interferenze.</p>
+                </div>
+                
+                <div class="innovation-card fade-in-up">
+                    <h3>Scheda Dedicata Unica</h3>
+                    <p>L'unica sul mercato con elettronica separata solo per il monitoraggio resistenze. Non sovraccarica il PLC e garantisce affidabilità totale del sistema.</p>
+                </div>
+                
+                <div class="innovation-card fade-in-up">
+                    <h3>Manutenzione Semplificata</h3>
+                    <p>Nessun tecnico specializzato necessario. Chiunque può leggere il codice sul display e sostituire il componente indicato seguendo le istruzioni.</p>
                 </div>
             </div>
         </div>
     </section>
+    
+<!-- Made in Italy Section -->
+<section class="made-in-italy">
+    <div class="container">
+        <div class="made-content">
+            <div class="made-badge fade-in-up">
+                <span class="italy-flag">🇮🇹</span>
+                <span class="made-text">Made in Italy</span>
+            </div>
+            
+            <h2 class="fade-in-up">
+                Eccellenza Italiana nella <span class="highlight-green">Termoformatura</span>
+            </h2>
+            
+            <p class="fade-in-up">
+            Ogni termoformatrice Optiform è progettata, assemblata e collaudata a <strong>Treviglio BG</strong>.
+            L'innovazione del sistema diagnostico nasce 
+            dall'esperienza di <strong>Floki</strong>, azienda con consolidata presenza, oltre 10 anni, 
+            nell'ambito automazione industriale.
+            </p>
 
+            <div class="made-features">
+                <div class="made-feature fade-in-up">
+                    <h4>Artigianalità Tecnica</h4>
+                    <p>Assemblaggio curato nei minimi dettagli da tecnici specializzati con diversi anni di esperienza nel settore della termoformatura.</p>
+                </div>
+
+                <div class="made-feature fade-in-up">
+                    <h4>Componenti Selezionati</h4>
+                    <p>Ogni componente viene testato e certificato prima del montaggio. Il nostro sistema di controllo qualità garantisce prestazioni costanti e durature.</p>                </div>
+
+                <div class="made-feature fade-in-up">
+                    <h4>Assistenza Dedicata</h4>
+                    <p>Supporto tecnico in italiano e inglese con interventi rapidi su tutto il territorio nazionale. Conosciamo ogni dettaglio delle nostre macchine.</p>
+                </div>
+
+                <div class="made-feature fade-in-up">
+                    <h4>Personalizzazione</h4>
+                    <p>Capacità di adattare le macchine alle specifiche esigenze produttive. Flessibilità tipica delle aziende italiane di medie dimensioni.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Products Preview -->
+    <section class="products-preview">
+        <div class="container">
+            <h2 class="section-title-black fade-in-up">I Nostri <span class="highlight-green">Modelli</span></h2>
+            <p class="section-subtitle fade-in-up">
+                Due versioni con lo stesso sistema diagnostico avanzato
+            </p>
+            
+            <div class="products-grid">
+                <a href="k-75.html" class="product-card fade-in-up">
+                    <div class="product-image">K-75</div>
+                    <div class="product-content">
+                        <h3 class="product-title">K-75 Manuale</h3>
+                        <p class="product-description">
+                            Controllo manuale per massima flessibilità. Ideale per produzioni variabili con cambio formato frequente. Sistema diagnostico integrato.
+                        </p>
+                        <span class="product-link">Scopri le specifiche</span>
+                    </div>
+                </a>
+
+                <a href="k-75s.html" class="product-card fade-in-up">
+                    <div class="product-image">K-75S</div>
+                    <div class="product-content">
+                        <h3 class="product-title">K-75S Automatica</h3>
+                        <p class="product-description">
+                            PLC programmabile per automazione completa. Perfetta per produzioni ad alto volume con cicli ripetitivi. Doppia scheda diagnostica.
+                        </p>
+                        <span class="product-link">Scopri le specifiche</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+<!-- Final CTA Section -->
+<section class="final-cta">
+    <div class="container">
+        <div class="cta-content fade-in-up">
+            <div class="cta-main">
+                <h2>Riduci i Tempi di Fermo Macchina</h2>
+                <p class="cta-subtitle">Scopri come il sistema diagnostico Optiform può trasformare la tua manutenzione</p>
+            </div>
+            
+            <div class="cta-actions">
+                <a href="contatti.html" class="cta-button primary-large">Richiedi Informazioni</a>
+                <div class="cta-info">
+                    <span class="cta-highlight">✓ Preventivo gratuito</span>
+                    <span class="cta-highlight">✓ Dimostrazione pratica disponibile</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-content">
                 <div class="footer-brand">
-                    <span class="footer-logo">S.Merizio<span>.</span></span>
-                    <p>
-                        Sviluppo siti web premium per professionisti e aziende che vogliono 
-                        distinguersi online con una presenza digitale autorevole e performante.
-                    </p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/samuele-merizio" target="_blank" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/samuelemerizio" target="_blank" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="mailto:meriziosamuele@gmail.com" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
+                    <h3>Optiform</h3>
+                    <p>Divisione termoformatura di Floki Automation. Dal 2015 progettiamo sistemi di controllo avanzati a Treviglio, nel cuore del distretto industriale lombardo.</p>
+                    <span class="footer-badge">Made in Italy</span>
                 </div>
-
-                <div class="footer-links">
-                    <h4>Navigazione</h4>
-                    <a href="index.html">Home</a>
-                    <a href="metodo.html">Metodo</a>
-                    <a href="servizi.html">Servizi</a>
-                    <a href="portfolio.html">Portfolio</a>
+                
+                <div class="footer-column">
+                    <h4>Prodotti</h4>
+                    <ul>
+                        <li><a href="k-75.html">Modello K-75</a></li>
+                        <li><a href="k-75s.html">Modello K-75S</a></li>
+                        <li><a href="prodotti.html">Tutte le Macchine</a></li>
+                    </ul>
                 </div>
-
-                <div class="footer-links">
-                    <h4>Servizi</h4>
-                    <a href="servizi.html#vetrina">Sito Vetrina</a>
-                    <a href="servizi.html#avanzato">Sito Avanzato</a>
-                    <a href="servizi.html#restyling">Restyling</a>
-                    <a href="contatti.html">Consulenza</a>
+                
+                <div class="footer-column">
+                    <h4>Azienda</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                        <li><a href="vantaggi.html">I Nostri Vantaggi</a></li>
+                        <li><a href="contatti.html">Contattaci</a></li>
+                    </ul>
                 </div>
-
-                <div class="footer-links">
+                
+                <div class="footer-column">
                     <h4>Contatti</h4>
-                    <a href="mailto:meriziosamuele@gmail.com">meriziosamuele@gmail.com</a>
-                    <a href="contatti.html">Modulo Contatti</a>
-                    <a href="chi-sono.html">Chi Sono</a>
+                    <ul>
+                        <li><a href="mailto:info@optiform.tech">info@optiform.tech</a></li>
+                        <li><a href="tel:+393517591871">+39 351 759 1871</a></li>
+                        <li>Via Redipuglia<br>24047 Treviglio (BG)</li>
+                    </ul>
                 </div>
             </div>
-
+            
             <div class="footer-bottom">
-                <strong>S.Merizio</strong> &copy; 2025. Tutti i diritti riservati. | P.IVA: Coming Soon
+                <p>&copy; 2026 Optiform - Floki S.r.l. | P.IVA IT04366480168 | optiform.tech</p>
+                <div class="footer-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="cookie-policy.html">Cookie Policy</a>
+                    <a href="termini-condizioni.html">Termini e Condizioni</a>
+                </div>
             </div>
         </div>
     </footer>
 
-<script src="js/script.js"></script>
+<!-- Scroll to Top Button -->
+<button id="scroll-to-top" aria-label="Torna su">↑</button>
 
+<!-- JavaScript -->
+<script src="js/script.js"></script>
 </body>
 </html>
