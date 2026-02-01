@@ -26,8 +26,8 @@
     --green-bg: #dcfce7;
     --green-cta: #0d7a5f;  /* Verde per sfondi CTA */
     
-    --blue: #0ea5e9;
-    --blue-dark: #0284c7;
+    --blue: #0f766e;       /* Teal scuro, complementare al verde */
+    --blue-dark: #0d5c54;  /* Teal più scuro */
     
     --black: #000000;
     --white: #ffffff;
@@ -52,7 +52,6 @@
     --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.15);
     --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.2);
 }
-
 /* ==========================================================================
    RESET E BASE
    ========================================================================== */
@@ -240,7 +239,7 @@ nav.scrolled {
 
 .section-subtitle {
     text-align: center;
-    color: var(--gray-400);
+    color: var(--gray-50);
     font-size: clamp(1rem, 2vw, 1.15rem);
     margin-bottom: var(--spacing-3xl);
     max-width: 700px;
@@ -258,8 +257,8 @@ nav.scrolled {
     display: inline-block;
 }
 
-.highlight-blue {
-    background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 50%, #7dd3fc 100%);
+.highlight-black {
+    background: var(--black);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -790,9 +789,9 @@ nav.scrolled {
 }
 
 .innovation-card:hover {
-    background: rgba(14, 165, 233, 0.08);
-    border-color: #0ea5e9;
-    box-shadow: 0 8px 30px rgba(14, 165, 233, 0.25);
+    background: var(--blue);
+    border-color: var(--blue);
+    box-shadow: var(--white);
     transform: translateY(-4px);
 }
 
@@ -851,7 +850,6 @@ nav.scrolled {
     border-left: 4px solid var(--green);
     text-align: left;
 }
-
 /* Numero progressivo nelle card diagnostiche */
 .feature-number {
     display: inline-flex;
@@ -911,7 +909,7 @@ nav.scrolled {
    ========================================================================== */
 .innovation {
     padding: var(--spacing-4xl) var(--spacing-xl);
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    background: var(--blue-dark);
     color: var(--white);
     position: relative;
 }
@@ -1217,6 +1215,652 @@ nav.scrolled {
 }
 
 /* ==========================================================================
+   INDEX.HTML - CSS AGGIUNTIVO
+   ========================================================================== */
+
+/* CTA nella sezione diagnostico */
+.diagnostic-cta {
+    text-align: center;
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-2xl);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .diagnostic-cta {
+        margin-top: var(--spacing-3xl);
+        padding-top: var(--spacing-2xl);
+    }
+}
+
+.cta-button.diagnostic{
+    padding: 30px;
+    background-color: var(--green);
+    color: var(--white);
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+    font-weight: 900;
+}
+
+.cta-button.diagnostic:hover{
+    transform: translateY(-3px);
+}
+/* ==========================================================================
+   PAGINA VANTAGGI 
+   ========================================================================== */
+
+/* ==========================================================================
+   SEZIONE CONFRONTO SCENARIO (Prima/Dopo)
+   ========================================================================== */
+
+/* Grid confronto */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+/* Card confronto - variante negativa (SENZA) */
+.comparison-card-negative {
+    background: rgba(220, 38, 38, 0.05);
+    border-color: rgba(220, 38, 38, 0.2);
+}
+
+/* Card confronto - variante positiva (CON) */
+.comparison-card-positive {
+    background: rgba(16, 185, 129, 0.05);
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+/* Titoli confronto */
+.comparison-title-negative {
+    color: #dc2626;
+    margin-bottom: 2rem;
+}
+
+.comparison-title-positive {
+    color: #10b981;
+    margin-bottom: 2rem;
+}
+
+/* Step singolo */
+.comparison-step {
+    margin-bottom: 1.5rem;
+}
+
+.comparison-step-title {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 0.75rem;
+}
+
+.comparison-step-text {
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Box risultato finale - variante negativa */
+.comparison-result-negative {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    background: rgba(220, 38, 38, 0.1);
+    border-left: 4px solid #dc2626;
+    border-radius: 4px;
+}
+
+.comparison-result-negative p {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+/* Box risultato finale - variante positiva */
+.comparison-result-positive {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    background: rgba(16, 185, 129, 0.1);
+    border-left: 4px solid #10b981;
+    border-radius: 4px;
+}
+
+.comparison-result-positive p {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   SEZIONE VANTAGGI TECNICI
+   ========================================================================== */
+
+/* Background grigio per sezione tecnica */
+.advantages-technical {
+    background: var(--gray-50);
+}
+
+/* Subtitle con colore grigio scuro */
+.advantages-subtitle {
+    color: var(--gray-600);
+}
+
+/* ==========================================================================
+   RESPONSIVE - PAGINA VANTAGGI
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 968px) {
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .comparison-card-negative,
+    .comparison-card-positive {
+        padding: var(--spacing-xl);
+    }
+    
+    .comparison-title-negative,
+    .comparison-title-positive {
+        font-size: 1.35rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .comparison-step-title {
+        font-size: 1rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .comparison-grid {
+        gap: 1.5rem;
+    }
+    
+    .comparison-card-negative,
+    .comparison-card-positive {
+        padding: var(--spacing-lg);
+    }
+    
+    .comparison-title-negative,
+    .comparison-title-positive {
+        font-size: 1.2rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .comparison-step {
+        margin-bottom: 1rem;
+    }
+    
+    .comparison-step-title {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .comparison-step-text {
+        font-size: 0.9rem;
+    }
+    
+    .comparison-result-negative,
+    .comparison-result-positive {
+        padding: 1rem;
+    }
+    
+    .comparison-result-negative p,
+    .comparison-result-positive p {
+        font-size: 0.95rem;
+    }
+}
+
+/* ==========================================================================
+   PAGINA VANTAGGI - CSS AGGIUNTIVO
+   ========================================================================== */
+
+/* ==========================================================================
+   SEZIONE VANTAGGI TECNICI / IMPATTO PRODUZIONE
+   ========================================================================== */
+
+/* Background grigio per sezione tecnica */
+.advantages-technical {
+    background: var(--gray-50);
+}
+
+/* Subtitle con colore grigio scuro */
+.advantages-subtitle {
+    color: var(--gray-600);
+}
+
+/* ==========================================================================
+   SEZIONE SETTORI DI APPLICAZIONE
+   ========================================================================== */
+
+/* Grid settori */
+.sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-3xl);
+}
+
+/* Card settore */
+.sector-card {
+    background: var(--white);
+    padding: var(--spacing-2xl);
+    border: 2px solid var(--gray-200);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.sector-card:hover {
+    border-color: var(--green);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.12);
+    transform: translateY(-4px);
+}
+
+.sector-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--black);
+    font-weight: 700;
+}
+
+.sector-card p {
+    color: var(--gray-700);
+    line-height: 1.7;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE - PAGINA VANTAGGI
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 968px) {
+    .sectors-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .sector-card {
+        padding: var(--spacing-xl);
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .sectors-grid {
+        gap: var(--spacing-lg);
+    }
+    
+    .sector-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .sector-card h3 {
+        font-size: 1.35rem;
+    }
+}
+
+/* ==========================================================================
+   PAGINA PRODOTTI - CSS AGGIUNTIVO
+   ========================================================================== */
+
+/* ==========================================================================
+   INTRO PRODOTTI
+   ========================================================================== */
+.products-intro {
+    padding: var(--spacing-4xl) var(--spacing-xl);
+    background: var(--white);
+    text-align: center;
+}
+
+.intro-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.intro-content h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: var(--spacing-xl);
+    color: var(--black);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.intro-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--gray-600);
+}
+
+/* ==========================================================================
+   PRODOTTI SUMMARY - Card compatte introduttive
+   ========================================================================== */
+.products-detail {
+    padding: var(--spacing-4xl) var(--spacing-xl);
+    background: var(--gray-50);
+}
+
+.product-summary-card {
+    max-width: 1000px;
+    margin: 0 auto var(--spacing-3xl) auto;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: var(--spacing-2xl);
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.product-summary-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.product-summary-card:last-child {
+    margin-bottom: 0;
+}
+
+/* Immagine prodotto summary */
+.product-summary-image {
+    background: linear-gradient(135deg, var(--gray-900) 0%, var(--black) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-2xl);
+    position: relative;
+}
+
+.product-visual {
+    font-size: 4rem;
+    font-weight: 900;
+    font-family: var(--font-mono);
+    color: var(--white);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.product-badge {
+    background: rgba(16, 185, 129, 0.15);
+    border: 2px solid rgba(16, 185, 129, 0.4);
+    color: var(--green-light);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+/* Contenuto prodotto summary */
+.product-summary-content {
+    padding: var(--spacing-2xl);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-summary-content h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--black);
+    font-weight: 800;
+}
+
+.product-tagline {
+    font-size: 1rem;
+    color: var(--gray-500);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 500;
+}
+
+.product-intro {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--gray-700);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Highlights compatti */
+.product-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.9rem;
+    color: var(--gray-700);
+}
+
+.highlight-icon {
+    color: var(--green);
+    font-weight: 900;
+    font-size: 1rem;
+}
+
+/* CTA prodotto summary */
+.product-summary-cta {
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   TABELLA CONFRONTO
+   ========================================================================== */
+.products-comparison {
+    padding: var(--spacing-4xl) var(--spacing-xl);
+    background: var(--white);
+}
+
+.comparison-table {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 2px solid var(--gray-200);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.comparison-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    background: var(--black);
+    color: var(--white);
+}
+
+.comparison-header .comparison-cell {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.comparison-header .feature-label {
+    text-align: left;
+    color: var(--white);
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.comparison-row:last-child {
+    border-bottom: none;
+}
+
+.comparison-row:nth-child(even) {
+    background: var(--gray-50);
+}
+
+.comparison-cell {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--gray-700);
+}
+
+.comparison-cell.feature-label {
+    justify-content: flex-start;
+    text-align: left;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.comparison-cell.highlighted {
+    background: rgba(16, 185, 129, 0.08);
+    color: var(--green-dark);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   RESPONSIVE - PAGINA PRODOTTI
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 968px) {
+    .product-summary-card {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .product-summary-image {
+        padding: var(--spacing-2xl);
+    }
+    
+    .product-visual {
+        font-size: 3.5rem;
+    }
+    
+    .product-summary-content {
+        padding: var(--spacing-2xl);
+    }
+    
+    .product-summary-content h2 {
+        font-size: 1.75rem;
+    }
+    
+    .comparison-table {
+        font-size: 0.9rem;
+    }
+    
+    .comparison-header .comparison-cell {
+        font-size: 1rem;
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+    
+    .comparison-cell {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .products-intro {
+        padding: var(--spacing-3xl) var(--spacing-md);
+    }
+    
+    .products-detail {
+        padding: var(--spacing-3xl) var(--spacing-md);
+    }
+    
+    .product-summary-card {
+        margin-bottom: var(--spacing-2xl);
+    }
+    
+    .product-summary-image {
+        padding: var(--spacing-xl);
+    }
+    
+    .product-visual {
+        font-size: 3rem;
+    }
+    
+    .product-badge {
+        font-size: 0.7rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+    
+    .product-summary-content {
+        padding: var(--spacing-xl);
+    }
+    
+    .product-summary-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .product-tagline {
+        font-size: 0.9rem;
+    }
+    
+    .product-intro {
+        font-size: 0.9rem;
+    }
+    
+    /* Tabella responsive */
+    .products-comparison {
+        padding: var(--spacing-3xl) var(--spacing-md);
+    }
+    
+    .comparison-header,
+    .comparison-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .comparison-header {
+        display: none;
+    }
+    
+    .comparison-row {
+        display: flex;
+        flex-direction: column;
+        padding: var(--spacing-md);
+        border-bottom: 2px solid var(--gray-300);
+        gap: var(--spacing-sm);
+    }
+    
+    .comparison-cell {
+        padding: var(--spacing-xs) 0;
+        justify-content: flex-start;
+        text-align: left;
+    }
+    
+    .comparison-cell.feature-label {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-sm);
+        padding-bottom: var(--spacing-sm);
+        border-bottom: 1px solid var(--gray-200);
+    }
+    
+    .comparison-cell:not(.feature-label)::before {
+        font-size: 0.8rem;
+        color: var(--gray-500);
+        margin-right: var(--spacing-sm);
+        font-weight: 600;
+    }
+    
+    .comparison-row .comparison-cell:nth-child(2)::before {
+        content: 'K-75: ';
+    }
+    
+    .comparison-row .comparison-cell:nth-child(3)::before {
+        content: 'K-75S: ';
+    }
+}
+
+/* ==========================================================================
    CONTACT SECTION - Sezione contatti (pagina contatti)
    ========================================================================== */
 .contact-section {
@@ -1235,28 +1879,23 @@ nav.scrolled {
 
 .contact-info h2 {
     font-size: 2.5rem;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
     color: var(--black);
     font-weight: 800;
 }
 
-.contact-info > p {
-    color: var(--gray-700);
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin-bottom: var(--spacing-2xl);
-}
-
 /* Info cards - Informazioni di contatto */
 .info-cards {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
 }
 
 .info-card {
     padding: var(--spacing-xl);
     border-left: 4px solid var(--green);
+    transition: all 0.3s ease;
 }
 
 .info-card:hover {
@@ -1285,6 +1924,7 @@ nav.scrolled {
     font-size: 1.05rem;
     display: inline-block;
     margin-bottom: var(--spacing-sm);
+    transition: all 0.2s ease;
 }
 
 .info-content a:hover {
@@ -1300,9 +1940,54 @@ nav.scrolled {
     color: var(--gray-600);
 }
 
-/* Mappa - Sezione mappa Google Maps */
+/* CTA Secondario - Bordo gradient su sfondo scuro */
+.cta-button.secondary.contact {
+    background: var(--black);
+    color: var(--white);
+}
+
+.cta-button.secondary.contact:hover {
+    background: var(--black);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   VISIT CTA SECTION - CTA per contatto (pagina contatti)
+   ========================================================================== */
+.visit-cta-section {
+    padding: var(--spacing-4xl) var(--spacing-xl);
+    background: var(--green-cta);
+}
+
+.cta-box {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+}
+
+.cta-text h2 {
+    font-size: 2.5rem;
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+    font-weight: 800;
+}
+
+.cta-text p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   MAPPA - Sezione mappa e informazioni sede
+   ========================================================================== */
 .map-container {
     background: var(--white);
+    margin-top: 90px;
 }
 
 .map-container h3 {
@@ -1368,53 +2053,11 @@ nav.scrolled {
 }
 
 /* ==========================================================================
-   VISIT CTA SECTION - CTA per contatto (pagina contatti)
-   ========================================================================== */
-.visit-cta-section {
-    padding: var(--spacing-4xl) var(--spacing-xl);
-    background: var(--green-cta);
-}
-
-/* CTA Secondario - Bordo gradient su sfondo scuro */
-.cta-button.secondary.contact{
-    background: var(--black);
-    color: var(--white);
-}
-
-.cta-button.secondary.contact:hover {
-    background: var(--black);
-    transform: translateY(-3px);
-}
-
-
-.cta-box {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: var(--spacing-3xl);
-    align-items: center;
-}
-
-.cta-text h2 {
-    font-size: 2.5rem;
-    color: var(--white);
-    margin-bottom: var(--spacing-md);
-    font-weight: 800;
-}
-
-.cta-text p {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.7;
-}
-
-/* ==========================================================================
    SUPPORT SECTION - Sezione supporto tecnico (pagina contatti)
    ========================================================================== */
 .support-section {
     padding: var(--spacing-4xl) var(--spacing-xl);
-    background: var(--white);
+    background: var(--gray-50);
 }
 
 .support-grid {
@@ -1426,12 +2069,16 @@ nav.scrolled {
 
 /* Card supporto */
 .support-card {
+    background: var(--white);
     padding: var(--spacing-2xl);
     border-left: 4px solid var(--green);
+    transition: all 0.3s ease;
 }
 
 .support-card:hover {
     border-left-color: var(--green-dark);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .support-card h3 {
@@ -1454,6 +2101,7 @@ nav.scrolled {
     font-weight: 600;
     font-size: 1.05rem;
     display: inline-block;
+    transition: all 0.2s ease;
 }
 
 .support-link:hover {
@@ -1461,15 +2109,88 @@ nav.scrolled {
     text-decoration: underline;
 }
 
-.timing {
-    margin-top: var(--spacing-md);
-    padding-top: var(--spacing-md);
-    border-top: 1px solid var(--gray-200);
-    font-size: 0.95rem;
+/* ==========================================================================
+   RESPONSIVE - Pagina contatti
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-3xl);
+    }
+
+    .cta-box {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+        text-align: center;
+    }
+
+    .support-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .contact-info h2 {
+        font-size: 2rem;
+    }
 }
 
-.timing strong {
-    color: var(--black);
+/* Mobile */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: var(--spacing-3xl) var(--spacing-md);
+    }
+
+    .visit-cta-section {
+        padding: var(--spacing-3xl) var(--spacing-md);
+    }
+
+    .cta-text h2 {
+        font-size: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cta-button {
+        width: 100%;
+    }
+
+    .support-section {
+        padding: var(--spacing-3xl) var(--spacing-md);
+    }
+
+    .contact-cta-buttons {
+        flex-direction: column;
+    }
+
+    .contact-cta-buttons .cta-button {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .map-wrapper iframe {
+        height: 300px;
+    }
+
+    .info-cards {
+        gap: var(--spacing-md);
+    }
+
+    .info-card {
+        padding: var(--spacing-lg);
+    }
+
+    .map-info {
+        padding: var(--spacing-lg);
+    }
+
+    .support-card {
+        padding: var(--spacing-lg);
+    }
 }
 
 /* ==========================================================================

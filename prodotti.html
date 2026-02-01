@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prodotti - Optiform | Termoformatrici Professionali</title>
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <title>I Nostri Modelli | Optiform Termoformatrici</title>
+    <meta name="description" content="Scopri le termoformatrici Optiform: K-53 e K-75 manuali, K-75S automatica. Tutte dotate di sistema diagnostico avanzato per massima efficienza produttiva.">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-    
+    <link rel="stylesheet" href="css/prodotti-additions.css">
 </head>
 <body>
-    <nav>
+    <!-- Navigation -->
+    <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">OPTIFORM</a>
-            <ul class="nav-links">
+            
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="prodotti.html" class="active">Prodotti</a></li>
                 <li><a href="vantaggi.html">Vantaggi</a></li>
@@ -24,102 +32,290 @@
         </div>
     </nav>
 
+    <!-- Page Header -->
     <section class="page-header">
         <h1>Le Nostre <span class="highlight-green">Termoformatrici</span></h1>
-        <p>Tecnologia avanzata e sistema diagnostico integrato per la massima efficienza produttiva</p>
+        <p>I nostri modelli professionali con sistema diagnostico integrato per ogni esigenza produttiva</p>
     </section>
 
-    <section class="products-section">
+    <!-- Intro Prodotti -->
+    <section class="products-intro">
         <div class="container">
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        K-75
-                        <span class="product-badge">Manuale</span>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">K-75</h3>
-                        <p class="product-description">Termoformatrice manuale con sistema diagnostico integrato. Perfetta per produzioni che richiedono flessibilità operativa e controllo diretto da parte dell'operatore.</p>
-                        <ul class="product-features">
-                            <li>Scheda elettronica dedicata alla diagnostica in tempo reale</li>
-                            <li>Rilevamento automatico guasti resistenze</li>
-                            <li>Localizzazione precisa del componente guasto</li>
-                            <li>Controllo manuale per massima flessibilità</li>
-                            <li>Elevata efficienza energetica</li>
-                            <li>Manutenzione predittiva per riduzione downtime</li>
-                        </ul>
-                        <div class="product-buttons">
-                            <a href="k-75.html" class="product-button primary">Dettagli Tecnici</a>
-                            <a href="contatti.html" class="product-button secondary">Richiedi Info</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        K-75S
-                        <span class="product-badge">Automatica</span>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">K-75S</h3>
-                        <p class="product-description">Versione automatica con PLC e sistema diagnostico avanzato. Ideale per produzioni ad alta capacità che richiedono automazione completa e massima produttività.</p>
-                        <ul class="product-features">
-                            <li>Sistema PLC per automazione completa</li>
-                            <li>Diagnostica avanzata con scheda dedicata</li>
-                            <li>Monitoraggio completo stato di salute macchina</li>
-                            <li>Alert immediati per anomalie resistenze</li>
-                            <li>Cicli automatizzati per massima efficienza</li>
-                            <li>Configurazioni personalizzabili per esigenze specifiche</li>
-                        </ul>
-                        <div class="product-buttons">
-                            <a href="k-75s.html" class="product-button primary">Dettagli Tecnici</a>
-                            <a href="contatti.html" class="product-button secondary">Richiedi Info</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="intro-content fade-in-up">
+                <h2>Una Tecnologia, <span class="highlight-green">Molteplici Soluzioni</span></h2>
+                <p>La totalità dei nostri modelli integra il nostro esclusivo sistema diagnostico: quando si verifica un guasto, il display mostra immediatamente quale componente sostituire. La differenza sta nel livello di automazione del processo produttivo e nelle dimensioni.</p>
             </div>
         </div>
     </section>
 
-    <section class="diagnostic-section">
+    <!-- Prodotti Grid -->
+    <section class="products-detail">
         <div class="container">
-            <div class="diagnostic-content">
-                <h2>Sistema Diagnostico <span class="highlight-green">Rivoluzionario</span></h2>
-                <p>Tutti i nostri modelli integrano una scheda elettronica dedicata che opera insieme al PLC per fornire diagnostica avanzata e manutenzione predittiva.</p>
+            
+            <!-- K-53 Manuale -->
+            <div class="product-summary-card fade-in-up">
+                <div class="product-summary-image">
+                    <div class="product-visual">K-53</div>
+                    <div class="product-badge">Sistema Diagnostico Integrato</div>
+                </div>
                 
-                <div class="diagnostic-grid">
-                    <div class="diagnostic-card">
-                        <div class="diagnostic-icon">01</div>
-                        <h3>Rilevamento Automatico</h3>
-                        <p>Identifica immediatamente le resistenze guaste con segnalazione istantanea sul pannello di controllo</p>
-                    </div>
+                <div class="product-summary-content">
+                    <h2>K-53 Manuale</h2>
+                    <p class="product-tagline">Controllo manuale, dimensioni compatte</p>
                     
-                    <div class="diagnostic-card">
-                        <div class="diagnostic-icon">02</div>
-                        <h3>Localizzazione Precisa</h3>
-                        <p>Indica esattamente quale resistenza richiede intervento, eliminando le ore di ricerca manuale</p>
+                    <p class="product-intro">Termoformatrice con controllo manuale ideale per produzioni variabili e cambio formato frequente. Sistema diagnostico dedicato per manutenzione rapida e autonoma. Dimensioni ridotte per spazi produttivi limitati.</p>
+
+                    <div class="product-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>Controllo manuale totale</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>Sistema diagnostico dedicato</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>Dimensioni compatte</span>
+                        </div>
                     </div>
-                    
-                    <div class="diagnostic-card">
-                        <div class="diagnostic-icon">03</div>
-                        <h3>Monitoraggio Real-Time</h3>
-                        <p>Controllo continuo dello stato di tutti i componenti critici con alert immediati</p>
+
+                    <div class="product-summary-cta">
+                        <a href="k-53.html" class="cta-button secondary">Scopri K-53</a>
                     </div>
+                </div>
+            </div>
+
+            <!-- K-75 Manuale -->
+            <div class="product-summary-card fade-in-up">
+                <div class="product-summary-image">
+                    <div class="product-visual">K-75</div>
+                    <div class="product-badge">Sistema Diagnostico Integrato</div>
+                </div>
+                
+                <div class="product-summary-content">
+                    <h2>K-75 Manuale</h2>
+                    <p class="product-tagline">Controllo manuale per massima flessibilità operativa</p>
                     
-                    <div class="diagnostic-card">
-                        <div class="diagnostic-icon">04</div>
-                        <h3>Manutenzione Predittiva</h3>
-                        <p>Previeni fermi macchina imprevisti grazie all'analisi predittiva delle performance</p>
+                    <p class="product-intro">Termoformatrice con controllo manuale ideale per produzioni variabili e cambio formato frequente. Sistema diagnostico dedicato per manutenzione rapida e autonoma.</p>
+
+                    <div class="product-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>Controllo manuale totale</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>Sistema diagnostico dedicato</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>Cambio formato rapido</span>
+                        </div>
+                    </div>
+
+                    <div class="product-summary-cta">
+                        <a href="k-75.html" class="cta-button secondary">Scopri K-75</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- K-75S Automatica -->
+            <div class="product-summary-card fade-in-up">
+                <div class="product-summary-image">
+                    <div class="product-visual">K-75S</div>
+                    <div class="product-badge">Sistema diagnostico integrato</div>
+                </div>
+                
+                <div class="product-summary-content">
+                    <h2>K-75S Automatica</h2>
+                    <p class="product-tagline">Automazione completa per produzioni ad alto volume</p>
+                    
+                    <p class="product-intro">Termoformatrice con PLC programmabile per automazione completa del ciclo. Scheda diagnostica per monitoraggio resistenze. Ottimizzata per produzioni continuative.</p>
+
+                    <div class="product-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>PLC programmabile</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>Sistema diagnostico dedicato</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">✓</span>
+                            <span>Automazione completa</span>
+                        </div>
+                    </div>
+
+                    <div class="product-summary-cta">
+                        <a href="k-75s.html" class="cta-button secondary">Scopri K-75S</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Tabella Confronto -->
+    <section class="products-comparison">
+        <div class="container">
+            <h2 class="section-title-black fade-in-up">Confronto <span class="highlight-green">Modelli</span></h2>
+            <p class="section-subtitle fade-in-up">Le principali differenze tra i modelli Manuali e Automatici</p>
+            
+            <div class="comparison-table fade-in-up">
+                <div class="comparison-header">
+                    <div class="comparison-cell feature-label"> <span class="highlight-green">Caratteristica</span></div>
+                    <div class="comparison-cell model-label"><span class="highlight-green">Manuale</span></div>
+                    <div class="comparison-cell model-label"><span class="highlight-green">Automatica</span></div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell feature-label">Sistema Diagnostico</div>
+                    <div class="comparison-cell highlighted">Scheda dedicata</div>
+                    <div class="comparison-cell highlighted">Scheda dedicata</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell feature-label">Controllo Processo</div>
+                    <div class="comparison-cell">Manuale</div>
+                    <div class="comparison-cell highlighted">PLC programmabile</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell feature-label">Automazione</div>
+                    <div class="comparison-cell">Base</div>
+                    <div class="comparison-cell highlighted">Completa</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell feature-label">Memorizzazione Ricette</div>
+                    <div class="comparison-cell">—</div>
+                    <div class="comparison-cell highlighted">✓ Inclusa</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell feature-label">Cambio Formato</div>
+                    <div class="comparison-cell highlighted">Rapido</div>
+                    <div class="comparison-cell">Standard</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell feature-label">Tipo Produzione</div>
+                    <div class="comparison-cell">Variabile / Piccole serie</div>
+                    <div class="comparison-cell highlighted">Alto volume / Ripetitiva</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell feature-label">Operatore Richiesto</div>
+                    <div class="comparison-cell">Sempre presente</div>
+                    <div class="comparison-cell highlighted">Supervisione periodica</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell feature-label">Industria 4.0</div>
+                    <div class="comparison-cell">—</div>
+                    <div class="comparison-cell highlighted">✓ Predisposta</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Made in Italy -->
+    <section class="made-in-italy">
+        <div class="container">
+            <div class="made-content">
+                <div class="made-badge fade-in-up">
+                    <span class="italy-flag">🇮🇹</span>
+                    <span class="made-text">Made in Italy</span>
+                </div>
+                
+                <h2 class="fade-in-up">
+                    Progettate e Assemblate a <span class="highlight-green">Treviglio</span>
+                </h2>
+                
+                <p class="fade-in-up">
+                    Ogni termoformatrice Optiform nasce nel nostro stabilimento di Treviglio (BG). Dalla progettazione all'assemblaggio finale, ogni fase è controllata dai nostri tecnici specializzati. La qualità Made in Italy non è uno slogan: è una garanzia di precisione, affidabilità e supporto tecnico dedicato.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content fade-in-up">
+                <div class="cta-main">
+                    <h2>Quale Modello Scegliere?</h2>
+                    <p class="cta-subtitle">Parliamone insieme. Ti aiutiamo a identificare la soluzione più adatta alle tue esigenze produttive.</p>
+                </div>
+                
+                <div class="cta-actions">
+                    <a href="contatti.html" class="cta-button primary-large">Richiedi Consulenza</a>
+                    <div class="cta-info">
+                        <span class="cta-highlight">✓ Analisi esigenze produttive</span>
+                        <span class="cta-highlight">✓ Preventivo personalizzato</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+<!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Optiform - optiform.tech | Termoformatrici Professionali</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Optiform</h3>
+                    <p>Divisione termoformatura di Floki Automation. Dal 2018 progettiamo sistemi di controllo avanzati a Treviglio, nel cuore del distretto industriale lombardo.</p>
+                    <span class="footer-badge">Made in Italy</span>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Prodotti</h4>
+                    <ul>
+                        <li><a href="k-53.html">Modello K-53</a></li>
+                        <li><a href="k-75.html">Modello K-75</a></li>
+                        <li><a href="k-75s.html">Modello K-75S</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Azienda</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="prodotti.html">Prodotti</a></li>
+                        <li><a href="vantaggi.html">I Nostri Vantaggi</a></li>
+                        <li><a href="contatti.html">Contattaci</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contatti</h4>
+                    <ul>
+                        <li><a href="mailto:info@optiform.tech">info@optiform.tech</a></li>
+                        <li><a href="tel:+390363221281">+39 036 322 1281</a></li>
+                        <li><a href="https://www.google.com/maps/place/Floki+s.r.l./@45.5093292,9.5968741,17z/data=!3m1!4b1!4m6!3m5!1s0x4781482f6b70fc15:0xb8d77e75ed8b5489!8m2!3d45.5093292!4d9.5968741!16s%2Fg%2F11gff7nmgh?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D">Via Redipuglia<br>24047 Treviglio (BG)</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Optiform - Floki S.r.l. | P.IVA IT04278120169 | optiform.tech</p>
+                <div class="footer-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="cookie-policy.html">Cookie Policy</a>
+                    <a href="termini-condizioni.html">Termini e Condizioni</a>
+                </div>
+            </div>
         </div>
     </footer>
+
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" aria-label="Torna su">↑</button>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
 </body>
 </html>
