@@ -120,6 +120,7 @@
             statsObserver.observe(statsBar);
         }
     }
+    
 
     // ============================================
     // SCROLL TO TOP BUTTON

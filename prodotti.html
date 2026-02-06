@@ -8,8 +8,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/prodotti-additions.css">
+    <!--CSS-->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/prodotti.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -48,120 +51,120 @@
         </div>
     </section>
 
-    <!-- Prodotti Grid -->
-    <section class="products-detail">
-        <div class="container">
+<!-- Prodotti Grid -->
+<section class="products-detail">
+    <div class="container">
+        
+        <!-- K-53 Manuale -->
+        <div class="product-summary-card fade-in-up">
+            <div class="product-summary-image">
+                <img src="img/k-75S.png" alt="Termoformatrice K-53 Optiform" class="product-photo">
+                <div class="product-badge">Sistema Diagnostico Integrato</div>
+            </div>
             
-            <!-- K-53 Manuale -->
-            <div class="product-summary-card fade-in-up">
-                <div class="product-summary-image">
-                    <div class="product-visual">K-53</div>
-                    <div class="product-badge">Sistema Diagnostico Integrato</div>
-                </div>
+            <div class="product-summary-content">
+                <h2>K-53 Manuale</h2>
+                <p class="product-tagline">Controllo manuale, dimensioni compatte</p>
                 
-                <div class="product-summary-content">
-                    <h2>K-53 Manuale</h2>
-                    <p class="product-tagline">Controllo manuale, dimensioni compatte</p>
-                    
-                    <p class="product-intro">Termoformatrice con controllo manuale ideale per produzioni variabili e cambio formato frequente. Sistema diagnostico dedicato per manutenzione rapida e autonoma. Dimensioni ridotte per spazi produttivi limitati.</p>
+                <p class="product-intro">Termoformatrice con controllo manuale ideale per produzioni variabili e cambio formato frequente. Sistema diagnostico dedicato per manutenzione rapida e autonoma. Dimensioni ridotte per spazi produttivi limitati.</p>
 
-                    <div class="product-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-icon">✓</span>
-                            <span>Controllo manuale totale</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">✓</span>
-                            <span>Sistema diagnostico dedicato</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">✓</span>
-                            <span>Dimensioni compatte</span>
-                        </div>
+                <div class="product-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-icon">✓</span>
+                        <span>Controllo manuale totale</span>
                     </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">✓</span>
+                        <span>Sistema diagnostico dedicato</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">✓</span>
+                        <span>Dimensioni compatte</span>
+                    </div>
+                </div>
 
-                    <div class="product-summary-cta">
-                        <a href="k-53.html" class="cta-button secondary">Scopri K-53</a>
-                    </div>
+                <div class="product-summary-cta">
+                    <a href="k-53.html" class="cta-button secondary">Scopri K-53</a>
                 </div>
             </div>
-
-            <!-- K-75 Manuale -->
-            <div class="product-summary-card fade-in-up">
-                <div class="product-summary-image">
-                    <div class="product-visual">K-75</div>
-                    <div class="product-badge">Sistema Diagnostico Integrato</div>
-                </div>
-                
-                <div class="product-summary-content">
-                    <h2>K-75 Manuale</h2>
-                    <p class="product-tagline">Controllo manuale per massima flessibilità operativa</p>
-                    
-                    <p class="product-intro">Termoformatrice con controllo manuale ideale per produzioni variabili e cambio formato frequente. Sistema diagnostico dedicato per manutenzione rapida e autonoma.</p>
-
-                    <div class="product-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-icon">✓</span>
-                            <span>Controllo manuale totale</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">✓</span>
-                            <span>Sistema diagnostico dedicato</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">✓</span>
-                            <span>Cambio formato rapido</span>
-                        </div>
-                    </div>
-
-                    <div class="product-summary-cta">
-                        <a href="k-75.html" class="cta-button secondary">Scopri K-75</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- K-75S Automatica -->
-            <div class="product-summary-card fade-in-up">
-                <div class="product-summary-image">
-                    <div class="product-visual">K-75S</div>
-                    <div class="product-badge">Sistema diagnostico integrato</div>
-                </div>
-                
-                <div class="product-summary-content">
-                    <h2>K-75S Automatica</h2>
-                    <p class="product-tagline">Automazione completa per produzioni ad alto volume</p>
-                    
-                    <p class="product-intro">Termoformatrice con PLC programmabile per automazione completa del ciclo. Scheda diagnostica per monitoraggio resistenze. Ottimizzata per produzioni continuative.</p>
-
-                    <div class="product-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-icon">✓</span>
-                            <span>PLC programmabile</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">✓</span>
-                            <span>Sistema diagnostico dedicato</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">✓</span>
-                            <span>Automazione completa</span>
-                        </div>
-                    </div>
-
-                    <div class="product-summary-cta">
-                        <a href="k-75s.html" class="cta-button secondary">Scopri K-75S</a>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </section>
+
+        <!-- K-75 Manuale -->
+        <div class="product-summary-card fade-in-up">
+            <div class="product-summary-image">
+                <img src="img/k-75S.png" alt="Termoformatrice K-75 Optiform" class="product-photo">
+                <div class="product-badge">Sistema Diagnostico Integrato</div>
+            </div>
+            
+            <div class="product-summary-content">
+                <h2>K-75 Manuale</h2>
+                <p class="product-tagline">Controllo manuale per massima flessibilità operativa</p>
+                
+                <p class="product-intro">Termoformatrice con controllo manuale ideale per produzioni variabili e cambio formato frequente. Sistema diagnostico dedicato per manutenzione rapida e autonoma.</p>
+
+                <div class="product-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-icon">✓</span>
+                        <span>Controllo manuale totale</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">✓</span>
+                        <span>Sistema diagnostico dedicato</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">✓</span>
+                        <span>Cambio formato rapido</span>
+                    </div>
+                </div>
+
+                <div class="product-summary-cta">
+                    <a href="k-75.html" class="cta-button secondary">Scopri K-75</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- K-75S Automatica -->
+        <div class="product-summary-card fade-in-up">
+            <div class="product-summary-image">
+                <img src="img/k-75S.png" alt="Termoformatrice K-75S Optiform" class="product-photo">
+                <div class="product-badge">Sistema diagnostico integrato</div>
+            </div>
+            
+            <div class="product-summary-content">
+                <h2>K-75S Automatica</h2>
+                <p class="product-tagline">Automazione completa per produzioni ad alto volume</p>
+                
+                <p class="product-intro">Termoformatrice con PLC programmabile per automazione completa del ciclo. Scheda diagnostica per monitoraggio resistenze. Ottimizzata per produzioni continuative.</p>
+
+                <div class="product-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-icon">✓</span>
+                        <span>PLC programmabile</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">✓</span>
+                        <span>Sistema diagnostico dedicato</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">✓</span>
+                        <span>Automazione completa</span>
+                    </div>
+                </div>
+
+                <div class="product-summary-cta">
+                    <a href="k-75s.html" class="cta-button secondary">Scopri K-75S</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
     <!-- Tabella Confronto -->
     <section class="products-comparison">
         <div class="container">
             <h2 class="section-title-black fade-in-up">Confronto <span class="highlight-green">Modelli</span></h2>
-            <p class="section-subtitle fade-in-up">Le principali differenze tra i modelli Manuali e Automatici</p>
+                        <p class="section-subtitle fade-in-up" style="color: var(--gray-600);">Le principali differenze tra i modelli Manuali e Automatici</p>
             
             <div class="comparison-table fade-in-up">
                 <div class="comparison-header">

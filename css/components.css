@@ -1,0 +1,656 @@
+/* ==========================================================================
+   COMPONENTS.CSS - COMPONENTI CONDIVISI
+   Navigazione, Bottoni CTA, Footer, Scroll to Top
+   ========================================================================== */
+
+/* ==========================================================================
+   NAVIGAZIONE
+   ========================================================================== */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--gray-200);
+    z-index: 1000;
+    padding: var(--spacing-lg) 0;
+    transition: all 0.3s ease;
+}
+
+nav.scrolled {
+    padding: var(--spacing-md) 0;
+    box-shadow: var(--shadow-md);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--black);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    font-family: var(--font-logo);
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: var(--green);
+}
+
+/* Menu navigazione */
+.nav-links {
+    display: flex;
+    gap: var(--spacing-2xl);
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--gray-700);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--green);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--green);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Hamburger menu mobile */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: var(--black);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ==========================================================================
+   SISTEMA CTA UNIFICATO - Tutti i bottoni e call-to-action
+   ========================================================================== */
+
+/* Container per gruppi di CTA */
+.cta-buttons {
+    display: flex;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+/* Base CTA - Stili condivisi */
+.cta-button {
+    display: inline-block;
+    padding: 1.1rem 2.5rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    line-height: 1;
+}
+
+/* ====================
+   VARIANTI PRIMARIE
+   ==================== */
+
+/* CTA Primario - Gradient blu-verde (Hero, sezioni principali) */
+.cta-button.primary {
+    background: var(--white);
+    color: var(--green-cta);
+    border: none;
+    box-shadow: var(--white);
+    font-weight: 800;
+}
+
+.cta-button.primary:hover {
+    background: var(--white);
+    transform: translateY(-3px);
+    box-shadow: var(--white);
+}
+
+.cta-button.primary:active {
+    transform: translateY(-1px);
+    box-shadow: var(--white);
+}
+
+/* CTA Primario Large - Versione ingrandita per sezioni finali */
+.cta-button.primary-large {
+    padding: var(--spacing-lg) var(--spacing-3xl);
+    font-size: 1.25rem;
+    font-weight: 800;
+    background: var(--white);
+    color: var(--green);
+    border: none;
+    box-shadow: var(--white);
+}
+
+.cta-button.primary-large:hover {
+    background: var(--white);
+    transform: translateY(-4px);
+    box-shadow: var(--white);
+}
+
+/* CTA Primario su sfondo verde - Invertito per contrasto */
+.cta-button.primary-inverse {
+    background: var(--white);
+    color: var(--green);
+    border: 2px solid var(--white);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+    font-weight: 800;
+}
+
+.cta-button.primary-inverse:hover {
+    background: var(--green-bg);
+    border-color: var(--green-bg);
+    color: var(--green-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+}
+
+/* ====================
+   VARIANTI SECONDARIE
+   ==================== */
+
+/* CTA Secondario - Bordo gradient su sfondo scuro */
+.cta-button.secondary {
+    background: var(--green);
+    color: var(--white);
+}
+
+.cta-button.secondary:hover {
+    background: var(--green);
+    transform: translateY(-3px);
+}
+
+/* CTA Secondario su sfondo verde - Bordo bianco */
+.cta-button.secondary-inverse {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.cta-button.secondary-inverse:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* CTA Secondario su sfondo chiaro - Bordo gradient */
+.cta-button.secondary-light {
+    background: transparent;
+    color: var(--gray-900);
+    background-image: linear-gradient(var(--white), var(--white)), linear-gradient(135deg, var(--blue), var(--green));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.cta-button.secondary-light:hover {
+    background-image: var(--black);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.2);
+}
+
+/* ====================
+   VARIANTI SPECIALI
+   ==================== */
+
+/* CTA Ghost - Minimalista, solo testo con hover */
+.cta-button.ghost {
+    background: transparent;
+    color: var(--gray-700);
+    border: none;
+    padding: 1.1rem 1.5rem;
+    font-weight: 600;
+    box-shadow: none;
+}
+
+.cta-button.ghost:hover {
+    color: var(--green);
+    background: var(--black);
+    transform: translateX(4px);
+}
+
+/* CTA Ghost su sfondo scuro */
+.cta-button.ghost-dark {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 1.1rem 1.5rem;
+    font-weight: 600;
+    box-shadow: none;
+}
+
+.cta-button.ghost-dark:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(4px);
+}
+
+/* CTA con icona - Spazio per icone */
+.cta-button.with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.cta-button.with-icon::after {
+    content: '→';
+    transition: transform 0.3s ease;
+    font-size: 1.2em;
+}
+
+.cta-button.with-icon:hover::after {
+    transform: translateX(4px);
+}
+
+/* ====================
+   DIMENSIONI
+   ==================== */
+
+/* CTA Small - Per spazi ridotti */
+.cta-button.small {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+}
+
+/* CTA Large - Per enfasi */
+.cta-button.large {
+    padding: 1.35rem 3rem;
+    font-size: 1.125rem;
+}
+
+/* CTA Extra Large - Per sezioni hero e finali */
+.cta-button.xlarge {
+    padding: var(--spacing-lg) var(--spacing-3xl);
+    font-size: 1.25rem;
+}
+
+/* ==========================================================================
+   PAGE HEADER - Pagine interne (es. contatti)
+   ========================================================================== */
+.page-header {
+    margin-top: 80px;
+    background: var(--black);
+    color: var(--white);
+    padding: 5rem var(--spacing-xl) 4rem;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    font-family: var(--font-heading);
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+
+/* ==========================================================================
+   FINAL CTA SECTION
+   ========================================================================== */
+.final-cta {
+    padding: var(--spacing-4xl) var(--spacing-xl);
+    background: var(--green-cta);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Pattern decorativi circolari */
+.final-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.final-cta::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -5%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cta-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-main h2 {
+    font-size: 3rem;
+    color: var(--white);
+    font-weight: 800;
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.2;
+    font-family: var(--font-heading);
+}
+
+.cta-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+.cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+}
+
+.cta-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.cta-highlight {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+
+/* ====================
+   STATI E UTILITÀ
+   ==================== */
+
+/* CTA Disabilitato */
+.cta-button:disabled,
+.cta-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.cta-button:disabled:hover,
+.cta-button.disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* CTA Full Width - Occupa tutta la larghezza disponibile */
+.cta-button.full-width {
+    width: 100%;
+    display: block;
+}
+
+/* CTA Loading - Stato di caricamento */
+.cta-button.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.cta-button.loading::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* CTA Secondario per contatti */
+.cta-button.secondary.contact {
+    background: var(--black);
+    color: var(--white);
+}
+
+.cta-button.secondary.contact:hover {
+    background: var(--black);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+    background: var(--black);
+    color: var(--gray-400);
+    padding: var(--spacing-4xl) var(--spacing-xl) var(--spacing-2xl);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+    border-bottom: 1px solid var(--gray-800);
+}
+
+.footer-brand h3 {
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-logo);
+}
+
+.footer-brand p {
+    color: var(--gray-400);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+    font-size: 0.95rem;
+}
+
+/* Badge footer */
+.footer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.footer-column h4 {
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: var(--font-heading);
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-column ul li a {
+    color: var(--gray-400);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.95rem;
+    display: block;
+}
+
+.footer-column ul li a:hover {
+    color: var(--green);
+    transform: translateX(3px);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: var(--spacing-xl);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: var(--gray-500);
+}
+
+/* Footer legal links */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--gray-400);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--green);
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--green);
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   SCROLL TO TOP BUTTON
+   ========================================================================== */
+#scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 999;
+    pointer-events: none;
+}
+
+#scroll-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#scroll-to-top:hover {
+    background: var(--green);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px var(--green);
+}

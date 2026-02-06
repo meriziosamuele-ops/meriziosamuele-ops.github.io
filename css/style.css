@@ -31,9 +31,11 @@
     
     --black: #000000;
     --white: #ffffff;
-    
+
     /* Tipografia */
-    --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-logo: 'Oswald', sans-serif;
+    --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
     
     /* Spaziature */
@@ -52,6 +54,70 @@
     --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.15);
     --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.2);
 }
+
+/* ==========================================================================
+   FONT-FACE DECLARATIONS
+   ========================================================================== */
+
+/* ==================== OSWALD - Logo ==================== */
+@font-face {
+    font-family: 'Oswald';
+    src: url('../fonts/oswald/Oswald-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../fonts/oswald/Oswald-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==================== MONTSERRAT - Titoli ==================== */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat/Montserrat-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat/Montserrat-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==================== INTER - Corpo testo ==================== */
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/inter/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/inter/Inter-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/inter/Inter-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* ==========================================================================
    RESET E BASE
    ========================================================================== */
@@ -69,6 +135,11 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Applicazione font ai titoli */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
 }
 
 /* Supporto per browser senza JavaScript */
@@ -130,7 +201,7 @@ nav.scrolled {
     color: var(--black);
     text-decoration: none;
     letter-spacing: 0.05em;
-    font-family: var(--font-mono);
+    font-family: var(--font-logo);
     transition: color 0.3s ease;
 }
 
@@ -226,6 +297,7 @@ nav.scrolled {
     color: var(--black);
     font-weight: 800;
     letter-spacing: -0.02em;
+    font-family: var(--font-heading);
 }
 
 .section-title-white {
@@ -235,6 +307,7 @@ nav.scrolled {
     color: var(--white);
     font-weight: 800;
     letter-spacing: -0.02em;
+    font-family: var(--font-heading);
 }
 
 .section-subtitle {
@@ -640,11 +713,12 @@ nav.scrolled {
 }
 
 .hero-text h1 {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     margin-bottom: var(--spacing-md);
     font-weight: 800;
     letter-spacing: -0.02em;
     color: var(--white);
+    font-family: var(--font-heading);
 }
 
 /* Stile più aggressivo per highlight */
@@ -669,7 +743,7 @@ nav.scrolled {
 }
 
 .hero p {
-    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    font-size: 1.2rem;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: var(--spacing-2xl);
@@ -751,6 +825,7 @@ nav.scrolled {
     font-weight: 800;
     letter-spacing: -0.02em;
     color: var(--white);
+    font-family: var(--font-heading);
 }
 
 .page-header p {
@@ -821,10 +896,11 @@ nav.scrolled {
     color: var(--black);
     font-weight: 800;
     letter-spacing: -0.02em;
+    font-family: var(--font-heading);
 }
 
 .diagnostic-content > p {
-    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    font-size: clamp(1.1rem, 1.9vw, 1.2rem);
     line-height: 1.8;
     color: var(--gray-600);
     margin-bottom: var(--spacing-4xl);
@@ -850,6 +926,7 @@ nav.scrolled {
     border-left: 4px solid var(--green);
     text-align: left;
 }
+
 /* Numero progressivo nelle card diagnostiche */
 .feature-number {
     display: inline-flex;
@@ -876,6 +953,7 @@ nav.scrolled {
     color: var(--black);
     font-weight: 700;
     line-height: 1.3;
+    font-family: var(--font-heading);
 }
 
 .diagnostic-feature > p {
@@ -933,6 +1011,7 @@ nav.scrolled {
     margin-bottom: var(--spacing-md);
     color: var(--white);
     font-weight: 700;
+    font-family: var(--font-heading);
 }
 
 .innovation-card p {
@@ -1003,6 +1082,7 @@ nav.scrolled {
     color: var(--black);
     font-weight: 800;
     letter-spacing: -0.02em;
+    font-family: var(--font-heading);
 }
 
 .made-in-italy > .container > .made-content > p {
@@ -1046,6 +1126,7 @@ nav.scrolled {
     margin-bottom: var(--spacing-md);
     color: var(--black);
     font-weight: 700;
+    font-family: var(--font-heading);
 }
 
 .made-feature p {
@@ -1100,6 +1181,7 @@ nav.scrolled {
     margin-bottom: var(--spacing-md);
     color: var(--black);
     font-weight: 700;
+    font-family: var(--font-heading);
 }
 
 .product-description {
@@ -1184,6 +1266,7 @@ nav.scrolled {
     font-weight: 800;
     margin-bottom: var(--spacing-lg);
     line-height: 1.2;
+    font-family: var(--font-heading);
 }
 
 .cta-subtitle {
@@ -1237,13 +1320,13 @@ nav.scrolled {
     padding: 30px;
     background-color: var(--green);
     color: var(--white);
-    box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
     font-weight: 900;
 }
 
 .cta-button.diagnostic:hover{
     transform: translateY(-3px);
 }
+
 /* ==========================================================================
    PAGINA VANTAGGI 
    ========================================================================== */
@@ -1276,11 +1359,13 @@ nav.scrolled {
 .comparison-title-negative {
     color: #dc2626;
     margin-bottom: 2rem;
+    font-family: var(--font-heading);
 }
 
 .comparison-title-positive {
     color: #10b981;
     margin-bottom: 2rem;
+    font-family: var(--font-heading);
 }
 
 /* Step singolo */
@@ -1292,6 +1377,7 @@ nav.scrolled {
     font-size: 1.1rem;
     color: #fff;
     margin-bottom: 0.75rem;
+    font-family: var(--font-heading);
 }
 
 .comparison-step-text {
@@ -1462,6 +1548,7 @@ nav.scrolled {
     margin-bottom: var(--spacing-md);
     color: var(--black);
     font-weight: 700;
+    font-family: var(--font-heading);
 }
 
 .sector-card p {
@@ -1526,6 +1613,7 @@ nav.scrolled {
     color: var(--black);
     font-weight: 800;
     letter-spacing: -0.02em;
+    font-family: var(--font-heading);
 }
 
 .intro-content p {
@@ -1609,6 +1697,7 @@ nav.scrolled {
     margin-bottom: var(--spacing-sm);
     color: var(--black);
     font-weight: 800;
+    font-family: var(--font-heading);
 }
 
 .product-tagline {
@@ -1861,6 +1950,252 @@ nav.scrolled {
 }
 
 /* ==========================================================================
+   PAGINE PLACEHOLDER - CSS
+   ========================================================================== */
+
+.placeholder-section {
+    min-height: calc(100vh - 80px);
+    margin-top: 80px;
+    padding: var(--spacing-4xl) var(--spacing-xl);
+    background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--white);
+    padding: var(--spacing-4xl) var(--spacing-3xl);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Visual Logo */
+.placeholder-visual {
+    font-size: 6rem;
+    font-weight: 900;
+    font-family: var(--font-mono);
+    background: linear-gradient(135deg, var(--gray-900) 0%, var(--green-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Status Badge */
+.placeholder-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: rgba(16, 185, 129, 0.1);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    color: var(--green-dark);
+    padding: var(--spacing-sm) var(--spacing-xl);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.badge-icon {
+    font-size: 1.2rem;
+}
+
+/* Title */
+.placeholder-content h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: var(--spacing-sm);
+    color: var(--black);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-family: var(--font-heading);
+}
+
+.placeholder-subtitle {
+    font-size: 1.25rem;
+    color: var(--gray-600);
+    margin-bottom: var(--spacing-3xl);
+    font-weight: 500;
+}
+
+/* Message */
+.placeholder-message {
+    margin-bottom: var(--spacing-3xl);
+    padding: var(--spacing-xl);
+    background: var(--gray-50);
+    border-left: 4px solid var(--green);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.placeholder-message p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--gray-700);
+    margin-bottom: var(--spacing-md);
+}
+
+.placeholder-message p:last-child {
+    margin-bottom: 0;
+}
+
+/* Info Grid */
+.placeholder-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-lg);
+    background: var(--gray-50);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    background: var(--green-bg);
+}
+
+.info-icon {
+    font-size: 2rem;
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.info-text strong {
+    font-size: 0.9rem;
+    color: var(--black);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.info-text span {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+}
+
+/* CTA Buttons */
+.placeholder-cta {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-3xl);
+}
+
+/* Additional Note */
+.placeholder-note {
+    padding-top: var(--spacing-2xl);
+    border-top: 2px solid var(--gray-200);
+}
+
+.placeholder-note p {
+    font-size: 0.95rem;
+    color: var(--gray-600);
+    margin-bottom: var(--spacing-sm);
+}
+
+.placeholder-note p:last-child {
+    margin-bottom: 0;
+}
+
+.placeholder-note a {
+    color: var(--green);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.placeholder-note a:hover {
+    color: var(--green-dark);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   RESPONSIVE - PLACEHOLDER
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 968px) {
+    .placeholder-content {
+        padding: var(--spacing-3xl) var(--spacing-2xl);
+    }
+    
+    .placeholder-visual {
+        font-size: 5rem;
+    }
+    
+    .placeholder-info-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .placeholder-section {
+        padding: var(--spacing-3xl) var(--spacing-md);
+    }
+    
+    .placeholder-content {
+        padding: var(--spacing-2xl) var(--spacing-xl);
+    }
+    
+    .placeholder-visual {
+        font-size: 4rem;
+    }
+    
+    .placeholder-badge {
+        font-size: 0.8rem;
+        padding: var(--spacing-xs) var(--spacing-lg);
+    }
+    
+    .placeholder-content h1 {
+        font-size: 2rem;
+    }
+    
+    .placeholder-subtitle {
+        font-size: 1.05rem;
+    }
+    
+    .placeholder-message {
+        padding: var(--spacing-lg);
+    }
+    
+    .placeholder-message p {
+        font-size: 0.95rem;
+    }
+    
+    .placeholder-cta {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .placeholder-cta .cta-button {
+        width: 100%;
+    }
+    
+    .placeholder-note {
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================================================================
    CONTACT SECTION - Sezione contatti (pagina contatti)
    ========================================================================== */
 .contact-section {
@@ -1882,6 +2217,7 @@ nav.scrolled {
     margin-bottom: var(--spacing-2xl);
     color: var(--black);
     font-weight: 800;
+    font-family: var(--font-heading);
 }
 
 /* Info cards - Informazioni di contatto */
@@ -1908,6 +2244,7 @@ nav.scrolled {
     margin-bottom: var(--spacing-md);
     color: var(--black);
     font-weight: 700;
+    font-family: var(--font-heading);
 }
 
 .info-content p {
@@ -1974,6 +2311,7 @@ nav.scrolled {
     color: var(--white);
     margin-bottom: var(--spacing-md);
     font-weight: 800;
+    font-family: var(--font-heading);
 }
 
 .cta-text p {
@@ -1995,6 +2333,7 @@ nav.scrolled {
     margin-bottom: var(--spacing-xl);
     color: var(--black);
     font-weight: 700;
+    font-family: var(--font-heading);
 }
 
 .map-wrapper {
@@ -2023,6 +2362,7 @@ nav.scrolled {
     margin-bottom: var(--spacing-md);
     color: var(--black);
     font-weight: 700;
+    font-family: var(--font-heading);
 }
 
 .map-info ul {
@@ -2086,6 +2426,7 @@ nav.scrolled {
     margin-bottom: var(--spacing-md);
     color: var(--black);
     font-weight: 700;
+    font-family: var(--font-heading);
 }
 
 .support-card p {
@@ -2217,6 +2558,7 @@ footer {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: var(--spacing-md);
+    font-family: var(--font-logo);
 }
 
 .footer-brand p {
@@ -2247,6 +2589,7 @@ footer {
     margin-bottom: var(--spacing-lg);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    font-family: var(--font-heading);
 }
 
 .footer-column ul {
@@ -2611,5 +2954,546 @@ footer {
     .diagnostic-features,
     .innovation-grid {
         gap: var(--spacing-xl);
+    }
+}
+/* ==========================================================================
+   LEGAL PAGES - CSS STYLESHEET
+   Stili specifici per Privacy Policy, Cookie Policy, Termini e Condizioni
+   ========================================================================== */
+
+/* ==========================================================================
+   LEGAL CONTENT SECTION
+   ========================================================================== */
+.legal-content {
+    padding: var(--spacing-4xl) var(--spacing-xl);
+    background: var(--gray-50);
+}
+
+.legal-document {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: var(--spacing-4xl) var(--spacing-3xl);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* ==========================================================================
+   META INFORMAZIONI
+   ========================================================================== */
+.legal-meta {
+    padding: var(--spacing-lg);
+    background: var(--gray-100);
+    border-left: 4px solid var(--green);
+    border-radius: 4px;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.legal-meta p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--gray-700);
+    font-weight: 500;
+}
+
+.legal-meta p + p {
+    margin-top: var(--spacing-xs);
+}
+
+.legal-meta strong {
+    color: var(--black);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   SEZIONI
+   ========================================================================== */
+.legal-section {
+    margin-bottom: var(--spacing-3xl);
+}
+
+.legal-section:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Titoli di sezione */
+.legal-section h2 {
+    font-size: 1.75rem;
+    color: var(--black);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 700;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--green);
+    font-family: var(--font-heading);
+}
+
+.legal-section h3 {
+    font-size: 1.35rem;
+    color: var(--black);
+    margin-top: var(--spacing-2xl);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    font-family: var(--font-heading);
+}
+
+.legal-section h4 {
+    font-size: 1.15rem;
+    color: var(--gray-900);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    font-family: var(--font-heading);
+}
+
+/* Paragrafi */
+.legal-section p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--gray-700);
+    margin-bottom: var(--spacing-md);
+}
+
+.legal-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* Liste */
+.legal-section ul,
+.legal-section ol {
+    margin: var(--spacing-md) 0 var(--spacing-lg) var(--spacing-xl);
+    padding: 0;
+}
+
+.legal-section li {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
+    color: var(--gray-700);
+    font-size: 1rem;
+}
+
+.legal-section ul li {
+    list-style-type: disc;
+}
+
+.legal-section ol li {
+    list-style-type: decimal;
+}
+
+.legal-section li::marker {
+    color: var(--green);
+    font-weight: 700;
+}
+
+/* Link nei contenuti legali */
+.legal-section a {
+    color: var(--green);
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.legal-section a:hover {
+    color: var(--green-dark);
+}
+
+.legal-section a[target="_blank"]::after {
+    content: " ↗";
+    font-size: 0.85em;
+    vertical-align: super;
+}
+
+/* Codice inline */
+.legal-section code {
+    background: var(--gray-100);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    color: var(--gray-900);
+    border: 1px solid var(--gray-200);
+}
+
+/* ==========================================================================
+   TABELLE
+   ========================================================================== */
+
+/* Wrapper tabella con scroll orizzontale su mobile */
+.legal-table-wrapper,
+.cookie-table-wrapper {
+    overflow-x: auto;
+    margin: var(--spacing-lg) 0 var(--spacing-xl) 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.legal-table,
+.cookie-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    font-size: 0.95rem;
+}
+
+.legal-table thead,
+.cookie-table thead {
+    background: var(--gray-900);
+    color: var(--white);
+}
+
+.legal-table th,
+.cookie-table th {
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.legal-table td,
+.cookie-table td {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--gray-200);
+    color: var(--gray-700);
+    line-height: 1.6;
+}
+
+.legal-table tbody tr:last-child td,
+.cookie-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.legal-table tbody tr:nth-child(even),
+.cookie-table tbody tr:nth-child(even) {
+    background: var(--gray-50);
+}
+
+.legal-table tbody tr:hover,
+.cookie-table tbody tr:hover {
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.legal-table code,
+.cookie-table code {
+    background: var(--gray-100);
+    padding: 0.2em 0.5em;
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--green-dark);
+    border: 1px solid var(--gray-300);
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   BOX INFORMATIVI
+   ========================================================================== */
+
+/* Contact Box */
+.contact-box {
+    background: var(--gray-50);
+    border: 2px solid var(--gray-200);
+    border-left: 4px solid var(--green);
+    border-radius: 8px;
+    padding: var(--spacing-xl);
+    margin: var(--spacing-lg) 0;
+}
+
+.contact-box p {
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.contact-box p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-box strong {
+    color: var(--black);
+    font-weight: 600;
+}
+
+.contact-box a {
+    color: var(--green);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-box a:hover {
+    text-decoration: underline;
+}
+
+/* Info Box - Informazioni importanti */
+.info-box {
+    background: rgba(16, 185, 129, 0.08);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.info-box p {
+    margin: 0;
+    color: var(--gray-900);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.info-box strong {
+    color: var(--green-dark);
+    font-weight: 700;
+}
+
+/* Warning Box - Avvisi */
+.warning-box {
+    background: rgba(234, 179, 8, 0.08);
+    border: 2px solid rgba(234, 179, 8, 0.3);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.warning-box p {
+    margin: 0;
+    color: var(--gray-900);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.warning-box strong {
+    color: #a16207;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   BROWSER LIST - Guide per gestione cookie
+   ========================================================================== */
+.browser-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    margin: var(--spacing-xl) 0;
+}
+
+.browser-item {
+    background: var(--gray-50);
+    border: 2px solid var(--gray-200);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    transition: all 0.3s ease;
+}
+
+.browser-item:hover {
+    border-color: var(--green);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+    transform: translateY(-2px);
+}
+
+.browser-item h4 {
+    font-size: 1.1rem;
+    color: var(--black);
+    margin: 0 0 var(--spacing-sm) 0;
+    font-weight: 700;
+    font-family: var(--font-heading);
+}
+
+.browser-item p {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    margin: 0 0 var(--spacing-md) 0;
+    line-height: 1.6;
+}
+
+.browser-item a {
+    color: var(--green);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.browser-item a:hover {
+    text-decoration: underline;
+}
+
+.browser-item a::after {
+    content: "→";
+    transition: transform 0.2s ease;
+}
+
+.browser-item a:hover::after {
+    transform: translateX(3px);
+}
+
+/* ==========================================================================
+   FOOTER SECTION
+   ========================================================================== */
+.legal-footer {
+    border-top: 2px solid var(--gray-200);
+    padding-top: var(--spacing-2xl);
+    margin-top: var(--spacing-3xl);
+    text-align: center;
+}
+
+.legal-footer p {
+    font-size: 0.95rem;
+    color: var(--gray-600);
+    font-style: italic;
+}
+
+.legal-date {
+    margin-top: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    font-style: normal !important;
+}
+
+.legal-date strong {
+    color: var(--black);
+}
+
+/* ==========================================================================
+   BACK TO TOP / NAVIGATION
+   ========================================================================== */
+.legal-back {
+    max-width: 900px;
+    margin: var(--spacing-2xl) auto 0;
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   RESPONSIVE - PAGINE LEGALI
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 968px) {
+    .legal-content {
+        padding: var(--spacing-3xl) var(--spacing-lg);
+    }
+
+    .legal-document {
+        padding: var(--spacing-3xl) var(--spacing-2xl);
+    }
+
+    .legal-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .legal-section h3 {
+        font-size: 1.25rem;
+    }
+
+    .browser-list {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .legal-content {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    .legal-document {
+        padding: var(--spacing-2xl) var(--spacing-lg);
+    }
+
+    .legal-meta {
+        padding: var(--spacing-md);
+    }
+
+    .legal-section {
+        margin-bottom: var(--spacing-2xl);
+    }
+
+    .legal-section h2 {
+        font-size: 1.35rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .legal-section h3 {
+        font-size: 1.15rem;
+        margin-top: var(--spacing-lg);
+    }
+
+    .legal-section h4 {
+        font-size: 1.05rem;
+    }
+
+    .legal-section p,
+    .legal-section li {
+        font-size: 0.95rem;
+    }
+
+    .legal-section ul,
+    .legal-section ol {
+        margin-left: var(--spacing-lg);
+    }
+
+    /* Tabelle responsive */
+    .legal-table,
+    .cookie-table {
+        font-size: 0.85rem;
+    }
+
+    .legal-table th,
+    .legal-table td,
+    .cookie-table th,
+    .cookie-table td {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    /* Box */
+    .contact-box,
+    .info-box,
+    .warning-box {
+        padding: var(--spacing-md);
+    }
+
+    .browser-item {
+        padding: var(--spacing-md);
+    }
+
+    /* Footer */
+    .legal-footer {
+        padding-top: var(--spacing-xl);
+        margin-top: var(--spacing-2xl);
+    }
+
+    /* Back buttons */
+    .legal-back {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .legal-back .cta-button {
+        width: 100%;
+    }
+}
+
+/* Mobile piccolo */
+@media (max-width: 480px) {
+    .legal-document {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .legal-section h2 {
+        font-size: 1.25rem;
+    }
+
+    .legal-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .legal-section p,
+    .legal-section li {
+        font-size: 0.9rem;
     }
 }

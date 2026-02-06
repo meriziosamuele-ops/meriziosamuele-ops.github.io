@@ -1,0 +1,492 @@
+/* ==========================================================================
+   PRODOTTI.CSS - STILI PER PAGINA PRODOTTI (prodotti.html)
+   Products Intro, Product Summary Cards, Comparison Table
+   ========================================================================== */
+
+/* ==========================================================================
+   INTRO PRODOTTI
+   ========================================================================== */
+.products-intro {
+    padding: var(--spacing-4xl) var(--spacing-xl);
+    background: var(--white);
+    text-align: center;
+}
+
+.intro-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.intro-content h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: var(--spacing-xl);
+    color: var(--black);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-family: var(--font-heading);
+}
+
+.intro-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--gray-600);
+}
+
+/* ==========================================================================
+   PRODOTTI SUMMARY - Card compatte introduttive
+   ========================================================================== */
+.products-detail {
+    padding: 6rem 2rem;
+    background: #ffffff;
+}
+
+.product-summary-card {
+    max-width: 1100px; /* Ridotto da 1400px */
+    margin: 0 auto 3rem auto; /* Ridotto gap da 4rem a 3rem */
+    display: grid;
+    grid-template-columns: 350px 1fr; /* Ridotto da 450px */
+    gap: 0;
+    background: #ffffff;
+    border: 3px solid #e5e5e5;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.product-summary-card:hover {
+    border-color: #a3a3a3;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+}
+
+.product-summary-card:last-child {
+    margin-bottom: 0;
+}
+
+/* Immagine prodotto summary */
+.product-summary-image {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem; /* Ridotto da 2rem */
+    position: relative;
+    min-height: 320px; /* Ridotto da 400px */
+}
+
+.product-photo {
+    width: 85%;
+    height: 85%;
+    max-height: 280px; /* Ridotto da 320px */
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.product-summary-card:hover .product-photo {
+    transform: scale(1.05);
+}
+
+.product-badge {
+    position: absolute;
+    top: 1rem; /* Ridotto da 1.5rem */
+    right: 1rem; /* Ridotto da 1.5rem */
+    background: #16a34a;
+    color: #ffffff;
+    padding: 0.4rem 0.8rem; /* Ridotto */
+    border-radius: 4px;
+    font-size: 0.75rem; /* Ridotto da 0.85rem */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Contenuto prodotto summary */
+.product-summary-content {
+    padding: 2rem; /* Ridotto da 3rem */
+    display: flex;
+    flex-direction: column;
+    background: #000000;
+}
+
+.product-summary-content h2 {
+    font-size: 1.65rem; /* Ridotto da 1.75rem */
+    margin-bottom: 0.75rem; /* Ridotto da 1rem */
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.product-tagline {
+    font-size: 0.95rem; /* Ridotto da 1rem */
+    color: #d4d4d4; /* Migliorato contrasto */
+    margin-bottom: 1.25rem; /* Ridotto da 1.5rem */
+    font-weight: 500;
+}
+
+.product-intro {
+    font-size: 0.92rem; /* Ridotto da 1rem */
+    line-height: 1.6; /* Ridotto da 1.7 */
+    color: #e5e5e5; /* Migliorato contrasto */
+    margin-bottom: 1.25rem; /* Ridotto da 1.5rem */
+}
+
+/* Highlights compatti */
+.product-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem; /* Ridotto da 0.75rem */
+    margin-bottom: 1.25rem; /* Ridotto da 1.5rem */
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem; /* Ridotto da 0.75rem */
+    font-size: 0.85rem; /* Ridotto da 0.9rem */
+    color: #d4d4d4; /* Migliorato contrasto */
+}
+
+.highlight-icon {
+    color: #16a34a;
+    font-weight: 900;
+    font-size: 0.95rem; /* Ridotto da 1rem */
+}
+
+/* CTA prodotto summary */
+.product-summary-cta {
+    margin-top: auto;
+}
+
+.product-link-arrow {
+    display: inline-block;
+    color: #16a34a;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.product-summary-card:hover .product-link-arrow {
+    color: #15803d;
+}
+
+/* RESPONSIVE */
+@media (max-width: 968px) {
+    .product-summary-card {
+        grid-template-columns: 1fr;
+        max-width: 500px; /* Ridotto */
+    }
+    
+    .product-summary-image {
+        min-height: 280px; /* Ridotto */
+    }
+    
+    .product-photo {
+        max-height: 240px; /* Ridotto */
+    }
+}
+
+@media (max-width: 640px) {
+    .products-detail {
+        padding: 4rem 1.5rem;
+    }
+    
+    .product-summary-content {
+        padding: 1.5rem; /* Ridotto */
+    }
+    
+    .product-summary-image {
+        min-height: 240px; /* Ridotto */
+        padding: 1rem;
+    }
+    
+    .product-photo {
+        max-height: 200px; /* Ridotto */
+    }
+    
+    .product-summary-content h2 {
+        font-size: 1.4rem; /* Ridotto */
+    }
+}
+
+/* ==========================================================================
+   TABELLA CONFRONTO
+   ========================================================================== */
+.products-comparison {
+    padding: var(--spacing-4xl) var(--spacing-xl);
+    background: var(--white);
+}
+
+.comparison-table {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 2px solid var(--gray-200);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.comparison-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    background: var(--black);
+    color: var(--white);
+}
+
+.comparison-header .comparison-cell {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.comparison-header .feature-label {
+    text-align: left;
+    color: var(--white);
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.comparison-row:last-child {
+    border-bottom: none;
+}
+
+.comparison-row:nth-child(even) {
+    background: var(--gray-50);
+}
+
+.comparison-cell {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--gray-700);
+}
+
+.comparison-cell.feature-label {
+    justify-content: flex-start;
+    text-align: left;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.comparison-cell.highlighted {
+    background: rgba(16, 185, 129, 0.08);
+    color: var(--green-dark);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   MADE IN ITALY SECTION
+   ========================================================================== */
+.made-in-italy {
+    padding: var(--spacing-4xl) var(--spacing-xl);
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sfumatura verde decorativa in alto */
+.made-in-italy::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(180deg, rgba(22, 163, 74, 0.15) 0%, transparent 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.made-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+/* Badge Made in Italy */
+.made-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: var(--white);
+    border: 2px solid var(--green);
+    border-radius: 50px;
+    margin-bottom: var(--spacing-2xl);
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.15);
+}
+
+.italy-flag {
+    font-size: 1.5rem;
+}
+
+.made-text {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green);
+}
+
+.made-in-italy h2 {
+    font-size: 2.75rem;
+    margin-bottom: var(--spacing-xl);
+    color: var(--black);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-family: var(--font-heading);
+}
+
+.made-in-italy > .container > .made-content > p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--gray-700);
+    margin-bottom: var(--spacing-3xl);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE - PAGINA PRODOTTI
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 968px) {
+    .product-summary-card {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .product-summary-image {
+        padding: var(--spacing-2xl);
+    }
+    
+    .product-visual {
+        font-size: 3.5rem;
+    }
+    
+    .product-summary-content {
+        padding: var(--spacing-2xl);
+    }
+    
+    .product-summary-content h2 {
+        font-size: 1.75rem;
+    }
+    
+    .comparison-table {
+        font-size: 0.9rem;
+    }
+    
+    .comparison-header .comparison-cell {
+        font-size: 1rem;
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+    
+    .comparison-cell {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .products-intro {
+        padding: var(--spacing-3xl) var(--spacing-md);
+    }
+    
+    .products-detail {
+        padding: var(--spacing-3xl) var(--spacing-md);
+    }
+    
+    .product-summary-card {
+        margin-bottom: var(--spacing-2xl);
+    }
+    
+    .product-summary-image {
+        padding: var(--spacing-xl);
+    }
+    
+    .product-visual {
+        font-size: 3rem;
+    }
+    
+    .product-badge {
+        font-size: 0.7rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+    
+    .product-summary-content {
+        padding: var(--spacing-xl);
+    }
+    
+    .product-summary-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .product-tagline {
+        font-size: 0.9rem;
+    }
+    
+    .product-intro {
+        font-size: 0.9rem;
+    }
+    
+    /* Tabella responsive */
+    .products-comparison {
+        padding: var(--spacing-3xl) var(--spacing-md);
+    }
+    
+    .comparison-header,
+    .comparison-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .comparison-header {
+        display: none;
+    }
+    
+    .comparison-row {
+        display: flex;
+        flex-direction: column;
+        padding: var(--spacing-md);
+        border-bottom: 2px solid var(--gray-300);
+        gap: var(--spacing-sm);
+    }
+    
+    .comparison-cell {
+        padding: var(--spacing-xs) 0;
+        justify-content: flex-start;
+        text-align: left;
+    }
+    
+    .comparison-cell.feature-label {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-sm);
+        padding-bottom: var(--spacing-sm);
+        border-bottom: 1px solid var(--gray-200);
+    }
+    
+    .comparison-cell:not(.feature-label)::before {
+        font-size: 0.8rem;
+        color: var(--gray-500);
+        margin-right: var(--spacing-sm);
+        font-weight: 600;
+    }
+    
+    .comparison-row .comparison-cell:nth-child(2)::before {
+        content: 'K-75: ';
+    }
+    
+    .comparison-row .comparison-cell:nth-child(3)::before {
+        content: 'K-75S: ';
+    }
+}
