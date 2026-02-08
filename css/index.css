@@ -126,11 +126,6 @@
     transition: all 0.3s ease;
 }
 
-.feature-benefit:hover {
-    border-left-width: 6px;
-    padding-left: 1.4375rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-}
 
 .feature-benefit strong {
     color: #16a34a;
