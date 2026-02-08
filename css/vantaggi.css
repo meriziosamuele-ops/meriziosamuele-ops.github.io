@@ -116,28 +116,6 @@
     font-weight: 700;
 }
 
-/* Animazione fade-in-up */
-.fade-in-up {
-    opacity: 0;
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.fade-in-up:nth-child(1) { animation-delay: 0.1s; }
-.fade-in-up:nth-child(2) { animation-delay: 0.2s; }
-.fade-in-up:nth-child(3) { animation-delay: 0.3s; }
-.fade-in-up:nth-child(4) { animation-delay: 0.4s; }
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* ==========================================================================
    SEZIONE SETTORI DI APPLICAZIONE
    ========================================================================== */
@@ -332,12 +310,6 @@
     font-size: 1rem;
     color: #525252;
     font-weight: 600;
-}
-
-/* Scroll Reveal */
-.scroll-reveal {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
 }
 
 /* ==========================================================================

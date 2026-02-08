@@ -293,7 +293,7 @@
 .feature-card:hover {
     background: #ffffff;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    transform: translateX(8px);
+    transform: translateX(4px);
 }
 
 .feature-number {
@@ -312,7 +312,6 @@
 }
 
 .feature-card:hover .feature-number {
-    background: #0a0a0a;
     transform: scale(1.05);
 }
 
@@ -748,7 +747,7 @@
     position: relative;
 }
 
-/* Cerchi pulsanti verdi - attivi solo su hover della card */
+/* Cerchi pulsanti - inattivi di default */
 .feature-icon::before,
 .feature-icon::after {
     content: '';
@@ -759,54 +758,97 @@
     width: 100%;
     height: 100%;
     border-radius: 4px;
-    border: 2px solid #16a34a;
     opacity: 0;
     pointer-events: none;
 }
 
-/* Animazione attiva solo quando si fa hover sulla card */
+.icon-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Animazioni attive solo su hover della card */
 .made-feature:hover .feature-icon::before {
-    animation: pulse-ring-1 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    animation: pulse-ring-green 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) 1;
 }
 
 .made-feature:hover .feature-icon::after {
-    animation: pulse-ring-2 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    animation: pulse-ring-white 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) 1;
+    animation-delay: 0.5s;
+}
+
+.made-feature:hover .icon-ring {
+    animation: pulse-ring-red 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) 1;
     animation-delay: 1s;
 }
 
-@keyframes pulse-ring-1 {
+/* ANELLO VERDE 🟢 - primo a partire */
+@keyframes pulse-ring-green {
     0% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(1);
+        border: 2px solid #16a34a;
     }
-    10% {
-        opacity: 0.6;
+    15% {
+        opacity: 0.8;
     }
-    50% {
+    40% {
         opacity: 0;
-        transform: translate(-50%, -50%) scale(2);
+        transform: translate(-50%, -50%) scale(2.5);
+        border: 2px solid #16a34a;
     }
     100% {
         opacity: 0;
-        transform: translate(-50%, -50%) scale(2);
+        transform: translate(-50%, -50%) scale(2.5);
     }
 }
 
-@keyframes pulse-ring-2 {
+/* ANELLO BIANCO ⚪ - secondo (delay 0.5s) */
+@keyframes pulse-ring-white {
     0% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(1);
+        border: 2px solid #ffffff;
     }
-    10% {
-        opacity: 0.6;
+    15% {
+        opacity: 0.8;
     }
-    50% {
+    40% {
         opacity: 0;
-        transform: translate(-50%, -50%) scale(2);
+        transform: translate(-50%, -50%) scale(2.5);
+        border: 2px solid #ffffff;
     }
     100% {
         opacity: 0;
-        transform: translate(-50%, -50%) scale(2);
+        transform: translate(-50%, -50%) scale(2.5);
+    }
+}
+
+/* ANELLO ROSSO 🔴 - terzo (delay 1s) */
+@keyframes pulse-ring-red {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+        border: 2px solid #ef4444;
+    }
+    15% {
+        opacity: 0.8;
+    }
+    40% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(2.5);
+        border: 2px solid #ef4444;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(2.5);
     }
 }
 
@@ -822,6 +864,113 @@
     color: rgba(255, 255, 255, 0.75);
     line-height: 1.6;
     font-size: 0.9375rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE MADE IN ITALY
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .made-features {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .made-in-italy {
+        min-height: 550px;
+    }
+    
+    .made-content {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .made-badge {
+        padding: 0.65rem 1.25rem;
+        margin-bottom: 2rem;
+    }
+
+    .made-badge span:last-child {
+        font-size: 0.8125rem;
+    }
+
+    .made-content .section-header-center h2 {
+        font-size: 1.875rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .made-content .section-header-center p {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .made-features {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    
+    .made-feature {
+        padding: 1.75rem;
+    }
+
+    .feature-icon {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 1rem;
+    }
+
+    .made-feature h4 {
+        font-size: 1.0625rem;
+    }
+
+    .made-feature p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .made-in-italy {
+        min-height: auto;
+    }
+
+    .made-content {
+        padding: 3rem 1.5rem;
+    }
+
+    .made-badge {
+        padding: 0.6rem 1.125rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .made-content .section-header-center h2 {
+        font-size: 1.625rem;
+    }
+
+    .made-content .section-header-center p {
+        font-size: 0.9375rem;
+        margin-bottom: 2.25rem;
+    }
+
+    .made-features {
+        gap: 1rem;
+    }
+
+    .made-feature {
+        padding: 1.5rem;
+    }
+
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .made-feature h4 {
+        font-size: 1rem;
+        margin-bottom: 0.65rem;
+    }
+
+    .made-feature p {
+        font-size: 0.875rem;
+    }
 }
 
 /* ==========================================================================

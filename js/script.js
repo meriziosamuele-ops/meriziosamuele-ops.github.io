@@ -1,51 +1,128 @@
 // ============================================
 // OPTIFORM - Main JavaScript
+// Enhanced Animations & Performance
 // ============================================
 
 (function() {
     'use strict';
 
     // ============================================
-    // SCROLL ANIMATIONS
+    // PERFORMANCE & ACCESSIBILITY
+    // ============================================
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let ticking = false;
+
+    // ============================================
+    // ENHANCED SCROLL ANIMATIONS - FIXED
     // ============================================
     function initScrollAnimations() {
+        if (prefersReducedMotion) {
+            document.querySelectorAll('.fade-in-up, .scroll-reveal').forEach(el => {
+                el.classList.add('visible');
+            });
+            return;
+        }
+
         const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px'
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    // Smetti di osservare dopo l'animazione per performance
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
         // Observe all animated elements
-        document.querySelectorAll('.fade-in-up').forEach(el => {
+        document.querySelectorAll('.fade-in-up, .scroll-reveal').forEach(el => {
             observer.observe(el);
         });
+
+        console.log(`🎬 Observing ${document.querySelectorAll('.fade-in-up, .scroll-reveal').length} elements for animation`);
     }
 
     // ============================================
-    // NAVBAR SCROLL EFFECT
+    // INITIAL VISIBILITY - Show elements already in viewport
+    // ============================================
+    function initInitialVisibility() {
+        if (prefersReducedMotion) return;
+        
+        // Forza visibilità immediata per primi 800px della pagina
+        document.querySelectorAll('.fade-in-up, .scroll-reveal').forEach((el, index) => {
+            const rect = el.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            
+            // Se l'elemento è nei primi 800px o già visibile
+            if (rect.top < 800 || (rect.top < windowHeight * 0.85 && rect.bottom > 0)) {
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, index * 100); // Delay progressivo
+            }
+        });
+        
+        console.log('✅ Initial visibility checked');
+    }
+
+    // ============================================
+    // NAVBAR SCROLL EFFECT - SOLO MOBILE
     // ============================================
     function initNavbarScroll() {
         const navbar = document.getElementById('navbar');
         if (!navbar) return;
 
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
+        let lastScrollY = window.pageYOffset;
+
+        function updateNavbar() {
+            const scrollY = window.pageYOffset;
+            
+            // Add scrolled class for style changes
+            if (scrollY > 100) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
+            }
+
+            // Hide/show navbar SOLO su mobile (max-width: 768px)
+            if (window.innerWidth <= 768) {
+                if (scrollY > lastScrollY && scrollY > 300) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else if (scrollY < lastScrollY) {
+                    navbar.style.transform = 'translateY(0)';
+                }
+            } else {
+                // Reset transform on desktop
+                navbar.style.transform = 'translateY(0)';
+            }
+
+            lastScrollY = scrollY;
+            ticking = false;
+        }
+
+        // Add transition
+        navbar.style.transition = 'transform 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease';
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateNavbar);
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Reset on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navbar.style.transform = 'translateY(0)';
             }
         });
     }
 
     // ============================================
-    // MOBILE MENU
+    // MOBILE MENU - Enhanced
     // ============================================
     function initMobileMenu() {
         const hamburger = document.getElementById('hamburger');
@@ -53,27 +130,35 @@
         
         if (!hamburger || !navLinks) return;
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function toggleMenu() {
+            const isActive = hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-        });
+            document.body.style.overflow = isActive ? 'hidden' : '';
+        }
 
-        // Close menu when clicking on a link
+        hamburger.addEventListener('click', toggleMenu);
+
         navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
-            });
+            link.addEventListener('click', closeMenu);
         });
 
-        // Close menu on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
+                closeMenu();
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(e.target) && 
+                !hamburger.contains(e.target)) {
+                closeMenu();
             }
         });
     }
@@ -84,45 +169,54 @@
     function animateCounter(element) {
         const target = parseInt(element.getAttribute('data-target'));
         const duration = 2000;
-        const increment = target / (duration / 16);
-        let current = 0;
+        const startTime = performance.now();
+        
+        function easeOutQuad(t) {
+            return t * (2 - t);
+        }
 
-        const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-                element.textContent = Math.ceil(current);
+        function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeOutQuad(progress);
+            
+            const current = Math.floor(easedProgress * target);
+            element.textContent = current.toLocaleString();
+
+            if (progress < 1) {
                 requestAnimationFrame(updateCounter);
             } else {
-                element.textContent = target;
+                element.textContent = target.toLocaleString();
             }
-        };
+        }
 
-        updateCounter();
+        requestAnimationFrame(updateCounter);
     }
 
     function initCounters() {
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting && !entry.target.dataset.counted) {
+                    entry.target.dataset.counted = 'true';
                     const counters = entry.target.querySelectorAll('.stat-number');
-                    counters.forEach(counter => {
-                        if (counter.textContent === '0') {
+                    counters.forEach((counter, index) => {
+                        setTimeout(() => {
                             animateCounter(counter);
-                        }
+                        }, index * 150);
                     });
-                    statsObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.5 });
 
         const statsBar = document.querySelector('.stats-bar');
         if (statsBar) {
+            statsBar.querySelectorAll('.stat-number').forEach(counter => {
+                counter.textContent = '0';
+            });
             statsObserver.observe(statsBar);
         }
     }
-    
 
-    
     // ============================================
     // SCROLL TO TOP BUTTON
     // ============================================
@@ -130,13 +224,23 @@
         const scrollTopBtn = document.getElementById('scroll-to-top');
         if (!scrollTopBtn) return;
 
-        window.addEventListener('scroll', () => {
+        let scrollTicking = false;
+
+        function updateScrollButton() {
             if (window.pageYOffset > 500) {
                 scrollTopBtn.classList.add('visible');
             } else {
                 scrollTopBtn.classList.remove('visible');
             }
-        });
+            scrollTicking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!scrollTicking) {
+                window.requestAnimationFrame(updateScrollButton);
+                scrollTicking = true;
+            }
+        }, { passive: true });
 
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({
@@ -153,61 +257,19 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href === '#') return;
+                if (href === '#' || href === '#!') return;
                 
-                e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    e.preventDefault();
+                    
+                    const navHeight = document.getElementById('navbar')?.offsetHeight || 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
-                }
-            });
-        });
-    }
-
-    // ============================================
-    // INITIAL VISIBILITY FOR ELEMENTS IN VIEWPORT
-    // ============================================
-    function initInitialVisibility() {
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight) {
-                el.classList.add('visible');
-            }
-        });
-    }
-
-    // ============================================
-    // FORM VALIDATION (for contact forms)
-    // ============================================
-    function initFormValidation() {
-        const forms = document.querySelectorAll('form[data-validate]');
-        
-        forms.forEach(form => {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                // Get all required fields
-                const requiredFields = form.querySelectorAll('[required]');
-                let isValid = true;
-                
-                requiredFields.forEach(field => {
-                    if (!field.value.trim()) {
-                        isValid = false;
-                        field.classList.add('error');
-                    } else {
-                        field.classList.remove('error');
-                    }
-                });
-                
-                if (isValid) {
-                    // Form is valid, can submit
-                    console.log('Form is valid and ready to submit');
-                    // Here you would typically send the form data
-                } else {
-                    alert('Per favore, compila tutti i campi obbligatori.');
                 }
             });
         });
@@ -225,14 +287,25 @@
     // INITIALIZE ALL
     // ============================================
     function init() {
-        removeNoJS();
-        initScrollAnimations();
-        initNavbarScroll();
-        initMobileMenu();
-        initCounters();
-        initScrollToTop();
-        initSmoothScroll();
-        initFormValidation();
+        try {
+            removeNoJS();
+            initScrollAnimations();
+            
+            // Mostra subito gli elementi già nel viewport
+            setTimeout(() => {
+                initInitialVisibility();
+            }, 100);
+            
+            initNavbarScroll();
+            initMobileMenu();
+            initCounters();
+            initScrollToTop();
+            initSmoothScroll();
+
+            console.log('✅ Optiform JS initialized');
+        } catch (error) {
+            console.error('❌ Initialization error:', error);
+        }
     }
 
     // Run on DOMContentLoaded
@@ -241,8 +314,5 @@
     } else {
         init();
     }
-
-    // Run initial visibility after full load
-    window.addEventListener('load', initInitialVisibility);
 
 })();

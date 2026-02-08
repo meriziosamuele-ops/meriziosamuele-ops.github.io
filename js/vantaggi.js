@@ -3,31 +3,8 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', function() {
-    initScrollReveal();
     initSectorTabs();
 });
-
-// ==========================================================================
-// SCROLL REVEAL ANIMATIONS
-// ==========================================================================
-
-function initScrollReveal() {
-    const reveals = document.querySelectorAll('.scroll-reveal');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    reveals.forEach(reveal => observer.observe(reveal));
-}
 
 // ==========================================================================
 // SECTOR TABS INTERATTIVI
