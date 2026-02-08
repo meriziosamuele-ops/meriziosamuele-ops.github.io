@@ -19,17 +19,14 @@
     --gray-800: #1a1a1a;
     --gray-900: #0a0a0a;
     
-    /* Colori principali */
+    /* Colori principali - Palette armonizzata */
     --green: #16a34a;
-    --green-dark: #15803d;
+    --green-dark: #16a34a;
     --green-light: #22c55e;
     --green-bg: #dcfce7;
-    --green-cta: #0d7a5f;
+    --green-cta: #16a34a;
     
-    --blue: #0f766e;
-    --blue-dark: #0d5c54;
-    
-    --black: #000000;
+    --black: #0a0a0a;
     --white: #ffffff;
 
     /* Tipografia */
@@ -48,11 +45,11 @@
     --spacing-3xl: 4rem;
     --spacing-4xl: 6rem;
     
-    /* Ombre */
-    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.15);
-    --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.2);
+    /* Ombre - Opacità ridotte per look più pulito */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.12);
 }
 
 /* ==========================================================================
@@ -209,9 +206,9 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.7;
 }
 
-/* Highlight colors per gradient text */
+/* Highlight colors per gradient text - Palette armonizzata */
 .highlight-green {
-    background: linear-gradient(135deg, #10b981 0%, #22c55e 50%, #34d399 100%);
+    background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

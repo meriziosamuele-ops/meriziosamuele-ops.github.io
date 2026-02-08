@@ -149,24 +149,24 @@ nav.scrolled {
    VARIANTI PRIMARIE
    ==================== */
 
-/* CTA Primario - Gradient blu-verde (Hero, sezioni principali) */
+/* CTA Primario - Verde brand */
 .cta-button.primary {
-    background: var(--white);
-    color: var(--green-cta);
+    background: var(--green);
+    color: var(--white);
     border: none;
-    box-shadow: var(--white);
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
     font-weight: 800;
 }
 
 .cta-button.primary:hover {
-    background: var(--white);
+    background: var(--black);
     transform: translateY(-3px);
-    box-shadow: var(--white);
+    box-shadow: 0 8px 20px rgba(10, 10, 10, 0.3);
 }
 
 .cta-button.primary:active {
     transform: translateY(-1px);
-    box-shadow: var(--white);
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
 }
 
 /* CTA Primario Large - Versione ingrandita per sezioni finali */
@@ -174,51 +174,54 @@ nav.scrolled {
     padding: var(--spacing-lg) var(--spacing-3xl);
     font-size: 1.25rem;
     font-weight: 800;
-    background: var(--white);
-    color: var(--green);
+    background: var(--green);
+    color: var(--white);
     border: none;
-    box-shadow: var(--white);
+    box-shadow: 0 6px 16px rgba(22, 163, 74, 0.25);
 }
 
 .cta-button.primary-large:hover {
-    background: var(--white);
+    background: var(--black);
     transform: translateY(-4px);
-    box-shadow: var(--white);
+    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.35);
 }
 
 /* CTA Primario su sfondo verde - Invertito per contrasto */
 .cta-button.primary-inverse {
     background: var(--white);
-    color: var(--green);
+    color: var(--black);
     border: 2px solid var(--white);
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
     font-weight: 800;
 }
 
 .cta-button.primary-inverse:hover {
-    background: var(--green-bg);
-    border-color: var(--green-bg);
-    color: var(--green-dark);
+    background: var(--black);
+    border-color: var(--black);
+    color: var(--white);
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(10, 10, 10, 0.4);
 }
 
 /* ====================
    VARIANTI SECONDARIE
    ==================== */
 
-/* CTA Secondario - Bordo gradient su sfondo scuro */
+/* CTA Secondario - Bordo verde */
 .cta-button.secondary {
-    background: var(--green);
-    color: var(--white);
+    background: transparent;
+    color: var(--green);
+    border: 2px solid var(--green);
 }
 
 .cta-button.secondary:hover {
     background: var(--green);
+    color: var(--white);
     transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
 }
 
-/* CTA Secondario su sfondo verde - Bordo bianco */
+/* CTA Secondario su sfondo scuro - Bordo bianco */
 .cta-button.secondary-inverse {
     background: transparent;
     color: var(--white);
@@ -226,24 +229,24 @@ nav.scrolled {
 }
 
 .cta-button.secondary-inverse:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--white);
+    color: var(--black);
     transform: translateY(-3px);
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
 }
 
-/* CTA Secondario su sfondo chiaro - Bordo gradient */
+/* CTA Secondario su sfondo chiaro - Bordo nero */
 .cta-button.secondary-light {
     background: transparent;
-    color: var(--gray-900);
-    background-image: linear-gradient(var(--white), var(--white)), linear-gradient(135deg, var(--blue), var(--green));
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
+    color: var(--black);
+    border: 2px solid var(--black);
 }
 
 .cta-button.secondary-light:hover {
-    background-image: var(--black);
+    background: var(--black);
+    color: var(--white);
     transform: translateY(-3px);
-    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.2);
+    box-shadow: 0 4px 12px rgba(10, 10, 10, 0.2);
 }
 
 /* ====================
@@ -262,7 +265,7 @@ nav.scrolled {
 
 .cta-button.ghost:hover {
     color: var(--green);
-    background: var(--black);
+    background: var(--gray-50);
     transform: translateX(4px);
 }
 
@@ -355,7 +358,7 @@ nav.scrolled {
    ========================================================================== */
 .final-cta {
     padding: var(--spacing-4xl) var(--spacing-xl);
-    background: var(--green-cta);
+    background: var(--green);
     position: relative;
     overflow: hidden;
 }
@@ -368,7 +371,7 @@ nav.scrolled {
     right: -10%;
     width: 600px;
     height: 600px;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.03);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -380,7 +383,7 @@ nav.scrolled {
     left: -5%;
     width: 400px;
     height: 400px;
-    background: rgba(255, 255, 255, 0.01);
+    background: rgba(255, 255, 255, 0.02);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -431,6 +434,20 @@ nav.scrolled {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
+}
+
+/* Bottoni dentro Final CTA - Override per contrasto su sfondo verde */
+.final-cta .cta-button.primary {
+    background: var(--white);
+    color: var(--black);
+    padding: 1.3rem 2.7rem;
+    font-size: 1rem;
+}
+
+.final-cta .cta-button.primary:hover {
+    background: var(--black);
+    color: var(--white);
+    box-shadow: 0 8px 20px rgba(10, 10, 10, 0.4);
 }
 
 
@@ -486,12 +503,14 @@ nav.scrolled {
 .cta-button.secondary.contact {
     background: var(--black);
     color: var(--white);
+    border: 2px solid var(--black);
 }
 
 .cta-button.secondary.contact:hover {
-    background: var(--black);
+    background: var(--green);
+    border-color: var(--green);
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
 }
 
 /* ==========================================================================
@@ -533,13 +552,13 @@ footer {
     display: inline-flex;
     align-items: center;
     gap: var(--spacing-sm);
-    background: rgba(16, 185, 129, 0.1);
-    color: #10b981;
+    background: rgba(22, 163, 74, 0.1);
+    color: var(--green);
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: 20px;
     font-size: 0.875rem;
     font-weight: 600;
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(22, 163, 74, 0.2);
 }
 
 .footer-column h4 {
@@ -652,5 +671,5 @@ footer {
 #scroll-to-top:hover {
     background: var(--green);
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px var(--green);
+    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.4);
 }
