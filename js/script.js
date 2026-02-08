@@ -68,58 +68,58 @@
         console.log('✅ Initial visibility checked');
     }
 
-    // ============================================
-    // NAVBAR SCROLL EFFECT - SOLO MOBILE
-    // ============================================
-    function initNavbarScroll() {
-        const navbar = document.getElementById('navbar');
-        if (!navbar) return;
+// ============================================
+// NAVBAR SCROLL EFFECT - SOLO MOBILE
+// ============================================
+function initNavbarScroll() {
+    const navbar = document.getElementById('navbar');
+    if (!navbar) return;
 
-        let lastScrollY = window.pageYOffset;
+    let lastScrollY = window.pageYOffset;
 
-        function updateNavbar() {
-            const scrollY = window.pageYOffset;
-            
-            // Add scrolled class for style changes
-            if (scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+    function updateNavbar() {
+        const scrollY = window.pageYOffset;
+        
+        // RIMUOVI QUESTA PARTE - navbar sempre con stesso aspetto
+        // if (scrollY > 100) {
+        //     navbar.classList.add('scrolled');
+        // } else {
+        //     navbar.classList.remove('scrolled');
+        // }
 
-            // Hide/show navbar SOLO su mobile (max-width: 768px)
-            if (window.innerWidth <= 768) {
-                if (scrollY > lastScrollY && scrollY > 300) {
-                    navbar.style.transform = 'translateY(-100%)';
-                } else if (scrollY < lastScrollY) {
-                    navbar.style.transform = 'translateY(0)';
-                }
-            } else {
-                // Reset transform on desktop
+        // Hide/show navbar SOLO su mobile (max-width: 768px)
+        if (window.innerWidth <= 768) {
+            if (scrollY > lastScrollY && scrollY > 300) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else if (scrollY < lastScrollY) {
                 navbar.style.transform = 'translateY(0)';
             }
-
-            lastScrollY = scrollY;
-            ticking = false;
+        } else {
+            // Reset transform on desktop
+            navbar.style.transform = 'translateY(0)';
         }
 
-        // Add transition
-        navbar.style.transition = 'transform 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease';
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(updateNavbar);
-                ticking = true;
-            }
-        }, { passive: true });
-
-        // Reset on resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                navbar.style.transform = 'translateY(0)';
-            }
-        });
+        lastScrollY = scrollY;
+        ticking = false;
     }
+
+    // Add transition
+    navbar.style.transition = 'transform 0.3s ease';
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateNavbar);
+            ticking = true;
+        }
+    }, { passive: true });
+
+    // Reset on resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navbar.style.transform = 'translateY(0)';
+        }
+    });
+}
 
     // ============================================
     // MOBILE MENU - Enhanced

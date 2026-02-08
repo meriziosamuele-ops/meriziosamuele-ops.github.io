@@ -8,13 +8,17 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <!--CSS-->
+    
+    <!-- CSS Base -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- CSS Hero (carica DOPO per override) -->
+    <link rel="stylesheet" href="css/hero.css">
 </head>
-<body>
+<body class="hero-page">
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
@@ -35,95 +39,115 @@
         </div>
     </nav>
 
-   <!-- Hero Section Split 40/60 -->
-    <section class="hero-split">
-        <div class="hero-split-content">
-            <!-- Lato SINISTRO - Sfondo NERO con testo BIANCO -->
-            <div class="hero-text-side">
-                <div class="hero-badge">
-                    <span class="badge-dot"></span>
-                    <span>Termoformatrici professionali</span>
+    <!-- HERO FULLSCREEN -->
+    <div class="hero-container" data-world="cyber" data-model="k75s">
+        <!-- GRIGLIA ANIMATA -->
+        <div class="grid-background"></div>
+
+        <!-- PARTICELLE -->
+        <div class="particles" id="particles"></div>
+
+        <!-- GLOW CENTRALE -->
+        <div class="hero-glow"></div>
+
+        <!-- CONTENUTO -->
+        <div class="hero-content">
+            <!-- LAYOUT A DUE COLONNE -->
+            <div class="hero-layout">
+                <!-- COLONNA SINISTRA - TESTO -->
+                <div class="hero-left">
+                    <div class="hero-text">
+                        <div class="hero-badge" id="hero-badge">Automatica • PLC Programmabile</div>
+                        <h1 class="hero-title" id="hero-title">K75S</h1>
+                        <p class="hero-subtitle" id="hero-subtitle">Automazione completa per produzioni ad alto volume</p>
+                    </div>
+
+                    <!-- DESCRIZIONE DETTAGLIATA -->
+                    <div class="hero-description" id="hero-description">
+                        <p>Termoformatrice con PLC programmabile per automazione completa del ciclo. Sistema diagnostico dedicato per monitoraggio resistenze in tempo reale. Ottimizzata per produzioni continuative ad alto volume con cicli ripetitivi.</p>
+                    </div>
                 </div>
-                
-                <h1>
-                    Termoformatrici Made in Italy<br>
-                    <span class="highlight-green">Con Diagnostica Intelligente</span>
-                </h1>
-                
-                <p class="hero-description">
-                    Progettiamo e produciamo termoformatrici professionali a Treviglio. Ogni macchina è dotata di un sistema diagnostico avanzato: quando si ferma, il display mostra direttamente il codice del componente guasto. Zero diagnosi manuale, zero tempo perso.
-                </p>
-                
-                <div class="cta-group">
-                    <a href="prodotti.html" class="cta-button primary">Scopri la Tecnologia</a>
-                    <a href="vantaggi.html" class="cta-button secondary">Vedi i Vantaggi</a>
+
+                <!-- COLONNA DESTRA - MACCHINA -->
+                <div class="hero-right">
+                    <div class="machine-container">
+                        <img src="img/k-75S-removebg-preview.png" alt="Termoformatrice K75S" class="machine-image" id="machine-image">
+                    </div>
                 </div>
             </div>
-            
-            <!-- Lato DESTRO - Foto/Video termoformatrice -->
-            <div class="hero-media-side">
-                <!-- Sostituire con video quando disponibile -->
-            <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1200&h=800&fit=crop&q=80" 
-                     alt="Termoformatrice Optiform in azione"
-                     class="hero-media">
+
+            <!-- SWITCHER BUTTONS -->
+            <div class="world-switcher">
+                <button class="world-btn active" data-world="cyber" data-model="k75s">
+                    K75S
+                    <span class="world-label">Automatica</span>
+                </button>
+                <button class="world-btn" data-world="industrial" data-model="k75">
+                    K75
+                    <span class="world-label">Manuale</span>
+                </button>
+                <button class="world-btn" data-world="dark" data-model="k53">
+                    K53
+                    <span class="world-label">Compatta</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Come Funziona -->
+    <section class="how-it-works">
+        <div class="how-container">
+            <div class="section-header-center fade-in-up">
+                <span class="section-label">Come funziona</span>
+                <h2>Come Funziona il <span class="highlight-green">Sistema Diagnostico</span></h2>
+                <p class="lead-text">
+                    Una scheda elettronica dedicata lavora in sinergia con il PLC. Monitora costantemente ogni resistenza e, in caso di guasto, identifica immediatamente quale componente sostituire.
+                </p>
+            </div>
+
+            <!-- CARD 1 - Testo a SINISTRA, Foto a DESTRA -->
+            <div class="feature-row fade-in-up">
+                <div class="feature-card">
+                    <div class="feature-number">01</div>
+                    <h3>Monitoraggio Continuo e Autonomo</h3>
+                    <p>La scheda diagnostica verifica ogni resistenza in sequenza con cicli regolari. Lavora in background senza interferire con la produzione: mentre la macchina produce, il sistema controlla lo stato di salute dei componenti.</p>
+                    <div class="feature-benefit">
+                        <strong>Il vantaggio:</strong> La macchina produce a pieno regime mentre la diagnostica lavora in parallelo. Nessun rallentamento, nessuna interruzione per i controlli.
+                    </div>
+                </div>
+                
+                <div class="feature-image">
+                    <div class="image-frame">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=600&fit=crop&q=80" alt="Sistema diagnostico in funzione">
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2 - Foto a SINISTRA, Testo a DESTRA -->
+            <div class="feature-row reverse">
+                <div class="feature-image">
+                    <div class="image-frame">
+                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop&q=80" alt="Display diagnostico">
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-number">02</div>
+                    <h3>Rilevamento Guasti Immediato</h3>
+                    <p>Quando una resistenza presenta anomalie, il sistema lo rileva e segnala il problema istantaneamente sul display. Nessuna diagnosi manuale: il codice identificativo del componente guasto appare automaticamente.</p>
+                    <div class="feature-benefit">
+                        <strong>Il vantaggio:</strong> Eliminata la fase più lunga e complessa: la ricerca del guasto. Il tecnico sa subito cosa è rotto senza smontare, misurare o testare componenti.
+                    </div>
+                </div>
+            </div>
+
+            <div class="diagnostic-cta">
+                <a href="vantaggi.html" class="cta-button secondary">Vedi i Vantaggi Chiave</a>
             </div>
         </div>
     </section>
 
-    <!-- Come Funziona -->
-<section class="how-it-works">
-    <div class="how-container">
-        <div class="section-header-center fade-in-up">
-            <span class="section-label">Come funziona</span>
-            <h2>Come Funziona il <span class="highlight-green">Sistema Diagnostico</span></h2>
-            <p class="lead-text">
-                Una scheda elettronica dedicata lavora in sinergia con il PLC. Monitora costantemente ogni resistenza e, in caso di guasto, identifica immediatamente quale componente sostituire.
-            </p>
-        </div>
-
-        <!-- CARD 1 - Testo a SINISTRA, Foto a DESTRA -->
-        <div class="feature-row fade-in-up">
-            <div class="feature-card">
-                <div class="feature-number">01</div>
-                <h3>Monitoraggio Continuo e Autonomo</h3>
-                <p>La scheda diagnostica verifica ogni resistenza in sequenza con cicli regolari. Lavora in background senza interferire con la produzione: mentre la macchina produce, il sistema controlla lo stato di salute dei componenti.</p>
-                <div class="feature-benefit">
-                    <strong>Il vantaggio:</strong> La macchina produce a pieno regime mentre la diagnostica lavora in parallelo. Nessun rallentamento, nessuna interruzione per i controlli.
-                </div>
-            </div>
-            
-            <div class="feature-image">
-                <div class="image-frame">
-            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=600&fit=crop&q=80" alt="Sistema diagnostico in funzione">
-                </div>
-            </div>
-        </div>
-
-        <!-- CARD 2 - Foto a SINISTRA, Testo a DESTRA -->
-        <div class="feature-row reverse">
-            <div class="feature-image">
-                <div class="image-frame">
-            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop&q=80" alt="Display diagnostico">
-                </div>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-number">02</div>
-                <h3>Rilevamento Guasti Immediato</h3>
-                <p>Quando una resistenza presenta anomalie, il sistema lo rileva e segnala il problema istantaneamente sul display. Nessuna diagnosi manuale: il codice identificativo del componente guasto appare automaticamente.</p>
-                <div class="feature-benefit">
-                    <strong>Il vantaggio:</strong> Eliminata la fase più lunga e complessa: la ricerca del guasto. Il tecnico sa subito cosa è rotto senza smontare, misurare o testare componenti.
-                </div>
-            </div>
-        </div>
-
-        <div class="diagnostic-cta">
-            <a href="vantaggi.html" class="cta-button secondary">Vedi i Vantaggi Chiave</a>
-        </div>
-    </div>
-</section>
-
-<!-- Technology Section -->
+    <!-- Technology Section -->
     <section class="technology-section">
         <div class="container-wide">
             <div class="section-header-center fade-in-up">
@@ -177,77 +201,78 @@
     </section>
     
     <!-- Made in Italy - Background Immersivo -->
-<section class="made-in-italy">
-    <div class="made-background">
-        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1920&h=1080&fit=crop&q=80" alt="Produzione Optiform Treviglio">
-        <div class="made-overlay"></div>
-    </div>
-    
-    <div class="made-content fade-in-up">
-        <div class="made-badge">
-            <span class="italy-flag">🇮🇹</span>
-            <span>Made in Italy</span>
+    <section class="made-in-italy">
+        <div class="made-background">
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1920&h=1080&fit=crop&q=80" alt="Produzione Optiform Treviglio">
+            <div class="made-overlay"></div>
         </div>
         
-        <div class="section-header-center">
-            <h2>Eccellenza Italiana nella Termoformatura</h2>
+        <div class="made-content fade-in-up">
+            <div class="made-badge">
+                <span class="italy-flag">🇮🇹</span>
+                <span>Made in Italy</span>
+            </div>
             
-            <p>
-                Ogni termoformatrice Optiform è progettata, assemblata e collaudata a <strong>Treviglio (BG)</strong>. L'innovazione del sistema diagnostico nasce dall'esperienza di <strong>Floki</strong>, azienda con consolidata presenza nel mercato dell'automazione industriale.
-            </p>
+            <div class="section-header-center">
+                <h2>Eccellenza Italiana nella Termoformatura</h2>
+                
+                <p>
+                    Ogni termoformatrice Optiform è progettata, assemblata e collaudata a <strong>Treviglio (BG)</strong>. L'innovazione del sistema diagnostico nasce dall'esperienza di <strong>Floki</strong>, azienda con consolidata presenza nel mercato dell'automazione industriale.
+                </p>
+            </div>
+            
+            <div class="made-features">
+                <div class="made-feature">
+                    <div class="feature-icon">
+                        <span class="icon-ring"></span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h4>Artigianalità Tecnica</h4>
+                    <p>Assemblaggio curato nei minimi dettagli da tecnici specializzati con diversi anni di esperienza nel settore della termoformatura.</p>
+                </div>
+
+                <div class="made-feature">
+                    <div class="feature-icon">
+                        <span class="icon-ring"></span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 11l3 3L22 4"/>
+                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                        </svg>
+                    </div>
+                    <h4>Componenti Selezionati</h4>
+                    <p>Ogni componente viene testato e certificato prima del montaggio. Il nostro sistema di controllo qualità garantisce prestazioni costanti e durature.</p>
+                </div>
+
+                <div class="made-feature">
+                    <div class="feature-icon">
+                        <span class="icon-ring"></span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                        </svg>
+                    </div>
+                    <h4>Assistenza Dedicata</h4>
+                    <p>Supporto tecnico in italiano e inglese con interventi rapidi su tutto il territorio nazionale. Conosciamo ogni dettaglio delle nostre macchine.</p>
+                </div>
+
+                <div class="made-feature">
+                    <div class="feature-icon">
+                        <span class="icon-ring"></span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M2 12h20"/>
+                            <circle cx="12" cy="12" r="9"/>
+                        </svg>
+                    </div>
+                    <h4>Personalizzazione</h4>
+                    <p>Capacità di adattare le macchine alle specifiche esigenze produttive. Flessibilità tipica delle aziende italiane di medie dimensioni.</p>
+                </div>
+            </div>
         </div>
-        
-        <div class="made-features">
-            <div class="made-feature">
-                <div class="feature-icon">
-                    <span class="icon-ring"></span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                        <path d="M2 17l10 5 10-5"/>
-                        <path d="M2 12l10 5 10-5"/>
-                    </svg>
-                </div>
-                <h4>Artigianalità Tecnica</h4>
-                <p>Assemblaggio curato nei minimi dettagli da tecnici specializzati con diversi anni di esperienza nel settore della termoformatura.</p>
-            </div>
+    </section>
 
-            <div class="made-feature">
-                <div class="feature-icon">
-                    <span class="icon-ring"></span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 11l3 3L22 4"/>
-                        <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-                    </svg>
-                </div>
-                <h4>Componenti Selezionati</h4>
-                <p>Ogni componente viene testato e certificato prima del montaggio. Il nostro sistema di controllo qualità garantisce prestazioni costanti e durature.</p>
-            </div>
-
-            <div class="made-feature">
-                <div class="feature-icon">
-                    <span class="icon-ring"></span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-                    </svg>
-                </div>
-                <h4>Assistenza Dedicata</h4>
-                <p>Supporto tecnico in italiano e inglese con interventi rapidi su tutto il territorio nazionale. Conosciamo ogni dettaglio delle nostre macchine.</p>
-            </div>
-
-            <div class="made-feature">
-                <div class="feature-icon">
-                    <span class="icon-ring"></span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2v20M2 12h20"/>
-                        <circle cx="12" cy="12" r="9"/>
-                    </svg>
-                </div>
-                <h4>Personalizzazione</h4>
-                <p>Capacità di adattare le macchine alle specifiche esigenze produttive. Flessibilità tipica delle aziende italiane di medie dimensioni.</p>
-            </div>
-        </div>
-    </div>
-</section>
     <!-- Products Showcase -->
     <section class="products-showcase">
         <div class="container-wide">
@@ -342,7 +367,7 @@
                     <ul>
                         <li><a href="mailto:info@optiform.tech">info@optiform.tech</a></li>
                         <li><a href="tel:+390363221281">+39 036 322 1281</a></li>
-                        <li><a href="https://www.google.com/maps/place/Floki+s.r.l./@45.5093292,9.5968741,17z/data=!3m1!4b1!4m6!3m5!1s0x4781482f6b70fc15:0xb8d77e75ed8b5489!8m2!3d45.5093292!4d9.5968741!16s%2Fg%2F11gff7nmgh?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D">Via Redipuglia<br>24047 Treviglio (BG)</a></li>
+                        <li><a href="https://www.google.com/maps">Via Redipuglia<br>24047 Treviglio (BG)</a></li>
                     </ul>
                 </div>
             </div>
@@ -363,5 +388,6 @@
 
     <!-- JavaScript -->
     <script src="js/script.js"></script>
+    <script src="js/home.js"></script>
 </body>
 </html>

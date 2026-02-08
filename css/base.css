@@ -59,7 +59,7 @@
 /* ==================== OSWALD - Logo ==================== */
 @font-face {
     font-family: 'Oswald';
-    src: url('../fonts/oswald/Oswald-SemiBold.ttf') format('truetype');
+    src: url('../fonts/Oswald/static/Oswald-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -67,7 +67,7 @@
 
 @font-face {
     font-family: 'Oswald';
-    src: url('../fonts/oswald/Oswald-Bold.ttf') format('truetype');
+    src: url('../fonts/Oswald/static/Oswald-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -76,7 +76,7 @@
 /* ==================== MONTSERRAT - Titoli ==================== */
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/montserrat/Montserrat-SemiBold.ttf') format('truetype');
+    src: url('../fonts/Montserrat/static/Montserrat-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -84,7 +84,7 @@
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/montserrat/Montserrat-Bold.ttf') format('truetype');
+    src: url('../fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -93,7 +93,7 @@
 /* ==================== INTER - Corpo testo ==================== */
 @font-face {
     font-family: 'Inter';
-    src: url('../fonts/inter/Inter-Regular.ttf') format('truetype');
+    src: url('../fonts/Inter/static/Inter_18pt-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -101,7 +101,7 @@
 
 @font-face {
     font-family: 'Inter';
-    src: url('../fonts/inter/Inter-Medium.ttf') format('truetype');
+    src: url('../fonts/Inter/static/Inter_18pt-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -109,8 +109,66 @@
 
 @font-face {
     font-family: 'Inter';
-    src: url('../fonts/inter/Inter-SemiBold.ttf') format('truetype');
+    src: url('../fonts/Inter/static/Inter_18pt-SemiBold.ttf') format('truetype');
     font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==================== ORBITRON - Logo navbar ==================== */
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../fonts/Orbitron/static/Orbitron-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../fonts/Orbitron/static/Orbitron-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../fonts/Orbitron/static/Orbitron-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==================== RAJDHANI - Alternativa ==================== */
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('../fonts/Rajdhani/static/Rajdhani-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('../fonts/Rajdhani/static/Rajdhani-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('../fonts/Rajdhani/static/Rajdhani-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('../fonts/Rajdhani/static/Rajdhani-Bold.ttf') format('truetype');
+    font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
