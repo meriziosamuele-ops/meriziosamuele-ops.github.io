@@ -1,6 +1,6 @@
 // ============================================
-// OPTIFORM HERO - JavaScript Isolato
-// Gestisce solo gli effetti della hero
+// OPTIFORM HERO - JavaScript Completo
+// Con Progress Bar Navigation + Click su Marker
 // ============================================
 
 (function() {
@@ -37,6 +37,11 @@
         }
     };
 
+    // Ordine completo dei modelli: K75S → K75 → K53
+    const MODEL_ORDER = ['k75s', 'k75', 'k53'];
+    let currentModelIndex = 0;
+    let isAnimating = false;
+
     // ========== PARTICELLE DINAMICHE ==========
     function createParticles() {
         const particlesContainer = document.getElementById('particles');
@@ -58,6 +63,102 @@
         console.log('✨ Particles created:', particleCount);
     }
 
+    // ========== AGGIORNA PROGRESS BAR ==========
+    function updateProgressBar(index) {
+        const progressFill = document.querySelector('.progress-fill');
+        const progressDot = document.querySelector('.progress-dot');
+        const progressMarkers = document.querySelectorAll('.progress-marker');
+        
+        if (!progressFill || !progressDot) return;
+
+        // Calcola percentuale (0% = k75s, 50% = k75, 100% = k53)
+        const percentage = (index / (MODEL_ORDER.length - 1)) * 100;
+        
+        // Aggiorna barra e pallino
+        progressFill.style.width = percentage + '%';
+        progressDot.style.left = percentage + '%';
+
+        // Aggiorna markers attivi
+        progressMarkers.forEach((marker, i) => {
+            if (i === index) {
+                marker.classList.add('active');
+            } else {
+                marker.classList.remove('active');
+            }
+        });
+
+        console.log('📊 Progress updated:', percentage + '%', MODEL_ORDER[index]);
+    }
+
+    // ========== CONTEXT SWITCH LATERALE ==========
+    function switchContext(targetIndex) {
+        if (isAnimating) return;
+        if (targetIndex === currentModelIndex) return;
+        
+        isAnimating = true;
+
+        const heroContainer = document.querySelector('.hero-container');
+        const heroContent = document.querySelector('.hero-content');
+        
+        if (!heroContainer || !heroContent) {
+            isAnimating = false;
+            return;
+        }
+
+        // Determina direzione corretta
+        const direction = targetIndex > currentModelIndex ? 'next' : 'prev';
+        
+        const newModelKey = MODEL_ORDER[targetIndex];
+        const config = MODELS_CONFIG[newModelKey];
+
+        // AGGIUNGI CLASSE PER BACKGROUND ISTANTANEO
+        heroContainer.classList.add('switching');
+
+        // Animazione slide laterale
+        const slideDirection = direction === 'next' ? '-100%' : '100%';
+        
+        heroContent.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease';
+        heroContent.style.transform = `translateX(${slideDirection})`;
+        heroContent.style.opacity = '0';
+
+        setTimeout(() => {
+            // Aggiorna contenuto
+            updateModelContent(newModelKey);
+            
+            // Aggiorna world IMMEDIATAMENTE (background cambia subito)
+            heroContainer.dataset.world = config.world;
+            heroContainer.dataset.model = newModelKey;
+            
+            // Aggiorna indice corrente
+            currentModelIndex = targetIndex;
+            
+            // Aggiorna bottoni attivi
+            updateActiveButton(newModelKey);
+            
+            // Aggiorna progress bar
+            updateProgressBar(targetIndex);
+            
+            // Riposiziona dall'altro lato
+            const enterDirection = direction === 'next' ? '100%' : '-100%';
+            heroContent.style.transition = 'none';
+            heroContent.style.transform = `translateX(${enterDirection})`;
+            
+            setTimeout(() => {
+                heroContent.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease';
+                heroContent.style.transform = 'translateX(0)';
+                heroContent.style.opacity = '1';
+                
+                setTimeout(() => {
+                    // RIMUOVI CLASSE DOPO L'ANIMAZIONE
+                    heroContainer.classList.remove('switching');
+                    isAnimating = false;
+                }, 600);
+            }, 50);
+        }, 300);
+
+        console.log('🔄 Context switched:', MODEL_ORDER[currentModelIndex], '→', newModelKey);
+    }
+
     // ========== AGGIORNA CONTENUTO MODELLO ==========
     function updateModelContent(modelKey) {
         const config = MODELS_CONFIG[modelKey];
@@ -74,27 +175,31 @@
         if (title) title.textContent = config.title;
         if (subtitle) subtitle.textContent = config.subtitle;
         if (description) {
-            description.style.opacity = '0';
-            setTimeout(() => {
-                description.innerHTML = `<p>${config.description}</p>`;
-                description.style.opacity = '1';
-            }, 200);
+            description.innerHTML = `<p>${config.description}</p>`;
         }
         
-        // Aggiorna immagine con fade
+        // Aggiorna immagine
         if (image) {
-            image.style.opacity = '0';
-            setTimeout(() => {
-                image.src = config.image;
-                image.alt = config.alt;
-                image.style.opacity = '1';
-            }, 300);
+            image.src = config.image;
+            image.alt = config.alt;
         }
 
         console.log('📦 Model updated:', modelKey);
     }
 
-    // ========== WORLD SWITCHER CON MODELLI ==========
+    // ========== AGGIORNA BOTTONE ATTIVO ==========
+    function updateActiveButton(modelKey) {
+        const worldBtns = document.querySelectorAll('.world-btn');
+        worldBtns.forEach(btn => {
+            if (btn.dataset.model === modelKey) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+
+    // ========== WORLD SWITCHER CON CONTEXT SWITCH ==========
     function initWorldSwitcher() {
         const heroContainer = document.querySelector('.hero-container');
         const worldBtns = document.querySelectorAll('.world-btn');
@@ -103,55 +208,103 @@
 
         worldBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                const world = btn.dataset.world;
-                const model = btn.dataset.model;
+                const targetModel = btn.dataset.model;
+                const targetIndex = MODEL_ORDER.indexOf(targetModel);
                 
-                // Rimuovi active da tutti i bottoni
-                worldBtns.forEach(b => b.classList.remove('active'));
+                if (targetIndex === -1) return;
                 
-                // Aggiungi active al bottone cliccato
-                btn.classList.add('active');
-                
-                // Transizione fluida
-                heroContainer.style.opacity = '0.7';
-                
-                setTimeout(() => {
-                    heroContainer.dataset.world = world;
-                    heroContainer.dataset.model = model;
-                    updateModelContent(model);
-                    heroContainer.style.opacity = '1';
-                }, 200);
-                
-                console.log('🌍 Switched to:', world, '| Model:', model);
+                switchContext(targetIndex);
             });
         });
+
+        // Inizializza il primo modello come attivo
+        const initialModel = MODEL_ORDER[currentModelIndex];
+        updateActiveButton(initialModel);
+        updateProgressBar(currentModelIndex);
         
         console.log('🎮 World switcher initialized');
     }
 
-    // ========== EFFETTO PARALLAX SULLA MACCHINA ==========
-    function initMachineParallax() {
-        const machineImage = document.querySelector('.machine-image');
-        if (!machineImage) return;
-        
-        let ticking = false;
-        
-        function updateParallax(e) {
-            const x = (e.clientX / window.innerWidth - 0.5) * 20;
-            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    // ========== KEYBOARD NAVIGATION ==========
+    function initKeyboardNavigation() {
+        document.addEventListener('keydown', (e) => {
+            if (isAnimating) return;
             
-            machineImage.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
-            ticking = false;
-        }
-        
-        document.addEventListener('mousemove', (e) => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => updateParallax(e));
-                ticking = true;
+            let newIndex;
+            
+            // Freccia destra → prossimo modello
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                newIndex = (currentModelIndex + 1) % MODEL_ORDER.length;
+                switchContext(newIndex);
+            }
+            // Freccia sinistra → modello precedente
+            else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                newIndex = (currentModelIndex - 1 + MODEL_ORDER.length) % MODEL_ORDER.length;
+                switchContext(newIndex);
             }
         });
         
-        console.log('🖱️ Parallax effect initialized');
+        console.log('⌨️ Keyboard navigation enabled (← →)');
+    }
+
+    // ========== TOUCH SWIPE NAVIGATION ==========
+    function initTouchSwipe() {
+        const heroContainer = document.querySelector('.hero-container');
+        if (!heroContainer) return;
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        heroContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        heroContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) < swipeThreshold) return;
+
+            let newIndex;
+            
+            if (diff > 0) {
+                // Swipe left → next
+                newIndex = (currentModelIndex + 1) % MODEL_ORDER.length;
+            } else {
+                // Swipe right → prev
+                newIndex = (currentModelIndex - 1 + MODEL_ORDER.length) % MODEL_ORDER.length;
+            }
+            
+            switchContext(newIndex);
+        }
+
+        console.log('👆 Touch swipe navigation enabled');
+    }
+
+    // ========== CLICK SUI MARKER DELLA PROGRESS BAR ==========
+    function initProgressBarClick() {
+        const progressMarkers = document.querySelectorAll('.progress-marker');
+        
+        if (progressMarkers.length === 0) return;
+
+        progressMarkers.forEach((marker, index) => {
+            marker.addEventListener('click', () => {
+                if (isAnimating) return;
+                switchContext(index);
+            });
+
+            // Cambia cursore per indicare che è cliccabile
+            marker.style.cursor = 'pointer';
+        });
+
+        console.log('🎯 Progress bar markers clickable');
     }
 
     // ========== INITIALIZE ALL HERO EFFECTS ==========
@@ -159,15 +312,30 @@
         try {
             createParticles();
             initWorldSwitcher();
-            // Parallax rimosso per stabilità immagine
+            initKeyboardNavigation();
+            initTouchSwipe();
+            initProgressBarClick();
+            
+            // Imposta il primo modello
+            const initialModel = MODEL_ORDER[currentModelIndex];
+            const initialConfig = MODELS_CONFIG[initialModel];
+            const heroContainer = document.querySelector('.hero-container');
+            
+            if (heroContainer && initialConfig) {
+                heroContainer.dataset.world = initialConfig.world;
+                heroContainer.dataset.model = initialModel;
+            }
             
             console.log('🚀 Hero initialized successfully');
+            console.log('💡 Use arrow keys ← → or swipe to navigate');
+            console.log('🎯 Click on progress markers to switch models');
+            console.log('📋 Model order: K75S → K75 → K53');
         } catch (error) {
             console.error('❌ Hero initialization error:', error);
         }
     }
 
-    // Run on DOMContentLoaded
+    // ========== RUN ON DOM READY ==========
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
