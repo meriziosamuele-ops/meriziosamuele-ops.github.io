@@ -302,12 +302,13 @@
         font-size: 2rem;
     }
 
-    .cta-buttons {
+    /* REGOLA SPECIFICA PER I BOTTONI DENTRO .cta-box */
+    .cta-box .cta-buttons {
         flex-direction: column;
         width: 100%;
     }
 
-    .cta-button {
+    .cta-box .cta-buttons .cta-button {
         width: 100%;
     }
 
@@ -315,6 +316,7 @@
         padding: var(--spacing-3xl) var(--spacing-md);
     }
 
+    /* REGOLA SPECIFICA PER I BOTTONI DENTRO .contact-cta-buttons */
     .contact-cta-buttons {
         flex-direction: column;
     }
