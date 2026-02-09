@@ -8,54 +8,9 @@
 .hero-container {
     --accent: #16a34a;
     --grid-color: rgba(22, 163, 74, 0.15);
-}
-
-/* ========== NAVBAR OVERRIDE SOLO PER HOMEPAGE ========== */
-body.hero-page nav {
-    background: rgba(10, 10, 10, 0.85);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-body.hero-page nav.scrolled {
-    background: rgba(10, 10, 10, 0.98);
-    border-bottom: 1px solid rgba(22, 163, 74, 0.3);
-}
-
-body.hero-page .logo {
-    font-family: 'Orbitron', monospace;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    color: #ffffff;
-    text-transform: uppercase;
-}
-
-body.hero-page .logo::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #16a34a;
-    transition: width 0.4s ease;
-}
-
-body.hero-page .logo:hover::after {
-    width: 100%;
-}
-
-body.hero-page .nav-links a {
-    color: rgba(255, 255, 255, 0.9);
-}
-
-body.hero-page .nav-links a::before {
-    background: #16a34a;
-}
-
-body.hero-page .nav-links a:hover,
-body.hero-page .nav-links a.active {
-    color: #ffffff;
+    --industrial-accent: #06b6d4;
+    --industrial-secondary: #0ea5e9;
+    --industrial-grid: rgba(6, 182, 212, 0.15);
 }
 
 /* ========== HERO FULLSCREEN ========== */
@@ -73,11 +28,11 @@ body.hero-page .nav-links a.active {
 }
 
 .hero-container[data-world="industrial"] {
-    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+    background: radial-gradient(ellipse at top, #0a1929 0%, #020617 100%);
 }
 
 .hero-container[data-world="dark"] {
-    background: #000000;
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
 }
 
 /* GRIGLIA SCI-FI ANIMATA */
@@ -102,9 +57,9 @@ body.hero-page .nav-links a.active {
     --grid-color: rgba(22, 163, 74, 0.15);
 }
 
-.hero-container[data-world="dark"] .grid-background {
+.hero-container[data-world="industrial"] .grid-background {
     opacity: 1;
-    --grid-color: rgba(22, 163, 74, 0.25);
+    --grid-color: rgba(6, 182, 212, 0.15);
 }
 
 @keyframes gridPulse {
@@ -132,7 +87,7 @@ body.hero-page .nav-links a.active {
 }
 
 .hero-container[data-world="cyber"] .particles,
-.hero-container[data-world="dark"] .particles {
+.hero-container[data-world="industrial"] .particles {
     opacity: 1;
 }
 
@@ -145,6 +100,12 @@ body.hero-page .nav-links a.active {
     animation: float 20s infinite;
     opacity: 0.4;
     box-shadow: 0 0 10px var(--accent);
+}
+
+/* Particelle cyan per industrial */
+.hero-container[data-world="industrial"] .particle {
+    background: var(--industrial-accent);
+    box-shadow: 0 0 10px var(--industrial-accent);
 }
 
 @keyframes float {
@@ -183,24 +144,35 @@ body.hero-page .nav-links a.active {
 }
 
 .hero-container[data-world="industrial"] .hero-glow {
-    opacity: 0.2;
-    background: radial-gradient(circle, rgba(163, 163, 163, 0.3) 0%, transparent 70%);
+    opacity: 0.4;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.5) 0%, rgba(14, 165, 233, 0.3) 50%, transparent 70%);
+    animation: glowPulseIndustrial 3s ease-in-out infinite;
 }
 
 .hero-container[data-world="dark"] .hero-glow {
-    opacity: 0.5;
-    background: radial-gradient(circle, rgba(22, 163, 74, 0.6) 0%, transparent 70%);
-    animation: glowPulse 3s ease-in-out infinite;
+    opacity: 0.2;
+    background: radial-gradient(circle, rgba(163, 163, 163, 0.3) 0%, transparent 70%);
 }
 
 @keyframes glowPulse {
     0%, 100% { 
         transform: translate(-50%, -50%) scale(1);
-        opacity: 0.5;
+        opacity: 0.3;
     }
     50% { 
         transform: translate(-50%, -50%) scale(1.1);
-        opacity: 0.7;
+        opacity: 0.5;
+    }
+}
+
+@keyframes glowPulseIndustrial {
+    0%, 100% { 
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.4;
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: 0.6;
     }
 }
 
@@ -208,7 +180,7 @@ body.hero-page .nav-links a.active {
 .hero-content {
     position: relative;
     z-index: 10;
-    min-height: 50vh;
+    height: 700px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -262,12 +234,12 @@ body.hero-page .nav-links a.active {
 }
 
 .hero-badge {
+    font-family: var(--font-logo);
     display: inline-block;
     padding: 0.5rem 1.5rem;
     background: rgba(22, 163, 74, 0.1);
     border: 1px solid var(--accent);
     color: var(--accent);
-    font-family: 'Orbitron', monospace;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.2em;
@@ -277,13 +249,20 @@ body.hero-page .nav-links a.active {
 }
 
 .hero-container[data-world="industrial"] .hero-badge {
+    background: rgba(6, 182, 212, 0.15);
+    border-color: var(--industrial-accent);
+    color: var(--industrial-accent);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+}
+
+.hero-container[data-world="dark"] .hero-badge {
     background: rgba(10, 10, 10, 0.05);
     border-color: #0a0a0a;
     color: #0a0a0a;
 }
 
 .hero-title {
-    font-family: 'Orbitron', monospace;
+    font-family: var(--font-logo);
     font-size: clamp(2.5rem, 8vw, 6rem);
     font-weight: 900;
     line-height: 1.1;
@@ -298,17 +277,19 @@ body.hero-page .nav-links a.active {
 }
 
 .hero-container[data-world="industrial"] .hero-title {
+    color: #ffffff;
+    text-shadow: 
+        0 0 30px rgba(6, 182, 212, 0.6),
+        0 0 60px rgba(14, 165, 233, 0.4);
+}
+
+.hero-container[data-world="dark"] .hero-title {
     color: #0a0a0a;
     text-shadow: none;
 }
 
-.hero-container[data-world="dark"] .hero-title {
-    color: #16a34a;
-    text-shadow: 0 0 50px rgba(22, 163, 74, 0.8);
-}
-
 .hero-subtitle {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: var(--font-tech);
     font-size: clamp(1rem, 2vw, 1.4rem);
     font-weight: 400;
     letter-spacing: 0.02em;
@@ -319,6 +300,10 @@ body.hero-page .nav-links a.active {
 }
 
 .hero-container[data-world="industrial"] .hero-subtitle {
+    color: rgba(165, 243, 252, 0.95);
+}
+
+.hero-container[data-world="dark"] .hero-subtitle {
     color: #525252;
 }
 
@@ -354,6 +339,12 @@ body.hero-page .nav-links a.active {
     transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
 }
 
+.hero-container[data-world="industrial"] .machine-image {
+    filter: 
+        drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5))
+        drop-shadow(0 0 40px rgba(6, 182, 212, 0.3));
+}
+
 /* DESCRIZIONE DETTAGLIATA */
 .hero-description {
     position: relative;
@@ -371,27 +362,38 @@ body.hero-page .nav-links a.active {
 }
 
 .hero-container[data-world="industrial"] .hero-description {
+    background: rgba(6, 182, 212, 0.08);
+    backdrop-filter: blur(15px);
+    border-left-color: var(--industrial-accent);
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.1);
+}
+
+.hero-container[data-world="dark"] .hero-description {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
     border-left-color: #0a0a0a;
 }
 
 .hero-description p {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: var(--font-tech);
     font-size: 1.15rem;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.95);
-    font-weight: 500;
+    font-weight: 400;
     transition: color 0.5s ease;
     margin: 0;
 }
 
 .hero-container[data-world="industrial"] .hero-description p {
-    color: #0a0a0a;
-    font-weight: 500;
+    color: rgba(224, 242, 254, 0.95);
 }
 
-/* CHROMATIC ABERRATION (solo mondo DARK) */
+.hero-container[data-world="dark"] .hero-description p {
+    color: #0a0a0a;
+    font-weight: 400;
+}
+
+/* CHROMATIC ABERRATION (solo mondo DARK e CYBER) */
 .machine-container::before,
 .machine-container::after {
     content: '';
@@ -425,18 +427,56 @@ body.hero-page .nav-links a.active {
     background-image: url('../img/k-53-removebg-preview.png');
 }
 
-.hero-container[data-world="dark"] .machine-container::before {
+/* Aberrazione cromatica CYBER - effetto verde */
+.hero-container[data-world="cyber"] .machine-container::before {
     opacity: 0.3;
     filter: blur(2px);
     mix-blend-mode: screen;
     animation: chromatic1 4s ease-in-out infinite;
 }
 
-.hero-container[data-world="dark"] .machine-container::after {
+.hero-container[data-world="cyber"] .machine-container::after {
     opacity: 0.2;
     filter: blur(3px);
     mix-blend-mode: screen;
     animation: chromatic2 5s ease-in-out infinite reverse;
+}
+
+/* Aberrazione cromatica INDUSTRIAL - effetto cyan/magenta */
+.hero-container[data-world="industrial"] .machine-container::before {
+    opacity: 0.25;
+    filter: blur(2px) hue-rotate(180deg);
+    mix-blend-mode: screen;
+    animation: chromaticCyan 3s ease-in-out infinite;
+}
+
+.hero-container[data-world="industrial"] .machine-container::after {
+    opacity: 0.2;
+    filter: blur(3px) hue-rotate(-180deg);
+    mix-blend-mode: screen;
+    animation: chromaticMagenta 4s ease-in-out infinite reverse;
+}
+
+@keyframes chromaticCyan {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateX(-3px) translateY(-1px);
+        opacity: 0.25;
+    }
+    50% {
+        transform: translate(-50%, -50%) translateX(3px) translateY(1px);
+        opacity: 0.35;
+    }
+}
+
+@keyframes chromaticMagenta {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateX(2px) translateY(2px);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translate(-50%, -50%) translateX(-2px) translateY(-2px);
+        opacity: 0.3;
+    }
 }
 
 @keyframes chromatic1 {
@@ -482,12 +522,12 @@ body.hero-page .nav-links a.active {
 }
 
 .world-btn {
+    font-family: var(--font-logo);
     position: relative;
     padding: 1.25rem 3rem;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.2);
     color: rgba(255, 255, 255, 0.7);
-    font-family: 'Orbitron', monospace;
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -509,11 +549,21 @@ body.hero-page .nav-links a.active {
     z-index: -1;
 }
 
+/* Bottone industrial - colore cyan */
+.hero-container[data-world="industrial"] .world-btn::before {
+    background: var(--industrial-accent);
+}
+
 .world-btn:hover {
     border-color: var(--accent);
     color: #ffffff;
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(22, 163, 74, 0.3);
+}
+
+.hero-container[data-world="industrial"] .world-btn:hover {
+    border-color: var(--industrial-accent);
+    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
 }
 
 .world-btn:hover::before {
@@ -527,18 +577,25 @@ body.hero-page .nav-links a.active {
     box-shadow: 0 0 40px rgba(22, 163, 74, 0.6);
 }
 
-/* Stili specifici per mondo INDUSTRIAL */
-.hero-container[data-world="industrial"] .world-btn {
+.hero-container[data-world="industrial"] .world-btn.active {
+    background: var(--industrial-accent);
+    border-color: var(--industrial-accent);
+    color: #0a0a0a;
+    box-shadow: 0 0 40px rgba(6, 182, 212, 0.6);
+}
+
+/* Stili specifici per mondo DARK */
+.hero-container[data-world="dark"] .world-btn {
     border-color: rgba(10, 10, 10, 0.2);
     color: rgba(10, 10, 10, 0.6);
 }
 
-.hero-container[data-world="industrial"] .world-btn:hover {
+.hero-container[data-world="dark"] .world-btn:hover {
     border-color: #0a0a0a;
     color: #0a0a0a;
 }
 
-.hero-container[data-world="industrial"] .world-btn.active {
+.hero-container[data-world="dark"] .world-btn.active {
     background: #0a0a0a;
     border-color: #0a0a0a;
     color: #ffffff;
@@ -547,6 +604,7 @@ body.hero-page .nav-links a.active {
 
 /* LABEL sotto i bottoni */
 .world-label {
+    font-family: var(--font-tech);
     position: absolute;
     bottom: -2rem;
     left: 50%;
@@ -569,18 +627,21 @@ body.hero-page .nav-links a.active {
     width: 100vw;
     min-height: 100vh;
     overflow: hidden;
-    transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Ridotto da 0.8s a 0.3s */
+    transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Quando è in animazione, background cambia IMMEDIATAMENTE */
 .hero-container.switching {
     transition: background 0s !important;
 }
+
 /* ==========================================================================
    PROGRESS BAR NAVIGATION - CENTRATA E IN BASSO
+   Area cliccabile AUMENTATA sui markers
    ========================================================================== */
 
 .hero-progress {
+    font-family: var(--font-logo);
     position: relative;
     z-index: 20;
     display: flex;
@@ -592,32 +653,26 @@ body.hero-page .nav-links a.active {
     backdrop-filter: blur(10px);
     border-radius: 50px;
     border: 1px solid rgba(22, 163, 74, 0.3);
-    animation: fadeInUp 1s ease-out 1s both;
+    animation: fadeInUp 1s ease-out 0.5s both;
     transition: background 0.3s ease, border-color 0.3s ease;
     margin: 0 auto;
     margin-top: 7rem;
     max-width: fit-content;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.hero-container[data-world="industrial"] .hero-progress {
+    background: rgba(6, 182, 212, 0.1);
+    border-color: rgba(6, 182, 212, 0.4);
 }
 
-.hero-container[data-world="industrial"] .hero-progress {
+.hero-container[data-world="dark"] .hero-progress {
     background: rgba(255, 255, 255, 0.7);
     border-color: rgba(10, 10, 10, 0.2);
 }
 
 /* Etichetta sinistra */
 .progress-label {
-    font-family: 'Orbitron', monospace;
+    font-family: var(--font-logo);
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -627,6 +682,10 @@ body.hero-page .nav-links a.active {
 }
 
 .hero-container[data-world="industrial"] .progress-label {
+    color: rgba(165, 243, 252, 0.8);
+}
+
+.hero-container[data-world="dark"] .progress-label {
     color: rgba(10, 10, 10, 0.5);
 }
 
@@ -642,10 +701,14 @@ body.hero-page .nav-links a.active {
 }
 
 .hero-container[data-world="industrial"] .progress-track {
+    background: rgba(6, 182, 212, 0.25);
+}
+
+.hero-container[data-world="dark"] .progress-track {
     background: rgba(10, 10, 10, 0.15);
 }
 
-/* Barra verde di riempimento - ANIMAZIONE MENO FLUIDA */
+/* Barra di riempimento */
 .progress-fill {
     position: absolute;
     top: 0;
@@ -661,11 +724,16 @@ body.hero-page .nav-links a.active {
 }
 
 .hero-container[data-world="industrial"] .progress-fill {
+    background: var(--industrial-accent);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
+}
+
+.hero-container[data-world="dark"] .progress-fill {
     background: #0a0a0a;
     box-shadow: 0 0 10px rgba(10, 10, 10, 0.3);
 }
 
-/* Pallino indicatore - ANIMAZIONE DIRETTA */
+/* Pallino indicatore */
 .progress-dot {
     position: absolute;
     top: 50%;
@@ -688,105 +756,19 @@ body.hero-page .nav-links a.active {
 }
 
 .hero-container[data-world="industrial"] .progress-dot {
+    background: var(--industrial-accent);
+    border-color: rgba(6, 54, 82, 0.9);
+    box-shadow: 
+        0 0 0 4px rgba(6, 182, 212, 0.25),
+        0 0 25px rgba(6, 182, 212, 0.7);
+}
+
+.hero-container[data-world="dark"] .progress-dot {
     background: #0a0a0a;
     border-color: rgba(255, 255, 255, 0.9);
     box-shadow: 
         0 0 0 4px rgba(10, 10, 10, 0.15),
         0 0 20px rgba(10, 10, 10, 0.4);
-}
-
-/* Markers sulla barra (K75S, K75, K53) */
-.progress-markers {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    pointer-events: none;
-}
-
-.progress-marker {
-    position: relative;
-    width: 8px;
-    height: 8px;
-    background: rgba(22, 163, 74, 0.4);
-    border-radius: 50%;
-    transform: translateY(-2px);
-    transition: all 0.3s ease;
-}
-
-.hero-container[data-world="industrial"] .progress-marker {
-    background: rgba(10, 10, 10, 0.3);
-}
-
-.progress-marker::after {
-    content: attr(data-label);
-    position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Orbitron', monospace;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: rgba(255, 255, 255, 0.4);
-    white-space: nowrap;
-    transition: color 0.3s ease;
-}
-
-.hero-container[data-world="industrial"] .progress-marker::after {
-    color: rgba(10, 10, 10, 0.4);
-}
-
-/* Marker attivo */
-.progress-marker.active {
-    background: var(--accent);
-    box-shadow: 0 0 12px rgba(22, 163, 74, 0.8);
-    transform: translateY(-2px) scale(1.2);
-}
-
-.hero-container[data-world="industrial"] .progress-marker.active {
-    background: #0a0a0a;
-    box-shadow: 0 0 12px rgba(10, 10, 10, 0.5);
-}
-
-.progress-marker.active::after {
-    color: var(--accent);
-    font-weight: 900;
-}
-
-.hero-container[data-world="industrial"] .progress-marker.active::after {
-    color: #0a0a0a;
-}
-
-/* Markers sulla barra (K75S, K75, K53) - AGGIORNATO */
-.progress-marker {
-    position: relative;
-    width: 8px;
-    height: 8px;
-    background: rgba(22, 163, 74, 0.4);
-    border-radius: 50%;
-    transform: translateY(-2px);
-    transition: all 0.3s ease;
-    cursor: pointer; /* Indica che è cliccabile */
-    pointer-events: auto; /* Abilita click */
-}
-
-.progress-marker:hover {
-    transform: translateY(-2px) scale(1.3);
-    background: rgba(22, 163, 74, 0.7);
-    box-shadow: 0 0 8px rgba(22, 163, 74, 0.6);
-}
-
-.hero-container[data-world="industrial"] .progress-marker {
-    background: rgba(10, 10, 10, 0.3);
-}
-
-.hero-container[data-world="industrial"] .progress-marker:hover {
-    background: rgba(10, 10, 10, 0.6);
-    box-shadow: 0 0 8px rgba(10, 10, 10, 0.4);
 }
 
 /* Markers sulla barra - container */
@@ -798,8 +780,113 @@ body.hero-page .nav-links a.active {
     height: 100%;
     display: flex;
     justify-content: space-between;
-    pointer-events: none; /* Il container non blocca i click */
+    pointer-events: none;
 }
+
+/* Markers sulla barra (K75S, K75, K53) */
+.progress-marker {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    background: rgba(22, 163, 74, 0.4);
+    border-radius: 50%;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.hero-container[data-world="industrial"] .progress-marker {
+    background: rgba(6, 182, 212, 0.5);
+}
+
+.hero-container[data-world="dark"] .progress-marker {
+    background: rgba(10, 10, 10, 0.3);
+}
+
+/* Area cliccabile invisibile più grande (40x40px) */
+.progress-marker::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.progress-marker:hover {
+    transform: translateY(-2px) scale(1.3);
+    background: rgba(22, 163, 74, 0.7);
+    box-shadow: 0 0 8px rgba(22, 163, 74, 0.6);
+}
+
+.hero-container[data-world="industrial"] .progress-marker:hover {
+    background: rgba(6, 182, 212, 0.8);
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.7);
+}
+
+.hero-container[data-world="dark"] .progress-marker:hover {
+    background: rgba(10, 10, 10, 0.6);
+    box-shadow: 0 0 8px rgba(10, 10, 10, 0.4);
+}
+
+/* Labels sotto i markers */
+.progress-marker::after {
+    content: attr(data-label);
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-logo);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.4);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+    pointer-events: none;
+}
+
+.hero-container[data-world="industrial"] .progress-marker::after {
+    color: rgba(165, 243, 252, 0.5);
+}
+
+.hero-container[data-world="dark"] .progress-marker::after {
+    color: rgba(10, 10, 10, 0.4);
+}
+
+/* Marker attivo */
+.progress-marker.active {
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(22, 163, 74, 0.8);
+    transform: translateY(-2px) scale(1.2);
+}
+
+.hero-container[data-world="industrial"] .progress-marker.active {
+    background: var(--industrial-accent);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.9);
+}
+
+.hero-container[data-world="dark"] .progress-marker.active {
+    background: #0a0a0a;
+    box-shadow: 0 0 12px rgba(10, 10, 10, 0.5);
+}
+
+.progress-marker.active::after {
+    color: var(--accent);
+    font-weight: 900;
+}
+
+.hero-container[data-world="industrial"] .progress-marker.active::after {
+    color: var(--industrial-accent);
+}
+
+.hero-container[data-world="dark"] .progress-marker.active::after {
+    color: #0a0a0a;
+}
+
 /* ==========================================================================
    RESPONSIVE PROGRESS BAR
    ========================================================================== */
@@ -827,6 +914,11 @@ body.hero-page .nav-links a.active {
     .progress-marker::after {
         font-size: 0.6rem;
         top: 1.75rem;
+    }
+    
+    .progress-marker::before {
+        width: 44px;
+        height: 44px;
     }
 }
 
@@ -859,6 +951,11 @@ body.hero-page .nav-links a.active {
         font-size: 0.55rem;
         top: 1.5rem;
     }
+    
+    .progress-marker::before {
+        width: 48px;
+        height: 48px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -875,7 +972,6 @@ body.hero-page .nav-links a.active {
         top: 1.35rem;
     }
 }
-
 /* ==========================================================================
    RESPONSIVE DESIGN
    ========================================================================== */

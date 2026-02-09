@@ -1,6 +1,7 @@
 // ============================================
 // OPTIFORM HERO - JavaScript Completo
 // Con Progress Bar Navigation + Click su Marker
+// Animazione circolare CORRETTA
 // ============================================
 
 (function() {
@@ -90,7 +91,7 @@
         console.log('📊 Progress updated:', percentage + '%', MODEL_ORDER[index]);
     }
 
-    // ========== CONTEXT SWITCH LATERALE ==========
+    // ========== CONTEXT SWITCH LATERALE CON LOGICA CIRCOLARE ==========
     function switchContext(targetIndex) {
         if (isAnimating) return;
         if (targetIndex === currentModelIndex) return;
@@ -105,8 +106,22 @@
             return;
         }
 
-        // Determina direzione corretta
-        const direction = targetIndex > currentModelIndex ? 'next' : 'prev';
+        // ✅ LOGICA CIRCOLARE CORRETTA
+        // Calcola la distanza più breve per determinare la direzione dell'animazione
+        const totalModels = MODEL_ORDER.length;
+        const forwardDistance = (targetIndex - currentModelIndex + totalModels) % totalModels;
+        const backwardDistance = (currentModelIndex - targetIndex + totalModels) % totalModels;
+        
+        // Usa la direzione con distanza minore
+        // Esempi:
+        // K53 (index 2) → K75S (index 0): forwardDistance=1, backwardDistance=2 → usa 'next'
+        // K75S (index 0) → K53 (index 2): forwardDistance=2, backwardDistance=1 → usa 'prev'
+        let direction;
+        if (forwardDistance <= backwardDistance) {
+            direction = 'next';
+        } else {
+            direction = 'prev';
+        }
         
         const newModelKey = MODEL_ORDER[targetIndex];
         const config = MODELS_CONFIG[newModelKey];
@@ -156,7 +171,7 @@
             }, 50);
         }, 300);
 
-        console.log('🔄 Context switched:', MODEL_ORDER[currentModelIndex], '→', newModelKey);
+        console.log('🔄 Context switched:', MODEL_ORDER[currentModelIndex], '→', newModelKey, `(${direction})`);
     }
 
     // ========== AGGIORNA CONTENUTO MODELLO ==========
@@ -329,7 +344,8 @@
             console.log('🚀 Hero initialized successfully');
             console.log('💡 Use arrow keys ← → or swipe to navigate');
             console.log('🎯 Click on progress markers to switch models');
-            console.log('📋 Model order: K75S → K75 → K53');
+            console.log('📋 Model order: K75S → K75 → K53 (circular loop)');
+            console.log('✅ Circular animation: K53→K75S goes RIGHT, K75S→K53 goes LEFT');
         } catch (error) {
             console.error('❌ Hero initialization error:', error);
         }

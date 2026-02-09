@@ -24,6 +24,7 @@
 }
 
 .section-label {
+    font-family: var(--font-tech);
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -34,14 +35,16 @@
 }
 
 .section-header-center h2 {
+    font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1.5rem;
     color: #0a0a0a;
 }
 
 .lead-text {
+    font-family: var(--font-body);
     font-size: 1.15rem;
     line-height: 1.7;
     color: #525252;
@@ -83,6 +86,7 @@
 }
 
 .feature-number {
+    font-family: var(--font-tech);
     width: 60px;
     height: 60px;
     display: flex;
@@ -91,7 +95,7 @@
     background: #16a34a;
     color: #ffffff;
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 700;
     border-radius: 4px;
     margin-bottom: 1.5rem;
     transition: all 0.3s ease;
@@ -102,13 +106,15 @@
 }
 
 .feature-card h3 {
+    font-family: var(--font-heading);
     font-size: 1.4rem;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 1rem;
     color: #0a0a0a;
 }
 
 .feature-card p {
+    font-family: var(--font-body);
     font-size: 0.98rem;
     line-height: 1.7;
     color: #525252;
@@ -125,7 +131,6 @@
     color: #525252;
     transition: all 0.3s ease;
 }
-
 
 .feature-benefit strong {
     color: #16a34a;
@@ -182,6 +187,7 @@
 }
 
 .cta-button.diagnostic {
+    font-family: var(--font-body);
     padding: 1.25rem 3rem;
     background: #16a34a;
     color: #ffffff;
@@ -320,6 +326,7 @@
 }
 
 .section-intro {
+    font-family: var(--font-body);
     font-size: 1.05rem;
     line-height: 1.6;
     color: #525252;
@@ -349,14 +356,14 @@
 }
 
 .tech-number {
+    font-family: var(--font-tech);
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
     font-size: 3rem;
-    font-weight: 800;
+    font-weight: 700;
     color: #f5f5f5;
     line-height: 1;
-    font-family: var(--font-heading);
 }
 
 .tech-icon {
@@ -379,6 +386,7 @@
 }
 
 .tech-card h3 {
+    font-family: var(--font-heading);
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.875rem;
@@ -387,6 +395,7 @@
 }
 
 .tech-card p {
+    font-family: var(--font-body);
     font-size: 0.9375rem;
     line-height: 1.6;
     color: #737373;
@@ -458,6 +467,7 @@
 }
 
 .made-badge span:last-child {
+    font-family: var(--font-tech);
     font-size: 0.875rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -466,6 +476,7 @@
 }
 
 .made-content .section-header-center h2 {
+    font-family: var(--font-heading);
     font-size: clamp(2rem, 5vw, 2.75rem);
     margin-bottom: 1.5rem;
     color: #ffffff;
@@ -474,6 +485,7 @@
 }
 
 .made-content .section-header-center p {
+    font-family: var(--font-body);
     font-size: 1.05rem;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.85);
@@ -634,6 +646,7 @@
 }
 
 .made-feature h4 {
+    font-family: var(--font-heading);
     font-size: 1.125rem;
     margin-bottom: 0.75rem;
     color: #ffffff;
@@ -642,116 +655,10 @@
 }
 
 .made-feature p {
+    font-family: var(--font-body);
     color: rgba(255, 255, 255, 0.75);
     line-height: 1.6;
     font-size: 0.9375rem;
-}
-
-/* ==========================================================================
-   RESPONSIVE MADE IN ITALY
-   ========================================================================== */
-@media (max-width: 1024px) {
-    .made-features {
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .made-in-italy {
-        min-height: 550px;
-    }
-    
-    .made-content {
-        padding: 3.5rem 1.5rem;
-    }
-
-    .made-badge {
-        padding: 0.65rem 1.25rem;
-        margin-bottom: 2rem;
-    }
-
-    .made-badge span:last-child {
-        font-size: 0.8125rem;
-    }
-
-    .made-content .section-header-center h2 {
-        font-size: 1.875rem;
-        margin-bottom: 1.25rem;
-    }
-
-    .made-content .section-header-center p {
-        font-size: 1rem;
-        margin-bottom: 2.5rem;
-    }
-    
-    .made-features {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-    }
-    
-    .made-feature {
-        padding: 1.75rem;
-    }
-
-    .feature-icon {
-        width: 44px;
-        height: 44px;
-        margin-bottom: 1rem;
-    }
-
-    .made-feature h4 {
-        font-size: 1.0625rem;
-    }
-
-    .made-feature p {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .made-in-italy {
-        min-height: auto;
-    }
-
-    .made-content {
-        padding: 3rem 1.5rem;
-    }
-
-    .made-badge {
-        padding: 0.6rem 1.125rem;
-        margin-bottom: 1.75rem;
-    }
-
-    .made-content .section-header-center h2 {
-        font-size: 1.625rem;
-    }
-
-    .made-content .section-header-center p {
-        font-size: 0.9375rem;
-        margin-bottom: 2.25rem;
-    }
-
-    .made-features {
-        gap: 1rem;
-    }
-
-    .made-feature {
-        padding: 1.5rem;
-    }
-
-    .feature-icon {
-        width: 40px;
-        height: 40px;
-    }
-
-    .made-feature h4 {
-        font-size: 1rem;
-        margin-bottom: 0.65rem;
-    }
-
-    .made-feature p {
-        font-size: 0.875rem;
-    }
 }
 
 /* ==========================================================================
@@ -812,6 +719,7 @@
 }
 
 .product-badge {
+    font-family: var(--font-tech);
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
@@ -831,6 +739,7 @@
 }
 
 .product-info h3 {
+    font-family: var(--font-heading);
     font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -838,6 +747,7 @@
 }
 
 .product-info p {
+    font-family: var(--font-body);
     font-size: 1rem;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.85);
