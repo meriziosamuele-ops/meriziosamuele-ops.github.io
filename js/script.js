@@ -63,71 +63,72 @@
         console.log('✨ Particles created:', particleCount);
     }
 
-   // ========== CONTEXT SWITCH LATERALE (AGGIORNATO) ==========
-function switchContext(targetIndex) {
-    if (isAnimating) return;
-    if (targetIndex === currentModelIndex) return;
-    
-    isAnimating = true;
-
-    const heroContainer = document.querySelector('.hero-container');
-    const heroContent = document.querySelector('.hero-content');
-    
-    if (!heroContainer || !heroContent) {
-        isAnimating = false;
-        return;
-    }
-
-    // Determina direzione corretta
-    const direction = targetIndex > currentModelIndex ? 'next' : 'prev';
-    
-    const newModelKey = MODEL_ORDER[targetIndex];
-    const config = MODELS_CONFIG[newModelKey];
-
-    // AGGIUNGI CLASSE PER BACKGROUND ISTANTANEO
-    heroContainer.classList.add('switching');
-
-    // Animazione slide laterale
-    const slideDirection = direction === 'next' ? '-100%' : '100%';
-    
-    heroContent.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease';
-    heroContent.style.transform = `translateX(${slideDirection})`;
-    heroContent.style.opacity = '0';
-
-    setTimeout(() => {
-        // Aggiorna contenuto
-        updateModelContent(newModelKey);
+    // ========== CONTEXT SWITCH LATERALE ==========
+    function switchContext(targetIndex) {
+        if (isAnimating) return;
+        if (targetIndex === currentModelIndex) return;
         
-        // Aggiorna world IMMEDIATAMENTE (background cambia subito)
-        heroContainer.dataset.world = config.world;
-        heroContainer.dataset.model = newModelKey;
+        isAnimating = true;
+
+        const heroContainer = document.querySelector('.hero-container');
+        const heroContent = document.querySelector('.hero-content');
         
-        // Aggiorna indice corrente
-        currentModelIndex = targetIndex;
+        if (!heroContainer || !heroContent) {
+            isAnimating = false;
+            return;
+        }
+
+        // Determina direzione corretta
+        const direction = targetIndex > currentModelIndex ? 'next' : 'prev';
         
-        // Aggiorna bottoni attivi
-        updateActiveButton(newModelKey);
+        const newModelKey = MODEL_ORDER[targetIndex];
+        const config = MODELS_CONFIG[newModelKey];
+
+        // AGGIUNGI CLASSE PER BACKGROUND ISTANTANEO
+        heroContainer.classList.add('switching');
+
+        // Animazione slide laterale
+        const slideDirection = direction === 'next' ? '-100%' : '100%';
         
-        // Riposiziona dall'altro lato
-        const enterDirection = direction === 'next' ? '100%' : '-100%';
-        heroContent.style.transition = 'none';
-        heroContent.style.transform = `translateX(${enterDirection})`;
-        
+        heroContent.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease';
+        heroContent.style.transform = `translateX(${slideDirection})`;
+        heroContent.style.opacity = '0';
+
         setTimeout(() => {
-            heroContent.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease';
-            heroContent.style.transform = 'translateX(0)';
-            heroContent.style.opacity = '1';
+            // Aggiorna contenuto
+            updateModelContent(newModelKey);
+            
+            // Aggiorna world IMMEDIATAMENTE (background cambia subito)
+            heroContainer.dataset.world = config.world;
+            heroContainer.dataset.model = newModelKey;
+            
+            // Aggiorna indice corrente
+            currentModelIndex = targetIndex;
+            
+            // Aggiorna bottoni attivi
+            updateActiveButton(newModelKey);
+            
+            // Riposiziona dall'altro lato
+            const enterDirection = direction === 'next' ? '100%' : '-100%';
+            heroContent.style.transition = 'none';
+            heroContent.style.transform = `translateX(${enterDirection})`;
             
             setTimeout(() => {
-                // RIMUOVI CLASSE DOPO L'ANIMAZIONE
-                heroContainer.classList.remove('switching');
-                isAnimating = false;
-            }, 600);
-        }, 50);
-    }, 300); // Ridotto da 600ms a 300ms per sincronizzare con il background
+                heroContent.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease';
+                heroContent.style.transform = 'translateX(0)';
+                heroContent.style.opacity = '1';
+                
+                setTimeout(() => {
+                    // RIMUOVI CLASSE DOPO L'ANIMAZIONE
+                    heroContainer.classList.remove('switching');
+                    isAnimating = false;
+                }, 600);
+            }, 50);
+        }, 300);
 
-    console.log('🔄 Context switched:', MODEL_ORDER[currentModelIndex], '→', newModelKey);
-}
+        console.log('🔄 Context switched:', MODEL_ORDER[currentModelIndex], '→', newModelKey);
+    }
+
     // ========== AGGIORNA CONTENUTO MODELLO ==========
     function updateModelContent(modelKey) {
         const config = MODELS_CONFIG[modelKey];
@@ -193,6 +194,35 @@ function switchContext(targetIndex) {
         console.log('🎮 World switcher initialized');
     }
 
+    // ========== HAMBURGER MENU TOGGLE ==========
+    function initHamburgerMenu() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (!hamburger || !navLinks) {
+            console.log('⚠️ Hamburger or nav-links not found');
+            return;
+        }
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+        
+        // Chiudi menu quando si clicca su un link
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+        
+        console.log('🍔 Hamburger menu initialized');
+    }
+
     // ========== KEYBOARD NAVIGATION ==========
     function initKeyboardNavigation() {
         document.addEventListener('keydown', (e) => {
@@ -256,13 +286,55 @@ function switchContext(targetIndex) {
         console.log('👆 Touch swipe navigation enabled');
     }
 
-    // ========== INITIALIZE ALL HERO EFFECTS ==========
+    // ========== SCROLL TO TOP ==========
+    function initScrollToTop() {
+        const scrollBtn = document.getElementById('scroll-to-top');
+        if (!scrollBtn) return;
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        console.log('⬆️ Scroll to top initialized');
+    }
+
+    // ========== NAV SCROLL EFFECT ==========
+    function initNavScroll() {
+        const nav = document.querySelector('nav');
+        if (!nav) return;
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        console.log('📜 Nav scroll effect initialized');
+    }
+
+    // ========== INITIALIZE ALL ==========
     function init() {
         try {
             createParticles();
             initWorldSwitcher();
+            initHamburgerMenu();  // ← AGGIUNTA QUESTA FUNZIONE
             initKeyboardNavigation();
             initTouchSwipe();
+            initScrollToTop();
+            initNavScroll();
             
             // Imposta il primo modello
             const initialModel = MODEL_ORDER[currentModelIndex];
@@ -274,11 +346,11 @@ function switchContext(targetIndex) {
                 heroContainer.dataset.model = initialModel;
             }
             
-            console.log('🚀 Hero initialized successfully');
+            console.log('🚀 All systems initialized successfully');
             console.log('💡 Use arrow keys ← → or swipe to navigate');
             console.log('📋 Model order: K75S → K75 → K53');
         } catch (error) {
-            console.error('❌ Hero initialization error:', error);
+            console.error('❌ Initialization error:', error);
         }
     }
 
