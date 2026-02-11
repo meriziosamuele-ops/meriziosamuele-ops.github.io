@@ -330,7 +330,7 @@
         try {
             createParticles();
             initWorldSwitcher();
-            initHamburgerMenu();  // ← AGGIUNTA QUESTA FUNZIONE
+            initHamburgerMenu();  
             initKeyboardNavigation();
             initTouchSwipe();
             initScrollToTop();

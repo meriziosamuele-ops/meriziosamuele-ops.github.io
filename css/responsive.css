@@ -1,397 +1,30 @@
 /* ==========================================================================
-   RESPONSIVE.CSS - SISTEMA RESPONSIVE MOBILE-FIRST COMPLETO
-   Breakpoints, Grid System, Container, Utilities, Components
+   RESPONSIVE.CSS - RESPONSIVE GLOBALE MIGLIORATO
+   Media queries per componenti condivisi (nav, footer, utilities)
    ========================================================================== */
 
 /* ==========================================================================
-   BREAKPOINTS - SISTEMA MOBILE-FIRST ESTESO
-   ========================================================================== */
-:root {
-    /* Breakpoint values */
-    --breakpoint-xs: 320px;
-    --breakpoint-sm: 640px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 1024px;
-    --breakpoint-xl: 1280px;
-    --breakpoint-2xl: 1536px;
-    
-    /* Container max-widths per breakpoint */
-    --container-sm: 640px;
-    --container-md: 768px;
-    --container-lg: 1024px;
-    --container-xl: 1280px;
-    --container-2xl: 1400px;
-}
-
-/* ==========================================================================
-   ANIMAZIONI FADE-IN-UP
-   ========================================================================== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in-up {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-/* Delay progressivi per elementi multipli */
-.fade-in-up:nth-child(1) { animation-delay: 0.1s; }
-.fade-in-up:nth-child(2) { animation-delay: 0.2s; }
-.fade-in-up:nth-child(3) { animation-delay: 0.3s; }
-.fade-in-up:nth-child(4) { animation-delay: 0.4s; }
-.fade-in-up:nth-child(5) { animation-delay: 0.5s; }
-.fade-in-up:nth-child(6) { animation-delay: 0.6s; }
-
-/* Variante per scroll observer (se usi Intersection Observer) */
-.fade-in-up.observe {
-    opacity: 0;
-    animation: none;
-}
-
-.fade-in-up.observe.visible {
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-/* ==========================================================================
-   CONTAINER RESPONSIVE
-   ========================================================================== */
-.container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
-}
-
-/* xs: 320px - Mobile small */
-@media (min-width: 320px) {
-    .container {
-        max-width: 100%;
-        padding: 0 var(--spacing-md);
-    }
-}
-
-/* sm: 640px - Mobile large */
-@media (min-width: 640px) {
-    .container {
-        max-width: var(--container-sm);
-        padding: 0 var(--spacing-lg);
-    }
-}
-
-/* md: 768px - Tablet */
-@media (min-width: 768px) {
-    .container {
-        max-width: var(--container-md);
-        padding: 0 var(--spacing-xl);
-    }
-}
-
-/* lg: 1024px - Desktop small */
-@media (min-width: 1024px) {
-    .container {
-        max-width: var(--container-lg);
-    }
-}
-
-/* xl: 1280px - Desktop large */
-@media (min-width: 1280px) {
-    .container {
-        max-width: var(--container-xl);
-    }
-}
-
-/* 2xl: 1536px - Desktop extra large */
-@media (min-width: 1536px) {
-    .container {
-        max-width: var(--container-2xl);
-    }
-}
-
-/* ==========================================================================
-   GRID SYSTEM RESPONSIVE - MOBILE-FIRST
-   ========================================================================== */
-.grid {
-    display: grid;
-    gap: var(--spacing-md);
-    width: 100%;
-}
-
-/* Mobile (default): 1 colonna */
-.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
-.grid-cols-2 { grid-template-columns: repeat(1, 1fr); }
-.grid-cols-3 { grid-template-columns: repeat(1, 1fr); }
-.grid-cols-4 { grid-template-columns: repeat(1, 1fr); }
-.grid-cols-6 { grid-template-columns: repeat(1, 1fr); }
-.grid-cols-12 { grid-template-columns: repeat(1, 1fr); }
-
-/* sm: 640px */
-@media (min-width: 640px) {
-    .sm\:grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
-    .sm\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-    .sm\:grid-cols-3 { grid-template-columns: repeat(2, 1fr); }
-    .sm\:grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
-    .sm\:grid-cols-6 { grid-template-columns: repeat(2, 1fr); }
-    .sm\:grid-cols-12 { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* md: 768px */
-@media (min-width: 768px) {
-    .md\:grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
-    .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-    .md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-    .md\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
-    .md\:grid-cols-6 { grid-template-columns: repeat(3, 1fr); }
-    .md\:grid-cols-12 { grid-template-columns: repeat(4, 1fr); }
-}
-
-/* lg: 1024px */
-@media (min-width: 1024px) {
-    .lg\:grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
-    .lg\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-    .lg\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-    .lg\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
-    .lg\:grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
-    .lg\:grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
-}
-
-/* xl: 1280px */
-@media (min-width: 1280px) {
-    .xl\:grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
-    .xl\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-    .xl\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-    .xl\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
-    .xl\:grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
-    .xl\:grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
-}
-
-/* 2xl: 1536px */
-@media (min-width: 1536px) {
-    .\32xl\:grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
-    .\32xl\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-    .\32xl\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-    .\32xl\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
-    .\32xl\:grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
-    .\32xl\:grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
-}
-
-/* ==========================================================================
-   GRID GAP RESPONSIVE
-   ========================================================================== */
-.gap-xs { gap: var(--spacing-xs); }
-.gap-sm { gap: var(--spacing-sm); }
-.gap-md { gap: var(--spacing-md); }
-.gap-lg { gap: var(--spacing-lg); }
-.gap-xl { gap: var(--spacing-xl); }
-.gap-2xl { gap: var(--spacing-2xl); }
-
-@media (min-width: 640px) {
-    .sm\:gap-xs { gap: var(--spacing-xs); }
-    .sm\:gap-sm { gap: var(--spacing-sm); }
-    .sm\:gap-md { gap: var(--spacing-md); }
-    .sm\:gap-lg { gap: var(--spacing-lg); }
-    .sm\:gap-xl { gap: var(--spacing-xl); }
-}
-
-@media (min-width: 768px) {
-    .md\:gap-xs { gap: var(--spacing-xs); }
-    .md\:gap-sm { gap: var(--spacing-sm); }
-    .md\:gap-md { gap: var(--spacing-md); }
-    .md\:gap-lg { gap: var(--spacing-lg); }
-    .md\:gap-xl { gap: var(--spacing-xl); }
-}
-
-@media (min-width: 1024px) {
-    .lg\:gap-xs { gap: var(--spacing-xs); }
-    .lg\:gap-sm { gap: var(--spacing-sm); }
-    .lg\:gap-md { gap: var(--spacing-md); }
-    .lg\:gap-lg { gap: var(--spacing-lg); }
-    .lg\:gap-xl { gap: var(--spacing-xl); }
-}
-
-/* ==========================================================================
-   DISPLAY UTILITIES RESPONSIVE
-   ========================================================================== */
-.hidden { display: none; }
-.block { display: block; }
-.inline-block { display: inline-block; }
-.flex { display: flex; }
-.inline-flex { display: inline-flex; }
-.grid { display: grid; }
-
-@media (min-width: 640px) {
-    .sm\:hidden { display: none; }
-    .sm\:block { display: block; }
-    .sm\:flex { display: flex; }
-    .sm\:grid { display: grid; }
-}
-
-@media (min-width: 768px) {
-    .md\:hidden { display: none; }
-    .md\:block { display: block; }
-    .md\:flex { display: flex; }
-    .md\:grid { display: grid; }
-}
-
-@media (min-width: 1024px) {
-    .lg\:hidden { display: none; }
-    .lg\:block { display: block; }
-    .lg\:flex { display: flex; }
-    .lg\:grid { display: grid; }
-}
-
-/* ==========================================================================
-   FLEXBOX UTILITIES RESPONSIVE
-   ========================================================================== */
-.flex-row { flex-direction: row; }
-.flex-col { flex-direction: column; }
-.flex-wrap { flex-wrap: wrap; }
-.items-center { align-items: center; }
-.items-start { align-items: flex-start; }
-.items-end { align-items: flex-end; }
-.justify-center { justify-content: center; }
-.justify-between { justify-content: space-between; }
-.justify-around { justify-content: space-around; }
-
-@media (min-width: 640px) {
-    .sm\:flex-row { flex-direction: row; }
-    .sm\:flex-col { flex-direction: column; }
-}
-
-@media (min-width: 768px) {
-    .md\:flex-row { flex-direction: row; }
-    .md\:flex-col { flex-direction: column; }
-}
-
-@media (min-width: 1024px) {
-    .lg\:flex-row { flex-direction: row; }
-    .lg\:flex-col { flex-direction: column; }
-}
-
-/* ==========================================================================
-   SPACING UTILITIES RESPONSIVE
-   ========================================================================== */
-/* Padding */
-.p-0 { padding: 0; }
-.p-xs { padding: var(--spacing-xs); }
-.p-sm { padding: var(--spacing-sm); }
-.p-md { padding: var(--spacing-md); }
-.p-lg { padding: var(--spacing-lg); }
-.p-xl { padding: var(--spacing-xl); }
-.p-2xl { padding: var(--spacing-2xl); }
-.p-3xl { padding: var(--spacing-3xl); }
-.p-4xl { padding: var(--spacing-4xl); }
-
-/* Margin */
-.m-0 { margin: 0; }
-.m-xs { margin: var(--spacing-xs); }
-.m-sm { margin: var(--spacing-sm); }
-.m-md { margin: var(--spacing-md); }
-.m-lg { margin: var(--spacing-lg); }
-.m-xl { margin: var(--spacing-xl); }
-.m-auto { margin: 0 auto; }
-
-/* Margin Bottom */
-.mb-0 { margin-bottom: 0; }
-.mb-xs { margin-bottom: var(--spacing-xs); }
-.mb-sm { margin-bottom: var(--spacing-sm); }
-.mb-md { margin-bottom: var(--spacing-md); }
-.mb-lg { margin-bottom: var(--spacing-lg); }
-.mb-xl { margin-bottom: var(--spacing-xl); }
-.mb-2xl { margin-bottom: var(--spacing-2xl); }
-.mb-3xl { margin-bottom: var(--spacing-3xl); }
-
-@media (min-width: 640px) {
-    .sm\:p-md { padding: var(--spacing-md); }
-    .sm\:p-lg { padding: var(--spacing-lg); }
-    .sm\:p-xl { padding: var(--spacing-xl); }
-}
-
-@media (min-width: 768px) {
-    .md\:p-md { padding: var(--spacing-md); }
-    .md\:p-lg { padding: var(--spacing-lg); }
-    .md\:p-xl { padding: var(--spacing-xl); }
-}
-
-/* ==========================================================================
-   TEXT ALIGNMENT RESPONSIVE
-   ========================================================================== */
-.text-left { text-align: left; }
-.text-center { text-align: center; }
-.text-right { text-align: right; }
-
-@media (min-width: 640px) {
-    .sm\:text-left { text-align: left; }
-    .sm\:text-center { text-align: center; }
-    .sm\:text-right { text-align: right; }
-}
-
-@media (min-width: 768px) {
-    .md\:text-left { text-align: left; }
-    .md\:text-center { text-align: center; }
-    .md\:text-right { text-align: right; }
-}
-
-@media (min-width: 1024px) {
-    .lg\:text-left { text-align: left; }
-    .lg\:text-center { text-align: center; }
-    .lg\:text-right { text-align: right; }
-}
-
-/* ==========================================================================
-   WIDTH UTILITIES RESPONSIVE
-   ========================================================================== */
-.w-full { width: 100%; }
-.w-auto { width: auto; }
-.w-half { width: 50%; }
-
-@media (min-width: 640px) {
-    .sm\:w-full { width: 100%; }
-    .sm\:w-auto { width: auto; }
-    .sm\:w-half { width: 50%; }
-}
-
-@media (min-width: 768px) {
-    .md\:w-full { width: 100%; }
-    .md\:w-auto { width: auto; }
-    .md\:w-half { width: 50%; }
-}
-
-/* ==========================================================================
-   NAVIGATION RESPONSIVE
+   RESPONSIVE NAVIGATION
    ========================================================================== */
 
+/* Tablet e schermi medi (max-width: 968px) */
 @media (max-width: 968px) {
-    nav {
-        padding: var(--spacing-md) 0;
-    }
-    
-    .nav-container {
-        padding: 0 var(--spacing-lg);
-    }
-    
+    /* Navigation mobile */
     .nav-links {
         position: fixed;
         top: 80px;
         right: -100%;
         width: 100%;
         height: calc(100vh - 80px);
-        background: rgba(10, 10, 10, 0.98);
+        background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(20px);
         flex-direction: column;
         gap: var(--spacing-lg);
         padding: var(--spacing-3xl) var(--spacing-xl);
         transition: right 0.3s ease;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 2px solid var(--gray-200);
         align-items: center;
         justify-content: flex-start;
-        z-index: 999;
     }
 
     .nav-links.active {
@@ -401,96 +34,31 @@
     .nav-links a {
         font-size: 1.125rem;
         padding: var(--spacing-sm) 0;
-        width: 100%;
-        text-align: center;
     }
 
     .hamburger {
         display: flex;
     }
-    
-    .hamburger span {
-        background: #ffffff;
-    }
-    
-    .brand-by {
-        display: none;
-    }
-}
 
-@media (max-width: 640px) {
-    nav {
-        padding: var(--spacing-sm) 0;
+    /* Container */
+    .container {
+        padding: 0 var(--spacing-lg);
     }
-    
-    .nav-container {
-        padding: 0 var(--spacing-md);
-    }
-    
-    .logo {
-        font-size: 1.25rem;
-    }
-    
-    .nav-links {
-        top: 70px;
-        height: calc(100vh - 70px);
-        padding: var(--spacing-2xl) var(--spacing-lg);
-    }
-    
-    .nav-links a {
-        font-size: 1rem;
-    }
-}
 
-/* ==========================================================================
-   CTA BUTTONS RESPONSIVE
-   ========================================================================== */
-
-@media (max-width: 968px) {
-    .cta-buttons {
-        gap: var(--spacing-md);
-    }
-    
-    .cta-button {
-        padding: 1rem 2rem;
-        font-size: 0.9375rem;
-    }
-    
-    .cta-button.large,
-    .cta-button.xlarge,
-    .cta-button.primary-large {
-        padding: 1.15rem 2.25rem;
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 640px) {
+    /* CTA buttons responsive */
     .cta-buttons {
         flex-direction: column;
         width: 100%;
-        gap: var(--spacing-sm);
+        gap: var(--spacing-md);
     }
 
     .cta-button {
         width: 100%;
-        padding: 1rem 1.5rem;
-        font-size: 0.875rem;
-    }
-    
-    .cta-button.small {
-        padding: 0.75rem 1.25rem;
-        font-size: 0.8125rem;
-    }
-    
-    .cta-button.large,
-    .cta-button.xlarge {
-        padding: 1.125rem 2rem;
-        font-size: 0.9375rem;
     }
 }
 
 /* ==========================================================================
-   FINAL CTA SECTION RESPONSIVE
+   RESPONSIVE FINAL CTA
    ========================================================================== */
 
 @media (max-width: 968px) {
@@ -516,10 +84,6 @@
     .cta-subtitle {
         font-size: 1.125rem;
     }
-    
-    .final-cta .cta-button {
-        width: 100%;
-    }
 }
 
 @media (max-width: 640px) {
@@ -533,7 +97,6 @@
 
     .cta-main h2 {
         font-size: 1.75rem;
-        margin-bottom: var(--spacing-md);
     }
 
     .cta-subtitle {
@@ -541,20 +104,17 @@
     }
 
     .final-cta .cta-button.primary {
+        width: 100%;
         padding: 1rem 2rem;
-        font-size: 0.9375rem;
     }
 }
 
 /* ==========================================================================
-   FOOTER RESPONSIVE
+   RESPONSIVE FOOTER
    ========================================================================== */
 
+/* Tablet */
 @media (max-width: 968px) {
-    footer {
-        padding: var(--spacing-3xl) var(--spacing-lg) var(--spacing-xl);
-    }
-    
     .footer-content {
         grid-template-columns: 1fr 1fr;
         gap: var(--spacing-2xl);
@@ -573,6 +133,7 @@
     }
 }
 
+/* Mobile */
 @media (max-width: 640px) {
     footer {
         padding: var(--spacing-3xl) var(--spacing-md) var(--spacing-xl);
@@ -623,20 +184,15 @@
     .footer-bottom p {
         font-size: 0.85rem;
     }
-    
-    .footer-badge {
-        font-size: 0.8125rem;
-        padding: var(--spacing-xs) var(--spacing-sm);
-    }
 }
 
 /* ==========================================================================
-   PAGE HEADER RESPONSIVE
+   RESPONSIVE PAGE HEADER
    ========================================================================== */
 
 @media (max-width: 968px) {
     .page-header {
-        padding: 5rem var(--spacing-lg) 3rem;
+        padding: 4rem var(--spacing-lg) 3rem;
     }
 
     .page-header h1 {
@@ -650,7 +206,7 @@
 
 @media (max-width: 640px) {
     .page-header {
-        padding: 4rem var(--spacing-md) 2.5rem;
+        padding: 3rem var(--spacing-md) 2.5rem;
     }
 
     .page-header h1 {
@@ -664,7 +220,7 @@
 }
 
 /* ==========================================================================
-   SCROLL TO TOP RESPONSIVE
+   RESPONSIVE SCROLL TO TOP
    ========================================================================== */
 
 @media (max-width: 640px) {
@@ -678,15 +234,18 @@
 }
 
 /* ==========================================================================
-   SECTION SPACING RESPONSIVE
+   RESPONSIVE UTILITIES - Pattern comuni
    ========================================================================== */
 
+/* Tablet */
 @media (max-width: 968px) {
+    /* Spaziatura sezioni ridotta su tablet */
     section {
         padding-top: var(--spacing-3xl);
         padding-bottom: var(--spacing-3xl);
     }
 
+    /* Container più stretto */
     .container,
     .container-wide {
         padding-left: var(--spacing-lg);
@@ -694,48 +253,48 @@
     }
 }
 
+/* Mobile */
 @media (max-width: 640px) {
+    /* Spaziatura sezioni ridotta su mobile */
     section {
         padding-top: var(--spacing-2xl);
         padding-bottom: var(--spacing-2xl);
     }
 
+    /* Container ancora più stretto su mobile */
     .container,
     .container-wide {
         padding-left: var(--spacing-md);
         padding-right: var(--spacing-md);
     }
-}
 
-/* ==========================================================================
-   TYPOGRAPHY RESPONSIVE
-   ========================================================================== */
-
-@media (max-width: 640px) {
+    /* Titoli responsive */
     h1 {
-        font-size: clamp(1.75rem, 7vw, 2.5rem);
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
         line-height: 1.2;
     }
 
     h2 {
-        font-size: clamp(1.5rem, 6vw, 2rem);
+        font-size: clamp(1.5rem, 5vw, 2rem);
         line-height: 1.25;
     }
 
     h3 {
-        font-size: clamp(1.25rem, 5vw, 1.5rem);
+        font-size: clamp(1.25rem, 4vw, 1.5rem);
         line-height: 1.3;
     }
 
     h4 {
-        font-size: clamp(1.125rem, 4vw, 1.35rem);
+        font-size: clamp(1.125rem, 3.5vw, 1.35rem);
     }
 
+    /* Paragrafi più leggibili */
     p {
         font-size: 0.9375rem;
         line-height: 1.65;
     }
 
+    /* Section headers */
     .section-header-center {
         margin-bottom: var(--spacing-2xl);
     }
@@ -749,29 +308,71 @@
     .lead-text {
         font-size: 1rem;
     }
-    
-    .section-title-black,
-    .section-title-white {
-        font-size: clamp(1.75rem, 6vw, 2.25rem);
-        margin-bottom: var(--spacing-md);
+}
+
+/* Mobile piccolo (max-width: 480px) */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 var(--spacing-md);
     }
-    
-    .section-subtitle {
-        font-size: clamp(0.9375rem, 3vw, 1.05rem);
-        margin-bottom: var(--spacing-2xl);
+
+    /* Logo più piccolo */
+    .logo {
+        font-size: 1.35rem;
+    }
+
+    /* Bottoni più piccoli su mobile molto piccolo */
+    .cta-button {
+        padding: 1rem 2rem;
+        font-size: 0.9375rem;
+    }
+
+    .cta-button.small {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.8125rem;
+    }
+
+    /* Gap ridotti */
+    .cta-buttons {
+        gap: var(--spacing-sm);
     }
 }
 
 /* ==========================================================================
-   IMAGE RESPONSIVE
+   RESPONSIVE GRIDS GENERALI
+   ========================================================================== */
+
+/* Tablet - 2 colonne diventano 1 */
+@media (max-width: 968px) {
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+}
+
+/* Mobile - Tutto a 1 colonna con gap ridotto */
+@media (max-width: 640px) {
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        gap: var(--spacing-lg);
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE IMMAGINI
    ========================================================================== */
 
 @media (max-width: 640px) {
+    /* Immagini responsive */
     img {
         max-width: 100%;
         height: auto;
     }
 
+    /* Aspect ratio containers */
     .image-frame,
     .product-image-wrapper {
         min-height: 250px;
@@ -779,1361 +380,38 @@
 }
 
 /* ==========================================================================
-   VISIBILITY UTILITIES
+   UTILITY CLASSES RESPONSIVE
    ========================================================================== */
 
+/* Nascondi su mobile */
 .hide-mobile {
-    display: block;
-}
-
-@media (max-width: 640px) {
-    .hide-mobile {
-        display: none !important;
-    }
-}
-
-.hide-tablet {
-    display: block;
-}
-
-@media (min-width: 641px) and (max-width: 968px) {
-    .hide-tablet {
-        display: none !important;
-    }
-}
-
-.hide-desktop {
     display: none;
+}
+
+@media (min-width: 641px) {
+    .hide-mobile {
+        display: block;
+    }
+}
+
+/* Nascondi su desktop */
+.hide-desktop {
+    display: block;
 }
 
 @media (min-width: 969px) {
     .hide-desktop {
-        display: block !important;
+        display: none;
     }
 }
 
-.show-mobile-only {
-    display: none;
-}
-
-@media (max-width: 640px) {
-    .show-mobile-only {
-        display: block !important;
-    }
-}
-
+/* Mostra solo su tablet */
 .show-tablet-only {
     display: none;
 }
 
 @media (min-width: 641px) and (max-width: 968px) {
     .show-tablet-only {
-        display: block !important;
+        display: block;
     }
 }
-
-.show-desktop-only {
-    display: none;
-}
-
-@media (min-width: 969px) {
-    .show-desktop-only {
-        display: block !important;
-    }
-}
-
-/* ==========================================================================
-   MOBILE-SPECIFIC HELPERS
-   ========================================================================== */
-
-@media (max-width: 640px) {
-    .mobile-stack {
-        display: flex !important;
-        flex-direction: column;
-        gap: var(--spacing-md);
-    }
-
-    .mobile-full-width {
-        width: 100% !important;
-    }
-
-    .mobile-text-center {
-        text-align: center !important;
-    }
-    
-    .mobile-padding-sm {
-        padding: var(--spacing-md) !important;
-    }
-
-    .mobile-padding-md {
-        padding: var(--spacing-lg) !important;
-    }
-
-    .mobile-margin-bottom-sm {
-        margin-bottom: var(--spacing-md) !important;
-    }
-
-    .mobile-margin-bottom-md {
-        margin-bottom: var(--spacing-lg) !important;
-    }
-}
-
-/* ==========================================================================
-   RESPONSIVE-COMPONENTS.CSS - COMPONENTI SPECIFICI RESPONSIVE
-   Hero, Homepage sections, Products, Contacts, Legal, Placeholder
-   ========================================================================== */
-
-/* ==========================================================================
-   HERO SECTION RESPONSIVE
-   ========================================================================== */
-
-/* Tablet Landscape - 1024px */
-@media (max-width: 1024px) {
-    .hero-content {
-        padding: 5rem 1.5rem 2rem;
-        height: auto;
-        min-height: 600px;
-    }
-
-    .hero-layout {
-        gap: 3rem;
-    }
-
-    .hero-left {
-        padding-right: 1rem;
-    }
-
-    .machine-container {
-        max-width: 600px;
-        height: 450px;
-    }
-
-    .hero-description {
-        padding: 1.5rem;
-    }
-
-    .hero-description p {
-        font-size: 1.05rem;
-    }
-}
-
-/* Tablet - 968px */
-@media (max-width: 968px) {
-    .hero-container {
-        min-height: 90vh;
-    }
-
-    .hero-content {
-        padding: 4.5rem 1.5rem 2rem;
-        height: auto;
-    }
-
-    .hero-layout {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
-
-    .hero-left {
-        padding-right: 0;
-        order: 2;
-        align-items: center;
-    }
-
-    .hero-right {
-        order: 1;
-    }
-
-    .hero-text {
-        text-align: center;
-    }
-
-    .hero-badge {
-        margin-bottom: 1rem;
-    }
-
-    .hero-description {
-        text-align: center;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    .machine-container {
-        height: 400px;
-        max-width: 550px;
-    }
-
-    .world-switcher {
-        gap: 1.5rem;
-        justify-content: center;
-    }
-
-    .world-btn {
-        padding: 1.1rem 2.5rem;
-        font-size: 0.8rem;
-    }
-}
-
-/* Mobile Landscape - 768px */
-@media (max-width: 768px) {
-    .hero-container {
-        min-height: auto;
-    }
-
-    .hero-content {
-        padding: 4rem 1.25rem 2rem;
-        min-height: auto;
-        height: auto;
-    }
-
-    .hero-layout {
-        gap: 2rem;
-    }
-
-    .hero-title {
-        font-size: clamp(2rem, 10vw, 3.5rem);
-    }
-
-    .hero-subtitle {
-        font-size: clamp(0.95rem, 3vw, 1.2rem);
-    }
-
-    .machine-container {
-        height: 350px;
-        max-width: 480px;
-    }
-
-    .hero-description {
-        padding: 1.25rem;
-    }
-
-    .hero-description p {
-        font-size: 1rem;
-        line-height: 1.7;
-    }
-
-    .world-switcher {
-        gap: 1.25rem;
-        flex-wrap: wrap;
-    }
-
-    .world-btn {
-        padding: 1rem 2rem;
-        font-size: 0.75rem;
-    }
-
-    .hero-glow {
-        width: 600px;
-        height: 600px;
-    }
-}
-
-/* Mobile - 640px - NASCONDI WORLD SWITCHER, MANTIENI PROGRESS BAR */
-@media (max-width: 640px) {
-    .hero-content {
-        padding: 3.5rem 1rem 1.5rem;
-    }
-
-    .hero-layout {
-        gap: 1.5rem;
-    }
-
-    .hero-text {
-        margin-bottom: 0;
-    }
-
-    .hero-badge {
-        font-size: 0.65rem;
-        padding: 0.4rem 1.2rem;
-        letter-spacing: 0.15em;
-    }
-
-    .hero-title {
-        font-size: clamp(1.75rem, 12vw, 3rem);
-        margin-bottom: 0.75rem;
-    }
-
-    .hero-subtitle {
-        font-size: clamp(0.9rem, 4vw, 1.1rem);
-    }
-
-    .machine-container {
-        height: 300px;
-        max-width: 100%;
-    }
-
-    .hero-description {
-        padding: 1rem;
-        border-left-width: 3px;
-    }
-
-    .hero-description p {
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-
-    /* NASCONDI WORLD SWITCHER SU MOBILE */
-    .world-switcher {
-        display: none !important;
-    }
-
-    .world-label {
-        display: none;
-    }
-
-    .hero-glow {
-        width: 500px;
-        height: 500px;
-    }
-
-    .grid-background {
-        background-size: 40px 40px;
-    }
-}
-
-/* Mobile Small - 480px */
-@media (max-width: 480px) {
-    .hero-content {
-        padding: 3rem 0.75rem 1.25rem;
-    }
-
-    .hero-layout {
-        gap: 1.25rem;
-    }
-
-    .hero-badge {
-        font-size: 0.6rem;
-        padding: 0.35rem 1rem;
-    }
-
-    .hero-title {
-        font-size: clamp(1.5rem, 14vw, 2.5rem);
-    }
-
-    .hero-subtitle {
-        font-size: clamp(0.85rem, 4.5vw, 1rem);
-    }
-
-    .machine-container {
-        height: 280px;
-    }
-
-    .hero-description {
-        padding: 0.875rem;
-    }
-
-    .hero-description p {
-        font-size: 0.9rem;
-        line-height: 1.55;
-    }
-
-    .hero-glow {
-        width: 400px;
-        height: 400px;
-    }
-}
-
-/* Mobile Extra Small - 375px */
-@media (max-width: 375px) {
-    .hero-content {
-        padding: 2.5rem 0.5rem 1rem;
-    }
-
-    .hero-title {
-        font-size: clamp(1.35rem, 15vw, 2.25rem);
-    }
-
-    .machine-container {
-        height: 250px;
-    }
-
-    .hero-description p {
-        font-size: 0.85rem;
-    }
-}
-
-/* Hero Progress Bar Responsive */
-@media (max-width: 768px) {
-    .hero-progress {
-        padding: 0.75rem 1.5rem;
-        gap: 0.75rem;
-        margin-top: 5rem;
-    }
-
-    .progress-track {
-        width: 150px;
-    }
-
-    .progress-label {
-        font-size: 0.65rem;
-    }
-
-    .progress-dot {
-        width: 14px;
-        height: 14px;
-    }
-
-    .progress-marker::after {
-        font-size: 0.6rem;
-        top: 1.75rem;
-    }
-    
-    .progress-marker::before {
-        width: 44px;
-        height: 44px;
-    }
-}
-
-@media (max-width: 640px) {
-    .hero-progress {
-        padding: 0.6rem 1.25rem;
-        margin-top: 4rem;
-    }
-
-    .progress-track {
-        width: 120px;
-    }
-
-    .progress-label {
-        display: none;
-    }
-
-    .progress-dot {
-        width: 12px;
-        height: 12px;
-        border-width: 2px;
-    }
-
-    .progress-marker {
-        width: 6px;
-        height: 6px;
-    }
-
-    .progress-marker::after {
-        font-size: 0.55rem;
-        top: 1.5rem;
-    }
-    
-    .progress-marker::before {
-        width: 48px;
-        height: 48px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-progress {
-        margin-top: 3rem;
-    }
-
-    .progress-track {
-        width: 100px;
-    }
-
-    .progress-marker::after {
-        font-size: 0.5rem;
-        top: 1.35rem;
-    }
-}
-
-/* ==========================================================================
-   HOMEPAGE - HOW IT WORKS SECTION RESPONSIVE
-   ========================================================================== */
-
-@media (max-width: 968px) {
-    .how-it-works {
-        padding: 4rem 2rem;
-    }
-
-    .section-header-center {
-        margin-bottom: 3rem;
-    }
-
-    .feature-row,
-    .feature-row.reverse {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-        margin-bottom: 3rem;
-    }
-    
-    .feature-row.reverse .feature-image {
-        order: 0;
-    }
-    
-    .feature-card {
-        padding: 2rem;
-    }
-
-    .feature-number {
-        width: 56px;
-        height: 56px;
-        font-size: 1.35rem;
-    }
-
-    .feature-card h3 {
-        font-size: 1.25rem;
-    }
-
-    .feature-card p {
-        font-size: 0.95rem;
-    }
-    
-    .image-frame {
-        min-height: 320px;
-    }
-
-    .diagnostic-cta {
-        margin-top: 2.5rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .how-it-works {
-        padding: 3rem 1.5rem;
-    }
-    
-    .section-header-center {
-        margin-bottom: 2.5rem;
-    }
-
-    .section-header-center h2 {
-        font-size: 1.75rem;
-        margin-bottom: 1rem;
-    }
-
-    .lead-text {
-        font-size: 1rem;
-    }
-    
-    .feature-row {
-        gap: 2rem;
-        margin-bottom: 2.5rem;
-    }
-    
-    .feature-card {
-        padding: 1.75rem 1.5rem;
-    }
-
-    .feature-number {
-        width: 50px;
-        height: 50px;
-        font-size: 1.25rem;
-        margin-bottom: 1.25rem;
-    }
-
-    .feature-card h3 {
-        font-size: 1.125rem;
-        margin-bottom: 0.875rem;
-    }
-
-    .feature-card p {
-        font-size: 0.9rem;
-        margin-bottom: 1.25rem;
-    }
-
-    .feature-benefit {
-        padding: 1rem;
-        font-size: 0.875rem;
-    }
-    
-    .image-frame {
-        min-height: 280px;
-    }
-
-    .cta-button.diagnostic {
-        padding: 1.125rem 2.5rem;
-        font-size: 0.9375rem;
-    }
-}
-
-/* ==========================================================================
-   HOMEPAGE - TECHNOLOGY SECTION RESPONSIVE
-   ========================================================================== */
-
-@media (max-width: 1024px) {
-    .technology-section {
-        padding: 4rem 2rem;
-    }
-
-    .tech-grid {
-        gap: 1.75rem;
-    }
-    
-    .tech-card {
-        padding: 2.25rem 2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .technology-section {
-        padding: 3.5rem 1.5rem;
-    }
-
-    .section-header-center {
-        margin-bottom: 2.5rem;
-    }
-
-    .section-header-center h2 {
-        font-size: 1.875rem;
-    }
-
-    .section-intro {
-        font-size: 1rem;
-    }
-    
-    .tech-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        max-width: 500px;
-    }
-    
-    .tech-card {
-        padding: 2rem 1.75rem;
-    }
-    
-    .tech-number {
-        font-size: 2.5rem;
-        top: 1.25rem;
-        right: 1.25rem;
-    }
-
-    .tech-icon {
-        width: 52px;
-        height: 52px;
-    }
-
-    .tech-card h3 {
-        font-size: 1.125rem;
-    }
-
-    .tech-card p {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .technology-section {
-        padding: 3rem 1.5rem;
-    }
-
-    .section-header-center {
-        margin-bottom: 2rem;
-    }
-
-    .tech-grid {
-        gap: 1.25rem;
-    }
-
-    .tech-card {
-        padding: 1.75rem 1.5rem;
-    }
-
-    .tech-number {
-        font-size: 2rem;
-        top: 1rem;
-        right: 1rem;
-    }
-
-    .tech-icon {
-        width: 48px;
-        height: 48px;
-        margin-bottom: 1.25rem;
-    }
-
-    .tech-card h3 {
-        font-size: 1.0625rem;
-        margin-bottom: 0.75rem;
-    }
-
-    .tech-card p {
-        font-size: 0.875rem;
-    }
-}
-
-/* ==========================================================================
-   HOMEPAGE - MADE IN ITALY SECTION RESPONSIVE
-   ========================================================================== */
-
-@media (max-width: 1024px) {
-    .made-features {
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .made-in-italy {
-        min-height: 550px;
-    }
-    
-    .made-content {
-        padding: 3.5rem 1.5rem;
-    }
-
-    .made-badge {
-        padding: 0.65rem 1.25rem;
-        margin-bottom: 2rem;
-    }
-
-    .made-badge span:last-child {
-        font-size: 0.8125rem;
-    }
-
-    .made-content .section-header-center h2 {
-        font-size: 1.875rem;
-        margin-bottom: 1.25rem;
-    }
-
-    .made-content .section-header-center p {
-        font-size: 1rem;
-        margin-bottom: 2.5rem;
-    }
-    
-    .made-features {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-    }
-    
-    .made-feature {
-        padding: 1.75rem;
-    }
-
-    .feature-icon {
-        width: 44px;
-        height: 44px;
-        margin-bottom: 1rem;
-    }
-
-    .made-feature h4 {
-        font-size: 1.0625rem;
-    }
-
-    .made-feature p {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .made-in-italy {
-        min-height: auto;
-    }
-
-    .made-content {
-        padding: 3rem 1.5rem;
-    }
-
-    .made-badge {
-        padding: 0.6rem 1.125rem;
-        margin-bottom: 1.75rem;
-    }
-
-    .made-content .section-header-center h2 {
-        font-size: 1.625rem;
-    }
-
-    .made-content .section-header-center p {
-        font-size: 0.9375rem;
-        margin-bottom: 2.25rem;
-    }
-
-    .made-features {
-        gap: 1rem;
-    }
-
-    .made-feature {
-        padding: 1.5rem;
-    }
-
-    .feature-icon {
-        width: 40px;
-        height: 40px;
-    }
-
-    .made-feature h4 {
-        font-size: 1rem;
-        margin-bottom: 0.65rem;
-    }
-
-    .made-feature p {
-        font-size: 0.875rem;
-    }
-}
-
-/* ==========================================================================
-   HOMEPAGE - PRODUCTS SHOWCASE RESPONSIVE
-   ========================================================================== */
-
-@media (max-width: 968px) {
-    .products-showcase {
-        padding: 4rem 2rem;
-    }
-
-    .products-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .product-image-wrapper {
-        height: 360px;
-    }
-
-    .product-info {
-        padding: 2.5rem;
-    }
-
-    .product-info h3 {
-        font-size: 1.625rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .products-showcase {
-        padding: 3rem 1.5rem;
-    }
-
-    .products-grid {
-        gap: 2.5rem;
-    }
-    
-    .product-card {
-        border-width: 2px;
-    }
-
-    .product-image-wrapper {
-        height: 300px;
-    }
-
-    .product-image-wrapper img {
-        width: 90%;
-        height: 90%;
-    }
-
-    .product-badge {
-        top: 1rem;
-        right: 1rem;
-        padding: 0.4rem 0.875rem;
-        font-size: 0.75rem;
-    }
-    
-    .product-info {
-        padding: 2rem 1.5rem;
-    }
-    
-    .product-info h3 {
-        font-size: 1.375rem;
-        margin-bottom: 0.875rem;
-    }
-    
-    .product-info p {
-        font-size: 0.9375rem;
-        margin-bottom: 1.25rem;
-    }
-
-    .product-link-arrow {
-        font-size: 0.9375rem;
-    }
-
-    .cta-center {
-        margin-top: 1.5rem;
-    }
-}
-
-/* ==========================================================================
-   VANTAGGI - DIAGNOSTIC HIGHLIGHT RESPONSIVE
-   ========================================================================== */
-
-@media (max-width: 968px) {
-    .diagnostic-features {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .diagnostic-feature {
-        padding: 2rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .diagnostic-highlight {
-        padding: 4rem 1.5rem 6rem;
-    }
-    
-    .section-subtitle {
-        margin-bottom: 3rem;
-    }
-    
-    .diagnostic-feature {
-        padding: 1.5rem;
-    }
-    
-    .feature-number {
-        width: 48px;
-        height: 48px;
-        font-size: 1.5rem;
-    }
-    
-    .diagnostic-feature h4 {
-        font-size: 1.3rem;
-    }
-}
-
-/* ==========================================================================
-   VANTAGGI - SECTORS SECTION RESPONSIVE
-   ========================================================================== */
-
-@media (max-width: 968px) {
-    .sector-tabs {
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding-bottom: 1rem;
-    }
-
-    .sector-detail {
-        grid-template-columns: 1fr;
-    }
-
-    .sector-visual {
-        order: -1;
-    }
-
-    .visual-placeholder {
-        height: 300px;
-    }
-}
-
-@media (max-width: 640px) {
-    .sectors-section {
-        padding: 4rem 1.5rem;
-    }
-
-    .sector-tabs {
-        gap: 0.75rem;
-    }
-
-    .sector-tab {
-        padding: 0.75rem 1rem;
-        font-size: 0.9rem;
-    }
-
-    .sector-detail {
-        padding: 1.5rem;
-    }
-
-    .sector-info h3 {
-        font-size: 1.5rem;
-    }
-
-    .sector-description {
-        font-size: 1rem;
-    }
-
-    .visual-placeholder {
-        height: 250px;
-    }
-}
-
-/* ==========================================================================
-   PRODOTTI - INTRO & SUMMARY RESPONSIVE
-   ========================================================================== */
-
-@media (max-width: 968px) {
-    .product-summary-card {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-    }
-    
-    .product-summary-image {
-        min-height: 280px;
-    }
-    
-    .product-photo {
-        max-height: 240px;
-    }
-}
-
-@media (max-width: 640px) {
-    .products-intro {
-        padding: var(--spacing-3xl) var(--spacing-md);
-    }
-
-    .products-detail {
-        padding: 4rem 1.5rem;
-    }
-    
-    .product-summary-card {
-        margin-bottom: var(--spacing-2xl);
-    }
-    
-    .product-summary-content {
-        padding: 1.5rem;
-    }
-    
-    .product-summary-image {
-        min-height: 240px;
-        padding: 1rem;
-    }
-    
-    .product-photo {
-        max-height: 200px;
-    }
-    
-    .product-summary-content h2 {
-        font-size: 1.4rem;
-    }
-    
-    .product-tagline {
-        font-size: 0.85rem;
-    }
-    
-    .product-intro {
-        font-size: 0.85rem;
-    }
-}
-
-/* ==========================================================================
-   PRODOTTI - COMPARISON TABLE RESPONSIVE
-   ========================================================================== */
-
-@media (max-width: 968px) {
-    .comparison-table {
-        font-size: 0.9rem;
-    }
-    
-    .comparison-header .comparison-cell {
-        font-size: 1rem;
-        padding: var(--spacing-md) var(--spacing-lg);
-    }
-    
-    .comparison-cell {
-        padding: var(--spacing-md) var(--spacing-lg);
-    }
-}
-
-@media (max-width: 640px) {
-    .products-comparison {
-        padding: var(--spacing-3xl) var(--spacing-md);
-    }
-    
-    .comparison-header,
-    .comparison-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .comparison-header {
-        display: none;
-    }
-    
-    .comparison-row {
-        display: flex;
-        flex-direction: column;
-        padding: var(--spacing-md);
-        border-bottom: 2px solid var(--gray-300);
-        gap: var(--spacing-sm);
-    }
-    
-    .comparison-cell {
-        padding: var(--spacing-xs) 0;
-        justify-content: flex-start;
-        text-align: left;
-    }
-    
-    .comparison-cell.feature-label {
-        font-size: 1rem;
-        margin-bottom: var(--spacing-sm);
-        padding-bottom: var(--spacing-sm);
-        border-bottom: 1px solid var(--gray-200);
-    }
-    
-    .comparison-cell:not(.feature-label)::before {
-        font-size: 0.8rem;
-        color: var(--gray-500);
-        margin-right: var(--spacing-sm);
-        font-weight: 600;
-    }
-    
-    .comparison-row .comparison-cell:nth-child(2)::before {
-        content: 'K-75: ';
-    }
-    
-    .comparison-row .comparison-cell:nth-child(3)::before {
-        content: 'K-75S: ';
-    }
-}
-
-/* ==========================================================================
-   CONTATTI - CONTACT SECTION RESPONSIVE
-   ========================================================================== */
-
-@media (max-width: 992px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-3xl);
-    }
-
-    .cta-box {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-xl);
-        text-align: center;
-    }
-
-    .support-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-xl);
-    }
-
-    .contact-info h2 {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .contact-section {
-        padding: var(--spacing-3xl) var(--spacing-md);
-    }
-
-    .visit-cta-section {
-        padding: var(--spacing-3xl) var(--spacing-md);
-    }
-
-    .cta-text h2 {
-        font-size: 2rem;
-    }
-
-    .cta-box .cta-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .cta-box .cta-buttons .cta-button {
-        width: 100%;
-    }
-
-    .support-section {
-        padding: var(--spacing-3xl) var(--spacing-md);
-    }
-
-    .contact-cta-buttons {
-        flex-direction: column;
-    }
-
-    .contact-cta-buttons .cta-button {
-        width: 100%;
-        min-width: auto;
-    }
-
-    .map-container {
-        padding: var(--spacing-3xl) var(--spacing-md);
-    }
-
-    .map-wrapper iframe {
-        height: 300px;
-    }
-
-    .info-cards {
-        gap: var(--spacing-md);
-    }
-
-    .info-card {
-        padding: var(--spacing-lg);
-    }
-
-    .map-info {
-        padding: var(--spacing-lg);
-    }
-
-    .support-card {
-        padding: var(--spacing-lg);
-    }
-}
-
-/* ==========================================================================
-   LEGAL PAGES RESPONSIVE
-   ========================================================================== */
-
-@media (max-width: 968px) {
-    .legal-content {
-        padding: var(--spacing-3xl) var(--spacing-lg);
-    }
-
-    .legal-document {
-        padding: var(--spacing-3xl) var(--spacing-2xl);
-    }
-
-    .legal-section h2 {
-        font-size: 1.5rem;
-    }
-
-    .legal-section h3 {
-        font-size: 1.25rem;
-    }
-
-    .browser-list {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-    }
-}
-
-@media (max-width: 640px) {
-    .legal-content {
-        padding: var(--spacing-2xl) var(--spacing-md);
-    }
-
-    .legal-document {
-        padding: var(--spacing-2xl) var(--spacing-lg);
-    }
-
-    .legal-meta {
-        padding: var(--spacing-md);
-    }
-
-    .legal-section {
-        margin-bottom: var(--spacing-2xl);
-    }
-
-    .legal-section h2 {
-        font-size: 1.35rem;
-        margin-bottom: var(--spacing-md);
-    }
-
-    .legal-section h3 {
-        font-size: 1.15rem;
-        margin-top: var(--spacing-lg);
-    }
-
-    .legal-section h4 {
-        font-size: 1.05rem;
-    }
-
-    .legal-section p,
-    .legal-section li {
-        font-size: 0.95rem;
-    }
-
-    .legal-section ul,
-    .legal-section ol {
-        margin-left: var(--spacing-lg);
-    }
-
-    .legal-table,
-    .cookie-table {
-        font-size: 0.85rem;
-    }
-
-    .legal-table th,
-    .legal-table td,
-    .cookie-table th,
-    .cookie-table td {
-        padding: var(--spacing-sm) var(--spacing-md);
-    }
-
-    .contact-box,
-    .info-box,
-    .warning-box {
-        padding: var(--spacing-md);
-    }
-
-    .browser-item {
-        padding: var(--spacing-md);
-    }
-
-    .legal-footer {
-        padding-top: var(--spacing-xl);
-        margin-top: var(--spacing-2xl);
-    }
-
-    .legal-back {
-        flex-direction: column;
-        gap: var(--spacing-md);
-    }
-
-    .legal-back .cta-button {
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .legal-document {
-        padding: var(--spacing-xl) var(--spacing-md);
-    }
-
-    .legal-section h2 {
-        font-size: 1.25rem;
-    }
-
-    .legal-section h3 {
-        font-size: 1.1rem;
-    }
-
-    .legal-section p,
-    .legal-section li {
-        font-size: 0.9rem;
-    }
-}
-
-/* ==========================================================================
-   PLACEHOLDER PAGES RESPONSIVE
-   ========================================================================== */
-
-@media (max-width: 968px) {
-    .placeholder-content {
-        padding: var(--spacing-3xl) var(--spacing-2xl);
-    }
-    
-    .placeholder-visual {
-        font-size: 5rem;
-    }
-    
-    .placeholder-info-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-    }
-}
-
-@media (max-width: 640px) {
-    .placeholder-section {
-        padding: var(--spacing-3xl) var(--spacing-md);
-    }
-    
-    .placeholder-content {
-        padding: var(--spacing-2xl) var(--spacing-xl);
-    }
-    
-    .placeholder-visual {
-        font-size: 4rem;
-    }
-    
-    .placeholder-badge {
-        font-size: 0.8rem;
-        padding: var(--spacing-xs) var(--spacing-lg);
-    }
-    
-    .placeholder-content h1 {
-        font-size: 2rem;
-    }
-    
-    .placeholder-subtitle {
-        font-size: 1.05rem;
-    }
-    
-    .placeholder-message {
-        padding: var(--spacing-lg);
-    }
-    
-    .placeholder-message p {
-        font-size: 0.95rem;
-    }
-    
-    .placeholder-cta {
-        flex-direction: column;
-        gap: var(--spacing-md);
-    }
-    
-    .placeholder-cta .cta-button {
-        width: 100%;
-    }
-    
-    .placeholder-note {
-        font-size: 0.9rem;
-    }
-}
-
-/* ==========================================================================
-   FINE RESPONSIVE COMPONENTS
-   ========================================================================== */
