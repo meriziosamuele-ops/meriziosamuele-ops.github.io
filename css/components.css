@@ -402,7 +402,7 @@ nav.scrolled {
 .page-header {
     background: var(--black);
     color: var(--white);
-    margin-top: 70px;
+    margin-top: 65px;
     padding: 2.5rem var(--spacing-xl) 4rem;
     text-align: center;
 }
