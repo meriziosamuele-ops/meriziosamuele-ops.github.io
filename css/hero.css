@@ -1744,3 +1744,60 @@
     }
 }
 
+/* ==========================================================================
+   FIX DEFINITIVO - Blocca click su hero-container su mobile
+   ========================================================================== */
+
+/* Su mobile, SOLO i marker della progress bar sono cliccabili */
+@media (max-width: 768px) {
+    /* Blocca TUTTI gli eventi touch sul hero-container */
+    .hero-container {
+        pointer-events: none !important;
+    }
+    
+    /* Riabilita eventi SOLO dove servono */
+    .hero-progress,
+    .hero-progress * {
+        pointer-events: auto !important;
+    }
+    
+    .progress-marker {
+        pointer-events: auto !important;
+        z-index: 999 !important;
+    }
+    
+    /* Assicura che NIENTE altro sia cliccabile */
+    .hero-content,
+    .hero-layout,
+    .hero-text,
+    .hero-description,
+    .machine-container,
+    .machine-image,
+    .grid-background,
+    .particles,
+    .hero-glow {
+        pointer-events: none !important;
+    }
+    
+    /* I bottoni sono già nascosti, ma per sicurezza */
+    .world-switcher,
+    .world-btn {
+        pointer-events: none !important;
+        display: none !important;
+    }
+}
+
+/* Aumenta ancora l'area cliccabile sui marker */
+@media (max-width: 768px) {
+    .progress-marker::before {
+        width: 80px !important;
+        height: 80px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .progress-marker::before {
+        width: 100px !important;
+        height: 100px !important;
+    }
+}
