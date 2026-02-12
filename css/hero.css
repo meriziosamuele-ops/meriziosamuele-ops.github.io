@@ -1743,3 +1743,125 @@
         text-shadow: none !important;
     }
 }
+
+/* ==========================================================================
+   PROGRESS BAR MOBILE FIX - Z-INDEX e TOUCH
+   ========================================================================== */
+
+/* ✅ ASSICURA CHE LA PROGRESS BAR SIA SOPRA TUTTO */
+.hero-progress {
+    position: relative;
+    z-index: 100 !important; /* Massimo priorità */
+    pointer-events: auto;
+}
+
+.progress-track {
+    pointer-events: none; /* Solo i marker sono cliccabili */
+}
+
+.progress-markers {
+    pointer-events: none; /* Container trasparente */
+}
+
+.progress-marker {
+    pointer-events: auto !important; /* Marker cliccabile */
+    z-index: 10;
+    
+    /* Touch-friendly */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* ✅ AREA CLICCABILE BASE */
+.progress-marker::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    z-index: 1;
+    /* background: rgba(255, 0, 0, 0.2); */ /* Debug */
+}
+
+/* ✅ MOBILE - AREA EXTRA LARGE */
+@media (max-width: 768px) {
+    .hero-progress {
+        z-index: 100 !important;
+    }
+    
+    .progress-marker {
+        width: 10px !important;
+        height: 10px !important;
+    }
+    
+    .progress-marker::before {
+        width: 80px;
+        height: 80px;
+    }
+    
+    /* Disabilita tutto il resto */
+    .world-switcher,
+    .world-btn {
+        pointer-events: none !important;
+        display: none !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .progress-marker {
+        width: 12px !important;
+        height: 12px !important;
+    }
+    
+    .progress-marker::before {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 480px) {
+    .progress-marker {
+        width: 14px !important;
+        height: 14px !important;
+    }
+    
+    .progress-marker::before {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* ✅ TOUCH DEVICES */
+@media (hover: none) and (pointer: coarse) {
+    .progress-marker {
+        width: 14px !important;
+        height: 14px !important;
+    }
+    
+    .progress-marker::before {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    /* Feedback tattile */
+    .progress-marker:active {
+        transform: translateY(-2px) scale(1.6) !important;
+        transition: transform 0.1s !important;
+    }
+}
+
+/* ✅ SICUREZZA - Niente può stare sopra i marker */
+.progress-marker,
+.progress-marker::before,
+.progress-marker::after {
+    position: relative;
+}
+
+.progress-marker::before {
+    z-index: 999;
+}
