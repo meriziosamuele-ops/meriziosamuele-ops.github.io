@@ -210,18 +210,17 @@ nav.scrolled {
         top: 80px; /* ✅ Altezza navbar */
         left: 0;
         right: 0;
-        background: rgba(10, 10, 10, 0.98); /* ✅ Sfondo scuro */
-        backdrop-filter: blur(20px);
+        background: white; /* ✅ SFONDO BIANCO */
         flex-direction: column;
         padding: 0;
         gap: 0;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
         max-height: 0;
         overflow: hidden;
         opacity: 0;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 999;
-        border-bottom: 2px solid rgba(22, 163, 74, 0.3);
+        border-bottom: 2px solid var(--green);
     }
     
     /* Menu aperto */
@@ -232,7 +231,7 @@ nav.scrolled {
     }
     
     .nav-links li {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* ✅ Bordo grigio chiaro */
         margin: 0 24px;
         opacity: 0;
         transform: translateY(-10px);
@@ -259,7 +258,7 @@ nav.scrolled {
         padding: 16px 0;
         font-size: 1.1rem;
         font-weight: 600;
-        color: var(--white); /* ✅ Testo bianco */
+        color: var(--dark); /* ✅ TESTO NERO */
     }
     
     .nav-links a::before {
@@ -268,7 +267,7 @@ nav.scrolled {
     
     .nav-links a:hover,
     .nav-links a.active {
-        color: var(--green);
+        color: var(--green); /* ✅ Verde al hover */
     }
     
     /* Nascondi brand "by Floki" su mobile */
