@@ -265,12 +265,6 @@
         console.log('⌨️ Keyboard navigation enabled (← →)');
     }
 
-    // ========== TOUCH SWIPE NAVIGATION - DISABILITATO ==========
-    // Rimosso per evitare conflitti con lo scroll verticale su mobile
-    // Gli utenti mobile possono usare i bottoni o i markers della progress bar
-    function initTouchSwipe() {
-        console.log('👆 Touch swipe disabled (use buttons or markers on mobile)');
-    }
 
     // ========== CLICK SUI MARKER DELLA PROGRESS BAR ==========
     function initProgressBarClick() {
@@ -297,7 +291,6 @@
             createParticles();
             initWorldSwitcher();
             initKeyboardNavigation();
-            initTouchSwipe(); // Ora è disabilitato ma mantiene il log
             initProgressBarClick();
             
             // Imposta il primo modello
