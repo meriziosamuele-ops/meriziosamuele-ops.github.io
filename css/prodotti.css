@@ -7,13 +7,13 @@
    INTRO PRODOTTI
    ========================================================================== */
 .products-intro {
-    padding: var(--spacing-4xl) var(--spacing-xl);
     background: var(--white);
     text-align: center;
 }
 
 .intro-content {
-    max-width: 900px;
+    padding: 6rem 2rem 1rem;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -552,17 +552,22 @@
         font-size: 0.9rem;
     }
     
+    /* Tabella - mantiene layout griglia ma più compatta */
     .comparison-table {
-        max-width: 720px;
+        max-width: 100%;
     }
     
     .comparison-header .comparison-cell {
-        padding: var(--spacing-md) var(--spacing-md);
-        font-size: 0.95rem;
+        padding: var(--spacing-md) var(--spacing-sm);
+        font-size: 0.9rem;
     }
     
     .comparison-cell {
-        padding: var(--spacing-md) var(--spacing-md);
+        padding: var(--spacing-md) var(--spacing-sm);
+        font-size: 0.82rem;
+    }
+    
+    .comparison-cell.feature-label {
         font-size: 0.85rem;
     }
     
@@ -635,19 +640,29 @@
         font-size: 0.82rem;
     }
     
-    /* Tabella - Layout ibrido */
+    /* Tabella - mantiene griglia, font ridotti */
+    .products-comparison {
+        padding: var(--spacing-3xl) var(--spacing-sm);
+    }
+    
     .comparison-table {
         max-width: 100%;
+        overflow-x: auto;
     }
     
     .comparison-header .comparison-cell {
-        padding: var(--spacing-sm) var(--spacing-md);
-        font-size: 0.9rem;
+        padding: var(--spacing-sm) var(--spacing-xs);
+        font-size: 0.85rem;
     }
     
     .comparison-cell {
-        padding: var(--spacing-sm) var(--spacing-md);
-        font-size: 0.8rem;
+        padding: var(--spacing-sm) var(--spacing-xs);
+        font-size: 0.78rem;
+    }
+    
+    .comparison-cell.feature-label {
+        font-size: 0.82rem;
+        padding-left: var(--spacing-sm);
     }
     
     .made-in-italy {
@@ -740,50 +755,35 @@
         font-size: 0.85rem;
     }
     
-    /* Tabella - Stack completo */
+    /* Tabella - mantiene griglia, scroll orizzontale */
     .products-comparison {
-        padding: var(--spacing-2xl) var(--spacing-md);
+        padding: var(--spacing-2xl) 0;
     }
     
-    .comparison-header {
-        display: none;
+    .comparison-table {
+        max-width: 100%;
+        overflow-x: auto;
+        margin: 0 var(--spacing-md);
     }
     
+    .comparison-header,
     .comparison-row {
-        display: flex;
-        flex-direction: column;
-        padding: var(--spacing-md);
-        border-bottom: 2px solid var(--gray-300);
-        gap: var(--spacing-xs);
+        min-width: 480px;
+    }
+    
+    .comparison-header .comparison-cell {
+        padding: var(--spacing-sm) var(--spacing-xs);
+        font-size: 0.8rem;
     }
     
     .comparison-cell {
-        padding: var(--spacing-xs) 0;
-        justify-content: flex-start;
-        text-align: left;
-        font-size: 0.85rem;
+        padding: var(--spacing-sm) var(--spacing-xs);
+        font-size: 0.75rem;
     }
     
     .comparison-cell.feature-label {
-        font-size: 0.95rem;
-        margin-bottom: var(--spacing-sm);
-        padding-bottom: var(--spacing-sm);
-        border-bottom: 1px solid var(--gray-200);
-    }
-    
-    .comparison-cell:not(.feature-label)::before {
-        font-size: 0.75rem;
-        color: var(--gray-500);
-        margin-right: var(--spacing-xs);
-        font-weight: 700;
-    }
-    
-    .comparison-row .comparison-cell:nth-child(2)::before {
-        content: 'K-75: ';
-    }
-    
-    .comparison-row .comparison-cell:nth-child(3)::before {
-        content: 'K-75S: ';
+        font-size: 0.78rem;
+        padding-left: var(--spacing-sm);
     }
     
     .made-in-italy {
@@ -893,47 +893,36 @@
         font-size: 0.8rem;
     }
     
-    /* Tabella mobile ottimizzata */
+    /* Tabella - mantiene griglia, scroll orizzontale */
     .products-comparison {
-        padding: var(--spacing-2xl) var(--spacing-sm);
+        padding: var(--spacing-2xl) 0;
     }
     
     .comparison-table {
+        max-width: 100%;
+        overflow-x: auto;
+        margin: 0 var(--spacing-sm);
         border-width: 1px;
     }
     
-    .comparison-header {
-        display: none;
+    .comparison-header,
+    .comparison-row {
+        min-width: 420px;
     }
     
-    .comparison-row {
-        padding: var(--spacing-sm);
-        gap: var(--spacing-xs);
+    .comparison-header .comparison-cell {
+        padding: var(--spacing-xs) 0.35rem;
+        font-size: 0.75rem;
     }
     
     .comparison-cell {
-        padding: 0.35rem 0;
-        font-size: 0.8rem;
+        padding: var(--spacing-xs) 0.35rem;
+        font-size: 0.7rem;
     }
     
     .comparison-cell.feature-label {
-        font-size: 0.9rem;
-        margin-bottom: var(--spacing-xs);
-        padding-bottom: var(--spacing-xs);
-    }
-    
-    .comparison-cell:not(.feature-label)::before {
-        font-size: 0.7rem;
-        display: block;
-        margin-bottom: 0.15rem;
-    }
-    
-    .comparison-row .comparison-cell:nth-child(2)::before {
-        content: 'K-75';
-    }
-    
-    .comparison-row .comparison-cell:nth-child(3)::before {
-        content: 'K-75S';
+        font-size: 0.73rem;
+        padding-left: var(--spacing-sm);
     }
     
     .made-in-italy {
@@ -987,8 +976,17 @@
         font-size: 0.7rem;
     }
     
+    .comparison-header,
+    .comparison-row {
+        min-width: 360px;
+    }
+    
     .comparison-cell {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
+    }
+    
+    .comparison-cell.feature-label {
+        font-size: 0.68rem;
     }
     
     .made-in-italy h2 {

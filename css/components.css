@@ -10,7 +10,7 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10, 10, 10, 0.85);
+    background: black;
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 1000;
@@ -402,7 +402,8 @@ nav.scrolled {
 .page-header {
     background: var(--black);
     color: var(--white);
-    padding: 7.5rem var(--spacing-xl) 4rem;
+    margin-top: 70px;
+    padding: 2.5rem var(--spacing-xl) 4rem;
     text-align: center;
 }
 
@@ -771,6 +772,11 @@ footer {
     .cta-main h2 {
         font-size: 2.25rem;
     }
+
+    /* Page Header */
+    .page-header {
+        padding: 8rem var(--spacing-lg) 3.5rem;
+    }
 }
 
 /* ==========================================================================
@@ -919,9 +925,9 @@ footer {
         font-size: 1.05rem;
     }
 
-    /* Page Header - FIX NAVBAR */
+    /* Page Header - SPAZIO NAVBAR */
     .page-header {
-        padding: 7rem var(--spacing-lg) 3.5rem; /* ✅ Aumentato da 6rem */
+        padding: 8.5rem var(--spacing-lg) 3.5rem;
     }
 
     .page-header h1 {
@@ -1044,9 +1050,9 @@ footer {
         font-size: 0.95rem;
     }
 
-    /* Page Header - FIX NAVBAR */
+    /* Page Header - SPAZIO NAVBAR */
     .page-header {
-        padding: 6rem var(--spacing-lg) 3rem; /* ✅ Aumentato da 5rem */
+        padding: 7.5rem var(--spacing-lg) 3rem;
     }
 
     .page-header h1 {
@@ -1253,9 +1259,9 @@ footer {
         font-size: 0.875rem;
     }
 
-    /* Page Header - FIX NAVBAR */
+    /* Page Header - SPAZIO NAVBAR */
     .page-header {
-        padding: 5.5rem var(--spacing-md) 2.5rem; /* ✅ Aumentato da 4.5rem */
+        padding: 7rem var(--spacing-md) 2.5rem;
     }
 
     .page-header h1 {
@@ -1396,9 +1402,9 @@ footer {
         font-size: 0.8125rem;
     }
 
-    /* Page Header - FIX NAVBAR */
+    /* Page Header - SPAZIO NAVBAR */
     .page-header {
-        padding: 5rem 1rem 2rem; /* ✅ Aumentato da 4rem */
+        padding: 6.5rem 1rem 2rem;
     }
 
     .page-header h1 {
@@ -1483,9 +1489,9 @@ footer {
         font-size: 0.75rem;
     }
 
-    /* Page Header - FIX NAVBAR */
+    /* Page Header - SPAZIO NAVBAR */
     .page-header {
-        padding: 4.5rem 1rem 2rem; /* ✅ Mantenuto sufficiente spazio */
+        padding: 6rem 1rem 2rem;
     }
 
     .page-header h1 {
@@ -1561,9 +1567,9 @@ footer {
         padding: 8px 0;
     }
 
-    /* Page header ridotto in landscape - FIX NAVBAR */
+    /* Page header ridotto in landscape - SPAZIO NAVBAR */
     .page-header {
-        padding: 4.5rem var(--spacing-md) 2rem; /* ✅ Aumentato da 3rem */
+        padding: 6rem var(--spacing-md) 2rem;
     }
 
     .page-header h1 {
