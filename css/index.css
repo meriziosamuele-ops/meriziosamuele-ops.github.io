@@ -779,17 +779,7 @@
    DESKTOP LARGE - 1280px e superiori
    ========================================================================== */
 @media (min-width: 1280px) {
-    .how-container,
-    .container-wide,
-    .made-content,
-    .products-grid {
-        max-width: 1400px;
-    }
-
-    .tech-grid {
-        max-width: 1300px;
-    }
-
+    /* Mantiene max-width originali - no modifiche layout */
     .products-grid {
         gap: 4.5rem;
     }
@@ -799,19 +789,9 @@
    DESKTOP STANDARD - 1024px - 1279px
    ========================================================================== */
 @media (max-width: 1280px) {
-    .how-container,
-    .container-wide,
-    .made-content {
-        max-width: 1200px;
-    }
-
+    /* Mantiene max-width originali definiti nel CSS base */
     .products-grid {
-        max-width: 1200px;
         gap: 3.5rem;
-    }
-
-    .tech-grid {
-        max-width: 1200px;
     }
 }
 
