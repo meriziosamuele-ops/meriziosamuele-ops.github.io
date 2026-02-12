@@ -219,19 +219,6 @@
     }
 }
 
-/* ==========================================================================
-   RESPONSIVE SCROLL TO TOP
-   ========================================================================== */
-
-@media (max-width: 640px) {
-    #scroll-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-        font-size: 20px;
-    }
-}
 
 /* ==========================================================================
    RESPONSIVE UTILITIES - Pattern comuni
@@ -414,4 +401,4 @@
     .show-tablet-only {
         display: block;
     }
-}
+} 

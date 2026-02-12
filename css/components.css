@@ -148,7 +148,7 @@ nav.scrolled {
    ============================================ */
 
    /* Menu mobile nascosto di default - SLIDE DOWN */
-.nav-links {
+.hamburger-nav-links {
     position: fixed;
     top: 80px;
     left: 0;
@@ -168,7 +168,7 @@ nav.scrolled {
 }
 
 /* Menu aperto */
-.nav-links.active {
+.hamburger-nav-links.active {
     max-height: 600px;
     opacity: 1;
     padding: 20px 0;
