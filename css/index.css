@@ -771,53 +771,450 @@
 }
 
 /* ==========================================================================
-   RESPONSIVE TECHNOLOGY & MADE IN ITALY
+   HOMEPAGE RESPONSIVE - Ottimizzazioni complete per tutti i dispositivi
+   Breakpoint: 1280px, 1024px, 968px, 768px, 640px, 480px, 375px
+   ========================================================================== */
+
+/* ==========================================================================
+   DESKTOP LARGE - 1280px e superiori
+   ========================================================================== */
+@media (min-width: 1280px) {
+    .how-container,
+    .container-wide,
+    .made-content,
+    .products-grid {
+        max-width: 1400px;
+    }
+
+    .tech-grid {
+        max-width: 1300px;
+    }
+
+    .products-grid {
+        gap: 4.5rem;
+    }
+}
+
+/* ==========================================================================
+   DESKTOP STANDARD - 1024px - 1279px
+   ========================================================================== */
+@media (max-width: 1280px) {
+    .how-container,
+    .container-wide,
+    .made-content {
+        max-width: 1200px;
+    }
+
+    .products-grid {
+        max-width: 1200px;
+        gap: 3.5rem;
+    }
+
+    .tech-grid {
+        max-width: 1200px;
+    }
+}
+
+/* ==========================================================================
+   TABLET LANDSCAPE - 1024px
    ========================================================================== */
 @media (max-width: 1024px) {
+    /* HOW IT WORKS */
+    .how-it-works {
+        padding: 5rem 2rem;
+    }
+
+    .section-header-center {
+        max-width: 750px;
+        margin-bottom: 4.5rem;
+    }
+
+    .section-header-center h2 {
+        font-size: clamp(1.875rem, 4vw, 2.5rem);
+    }
+
+    .lead-text {
+        font-size: 1.1rem;
+    }
+
+    .feature-row {
+        gap: 2.75rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .feature-card {
+        padding: 2.35rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.35rem;
+    }
+
+    .feature-card p {
+        font-size: 0.96rem;
+    }
+
+    .feature-benefit {
+        padding: 1.15rem;
+        font-size: 0.9rem;
+    }
+
+    .image-frame {
+        min-height: 380px;
+    }
+
+    /* TECHNOLOGY */
+    .technology-section {
+        padding: 4.5rem 2rem;
+    }
+
+    .tech-grid {
+        gap: 1.85rem;
+    }
+
+    .tech-card {
+        padding: 2.35rem 2rem;
+    }
+
+    .tech-number {
+        font-size: 2.75rem;
+    }
+
+    .tech-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .tech-card p {
+        font-size: 0.925rem;
+    }
+
+    /* MADE IN ITALY */
+    .made-in-italy {
+        min-height: 600px;
+    }
+
+    .made-content {
+        padding: 4.5rem 2rem;
+    }
+
+    .made-features {
+        gap: 1.5rem;
+        max-width: 950px;
+    }
+
+    .made-feature {
+        padding: 1.85rem;
+    }
+
+    .made-feature h4 {
+        font-size: 1.1rem;
+    }
+
+    /* PRODUCTS */
+    .products-showcase {
+        padding: 5rem 2rem;
+    }
+
+    .products-grid {
+        gap: 3rem;
+    }
+
+    .product-image-wrapper {
+        height: 380px;
+    }
+
+    .product-info {
+        padding: 2.75rem;
+    }
+
+    .product-info h3 {
+        font-size: 1.65rem;
+    }
+
+    .product-info p {
+        font-size: 0.98rem;
+    }
+}
+
+/* ==========================================================================
+   TABLET - 968px (Transizione a single column)
+   ========================================================================== */
+@media (max-width: 968px) {
+    /* HOW IT WORKS */
+    .how-it-works {
+        padding: 4.5rem 2rem;
+    }
+
+    .section-header-center {
+        margin-bottom: 3.5rem;
+        max-width: 700px;
+    }
+
+    .section-header-center h2 {
+        font-size: clamp(1.75rem, 4.5vw, 2.25rem);
+        margin-bottom: 1.25rem;
+    }
+
+    .lead-text {
+        font-size: 1.075rem;
+    }
+
+    /* Layout diventa single column */
+    .feature-row,
+    .feature-row.reverse {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .feature-row.reverse .feature-image {
+        order: 0;
+    }
+
+    .feature-card {
+        padding: 2.25rem;
+    }
+
+    .feature-number {
+        width: 56px;
+        height: 56px;
+        font-size: 1.35rem;
+        margin-bottom: 1.35rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.95rem;
+    }
+
+    .feature-card p {
+        font-size: 0.96rem;
+        margin-bottom: 1.35rem;
+    }
+
+    .feature-benefit {
+        padding: 1.15rem;
+        font-size: 0.9rem;
+    }
+
+    .image-frame {
+        min-height: 350px;
+    }
+
+    .diagnostic-cta {
+        margin-top: 2.75rem;
+    }
+
+    /* TECHNOLOGY */
     .technology-section {
         padding: 4rem 2rem;
     }
 
+    .section-intro {
+        font-size: 1.025rem;
+    }
+
     .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.75rem;
+        max-width: 900px;
     }
-    
+
     .tech-card {
-        padding: 2.25rem 2rem;
+        padding: 2.25rem 1.85rem;
     }
-    
+
+    .tech-number {
+        font-size: 2.65rem;
+        top: 1.35rem;
+        right: 1.35rem;
+    }
+
+    .tech-icon {
+        width: 54px;
+        height: 54px;
+        margin-bottom: 1.35rem;
+    }
+
+    .tech-card h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .tech-card p {
+        font-size: 0.9rem;
+    }
+
+    /* MADE IN ITALY */
+    .made-in-italy {
+        min-height: 580px;
+    }
+
+    .made-content {
+        padding: 4rem 2rem;
+    }
+
+    .made-badge {
+        padding: 0.7rem 1.35rem;
+        margin-bottom: 2.25rem;
+    }
+
+    .made-badge span:last-child {
+        font-size: 0.85rem;
+    }
+
+    .made-content .section-header-center h2 {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+        margin-bottom: 1.35rem;
+    }
+
+    .made-content .section-header-center p {
+        font-size: 1.025rem;
+        margin-bottom: 3rem;
+    }
+
     .made-features {
-        gap: 1.5rem;
+        max-width: 900px;
+    }
+
+    .made-feature {
+        padding: 1.85rem;
+    }
+
+    .feature-icon {
+        width: 46px;
+        height: 46px;
+        margin-bottom: 1.15rem;
+    }
+
+    .made-feature h4 {
+        font-size: 1.075rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .made-feature p {
+        font-size: 0.91rem;
+    }
+
+    /* PRODUCTS - Single column */
+    .products-showcase {
+        padding: 4.5rem 2rem;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+        max-width: 700px;
+    }
+
+    .product-image-wrapper {
+        height: 380px;
+    }
+
+    .product-info {
+        padding: 2.5rem;
+    }
+
+    .product-info h3 {
+        font-size: 1.625rem;
+    }
+
+    .product-info p {
+        font-size: 0.98rem;
     }
 }
 
+/* ==========================================================================
+   MOBILE LARGE - 768px
+   ========================================================================== */
 @media (max-width: 768px) {
-    .technology-section {
-        padding: 3.5rem 1.5rem;
+    /* HOW IT WORKS */
+    .how-it-works {
+        padding: 4rem 1.75rem;
     }
 
     .section-header-center {
-        margin-bottom: 2.5rem;
+        margin-bottom: 3rem;
+        max-width: 100%;
     }
 
     .section-header-center h2 {
-        font-size: 1.875rem;
+        font-size: clamp(1.625rem, 5vw, 2rem);
+        margin-bottom: 1.125rem;
+    }
+
+    .section-label {
+        font-size: 0.8rem;
+    }
+
+    .lead-text {
+        font-size: 1.025rem;
+        line-height: 1.65;
+    }
+
+    .feature-row {
+        gap: 2.25rem;
+        margin-bottom: 2.75rem;
+    }
+
+    .feature-card {
+        padding: 2rem;
+    }
+
+    .feature-number {
+        width: 54px;
+        height: 54px;
+        font-size: 1.3rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .feature-card p {
+        font-size: 0.94rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .feature-benefit {
+        padding: 1.1rem;
+        font-size: 0.885rem;
+    }
+
+    .image-frame {
+        min-height: 320px;
+    }
+
+    .diagnostic-cta {
+        margin-top: 2.5rem;
+    }
+
+    .cta-button.diagnostic {
+        padding: 1.15rem 2.75rem;
+        font-size: 0.95rem;
+    }
+
+    /* TECHNOLOGY */
+    .technology-section {
+        padding: 3.75rem 1.75rem;
     }
 
     .section-intro {
         font-size: 1rem;
     }
-    
+
     .tech-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
-        max-width: 500px;
+        max-width: 550px;
     }
-    
+
     .tech-card {
         padding: 2rem 1.75rem;
     }
-    
+
     .tech-number {
         font-size: 2.5rem;
         top: 1.25rem;
@@ -827,22 +1224,26 @@
     .tech-icon {
         width: 52px;
         height: 52px;
+        margin-bottom: 1.25rem;
     }
 
     .tech-card h3 {
         font-size: 1.125rem;
+        margin-bottom: 0.75rem;
     }
 
     .tech-card p {
         font-size: 0.9rem;
+        line-height: 1.6;
     }
-    
+
+    /* MADE IN ITALY */
     .made-in-italy {
         min-height: 550px;
     }
-    
+
     .made-content {
-        padding: 3.5rem 1.5rem;
+        padding: 3.75rem 1.75rem;
     }
 
     .made-badge {
@@ -855,20 +1256,20 @@
     }
 
     .made-content .section-header-center h2 {
-        font-size: 1.875rem;
+        font-size: clamp(1.625rem, 5vw, 2.25rem);
         margin-bottom: 1.25rem;
     }
 
     .made-content .section-header-center p {
         font-size: 1rem;
-        margin-bottom: 2.5rem;
+        margin-bottom: 2.75rem;
     }
-    
+
     .made-features {
         grid-template-columns: 1fr;
         gap: 1.25rem;
     }
-    
+
     .made-feature {
         padding: 1.75rem;
     }
@@ -881,57 +1282,170 @@
 
     .made-feature h4 {
         font-size: 1.0625rem;
+        margin-bottom: 0.675rem;
     }
 
     .made-feature p {
         font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    /* PRODUCTS */
+    .products-showcase {
+        padding: 4rem 1.75rem;
+    }
+
+    .products-grid {
+        gap: 3rem;
+    }
+
+    .product-image-wrapper {
+        height: 340px;
+    }
+
+    .product-info {
+        padding: 2.25rem;
+    }
+
+    .product-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.95rem;
+    }
+
+    .product-info p {
+        font-size: 0.96rem;
+        margin-bottom: 1.35rem;
+    }
+
+    .product-link-arrow {
+        font-size: 0.96rem;
     }
 }
 
+/* ==========================================================================
+   MOBILE - 640px
+   ========================================================================== */
 @media (max-width: 640px) {
-    .technology-section {
-        padding: 3rem 1.5rem;
+    /* HOW IT WORKS */
+    .how-it-works {
+        padding: 3.5rem 1.5rem;
     }
 
     .section-header-center {
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
     }
 
-    .tech-grid {
-        gap: 1.25rem;
+    .section-header-center h2 {
+        font-size: clamp(1.5rem, 6vw, 1.875rem);
+        margin-bottom: 1rem;
     }
 
-    .tech-card {
+    .section-label {
+        font-size: 0.75rem;
+        margin-bottom: 0.875rem;
+    }
+
+    .lead-text {
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+
+    .feature-row {
+        gap: 2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .feature-card {
         padding: 1.75rem 1.5rem;
     }
 
+    .feature-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+        margin-bottom: 1.125rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.125rem;
+        margin-bottom: 0.875rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+        line-height: 1.65;
+        margin-bottom: 1.125rem;
+    }
+
+    .feature-benefit {
+        padding: 1rem;
+        font-size: 0.875rem;
+    }
+
+    .feature-benefit strong {
+        margin-bottom: 0.4rem;
+    }
+
+    .image-frame {
+        min-height: 280px;
+    }
+
+    .diagnostic-cta {
+        margin-top: 2.25rem;
+    }
+
+    .cta-button.diagnostic {
+        padding: 1.125rem 2.5rem;
+        font-size: 0.9375rem;
+    }
+
+    /* TECHNOLOGY */
+    .technology-section {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .section-intro {
+        font-size: 0.975rem;
+    }
+
+    .tech-grid {
+        gap: 1.35rem;
+        max-width: 100%;
+    }
+
+    .tech-card {
+        padding: 1.85rem 1.5rem;
+    }
+
     .tech-number {
-        font-size: 2rem;
-        top: 1rem;
-        right: 1rem;
+        font-size: 2.25rem;
+        top: 1.125rem;
+        right: 1.125rem;
     }
 
     .tech-icon {
-        width: 48px;
-        height: 48px;
-        margin-bottom: 1.25rem;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 1.125rem;
     }
 
     .tech-card h3 {
         font-size: 1.0625rem;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.7rem;
     }
 
     .tech-card p {
         font-size: 0.875rem;
+        line-height: 1.6;
     }
 
+    /* MADE IN ITALY */
     .made-in-italy {
         min-height: auto;
     }
 
     .made-content {
-        padding: 3rem 1.5rem;
+        padding: 3.5rem 1.5rem;
     }
 
     .made-badge {
@@ -939,17 +1453,27 @@
         margin-bottom: 1.75rem;
     }
 
+    .italy-flag {
+        font-size: 1.125rem;
+    }
+
+    .made-badge span:last-child {
+        font-size: 0.775rem;
+    }
+
     .made-content .section-header-center h2 {
-        font-size: 1.625rem;
+        font-size: clamp(1.5rem, 6vw, 1.875rem);
+        margin-bottom: 1.125rem;
     }
 
     .made-content .section-header-center p {
         font-size: 0.9375rem;
-        margin-bottom: 2.25rem;
+        line-height: 1.65;
+        margin-bottom: 2.5rem;
     }
 
     .made-features {
-        gap: 1rem;
+        gap: 1.125rem;
     }
 
     .made-feature {
@@ -957,55 +1481,30 @@
     }
 
     .feature-icon {
-        width: 40px;
-        height: 40px;
+        width: 42px;
+        height: 42px;
+        margin-bottom: 0.95rem;
     }
 
     .made-feature h4 {
         font-size: 1rem;
-        margin-bottom: 0.65rem;
+        margin-bottom: 0.625rem;
     }
 
     .made-feature p {
         font-size: 0.875rem;
+        line-height: 1.6;
     }
-}
 
-/* ==========================================================================
-   RESPONSIVE PRODUCTS
-   ========================================================================== */
-@media (max-width: 968px) {
+    /* PRODUCTS */
     .products-showcase {
-        padding: 4rem 2rem;
+        padding: 3.5rem 1.5rem;
     }
 
     .products-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .product-image-wrapper {
-        height: 360px;
+        gap: 2.75rem;
     }
 
-    .product-info {
-        padding: 2.5rem;
-    }
-
-    .product-info h3 {
-        font-size: 1.625rem;
-    }
-}
-
-@media (max-width: 640px) {
-    .products-showcase {
-        padding: 3rem 1.5rem;
-    }
-
-    .products-grid {
-        gap: 2.5rem;
-    }
-    
     .product-card {
         border-width: 2px;
     }
@@ -1020,23 +1519,24 @@
     }
 
     .product-badge {
-        top: 1rem;
-        right: 1rem;
-        padding: 0.4rem 0.875rem;
-        font-size: 0.75rem;
+        top: 1.125rem;
+        right: 1.125rem;
+        padding: 0.45rem 0.95rem;
+        font-size: 0.775rem;
     }
-    
+
     .product-info {
         padding: 2rem 1.5rem;
     }
-    
+
     .product-info h3 {
         font-size: 1.375rem;
         margin-bottom: 0.875rem;
     }
-    
+
     .product-info p {
         font-size: 0.9375rem;
+        line-height: 1.65;
         margin-bottom: 1.25rem;
     }
 
@@ -1045,72 +1545,511 @@
     }
 
     .cta-center {
+        margin-top: 1.75rem;
+    }
+}
+
+/* ==========================================================================
+   MOBILE SMALL - 480px
+   ========================================================================== */
+@media (max-width: 480px) {
+    /* HOW IT WORKS */
+    .how-it-works {
+        padding: 3rem 1.25rem;
+    }
+
+    .section-header-center {
+        margin-bottom: 2.25rem;
+    }
+
+    .section-header-center h2 {
+        font-size: clamp(1.35rem, 7vw, 1.75rem);
+        margin-bottom: 0.875rem;
+    }
+
+    .section-label {
+        font-size: 0.7rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .lead-text {
+        font-size: 0.95rem;
+    }
+
+    .feature-row {
+        gap: 1.75rem;
+        margin-bottom: 2.25rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .feature-number {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.0625rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .feature-card p {
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+    }
+
+    .feature-benefit {
+        padding: 0.925rem;
+        font-size: 0.8125rem;
+    }
+
+    .image-frame {
+        min-height: 250px;
+    }
+
+    .diagnostic-cta {
+        margin-top: 2rem;
+    }
+
+    .cta-button.diagnostic {
+        padding: 1rem 2.25rem;
+        font-size: 0.875rem;
+    }
+
+    /* TECHNOLOGY */
+    .technology-section {
+        padding: 3rem 1.25rem;
+    }
+
+    .section-intro {
+        font-size: 0.95rem;
+    }
+
+    .tech-grid {
+        gap: 1.25rem;
+    }
+
+    .tech-card {
+        padding: 1.75rem 1.35rem;
+    }
+
+    .tech-number {
+        font-size: 2rem;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .tech-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 1rem;
+    }
+
+    .tech-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.65rem;
+    }
+
+    .tech-card p {
+        font-size: 0.8125rem;
+    }
+
+    /* MADE IN ITALY */
+    .made-content {
+        padding: 3rem 1.25rem;
+    }
+
+    .made-badge {
+        padding: 0.55rem 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .italy-flag {
+        font-size: 1rem;
+    }
+
+    .made-badge span:last-child {
+        font-size: 0.725rem;
+    }
+
+    .made-content .section-header-center h2 {
+        font-size: clamp(1.35rem, 7vw, 1.75rem);
+        margin-bottom: 1rem;
+    }
+
+    .made-content .section-header-center p {
+        font-size: 0.9rem;
+        margin-bottom: 2.25rem;
+    }
+
+    .made-features {
+        gap: 1rem;
+    }
+
+    .made-feature {
+        padding: 1.35rem;
+    }
+
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0.875rem;
+    }
+
+    .made-feature h4 {
+        font-size: 0.9375rem;
+        margin-bottom: 0.575rem;
+    }
+
+    .made-feature p {
+        font-size: 0.8125rem;
+    }
+
+    /* PRODUCTS */
+    .products-showcase {
+        padding: 3rem 1.25rem;
+    }
+
+    .products-grid {
+        gap: 2.5rem;
+    }
+
+    .product-image-wrapper {
+        height: 270px;
+    }
+
+    .product-badge {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.4rem 0.875rem;
+        font-size: 0.725rem;
+    }
+
+    .product-info {
+        padding: 1.75rem 1.35rem;
+    }
+
+    .product-info h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .product-info p {
+        font-size: 0.9rem;
+        margin-bottom: 1.125rem;
+    }
+
+    .product-link-arrow {
+        font-size: 0.9rem;
+    }
+
+    .cta-center {
         margin-top: 1.5rem;
     }
 }
 
 /* ==========================================================================
-   RESPONSIVE GENERALE
+   MOBILE EXTRA SMALL - 375px
    ========================================================================== */
-@media (max-width: 968px) {
-    .split-container {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
+@media (max-width: 375px) {
+    /* HOW IT WORKS */
+    .how-it-works {
+        padding: 2.75rem 1rem;
     }
-    
-    .split-image {
-        order: -1;
-    }
-}
 
-@media (max-width: 640px) {
-    .feature-item {
-        grid-template-columns: 1fr;
+    .section-header-center {
+        margin-bottom: 2rem;
     }
-    
+
+    .section-header-center h2 {
+        font-size: clamp(1.25rem, 8vw, 1.625rem);
+        margin-bottom: 0.75rem;
+    }
+
+    .lead-text {
+        font-size: 0.9rem;
+    }
+
+    .feature-row {
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .feature-card {
+        padding: 1.35rem 1.125rem;
+    }
+
     .feature-number {
-        width: 50px;
-        height: 50px;
-        font-size: 1.25rem;
+        width: 46px;
+        height: 46px;
+        font-size: 1.15rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1rem;
+    }
+
+    .feature-card p {
+        font-size: 0.8125rem;
+    }
+
+    .feature-benefit {
+        padding: 0.875rem;
+        font-size: 0.775rem;
+    }
+
+    .image-frame {
+        min-height: 230px;
+    }
+
+    .cta-button.diagnostic {
+        padding: 0.95rem 2rem;
+        font-size: 0.8125rem;
+    }
+
+    /* TECHNOLOGY */
+    .technology-section {
+        padding: 2.75rem 1rem;
+    }
+
+    .tech-grid {
+        gap: 1.125rem;
+    }
+
+    .tech-card {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .tech-number {
+        font-size: 1.875rem;
+        top: 0.925rem;
+        right: 0.925rem;
+    }
+
+    .tech-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .tech-card h3 {
+        font-size: 0.9375rem;
+    }
+
+    .tech-card p {
+        font-size: 0.775rem;
+    }
+
+    /* MADE IN ITALY */
+    .made-content {
+        padding: 2.75rem 1rem;
+    }
+
+    .made-badge {
+        padding: 0.5rem 0.925rem;
+    }
+
+    .made-content .section-header-center h2 {
+        font-size: clamp(1.25rem, 8vw, 1.625rem);
+    }
+
+    .made-content .section-header-center p {
+        font-size: 0.875rem;
+        margin-bottom: 2rem;
+    }
+
+    .made-feature {
+        padding: 1.25rem;
+    }
+
+    .feature-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .made-feature h4 {
+        font-size: 0.9rem;
+    }
+
+    .made-feature p {
+        font-size: 0.775rem;
+    }
+
+    /* PRODUCTS */
+    .products-showcase {
+        padding: 2.75rem 1rem;
+    }
+
+    .products-grid {
+        gap: 2.25rem;
+    }
+
+    .product-image-wrapper {
+        height: 250px;
+    }
+
+    .product-info {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .product-info h3 {
+        font-size: 1.15rem;
+    }
+
+    .product-info p {
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+    }
+
+    .product-link-arrow {
+        font-size: 0.875rem;
     }
 }
 
 /* ==========================================================================
-   RESPONSIVE UTILITY HELPERS
+   LANDSCAPE MOBILE OPTIMIZATION
    ========================================================================== */
-
-/* Spacing mobile helpers */
-@media (max-width: 640px) {
-    .mobile-padding-sm {
-        padding: var(--spacing-md);
+@media (max-height: 600px) and (orientation: landscape) {
+    .how-it-works {
+        padding: 2.5rem 1.5rem;
     }
 
-    .mobile-padding-md {
-        padding: var(--spacing-lg);
+    .feature-row {
+        gap: 1.5rem;
+        margin-bottom: 1.75rem;
     }
 
-    .mobile-margin-bottom-sm {
-        margin-bottom: var(--spacing-md);
+    .feature-card {
+        padding: 1.5rem;
     }
 
-    .mobile-margin-bottom-md {
-        margin-bottom: var(--spacing-lg);
+    .image-frame {
+        min-height: 220px;
     }
 
-    /* Stack elements on mobile */
-    .mobile-stack {
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-md);
+    .made-in-italy {
+        min-height: auto;
     }
 
-    /* Full width on mobile */
-    .mobile-full-width {
-        width: 100% !important;
+    .made-content {
+        padding: 2.5rem 1.5rem;
     }
 
-    /* Text alignment */
-    .mobile-text-center {
-        text-align: center;
+    .made-features {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .technology-section {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products-showcase {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .product-image-wrapper {
+        height: 250px;
+    }
+}
+
+/* ==========================================================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ========================================================================== */
+@media (hover: none) and (pointer: coarse) {
+    /* Aumenta area cliccabile */
+    .cta-button.diagnostic {
+        min-height: 48px;
+    }
+
+    .product-card {
+        min-height: 48px;
+    }
+
+    /* Rimuovi hover effects su touch */
+    .feature-card:hover,
+    .tech-card:hover,
+    .made-feature:hover,
+    .product-card:hover {
+        transform: none;
+    }
+
+    /* Active states per feedback visivo */
+    .feature-card:active,
+    .tech-card:active,
+    .product-card:active {
+        transform: scale(0.98);
+    }
+
+    /* Animazioni ridotte su touch */
+    .made-feature:hover .feature-icon::before,
+    .made-feature:hover .feature-icon::after,
+    .made-feature:hover .icon-ring {
+        animation: none;
+    }
+}
+
+/* ==========================================================================
+   REDUCED MOTION (Accessibility)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .feature-card,
+    .tech-card,
+    .made-feature,
+    .product-card,
+    .image-frame,
+    .cta-button.diagnostic {
+        transition: none;
+    }
+
+    .made-feature:hover .feature-icon::before,
+    .made-feature:hover .feature-icon::after,
+    .made-feature:hover .icon-ring {
+        animation: none;
+    }
+
+    .image-frame:hover img {
+        transform: none;
+    }
+
+    .product-card:hover .product-image-wrapper img {
+        transform: none;
+    }
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+@media print {
+    .how-it-works,
+    .technology-section,
+    .products-showcase {
+        padding: 2rem 1rem;
+        background: white !important;
+    }
+
+    .made-in-italy {
+        background: white !important;
+    }
+
+    .made-background,
+    .made-overlay {
+        display: none !important;
+    }
+
+    .feature-row,
+    .products-grid {
+        page-break-inside: avoid;
+    }
+
+    .cta-button.diagnostic {
+        display: none;
     }
 }
