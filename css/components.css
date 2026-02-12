@@ -147,34 +147,6 @@ nav.scrolled {
    MOBILE NAVIGATION - HAMBURGER MENU
    ============================================ */
 
-   /* Menu mobile nascosto di default - SLIDE DOWN */
-.hamburger-nav-links {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    background: white;
-    flex-direction: column;
-    padding: 0;
-    gap: 0;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 999;
-    border-bottom: 2px solid #16a34a;
-    pointer-events: none; /* ✅ AGGIUNGI QUESTA RIGA */
-}
-
-/* Menu aperto */
-.hamburger-nav-links.active {
-    max-height: 600px;
-    opacity: 1;
-    padding: 20px 0;
-    pointer-events: auto; /* ✅ AGGIUNGI QUESTA RIGA */
-}
-
 /* HAMBURGER BUTTON - Nascosto su desktop */
 .hamburger {
     display: none;
@@ -957,6 +929,66 @@ footer {
     /* Navigation */
     .nav-container {
         padding: 0 var(--spacing-lg);
+    }
+        /* Mostra hamburger */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Menu mobile - SLIDE DOWN */
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 0;
+        gap: 0;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+        border-bottom: 2px solid #16a34a;
+        pointer-events: none;
+    }
+
+    /* Menu aperto */
+    .nav-links.active {
+        max-height: 600px;
+        opacity: 1;
+        padding: 20px 0;
+        pointer-events: auto;
+    }
+
+    /* Stile link mobile */
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 16px 24px;
+        color: var(--text-dark);
+        font-size: 1rem;
+    }
+
+    .nav-links a::before {
+        display: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: #16a34a;
+        background: rgba(22, 163, 74, 0.05);
     }
 
     nav {
