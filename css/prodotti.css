@@ -361,48 +361,7 @@
    Ottimizzazione per tutte le dimensioni schermo
    ========================================================================== */
 
-/* ==========================================================================
-   DESKTOP LARGE (1400px+)
-   ========================================================================== */
-@media (min-width: 1400px) {
-    .products-intro {
-        padding: var(--spacing-5xl) var(--spacing-2xl);
-    }
-    
-    .intro-content h2 {
-        font-size: 3rem;
-    }
-    
-    .intro-content p {
-        font-size: 1.25rem;
-    }
-    
-    .product-summary-card {
-        max-width: 1200px;
-        grid-template-columns: 400px 1fr;
-    }
-    
-    .product-summary-image {
-        min-height: 380px;
-        padding: 2rem;
-    }
-    
-    .product-photo {
-        max-height: 340px;
-    }
-    
-    .product-summary-content {
-        padding: 2.5rem;
-    }
-    
-    .product-summary-content h2 {
-        font-size: 2rem;
-    }
-    
-    .made-in-italy h2 {
-        font-size: 3.25rem;
-    }
-}
+
 
 /* ==========================================================================
    DESKTOP STANDARD (1200px - 1399px)
