@@ -223,34 +223,35 @@
         console.log('🎮 World switcher initialized');
     }
 
-    // ========== HAMBURGER MENU TOGGLE ==========
-    function initHamburgerMenu() {
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        
-        if (!hamburger || !navLinks) {
-            console.log('⚠️ Hamburger or nav-links not found');
-            return;
+// ========== HAMBURGER MENU ========== 
+function initHamburgerMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (!hamburger || !navLinks) return;
+    
+    // Toggle menu
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+    
+    // Chiudi quando clicchi su un link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+    
+    // Chiudi quando clicchi fuori
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
         }
-        
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-        });
-        
-        // Chiudi menu quando si clicca su un link
-        const links = navLinks.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            });
-        });
-        
-        console.log('🍔 Hamburger menu initialized');
-    }
+    });
+}
 
     // ========== KEYBOARD NAVIGATION ==========
     function initKeyboardNavigation() {
