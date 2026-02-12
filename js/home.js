@@ -304,6 +304,56 @@ function initProgressBarClick() {
     console.log('🎯 Progress bar markers initialized:', progressMarkers.length);
 }
 
+// ========== DEBUG - Scopriamo cosa viene cliccato ==========
+function initProgressBarClickDebug() {
+    const progressMarkers = document.querySelectorAll('.progress-marker');
+    const heroContainer = document.querySelector('.hero-container');
+    
+    // Log TUTTO ciò che viene toccato nella hero
+    heroContainer.addEventListener('touchend', (e) => {
+        console.log('🔍 TOUCH su hero-container!');
+        console.log('Target:', e.target);
+        console.log('Target class:', e.target.className);
+        console.log('Target data-label:', e.target.getAttribute?.('data-label'));
+        console.log('---');
+    }, true); // true = capture phase
+    
+    if (progressMarkers.length === 0) {
+        console.warn('⚠️ No progress markers found!');
+        return;
+    }
+
+    progressMarkers.forEach((marker, index) => {
+        // Click normale per desktop
+        marker.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (isAnimating) return;
+            
+            console.log(`🖱️ CLICK su marker ${index} (${MODEL_ORDER[index]})`);
+            switchContext(index);
+        });
+
+        // Touch per mobile
+        marker.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (isAnimating) return;
+            
+            console.log(`📱 TOUCH su marker ${index} (${MODEL_ORDER[index]})`);
+            console.log('Touch target:', e.target);
+            console.log('Touch currentTarget:', e.currentTarget);
+            switchContext(index);
+        }, { passive: false });
+
+        marker.style.cursor = 'pointer';
+    });
+
+    console.log('🎯 Progress bar markers initialized (DEBUG MODE)');
+}
+
     
     // ========== INITIALIZE ALL HERO EFFECTS ==========
     function init() {
@@ -312,6 +362,7 @@ function initProgressBarClick() {
             initWorldSwitcher();
             initKeyboardNavigation();
             initProgressBarClick();
+            initProgressBarClickDebug();
             
             // Imposta il primo modello
             const initialModel = MODEL_ORDER[currentModelIndex];

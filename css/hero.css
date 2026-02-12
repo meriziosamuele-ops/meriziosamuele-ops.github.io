@@ -1801,3 +1801,39 @@
         height: 100px !important;
     }
 }
+
+/* ==========================================================================
+   TEST - NASCONDE COMPLETAMENTE LE LABEL SU MOBILE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* NASCONDE le label sotto i marker */
+    .progress-marker::after {
+        display: none !important;
+    }
+    
+    /* Aumenta area cliccabile marker */
+    .progress-marker::before {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    /* Aumenta dimensione visiva del marker */
+    .progress-marker {
+        width: 12px !important;
+        height: 12px !important;
+    }
+    
+    /* BLOCCA tutto */
+    .hero-container * {
+        pointer-events: none !important;
+    }
+    
+    /* RIABILITA solo progress bar e marker */
+    .hero-progress,
+    .hero-progress *,
+    .progress-marker,
+    .progress-marker::before {
+        pointer-events: auto !important;
+    }
+}
