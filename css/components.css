@@ -159,13 +159,13 @@ nav.scrolled {
 .hamburger span {
     width: 28px;
     height: 3px;
-    background: var(--white); /* BIANCO su navbar scura */
+    background: var(--dark); /* ✅ SCURO sulla navbar bianca */
     transition: all 0.3s ease;
     border-radius: 2px;
 }
 
 .hamburger.active span {
-    background: var(--white); /* Rimane bianco quando attivo */
+    background: var(--dark); /* ✅ Rimane scuro quando attivo */
 }
 
 .hamburger.active span:nth-child(1) {
@@ -180,32 +180,32 @@ nav.scrolled {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-
 @media (max-width: 968px) {
     .hamburger {
         display: flex;
     }
 
-    /* Menu mobile - SFONDO SCURO, TESTO BIANCO, FULLSCREEN */
+    /* Menu mobile - SFONDO SCURO dentro navbar bianca */
     .nav-links {
-        position: fixed;
-        top: 0; /* ✅ Parte da 0, non da 80px */
+        position: absolute;
+        top: 100%; /* ✅ Inizia SOTTO la navbar */
         right: -100%;
         width: 100%;
         max-width: 400px;
-        height: 100vh; /* ✅ Occupa TUTTA l'altezza */
         background: rgba(10, 10, 10, 0.98); /* ✅ SFONDO SCURO */
         backdrop-filter: blur(20px);
         flex-direction: column;
         gap: var(--spacing-xl);
-        padding: 6rem var(--spacing-2xl) var(--spacing-3xl); /* ✅ Padding dall'alto per lasciare spazio */
+        padding: var(--spacing-2xl);
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         border-left: 2px solid rgba(22, 163, 74, 0.3);
+        border-bottom: 2px solid rgba(22, 163, 74, 0.3);
         align-items: flex-start;
         justify-content: flex-start;
+        box-shadow: -10px 10px 40px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+        max-height: calc(100vh - 80px);
         overflow-y: auto;
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
-        z-index: 1000;
     }
 
     .nav-links.active {
@@ -216,17 +216,18 @@ nav.scrolled {
         font-size: 1.25rem;
         padding: var(--spacing-sm) 0;
         width: 100%;
-        color: rgba(255, 255, 255, 0.9); /* ✅ TESTO BIANCO */
+        color: rgba(255, 255, 255, 0.9); /* ✅ TESTO BIANCO su sfondo scuro */
+        transition: all 0.3s ease;
     }
 
     .nav-links a::before {
         height: 3px;
-        background: var(--green); /* ✅ Underline verde */
+        background: var(--green);
     }
 
     .nav-links a:hover,
     .nav-links a.active {
-        color: var(--white); /* ✅ BIANCO al 100% */
+        color: var(--white);
         padding-left: var(--spacing-sm);
     }
 }
@@ -234,8 +235,8 @@ nav.scrolled {
 /* Mobile più piccolo */
 @media (max-width: 640px) {
     .nav-links {
-        max-width: 100%; /* ✅ Full width su mobile piccolo */
-        padding: 5rem var(--spacing-lg) var(--spacing-2xl);
+        max-width: 100%;
+        padding: var(--spacing-xl) var(--spacing-lg);
         border-left: none;
     }
 
@@ -246,7 +247,7 @@ nav.scrolled {
 
 @media (max-width: 480px) {
     .nav-links {
-        padding: 4.5rem var(--spacing-md) var(--spacing-xl);
+        padding: var(--spacing-lg) var(--spacing-md);
     }
 
     .nav-links a {

@@ -276,44 +276,6 @@
         console.log('⌨️ Keyboard navigation enabled (← →)');
     }
 
-    // ========== TOUCH SWIPE NAVIGATION ==========
-    function initTouchSwipe() {
-        const heroContainer = document.querySelector('.hero-container');
-        if (!heroContainer) return;
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        heroContainer.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        heroContainer.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
-
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-
-            if (Math.abs(diff) < swipeThreshold) return;
-
-            let newIndex;
-            
-            if (diff > 0) {
-                // Swipe left → next
-                newIndex = (currentModelIndex + 1) % MODEL_ORDER.length;
-            } else {
-                // Swipe right → prev
-                newIndex = (currentModelIndex - 1 + MODEL_ORDER.length) % MODEL_ORDER.length;
-            }
-            
-            switchContext(newIndex);
-        }
-
-        console.log('👆 Touch swipe navigation enabled');
-    }
 
     // ========== SCROLL TO TOP ==========
     function initScrollToTop() {
@@ -361,10 +323,9 @@
             initWorldSwitcher();
             initHamburgerMenu();  
             initKeyboardNavigation();
-            initTouchSwipe();
             initScrollToTop();
             initNavScroll();
-            initFadeInAnimations(); // ← AGGIUNTO QUI
+            initFadeInAnimations(); 
             
             // Imposta il primo modello
             const initialModel = MODEL_ORDER[currentModelIndex];
