@@ -266,27 +266,7 @@
     }
 
 
-    // ========== CLICK SUI MARKER DELLA PROGRESS BAR ==========
-    function initProgressBarClick() {
-        const progressMarkers = document.querySelectorAll('.progress-marker');
-        
-        if (progressMarkers.length === 0) return;
-
-        progressMarkers.forEach((marker, index) => {
-            marker.addEventListener('click', () => {
-                if (isAnimating) return;
-                switchContext(index);
-            });
-
-            // Cambia cursore per indicare che è cliccabile
-            marker.style.cursor = 'pointer';
-        });
-
-        console.log('🎯 Progress bar markers clickable');
-    }
-
-
-    // ========== CLICK/TOUCH SUI MARKER DELLA PROGRESS BAR - MOBILE FIX ==========
+// ========== CLICK SUI MARKER DELLA PROGRESS BAR - FIX MINIMALE ==========
 function initProgressBarClick() {
     const progressMarkers = document.querySelectorAll('.progress-marker');
     
@@ -296,108 +276,38 @@ function initProgressBarClick() {
     }
 
     progressMarkers.forEach((marker, index) => {
-        // ✅ CLICK per desktop
+        // Click normale per desktop
         marker.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
             
-            if (isAnimating) {
-                console.log('⏳ Click ignored - animating');
-                return;
-            }
+            if (isAnimating) return;
             
-            console.log(`🖱️ Marker CLICKED: ${index} (${MODEL_ORDER[index]})`);
+            console.log(`🎯 Marker clicked: ${index} (${MODEL_ORDER[index]})`);
             switchContext(index);
         });
 
-        // ✅ TOUCH per mobile - più affidabile
-        let touchStartTime = 0;
-        let touchStartX = 0;
-        let touchStartY = 0;
-        
-        marker.addEventListener('touchstart', (e) => {
-            touchStartTime = Date.now();
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
-            
-            // Feedback visivo immediato
-            marker.style.transform = 'translateY(-2px) scale(1.5)';
-            marker.style.transition = 'transform 0.1s';
-            
-            console.log(`👆 Touch START on marker ${index}`);
-        }, { passive: false });
-        
+        // Touch per mobile - SEMPLICE
         marker.addEventListener('touchend', (e) => {
             e.preventDefault();
             e.stopPropagation();
             
-            const touchEndTime = Date.now();
-            const touchEndX = e.changedTouches[0].clientX;
-            const touchEndY = e.changedTouches[0].clientY;
+            if (isAnimating) return;
             
-            // Ripristina stile
-            setTimeout(() => {
-                marker.style.transform = '';
-                marker.style.transition = '';
-            }, 200);
-            
-            // Verifica che sia un tap (non uno swipe)
-            const touchDuration = touchEndTime - touchStartTime;
-            const touchDistanceX = Math.abs(touchEndX - touchStartX);
-            const touchDistanceY = Math.abs(touchEndY - touchStartY);
-            const totalDistance = Math.sqrt(touchDistanceX ** 2 + touchDistanceY ** 2);
-            
-            console.log(`👆 Touch END on marker ${index}:`);
-            console.log(`   Duration: ${touchDuration}ms`);
-            console.log(`   Distance: ${totalDistance.toFixed(2)}px`);
-            
-            // È un tap se:
-            // - durata < 500ms
-            // - movimento < 10px
-            if (touchDuration < 500 && totalDistance < 10) {
-                if (isAnimating) {
-                    console.log('⏳ Touch ignored - animating');
-                    return;
-                }
-                
-                console.log(`✅ Valid TAP on marker ${index} → switching to ${MODEL_ORDER[index]}`);
-                switchContext(index);
-            } else {
-                console.log(`❌ Invalid tap (duration: ${touchDuration}ms, distance: ${totalDistance}px)`);
-            }
+            console.log(`📱 Marker touched: ${index} (${MODEL_ORDER[index]})`);
+            switchContext(index);
         }, { passive: false });
 
-        // Previeni comportamenti strani
-        marker.addEventListener('touchmove', (e) => {
-            // Non bloccare lo scroll se l'utente sta davvero scrollando
-            const touchX = e.touches[0].clientX;
-            const touchY = e.touches[0].clientY;
-            const distanceX = Math.abs(touchX - touchStartX);
-            const distanceY = Math.abs(touchY - touchStartY);
-            
-            // Se movimento verticale > orizzontale, è scroll → non preveniamo
-            if (distanceY > distanceX && distanceY > 5) {
-                return; // Lascia scrollare
-            }
-            
-            // Altrimenti previeni (è un tap o movimento orizzontale)
-            e.preventDefault();
-        }, { passive: false });
-
-        // Cambia cursore per indicare che è cliccabile
         marker.style.cursor = 'pointer';
-        // Importante per touch
-        marker.style.touchAction = 'manipulation';
-        marker.style.webkitTapHighlightColor = 'transparent';
     });
 
     console.log('🎯 Progress bar markers initialized:', progressMarkers.length);
-    console.log('📱 Touch events enabled for mobile');
 }
+
+    
     // ========== INITIALIZE ALL HERO EFFECTS ==========
     function init() {
         try {
-            initProgressBarClick();
             createParticles();
             initWorldSwitcher();
             initKeyboardNavigation();
