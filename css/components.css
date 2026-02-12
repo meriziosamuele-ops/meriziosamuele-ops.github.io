@@ -919,9 +919,9 @@ footer {
         font-size: 1.05rem;
     }
 
-    /* Page Header */
+    /* Page Header - FIX NAVBAR */
     .page-header {
-        padding: 6rem var(--spacing-lg) 3.5rem;
+        padding: 7rem var(--spacing-lg) 3.5rem; /* ✅ Aumentato da 6rem */
     }
 
     .page-header h1 {
@@ -1044,9 +1044,9 @@ footer {
         font-size: 0.95rem;
     }
 
-    /* Page Header */
+    /* Page Header - FIX NAVBAR */
     .page-header {
-        padding: 5rem var(--spacing-lg) 3rem;
+        padding: 6rem var(--spacing-lg) 3rem; /* ✅ Aumentato da 5rem */
     }
 
     .page-header h1 {
@@ -1253,9 +1253,9 @@ footer {
         font-size: 0.875rem;
     }
 
-    /* Page Header */
+    /* Page Header - FIX NAVBAR */
     .page-header {
-        padding: 4.5rem var(--spacing-md) 2.5rem;
+        padding: 5.5rem var(--spacing-md) 2.5rem; /* ✅ Aumentato da 4.5rem */
     }
 
     .page-header h1 {
@@ -1396,9 +1396,9 @@ footer {
         font-size: 0.8125rem;
     }
 
-    /* Page Header */
+    /* Page Header - FIX NAVBAR */
     .page-header {
-        padding: 4rem 1rem 2rem;
+        padding: 5rem 1rem 2rem; /* ✅ Aumentato da 4rem */
     }
 
     .page-header h1 {
@@ -1483,7 +1483,11 @@ footer {
         font-size: 0.75rem;
     }
 
-    /* Page Header */
+    /* Page Header - FIX NAVBAR */
+    .page-header {
+        padding: 4.5rem 1rem 2rem; /* ✅ Mantenuto sufficiente spazio */
+    }
+
     .page-header h1 {
         font-size: 1.5rem;
     }
@@ -1557,9 +1561,9 @@ footer {
         padding: 8px 0;
     }
 
-    /* Page header ridotto in landscape */
+    /* Page header ridotto in landscape - FIX NAVBAR */
     .page-header {
-        padding: 3rem var(--spacing-md) 2rem;
+        padding: 4.5rem var(--spacing-md) 2rem; /* ✅ Aumentato da 3rem */
     }
 
     .page-header h1 {

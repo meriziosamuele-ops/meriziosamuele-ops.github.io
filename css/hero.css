@@ -888,14 +888,331 @@
 }
 
 /* ==========================================================================
-   RESPONSIVE PROGRESS BAR
+   HERO RESPONSIVE - Ottimizzazioni per tutti i dispositivi
+   Mobile: Solo progress bar (no world switcher)
+   Desktop: Progress bar + world switcher
    ========================================================================== */
 
-@media (max-width: 768px) {
+/* ==========================================================================
+   DESKTOP LARGE - Oltre 1400px
+   ========================================================================== */
+@media (min-width: 1400px) {
+    .hero-content {
+        max-width: 1600px;
+    }
+
+    .hero-layout {
+        gap: 5rem;
+    }
+
+    .machine-container {
+        max-width: 800px;
+        height: 600px;
+    }
+
+    .hero-description {
+        max-width: 700px;
+    }
+
+    .hero-glow {
+        width: 1000px;
+        height: 1000px;
+    }
+}
+
+/* ==========================================================================
+   DESKTOP STANDARD - 1280px
+   ========================================================================== */
+@media (max-width: 1280px) {
+    .hero-layout {
+        gap: 4rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .machine-container {
+        max-width: 650px;
+        height: 550px;
+    }
+
+    .hero-description {
+        max-width: 580px;
+    }
+}
+
+/* ==========================================================================
+   TABLET LANDSCAPE - 1024px
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .hero-content {
+        padding: 5rem 2rem 2rem;
+        height: auto;
+        min-height: 700px;
+    }
+
+    .hero-layout {
+        gap: 3.5rem;
+    }
+
+    .hero-left {
+        padding-right: 1.5rem;
+        gap: 1.75rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+    }
+
+    .machine-container {
+        max-width: 600px;
+        height: 500px;
+    }
+
+    .hero-description {
+        padding: 1.75rem;
+        max-width: 550px;
+    }
+
+    .hero-description p {
+        font-size: 1.1rem;
+    }
+
+    .world-switcher {
+        gap: 1.75rem;
+    }
+
+    .world-btn {
+        padding: 1.15rem 2.75rem;
+        font-size: 0.8rem;
+    }
+
     .hero-progress {
+        margin-top: 6rem;
+    }
+}
+
+/* ==========================================================================
+   TABLET - 968px (Layout diventa single column)
+   ========================================================================== */
+@media (max-width: 968px) {
+    .hero-content {
+        padding: 5.5rem 2rem 2rem;
+        min-height: 650px;
+    }
+
+    .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    /* Riordina: prima macchina, poi testo */
+    .hero-left {
+        padding-right: 0;
+        order: 2;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .hero-right {
+        order: 1;
+    }
+
+    /* Centra tutto il testo */
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero-badge {
+        margin-bottom: 1.25rem;
+    }
+
+    .hero-description {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .machine-container {
+        height: 450px;
+        max-width: 550px;
+        margin: 0 auto;
+    }
+
+    .world-switcher {
+        gap: 1.5rem;
+        justify-content: center;
+    }
+
+    .world-btn {
+        padding: 1.1rem 2.5rem;
+        font-size: 0.75rem;
+    }
+
+    .hero-progress {
+        margin-top: 5.5rem;
+    }
+
+    .hero-glow {
+        width: 700px;
+        height: 700px;
+    }
+}
+
+/* ==========================================================================
+   MOBILE LARGE - 768px (Nasconde world switcher, mostra solo progress)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 5rem 1.5rem 2rem;
+        min-height: 600px;
+    }
+
+    .hero-layout {
+        gap: 2.5rem;
+    }
+
+    .hero-text {
+        gap: 1.25rem;
+    }
+
+    .hero-badge {
+        font-size: 0.7rem;
+        padding: 0.45rem 1.35rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 9vw, 3.5rem);
+        margin-bottom: 0.875rem;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(0.95rem, 3.5vw, 1.2rem);
+    }
+
+    .machine-container {
+        height: 400px;
+        max-width: 500px;
+    }
+
+    .hero-description {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+
+    .hero-description p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+
+    /* ✅ NASCONDE WORLD SWITCHER SU MOBILE */
+    .world-switcher {
+        display: none !important;
+    }
+
+    /* ✅ PROGRESS BAR PIÙ VISIBILE E CENTRATA */
+    .hero-progress {
+        margin-top: 4.5rem;
+        padding: 0.875rem 1.75rem;
+        gap: 1rem;
+    }
+
+    .progress-track {
+        width: 180px;
+    }
+
+    .progress-label {
+        font-size: 0.7rem;
+    }
+
+    .progress-dot {
+        width: 14px;
+        height: 14px;
+    }
+
+    .progress-marker {
+        width: 7px;
+        height: 7px;
+    }
+
+    .progress-marker::after {
+        font-size: 0.6rem;
+        top: 1.85rem;
+    }
+
+    .progress-marker::before {
+        width: 44px;
+        height: 44px;
+    }
+
+    .hero-glow {
+        width: 600px;
+        height: 600px;
+    }
+
+    .grid-background {
+        background-size: 45px 45px;
+    }
+}
+
+/* ==========================================================================
+   MOBILE - 640px
+   ========================================================================== */
+@media (max-width: 640px) {
+    .hero-content {
+        padding: 4.5rem 1.25rem 1.75rem;
+        min-height: 550px;
+    }
+
+    .hero-layout {
+        gap: 2rem;
+    }
+
+    .hero-text {
+        gap: 1rem;
+    }
+
+    .hero-badge {
+        font-size: 0.65rem;
+        padding: 0.4rem 1.2rem;
+        letter-spacing: 0.15em;
+    }
+
+    .hero-title {
+        font-size: clamp(1.75rem, 11vw, 3rem);
+        margin-bottom: 0.75rem;
+        line-height: 1.15;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(0.9rem, 4vw, 1.1rem);
+        line-height: 1.5;
+    }
+
+    .machine-container {
+        height: 350px;
+        max-width: 100%;
+    }
+
+    .hero-description {
+        padding: 1.25rem;
+        border-left-width: 3px;
+    }
+
+    .hero-description p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+
+    /* Progress bar compatta */
+    .hero-progress {
+        margin-top: 4rem;
         padding: 0.75rem 1.5rem;
-        gap: 0.75rem;
-        margin-top: 5rem;
+        gap: 0.875rem;
     }
 
     .progress-track {
@@ -907,33 +1224,101 @@
     }
 
     .progress-dot {
-        width: 14px;
-        height: 14px;
+        width: 13px;
+        height: 13px;
+        border-width: 2.5px;
+    }
+
+    .progress-marker {
+        width: 6.5px;
+        height: 6.5px;
     }
 
     .progress-marker::after {
-        font-size: 0.6rem;
-        top: 1.75rem;
+        font-size: 0.58rem;
+        top: 1.7rem;
     }
-    
+
     .progress-marker::before {
-        width: 44px;
-        height: 44px;
+        width: 46px;
+        height: 46px;
+    }
+
+    .hero-glow {
+        width: 500px;
+        height: 500px;
+        filter: blur(90px);
+    }
+
+    .grid-background {
+        background-size: 40px 40px;
+    }
+
+    /* Particelle meno dense su mobile */
+    .particle {
+        opacity: 0.3;
     }
 }
 
-@media (max-width: 640px) {
+/* ==========================================================================
+   MOBILE SMALL - 480px
+   ========================================================================== */
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 4rem 1rem 1.5rem;
+        min-height: 500px;
+    }
+
+    .hero-layout {
+        gap: 1.75rem;
+    }
+
+    .hero-text {
+        gap: 0.875rem;
+    }
+
+    .hero-badge {
+        font-size: 0.6rem;
+        padding: 0.35rem 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+        font-size: clamp(1.5rem, 13vw, 2.5rem);
+        margin-bottom: 0.625rem;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(0.85rem, 4.5vw, 1rem);
+    }
+
+    .machine-container {
+        height: 300px;
+    }
+
+    .hero-description {
+        padding: 1rem;
+        border-radius: 6px;
+    }
+
+    .hero-description p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    /* Progress bar ultra compatta */
     .hero-progress {
-        padding: 0.6rem 1.25rem;
-        margin-top: 4rem;
+        margin-top: 3.5rem;
+        padding: 0.65rem 1.25rem;
+        gap: 0.75rem;
     }
 
     .progress-track {
-        width: 120px;
+        width: 130px;
     }
 
     .progress-label {
-        display: none;
+        font-size: 0.6rem;
     }
 
     .progress-dot {
@@ -949,261 +1334,65 @@
 
     .progress-marker::after {
         font-size: 0.55rem;
-        top: 1.5rem;
+        top: 1.6rem;
     }
-    
+
     .progress-marker::before {
         width: 48px;
         height: 48px;
     }
-}
-
-@media (max-width: 480px) {
-    .hero-progress {
-        margin-top: 3rem;
-    }
-
-    .progress-track {
-        width: 100px;
-    }
-
-    .progress-marker::after {
-        font-size: 0.5rem;
-        top: 1.35rem;
-    }
-}
-/* ==========================================================================
-   RESPONSIVE DESIGN
-   ========================================================================== */
-
-/* TABLET LANDSCAPE - 1024px */
-@media (max-width: 1024px) {
-    .hero-content {
-        padding: 5rem 1.5rem 2rem;
-    }
-
-    .hero-layout {
-        gap: 3rem;
-    }
-
-    .hero-left {
-        padding-right: 1rem;
-    }
-
-    .machine-container {
-        max-width: 600px;
-        height: 550px;
-    }
-
-    .hero-description {
-        padding: 1.5rem;
-    }
-
-    .hero-description p {
-        font-size: 1.05rem;
-    }
-}
-
-/* TABLET - 968px */
-@media (max-width: 968px) {
-    .hero-content {
-        padding: 5rem 1.5rem 2rem;
-    }
-
-    .hero-layout {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
-
-    .hero-left {
-        padding-right: 0;
-        order: 2;
-        align-items: center;
-    }
-
-    .hero-right {
-        order: 1;
-    }
-
-    .hero-text {
-        text-align: center;
-    }
-
-    .hero-badge {
-        margin-bottom: 1rem;
-    }
-
-    .hero-description {
-        text-align: center;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    .machine-container {
-        height: 500px;
-        max-width: 550px;
-    }
-
-    .world-switcher {
-        gap: 1.5rem;
-        justify-content: center;
-    }
-
-    .world-btn {
-        padding: 1.1rem 2.5rem;
-        font-size: 0.8rem;
-    }
-}
-
-/* MOBILE LANDSCAPE - 768px */
-@media (max-width: 768px) {
-    .hero-content {
-        padding: 4.5rem 1.25rem 2rem;
-    }
-
-    .hero-layout {
-        gap: 2rem;
-    }
-
-    .hero-title {
-        font-size: clamp(2rem, 10vw, 3.5rem);
-    }
-
-    .hero-subtitle {
-        font-size: clamp(0.95rem, 3vw, 1.2rem);
-    }
-
-    .machine-container {
-        height: 420px;
-        max-width: 480px;
-    }
-
-    .hero-description {
-        padding: 1.25rem;
-    }
-
-    .hero-description p {
-        font-size: 1rem;
-        line-height: 1.7;
-    }
-
-    .world-switcher {
-        gap: 1.25rem;
-        flex-wrap: wrap;
-    }
-
-    .world-btn {
-        padding: 1rem 2rem;
-        font-size: 0.75rem;
-    }
 
     .hero-glow {
-        width: 600px;
-        height: 600px;
-    }
-}
-
-/* MOBILE - 640px */
-@media (max-width: 640px) {
-    .hero-content {
-        padding: 4rem 1rem 1.5rem;
-    }
-
-    .hero-layout {
-        gap: 1.5rem;
-    }
-
-    .hero-text {
-        margin-bottom: 0;
-    }
-
-    .hero-badge {
-        font-size: 0.65rem;
-        padding: 0.4rem 1.2rem;
-        letter-spacing: 0.15em;
-    }
-
-    .hero-title {
-        font-size: clamp(1.75rem, 12vw, 3rem);
-        margin-bottom: 0.75rem;
-    }
-
-    .hero-subtitle {
-        font-size: clamp(0.9rem, 4vw, 1.1rem);
-    }
-
-    .machine-container {
-        height: 360px;
-        max-width: 100%;
-    }
-
-    .hero-description {
-        padding: 1rem;
-        border-left-width: 3px;
-    }
-
-    .hero-description p {
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-
-    .world-switcher {
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-        max-width: 320px;
-    }
-
-    .world-btn {
-        width: 100%;
-        padding: 1rem 1.5rem;
-        font-size: 0.7rem;
-        letter-spacing: 0.12em;
-    }
-
-    .world-btn:hover {
-        transform: translateY(-2px);
-    }
-
-    .world-label {
-        display: none;
-    }
-
-    .hero-glow {
-        width: 500px;
-        height: 500px;
+        width: 400px;
+        height: 400px;
+        filter: blur(80px);
     }
 
     .grid-background {
-        background-size: 40px 40px;
+        background-size: 35px 35px;
+    }
+
+    /* Chromatic aberration ridotta */
+    .hero-container[data-world="cyber"] .machine-container::before,
+    .hero-container[data-world="industrial"] .machine-container::before {
+        opacity: 0.2;
+    }
+
+    .hero-container[data-world="cyber"] .machine-container::after,
+    .hero-container[data-world="industrial"] .machine-container::after {
+        opacity: 0.15;
     }
 }
 
-/* MOBILE SMALL - 480px */
-@media (max-width: 480px) {
+/* ==========================================================================
+   MOBILE EXTRA SMALL - 375px
+   ========================================================================== */
+@media (max-width: 375px) {
     .hero-content {
-        padding: 3.5rem 0.75rem 1.25rem;
+        padding: 3.5rem 0.875rem 1.25rem;
+        min-height: 480px;
     }
 
     .hero-layout {
-        gap: 1.25rem;
+        gap: 1.5rem;
     }
 
     .hero-badge {
-        font-size: 0.6rem;
-        padding: 0.35rem 1rem;
+        font-size: 0.58rem;
+        padding: 0.3rem 0.875rem;
     }
 
     .hero-title {
-        font-size: clamp(1.5rem, 14vw, 2.5rem);
+        font-size: clamp(1.35rem, 14vw, 2.25rem);
+        margin-bottom: 0.5rem;
     }
 
     .hero-subtitle {
-        font-size: clamp(0.85rem, 4.5vw, 1rem);
+        font-size: clamp(0.8rem, 5vw, 0.95rem);
     }
 
     .machine-container {
-        height: 320px;
+        height: 260px;
     }
 
     .hero-description {
@@ -1211,45 +1400,318 @@
     }
 
     .hero-description p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         line-height: 1.55;
     }
 
-    .world-switcher {
-        max-width: 280px;
+    /* Progress bar minima */
+    .hero-progress {
+        margin-top: 3rem;
+        padding: 0.6rem 1rem;
+        gap: 0.65rem;
     }
 
-    .world-btn {
-        padding: 0.875rem 1.25rem;
-        font-size: 0.65rem;
+    .progress-track {
+        width: 110px;
+    }
+
+    .progress-label {
+        font-size: 0.58rem;
+    }
+
+    .progress-dot {
+        width: 11px;
+        height: 11px;
+    }
+
+    .progress-marker {
+        width: 5.5px;
+        height: 5.5px;
+    }
+
+    .progress-marker::after {
+        font-size: 0.52rem;
+        top: 1.5rem;
+    }
+
+    .progress-marker::before {
+        width: 50px;
+        height: 50px;
     }
 
     .hero-glow {
-        width: 400px;
-        height: 400px;
+        width: 350px;
+        height: 350px;
     }
 }
 
-/* MOBILE EXTRA SMALL - 375px */
-@media (max-width: 375px) {
+/* ==========================================================================
+   MOBILE MINI - 320px
+   ========================================================================== */
+@media (max-width: 320px) {
     .hero-content {
-        padding: 3rem 0.5rem 1rem;
+        padding: 3rem 0.75rem 1rem;
+        min-height: 450px;
+    }
+
+    .hero-badge {
+        font-size: 0.55rem;
+        padding: 0.275rem 0.75rem;
     }
 
     .hero-title {
-        font-size: clamp(1.35rem, 15vw, 2.25rem);
+        font-size: clamp(1.2rem, 15vw, 2rem);
+    }
+
+    .machine-container {
+        height: 240px;
+    }
+
+    .hero-description p {
+        font-size: 0.8rem;
+    }
+
+    .hero-progress {
+        margin-top: 2.5rem;
+        padding: 0.55rem 0.875rem;
+    }
+
+    .progress-track {
+        width: 100px;
+    }
+
+    .progress-label {
+        display: none; /* Nasconde label su schermi piccolissimi */
+    }
+
+    .progress-marker::after {
+        font-size: 0.5rem;
+        top: 1.4rem;
+    }
+}
+
+/* ==========================================================================
+   LANDSCAPE MOBILE OPTIMIZATION
+   ========================================================================== */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero-content {
+        padding: 3rem 1.5rem 1.5rem;
+        min-height: auto;
+    }
+
+    .hero-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .hero-left {
+        order: 1;
+        text-align: left;
+    }
+
+    .hero-right {
+        order: 2;
+    }
+
+    .hero-text {
+        text-align: left;
+    }
+
+    .hero-badge {
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(0.85rem, 2vw, 1rem);
     }
 
     .machine-container {
         height: 280px;
     }
 
-    .hero-description p {
-        font-size: 0.85rem;
+    .hero-description {
+        padding: 1rem;
+        max-width: 500px;
+        text-align: left;
     }
 
-    .world-btn {
-        font-size: 0.6rem;
-        padding: 0.75rem 1rem;
+    .hero-description p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    .hero-progress {
+        margin-top: 2.5rem;
+        padding: 0.6rem 1.25rem;
+    }
+
+    .progress-track {
+        width: 120px;
+    }
+
+    .world-switcher {
+        display: none !important;
+    }
+
+    .hero-glow {
+        width: 450px;
+        height: 450px;
+    }
+
+    .grid-background {
+        background-size: 35px 35px;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-content {
+        padding: 2.5rem 1.5rem 1.25rem;
+    }
+
+    .hero-layout {
+        gap: 1.5rem;
+    }
+
+    .hero-title {
+        font-size: clamp(1.35rem, 4.5vw, 2.25rem);
+    }
+
+    .machine-container {
+        height: 240px;
+    }
+
+    .hero-description {
+        padding: 0.875rem;
+    }
+
+    .hero-description p {
+        font-size: 0.8rem;
+    }
+
+    .hero-progress {
+        margin-top: 2rem;
+    }
+}
+
+/* ==========================================================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ========================================================================== */
+@media (hover: none) and (pointer: coarse) {
+    /* Area cliccabile più grande per marker su touch */
+    .progress-marker::before {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Rimuovi hover effects su touch devices */
+    .world-btn:hover {
+        transform: none;
+    }
+
+    .progress-marker:hover {
+        transform: translateY(-2px) scale(1.1);
+    }
+
+    /* Active states per feedback visivo */
+    .world-btn:active {
+        transform: scale(0.97);
+    }
+
+    .progress-marker:active {
+        transform: translateY(-2px) scale(1.3);
+    }
+}
+
+/* ==========================================================================
+   HIGH RESOLUTION DISPLAYS (Retina, 4K)
+   ========================================================================== */
+@media (min-resolution: 192dpi) {
+    .machine-image {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+
+    .hero-glow {
+        filter: blur(120px);
+    }
+}
+
+/* ==========================================================================
+   REDUCED MOTION (Accessibility)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .grid-background {
+        animation: none;
+    }
+
+    .particle {
+        animation: none;
+    }
+
+    .hero-glow {
+        animation: none;
+    }
+
+    .machine-container::before,
+    .machine-container::after {
+        animation: none;
+    }
+
+    .hero-text,
+    .machine-container,
+    .hero-description,
+    .world-switcher,
+    .hero-progress {
+        animation: none;
+    }
+
+    .hero-container {
+        transition: background 0.1s;
+    }
+
+    .progress-fill,
+    .progress-dot {
+        transition: all 0.2s ease;
+    }
+}
+
+/* ==========================================================================
+   DARK MODE (se implementato in futuro)
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+    /* Già gestito tramite data-world */
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+@media print {
+    .hero-container {
+        background: white !important;
+        min-height: auto;
+    }
+
+    .grid-background,
+    .particles,
+    .hero-glow,
+    .world-switcher,
+    .hero-progress {
+        display: none !important;
+    }
+
+    .hero-content {
+        padding: 2rem;
+    }
+
+    .hero-title,
+    .hero-subtitle,
+    .hero-description p {
+        color: black !important;
+        text-shadow: none !important;
     }
 }
