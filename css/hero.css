@@ -906,8 +906,8 @@
     }
 
     .machine-container {
-        max-width: 800px;
-        height: 600px;
+        max-width: 700px; /* ✅ Ridotto da 800px */
+        height: 500px; /* ✅ Mantiene altezza originale */
     }
 
     .hero-description {
@@ -1067,7 +1067,7 @@
    ========================================================================== */
 @media (max-width: 768px) {
     .hero-content {
-        padding: 5rem 1.5rem 2rem;
+        padding: 6.5rem 1.5rem 2rem; /* ✅ Aumentato da 5rem per navbar */
         min-height: 600px;
     }
 
@@ -1164,7 +1164,7 @@
    ========================================================================== */
 @media (max-width: 640px) {
     .hero-content {
-        padding: 4.5rem 1.25rem 1.75rem;
+        padding: 6rem 1.25rem 1.75rem; /* ✅ Aumentato da 4.5rem */
         min-height: 550px;
     }
 
@@ -1265,7 +1265,7 @@
    ========================================================================== */
 @media (max-width: 480px) {
     .hero-content {
-        padding: 4rem 1rem 1.5rem;
+        padding: 5.5rem 1rem 1.5rem; /* ✅ Aumentato da 4rem */
         min-height: 500px;
     }
 
@@ -1369,7 +1369,7 @@
    ========================================================================== */
 @media (max-width: 375px) {
     .hero-content {
-        padding: 3.5rem 0.875rem 1.25rem;
+        padding: 5rem 0.875rem 1.25rem; /* ✅ Aumentato da 3.5rem */
         min-height: 480px;
     }
 
@@ -1450,7 +1450,7 @@
    ========================================================================== */
 @media (max-width: 320px) {
     .hero-content {
-        padding: 3rem 0.75rem 1rem;
+        padding: 4.5rem 0.75rem 1rem; /* ✅ Aumentato da 3rem */
         min-height: 450px;
     }
 
@@ -1495,7 +1495,7 @@
    ========================================================================== */
 @media (max-height: 600px) and (orientation: landscape) {
     .hero-content {
-        padding: 3rem 1.5rem 1.5rem;
+        padding: 4.5rem 1.5rem 1.5rem; /* ✅ Aumentato da 3rem */
         min-height: auto;
     }
 
@@ -1570,7 +1570,7 @@
 
 @media (max-height: 500px) and (orientation: landscape) {
     .hero-content {
-        padding: 2.5rem 1.5rem 1.25rem;
+        padding: 4rem 1.5rem 1.25rem; /* ✅ Aumentato da 2.5rem */
     }
 
     .hero-layout {
