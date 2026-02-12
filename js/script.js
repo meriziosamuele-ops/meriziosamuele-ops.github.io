@@ -169,6 +169,35 @@
         });
     }
 
+    // ========== FADE-IN-UP ANIMATIONS ON SCROLL ==========
+    function initFadeInAnimations() {
+        const fadeElements = document.querySelectorAll('.fade-in-up');
+        
+        if (fadeElements.length === 0) {
+            console.log('⚠️ No fade-in-up elements found');
+            return;
+        }
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        console.log('✨ Fade-in animations initialized:', fadeElements.length, 'elements');
+    }
+
     // ========== WORLD SWITCHER CON CONTEXT SWITCH ==========
     function initWorldSwitcher() {
         const heroContainer = document.querySelector('.hero-container');
@@ -335,6 +364,7 @@
             initTouchSwipe();
             initScrollToTop();
             initNavScroll();
+            initFadeInAnimations(); // ← AGGIUNTO QUI
             
             // Imposta il primo modello
             const initialModel = MODEL_ORDER[currentModelIndex];

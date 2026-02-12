@@ -2,6 +2,7 @@
 // OPTIFORM HERO - JavaScript Completo
 // Con Progress Bar Navigation + Click su Marker
 // Animazione circolare CORRETTA
+// TOUCH SWIPE DISABILITATO (solo frecce tastiera)
 // ============================================
 
 (function() {
@@ -264,43 +265,11 @@
         console.log('⌨️ Keyboard navigation enabled (← →)');
     }
 
-    // ========== TOUCH SWIPE NAVIGATION ==========
+    // ========== TOUCH SWIPE NAVIGATION - DISABILITATO ==========
+    // Rimosso per evitare conflitti con lo scroll verticale su mobile
+    // Gli utenti mobile possono usare i bottoni o i markers della progress bar
     function initTouchSwipe() {
-        const heroContainer = document.querySelector('.hero-container');
-        if (!heroContainer) return;
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        heroContainer.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        heroContainer.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
-
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-
-            if (Math.abs(diff) < swipeThreshold) return;
-
-            let newIndex;
-            
-            if (diff > 0) {
-                // Swipe left → next
-                newIndex = (currentModelIndex + 1) % MODEL_ORDER.length;
-            } else {
-                // Swipe right → prev
-                newIndex = (currentModelIndex - 1 + MODEL_ORDER.length) % MODEL_ORDER.length;
-            }
-            
-            switchContext(newIndex);
-        }
-
-        console.log('👆 Touch swipe navigation enabled');
+        console.log('👆 Touch swipe disabled (use buttons or markers on mobile)');
     }
 
     // ========== CLICK SUI MARKER DELLA PROGRESS BAR ==========
@@ -328,7 +297,7 @@
             createParticles();
             initWorldSwitcher();
             initKeyboardNavigation();
-            initTouchSwipe();
+            initTouchSwipe(); // Ora è disabilitato ma mantiene il log
             initProgressBarClick();
             
             // Imposta il primo modello
@@ -342,10 +311,9 @@
             }
             
             console.log('🚀 Hero initialized successfully');
-            console.log('💡 Use arrow keys ← → or swipe to navigate');
-            console.log('🎯 Click on progress markers to switch models');
+            console.log('💡 Desktop: Use arrow keys ← → to navigate');
+            console.log('📱 Mobile: Use buttons or click on progress markers');
             console.log('📋 Model order: K75S → K75 → K53 (circular loop)');
-            console.log('✅ Circular animation: K53→K75S goes RIGHT, K75S→K53 goes LEFT');
         } catch (error) {
             console.error('❌ Hero initialization error:', error);
         }
