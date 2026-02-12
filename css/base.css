@@ -364,29 +364,6 @@ h3 {
    Desktop:        1280px+   (Standard desktop)
 */
 
-/* ==========================================================================
-   DESKTOP SMALL - 1280px
-   ========================================================================== */
-@media (max-width: 1280px) {
-    :root {
-        --spacing-4xl: 5rem;
-        --spacing-3xl: 3.5rem;
-    }
-
-    .container,
-    .container-wide {
-        max-width: 1200px;
-        padding: 0 var(--spacing-xl);
-    }
-
-    h1 {
-        font-size: clamp(2.25rem, 5vw, 3rem);
-    }
-
-    h2 {
-        font-size: clamp(1.875rem, 4vw, 2.5rem);
-    }
-}
 
 /* ==========================================================================
    TABLET LARGE - 1024px

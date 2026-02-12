@@ -894,53 +894,6 @@
    ========================================================================== */
 
 /* ==========================================================================
-   DESKTOP LARGE - Oltre 1400px
-   ========================================================================== */
-@media (min-width: 1400px) {
-    .hero-content {
-        max-width: 1600px;
-    }
-
-    .hero-layout {
-        gap: 5rem;
-    }
-
-    .machine-container {
-        max-width: 700px; /* ✅ Ridotto da 800px */
-        height: 500px; /* ✅ Mantiene altezza originale */
-    }
-
-    .hero-description {
-        max-width: 700px;
-    }
-
-    .hero-glow {
-        width: 1000px;
-        height: 1000px;
-    }
-}
-
-/* ==========================================================================
-   DESKTOP STANDARD - 1280px
-   ========================================================================== */
-@media (max-width: 1280px) {
-    .hero-layout {
-        gap: 4rem;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .machine-container {
-        max-width: 700px; /* ✅ Mantiene dimensione originale */
-        height: 500px; /* ✅ Mantiene altezza originale */
-    }
-
-    .hero-description {
-        max-width: 580px;
-    }
-}
-
-/* ==========================================================================
    TABLET LANDSCAPE - 1024px
    ========================================================================== */
 @media (max-width: 1024px) {
