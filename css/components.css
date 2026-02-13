@@ -786,18 +786,24 @@ footer {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 50px;
-    height: 50px;
-    background: var(--black);
-    color: var(--white);
+    width: 45px;
+    height: 45px;
+    background: transparent;
     border: none;
-    border-radius: 50%;
-    font-size: 24px;
     cursor: pointer;
     opacity: 0;
     transition: all 0.3s ease;
     z-index: 999;
     pointer-events: none;
+    padding: 0;
+}
+
+#scroll-to-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
 }
 
 #scroll-to-top.visible {
@@ -805,12 +811,9 @@ footer {
     pointer-events: auto;
 }
 
-#scroll-to-top:hover {
-    background: var(--green);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.4);
+#scroll-to-top:hover img {
+    transform: rotate(+90deg);
 }
-
 /* ==========================================================================
    COMPONENTS RESPONSIVE - Ottimizzazioni per tutti i dispositivi
    Navigation, Buttons, Footer, CTA sections
@@ -1212,7 +1215,11 @@ footer {
         right: 25px;
         width: 48px;
         height: 48px;
-        font-size: 22px;
+    }
+
+    #scroll-to-top img {
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -1436,7 +1443,11 @@ footer {
         right: 20px;
         width: 45px;
         height: 45px;
-        font-size: 20px;
+    }
+
+    #scroll-to-top img {
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -1591,7 +1602,11 @@ footer {
         right: 15px;
         width: 42px;
         height: 42px;
-        font-size: 18px;
+    }
+
+    #scroll-to-top img {
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -1703,9 +1718,15 @@ footer {
 
     /* Scroll to top */
     #scroll-to-top {
+        bottom: 12px;
+        right: 12px;
         width: 40px;
         height: 40px;
-        font-size: 16px;
+    }
+
+    #scroll-to-top img {
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -1754,7 +1775,28 @@ footer {
     .nav-links a:active {
         opacity: 0.7;
     }
+
+        #scroll-to-top {
+        min-width: 48px;
+        min-height: 48px;
+    }
+
+    #scroll-to-top img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Rimuovi hover rotation su touch */
+    #scroll-to-top:hover img {
+        transform: none;
+    }
+
+    /* Active state per feedback visivo su touch */
+    #scroll-to-top:active img {
+        transform: rotate(+90deg) scale(0.95);
+    }
 }
+
 
 /* ==========================================================================
    LANDSCAPE MOBILE OPTIMIZATION
@@ -1816,5 +1858,18 @@ footer {
     .lang-switcher,
     .lang-dropdown {
         transition: none;
+    }
+
+        #scroll-to-top {
+        transition: opacity 0.3s;
+    }
+
+    #scroll-to-top img {
+        transition: none;
+    }
+
+    #scroll-to-top:hover img,
+    #scroll-to-top:active img {
+        transform: none;
     }
 }
