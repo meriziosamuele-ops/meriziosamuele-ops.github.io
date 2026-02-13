@@ -3,10 +3,20 @@
 // Con Progress Bar Navigation + Click su Marker
 // Animazione circolare CORRETTA
 // TOUCH SWIPE DISABILITATO (solo frecce tastiera)
+// MULTILINGUA SUPPORT - Path dinamici
 // ============================================
 
 (function() {
     'use strict';
+
+    // ========== RILEVA PATH BASE PER MULTILINGUA ==========
+    // Se siamo in /en/ o /de/, usa '../', altrimenti usa ''
+    const currentPath = window.location.pathname;
+    const isSubfolder = currentPath.includes('/en/') || currentPath.includes('/de/');
+    const basePath = isSubfolder ? '../' : '';
+    
+    console.log('🌐 Language detected:', isSubfolder ? 'EN/DE (subfolder)' : 'IT (root)');
+    console.log('📁 Base path:', basePath || '(root)');
 
     // ========== CONFIGURAZIONE MODELLI ==========
     const MODELS_CONFIG = {
@@ -16,7 +26,7 @@
             title: 'K75S',
             subtitle: 'Automazione completa per produzioni ad alto volume',
             description: 'Termoformatrice con PLC programmabile per automazione completa del ciclo. Sistema diagnostico dedicato per monitoraggio resistenze in tempo reale. Ottimizzata per produzioni continuative ad alto volume con cicli ripetitivi.',
-            image: 'img/k-75S-removebg-preview.png',
+            image: basePath + 'img/k-75S-removebg-preview.png',  // ✅ Path dinamico
             alt: 'Termoformatrice K75S Automatica'
         },
         k75: {
@@ -25,7 +35,7 @@
             title: 'K75',
             subtitle: 'Controllo manuale per produzioni variabili',
             description: 'Termoformatrice con controllo manuale ideale per produzioni variabili e cambio formato frequente. Sistema diagnostico dedicato per manutenzione rapida e autonoma. Perfetta per chi necessita di massima flessibilità operativa.',
-            image: 'img/k-75-removebg-preview.png',
+            image: basePath + 'img/k-75-removebg-preview.png',  // ✅ Path dinamico
             alt: 'Termoformatrice K75 Manuale'
         },
         k53: {
@@ -34,7 +44,7 @@
             title: 'K53',
             subtitle: 'Controllo manuale, dimensioni compatte per spazi limitati',
             description: 'Termoformatrice con controllo manuale e dimensioni compatte, ideale per produzioni variabili in spazi produttivi limitati. Sistema diagnostico integrato per manutenzione rapida. Cambio formato veloce per piccole serie.',
-            image: 'img/k-53-removebg-preview.png',
+            image: basePath + 'img/k-53-removebg-preview.png',  // ✅ Path dinamico
             alt: 'Termoformatrice K53 Compatta'
         }
     };
@@ -114,9 +124,6 @@
         const backwardDistance = (currentModelIndex - targetIndex + totalModels) % totalModels;
         
         // Usa la direzione con distanza minore
-        // Esempi:
-        // K53 (index 2) → K75S (index 0): forwardDistance=1, backwardDistance=2 → usa 'next'
-        // K75S (index 0) → K53 (index 2): forwardDistance=2, backwardDistance=1 → usa 'prev'
         let direction;
         if (forwardDistance <= backwardDistance) {
             direction = 'next';

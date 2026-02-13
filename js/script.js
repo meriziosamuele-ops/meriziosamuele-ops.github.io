@@ -1,6 +1,5 @@
 // ============================================
-// OPTIFORM HERO - JavaScript Completo
-// Context switch corretto per salti non sequenziali
+// OPTIFORM - JavaScript Completo
 // ============================================
 
 (function() {
@@ -33,37 +32,37 @@
         console.log('✨ Fade-in animations initialized:', fadeElements.length, 'elements');
     }
 
-
-// ========== HAMBURGER MENU ========== 
-function initHamburgerMenu() {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (!hamburger || !navLinks) return;
-    
-    // Toggle menu
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-    
-    // Chiudi quando clicchi su un link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
+    // ========== HAMBURGER MENU ========== 
+    function initHamburgerMenu() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (!hamburger || !navLinks) return;
+        
+        // Toggle menu
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
         });
-    });
-    
-    // Chiudi quando clicchi fuori
-    document.addEventListener('click', (e) => {
-        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-        }
-    });
-}
-
+        
+        // Chiudi quando clicchi su un link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Chiudi quando clicchi fuori
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        console.log('🍔 Hamburger menu initialized');
+    }
 
     // ========== SCROLL TO TOP ==========
     function initScrollToTop() {
@@ -104,13 +103,77 @@ function initHamburgerMenu() {
         console.log('📜 Nav scroll effect initialized');
     }
 
+    // ========================================
+    // LANGUAGE SWITCHER
+    // ========================================
+    function initLanguageSwitcher() {
+        const langSwitcher = document.querySelector('.lang-switcher');
+        const langBtn = document.querySelector('.lang-btn');
+        
+        if (!langSwitcher || !langBtn) {
+            console.log('⚠️ Language switcher not found');
+            return;
+        }
+        
+        // Toggle dropdown su mobile
+        langBtn.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                langSwitcher.classList.toggle('open');
+            }
+        });
+
+        // Chiudi dropdown quando si clicca fuori
+        document.addEventListener('click', function(e) {
+            if (!langSwitcher.contains(e.target)) {
+                langSwitcher.classList.remove('open');
+            }
+        });
+
+        // Salva preferenza lingua quando l'utente cambia
+        const langOptions = document.querySelectorAll('.lang-option');
+        langOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                const href = this.getAttribute('href');
+                let lang = 'it'; // default
+                
+                if (href.includes('/de/')) lang = 'de';
+                else if (href.includes('/en/')) lang = 'en';
+                
+                // Salva preferenza
+                localStorage.setItem('preferredLang', lang);
+            });
+        });
+
+        // Auto-redirect basato su preferenza salvata (OPZIONALE - decommentare se vuoi)
+        /*
+        const savedLang = localStorage.getItem('preferredLang');
+        const currentLang = document.documentElement.lang || 'it';
+        
+        if (savedLang && savedLang !== currentLang) {
+            const currentPath = window.location.pathname;
+            // Redirect solo dalla home
+            if (currentPath === '/' || currentPath === '/index.html') {
+                window.location.href = `/${savedLang}/`;
+            }
+        }
+        */
+        
+        console.log('🌐 Language switcher initialized');
+    }
+
     // ========== INITIALIZE ALL ==========
     function init() {
+        console.log('🚀 Optiform JS initialization started');
+        
         try {
             initHamburgerMenu();  
             initScrollToTop();
             initNavScroll();
             initFadeInAnimations(); 
+            initLanguageSwitcher();
+            
+            console.log('✅ All features initialized successfully');
         } catch (error) {
             console.error('❌ Initialization error:', error);
         }

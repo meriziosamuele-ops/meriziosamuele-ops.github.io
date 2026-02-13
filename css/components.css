@@ -187,6 +187,149 @@ nav.scrolled {
     transform: translateY(-8px) rotate(-45deg);
 }
 
+/* ========================================
+   LANGUAGE SWITCHER
+   ======================================== */
+
+.lang-switcher {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 255, 163, 0.3);
+    box-shadow: 0 0 20px rgba(0, 255, 163, 0.1);
+}
+
+.lang-btn.active {
+    background: rgba(0, 255, 163, 0.1);
+    border-color: rgba(0, 255, 163, 0.3);
+}
+
+.lang-flag {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.lang-code {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.5px;
+}
+
+/* Dropdown */
+.lang-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    min-width: 160px;
+    background: rgba(20, 20, 35, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.lang-switcher:hover .lang-dropdown,
+.lang-dropdown:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.lang-option:hover {
+    background: rgba(0, 255, 163, 0.1);
+    color: #00ffa3;
+}
+
+.lang-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .lang-switcher {
+        margin-left: 0;
+        margin-top: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .lang-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .lang-dropdown {
+        position: static;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transform: none;
+        margin-top: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .lang-switcher.open .lang-dropdown {
+        opacity: 1;
+        max-height: 200px;
+    }
+
+    .lang-option {
+        justify-content: center;
+    }
+}
+
+/* Animazione hover */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 255, 163, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 163, 0.4);
+    }
+}
+
+.lang-btn:hover {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
 /* ==========================================================================
    SISTEMA CTA UNIFICATO - Tutti i bottoni e call-to-action
    ========================================================================== */
