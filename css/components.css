@@ -1792,14 +1792,8 @@ footer {
         height: 100%;
     }
 
-    /* Rimuovi hover rotation su touch */
-    #scroll-to-top:hover img {
-        transform: none;
-    }
-
-    /* Active state per feedback visivo su touch */
     #scroll-to-top:active img {
-        transform: rotate(+90deg) scale(0.95);
+        transform: rotate(+90deg);
     }
 }
 
@@ -1866,7 +1860,8 @@ footer {
         transition: none;
     }
 
-        #scroll-to-top {
+    /* Solo per chi ha ridotto le animazioni, niente rotazione */
+    #scroll-to-top {
         transition: opacity 0.3s;
     }
 
