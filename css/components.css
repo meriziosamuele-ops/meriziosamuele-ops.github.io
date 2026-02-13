@@ -811,7 +811,13 @@ footer {
     pointer-events: auto;
 }
 
+/* Desktop hover */
 #scroll-to-top:hover img {
+    transform: rotate(+90deg);
+}
+
+/* Mobile active (quando tocchi) - RIMUOVI LO SCALE */
+#scroll-to-top:active img {
     transform: rotate(+90deg);
 }
 /* ==========================================================================

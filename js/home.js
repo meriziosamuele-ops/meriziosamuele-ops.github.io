@@ -292,6 +292,34 @@
         console.log('🎯 Progress bar markers clickable');
     }
 
+    // ========== CLICK SULLA MACCHINA → VAI ALLA PAGINA PRODOTTO ==========
+function initMachineClick() {
+    const machineContainer = document.querySelector('.machine-container');
+    
+    if (!machineContainer) return;
+
+    machineContainer.addEventListener('click', () => {
+        const currentModel = MODEL_ORDER[currentModelIndex];
+        
+        // Definisci i link per ogni modello
+        // Se siamo in una sottocartella (/en/ o /de/), usa solo il nome del file
+        // Se siamo in root, usa solo il nome del file
+        const productLinks = {
+            k75s: 'k-75s.html',
+            k75: 'k-75.html',
+            k53: 'k-53.html'
+        };
+        
+        const targetPage = productLinks[currentModel];
+        
+        if (targetPage) {
+            window.location.href = targetPage;
+            console.log('🔗 Navigating to:', targetPage);
+        }
+    });
+
+    console.log('🖱️ Machine click navigation enabled');
+}
     
     // ========== INITIALIZE ALL HERO EFFECTS ==========
     function init() {
@@ -300,6 +328,7 @@
             initWorldSwitcher();
             initKeyboardNavigation();
             initProgressBarClick();
+            initMachineClick();
             
             // Imposta il primo modello
             const initialModel = MODEL_ORDER[currentModelIndex];
