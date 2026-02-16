@@ -73,7 +73,7 @@
         </div>
     </section>
 
-    <!-- Informazioni di Contatto -->
+<!-- Contact Information -->
     <section class="contact-section">
         <div class="container">
             <div class="contact-grid">
@@ -122,30 +122,31 @@
                     </div>
                 </div>
 
-                <!-- Mappa -->
-                <div class="map-container fade-in-up">
-                    <h3>Where We Are</h3>
-                    <div class="map-wrapper">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2785.686848395889!2d9.547866!3d45.691667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47815b8a9c8a8a8b%3A0x1234567890abcdef!2sVia%20Redipuglia%2C%2024047%20Treviglio%20BG!5e0!3m2!1sen!2sit!4v1234567890123!5m2!1sen!2sit" 
-                            width="100%" 
-                            height="450" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                    <!-- Map -->
+                    <div class="map-container fade-in-up">
+                        <h3>Where We Are</h3>
+                        <div class="map-wrapper">
+                            <!-- Add data-src instead of src -->
+                            <iframe 
+                                data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2785.686848395889!2d9.547866!3d45.691667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47815b8a9c8a8a8b%3A0x1234567890abcdef!2sVia%20Redipuglia%2C%2024047%20Treviglio%20BG!5e0!3m2!1sen!2sit!4v1234567890123!5m2!1sen!2sit" 
+                                width="100%" 
+                                height="450" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <div class="map-info">
+                            <h4>How to Reach Us</h4>
+                            <ul>
+                                <li><strong>From Milan:</strong> 30 km - A4 highway towards Brescia, Treviglio exit</li>
+                                <li><strong>From Bergamo center:</strong> 20 km - SP ex SS42 towards Treviglio</li>
+                                <li><strong>Orio al Serio Airport:</strong> 25 km - 25 minutes by car</li>
+                            </ul>
+                            <p class="parking-note">Parking available on-site for scheduled appointments</p>
+                        </div>
                     </div>
-                    <div class="map-info">
-                        <h4>How to Reach Us</h4>
-                        <ul>
-                            <li><strong>From Milan:</strong> 30 km - A4 highway towards Brescia, Treviglio exit</li>
-                            <li><strong>From Bergamo center:</strong> 20 km - SP ex SS42 towards Treviglio</li>
-                            <li><strong>Orio al Serio Airport:</strong> 25 km - 25 minutes by car</li>
-                        </ul>
-                        <p class="parking-note">Parking available on-site for scheduled appointments</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -250,6 +251,19 @@
             </div>
         </div>
     </footer>
+    <!-- Cookie Banner - English version with links -->
+<div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+        <div class="cookie-text">
+            <h3>Cookies and Privacy</h3>
+            <p>We use essential technical cookies for the website's operation. To display the Google Maps map, we need your consent to load external content. <a href="cookie-policy-en.html" class="cookie-policy-link">Read the Cookie Policy</a></p>
+        </div>
+        <div class="cookie-actions">
+            <button id="cookie-accept" class="cookie-btn">Accept</button>
+            <button id="cookie-reject" class="cookie-btn">Reject</button>
+        </div>
+    </div>
+</div>
     <!-- Scroll to Top Button -->
     <button id="scroll-to-top">
         <img src="../img/k-floki.png" alt="Back to top">

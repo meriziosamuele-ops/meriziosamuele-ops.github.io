@@ -144,22 +144,219 @@
                 localStorage.setItem('preferredLang', lang);
             });
         });
-
-        // Auto-redirect basato su preferenza salvata (OPZIONALE - decommentare se vuoi)
-        /*
-        const savedLang = localStorage.getItem('preferredLang');
-        const currentLang = document.documentElement.lang || 'it';
-        
-        if (savedLang && savedLang !== currentLang) {
-            const currentPath = window.location.pathname;
-            // Redirect solo dalla home
-            if (currentPath === '/' || currentPath === '/index.html') {
-                window.location.href = `/${savedLang}/`;
-            }
-        }
-        */
         
         console.log('🌐 Language switcher initialized');
+    }
+
+    // ============================================
+    // COOKIE CONSENT & GOOGLE MAPS IFRAME LOADER
+    // ============================================
+    function initCookieConsent() {
+        const COOKIE_NAME = 'optiform_maps_consent';
+        const COOKIE_DURATION = 365; // giorni
+
+        // ========== COOKIE UTILITIES ==========
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/;SameSite=Lax";
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const cookies = document.cookie.split(';');
+            for(let i = 0; i < cookies.length; i++) {
+                let c = cookies[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        // ========== DETECT LANGUAGE ==========
+        function detectLanguage() {
+            const path = window.location.pathname;
+            if (path.includes('/de/')) return 'de';
+            if (path.includes('/en/')) return 'en';
+            return 'it'; // default
+        }
+
+        // ========== TRANSLATIONS ==========
+        const translations = {
+            it: {
+                title: 'Mappa non disponibile',
+                description: 'Hai rifiutato il consenso per caricare Google Maps. Puoi modificare la tua scelta in qualsiasi momento.',
+                button: 'Accetta e Mostra Mappa'
+            },
+            en: {
+                title: 'Map not available',
+                description: 'You have declined consent to load Google Maps. You can change your choice at any time.',
+                button: 'Accept and Show Map'
+            },
+            de: {
+                title: 'Karte nicht verfügbar',
+                description: 'Sie haben die Zustimmung zum Laden von Google Maps abgelehnt. Sie können Ihre Wahl jederzeit ändern.',
+                button: 'Akzeptieren und Karte anzeigen'
+            }
+        };
+
+        // ========== SHOW/HIDE BANNER ==========
+        function showCookieBanner() {
+            const banner = document.getElementById('cookie-banner');
+            if (banner) {
+                setTimeout(() => {
+                    banner.classList.add('show');
+                }, 500);
+            }
+        }
+
+        function hideCookieBanner() {
+            const banner = document.getElementById('cookie-banner');
+            if (banner) {
+                banner.classList.remove('show');
+                setTimeout(() => {
+                    banner.style.display = 'none';
+                }, 400);
+            }
+        }
+
+        // ========== LOAD MAP IFRAME ==========
+        function loadMapIframe() {
+            const mapWrapper = document.querySelector('.map-wrapper');
+            if (!mapWrapper) return;
+
+            // Se c'è già un placeholder, rimuovilo
+            const placeholder = mapWrapper.querySelector('.map-placeholder');
+            if (placeholder) {
+                mapWrapper.classList.remove('map-blocked');
+                mapWrapper.innerHTML = '';
+            }
+
+            // Ricrea l'iframe con src (non data-src)
+            mapWrapper.innerHTML = `
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2785.686848395889!2d9.547866!3d45.691667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47815b8a9c8a8a8b%3A0x1234567890abcdef!2sVia%20Redipuglia%2C%2024047%20Treviglio%20BG!5e0!3m2!1sit!2sit!4v1234567890123!5m2!1sit!2sit" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            `;
+            console.log('🗺️ Google Maps iframe loaded');
+        }
+
+        // ========== SHOW MAP PLACEHOLDER ==========
+        function showMapPlaceholder() {
+            const mapWrapper = document.querySelector('.map-wrapper');
+            if (!mapWrapper) return;
+
+            // Rileva lingua
+            const lang = detectLanguage();
+            const t = translations[lang];
+
+            // Rimuovi iframe se presente
+            const iframe = mapWrapper.querySelector('iframe');
+            if (iframe) {
+                iframe.remove();
+            }
+
+            // AGGIUNGI CLASSE per lo sfondo scuro
+            mapWrapper.classList.add('map-blocked');
+
+            // Inserisci placeholder
+            mapWrapper.innerHTML = `
+                <div class="map-placeholder">
+                    <div class="map-placeholder-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h4>${t.title}</h4>
+                    <p>${t.description}</p>
+                    <button class="map-placeholder-btn" id="accept-from-placeholder">
+                        ${t.button}
+                    </button>
+                </div>
+            `;
+
+            // Aggiungi event listener al nuovo bottone
+            const acceptFromPlaceholder = document.getElementById('accept-from-placeholder');
+            if (acceptFromPlaceholder) {
+                acceptFromPlaceholder.addEventListener('click', function() {
+                    console.log('🔘 Accept from placeholder clicked');
+                    setCookie(COOKIE_NAME, 'accepted', COOKIE_DURATION);
+                    loadMapIframe();
+                    console.log('✅ Maps consent accepted from placeholder');
+                });
+            }
+
+            console.log('🚫 Map iframe blocked');
+        }
+
+        // ========== HANDLE CONSENT ==========
+        function handleAccept() {
+            console.log('🔘 Accept button clicked');
+            setCookie(COOKIE_NAME, 'accepted', COOKIE_DURATION);
+            hideCookieBanner();
+            loadMapIframe();
+            console.log('✅ Maps consent accepted');
+        }
+
+        function handleReject() {
+            console.log('🔘 Reject button clicked');
+            setCookie(COOKIE_NAME, 'rejected', COOKIE_DURATION);
+            hideCookieBanner();
+            console.log('❌ Maps consent rejected');
+        }
+
+        // ========== ATTACH EVENT LISTENERS FIRST ==========
+        const acceptBtn = document.getElementById('cookie-accept');
+        const rejectBtn = document.getElementById('cookie-reject');
+
+        if (acceptBtn) {
+            acceptBtn.addEventListener('click', handleAccept);
+            console.log('✅ Accept button listener attached');
+        } else {
+            console.error('❌ Accept button not found in DOM!');
+        }
+
+        if (rejectBtn) {
+            rejectBtn.addEventListener('click', handleReject);
+            console.log('✅ Reject button listener attached');
+        } else {
+            console.error('❌ Reject button not found in DOM!');
+        }
+
+        // ========== INIT COOKIE CONSENT ==========
+        // Verifica se siamo nella pagina con la mappa
+        const mapWrapper = document.querySelector('.map-wrapper');
+        if (!mapWrapper) {
+            console.log('ℹ️ No map on this page');
+            return;
+        }
+
+        const consent = getCookie(COOKIE_NAME);
+
+        if (!consent) {
+            // Nessun consenso salvato -> mostra placeholder e banner
+            showMapPlaceholder();
+            showCookieBanner();
+            console.log('⚠️ No consent found - showing banner');
+        } else if (consent === 'accepted') {
+            // Consenso accettato -> carica iframe
+            loadMapIframe();
+            console.log('✅ Consent accepted - loading map');
+        } else {
+            // Consenso rifiutato -> mostra placeholder
+            showMapPlaceholder();
+            console.log('❌ Consent rejected - showing placeholder');
+        }
+
+        console.log('🍪 Cookie consent initialized');
     }
 
     // ========== INITIALIZE ALL ==========
@@ -172,6 +369,7 @@
             initNavScroll();
             initFadeInAnimations(); 
             initLanguageSwitcher();
+            initCookieConsent();
             
             console.log('✅ All features initialized successfully');
         } catch (error) {
