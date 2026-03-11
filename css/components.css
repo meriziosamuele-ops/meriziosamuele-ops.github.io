@@ -32,77 +32,27 @@ nav.scrolled {
     align-items: center;
 }
 
-/* Logo wrapper con brand */
-.logo-wrapper {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-}
-
-.logo {
-    font-family: 'Orbitron', monospace;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    color: #ffffff;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    position: relative;
-}
-
-.logo::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #16a34a;
-    transition: width 0.4s ease;
-}
-
-.logo:hover::after {
-    width: 100%;
-}
-
-/* Brand "by Floki" */
-.brand-by {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding-left: var(--spacing-md);
-    border-left: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.brand-by span {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.5);
-    font-weight: 400;
-    font-style: italic;
-}
-
-.floki-link {
+.optiform-link {
     display: flex;
     align-items: center;
     text-decoration: none;
     transition: transform 0.3s ease;
 }
 
-.floki-link:hover {
+.optiform-link:hover {
     transform: translateY(-2px);
 }
 
-.floki-logo {
-    height: 35px;
+.optiform-logo {
+    height: 47px;
     width: auto;
     opacity: 0.9;
     transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
-.floki-link:hover .floki-logo {
+.optiform-link:hover .optiform-logo {
     opacity: 1;
-    filter: brightness(1.2);
+    filter: brightness(1.01);
 }
 
 /* Menu navigazione */

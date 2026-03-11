@@ -15,25 +15,43 @@
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">OPTIFORM</a>
-            
-            <button class="hamburger" id="hamburger" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="prodotti.html" class="active">Prodotti</a></li>
-                <li><a href="vantaggi.html">Vantaggi</a></li>
-                <li><a href="contatti.html">Contatti</a></li>
-            </ul>
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="nav-container">
+        <div class="logo-wrapper">
+            <a href="index.html" rel="noopener noreferrer" class="optiform-link">
+                <img src="img/Logo-Optiform.png" alt="Optiform" class="optiform-logo">
+            </a>
         </div>
-    </nav>
+        
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="prodotti.html" class="active">Prodotti</a></li>
+            <li><a href="vantaggi.html">Vantaggi</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+
+        <div class="lang-switcher">
+            <button class="lang-btn active" aria-label="Lingua corrente: Italiano">
+                <span class="lang-code">IT</span>
+            </button>
+            <div class="lang-dropdown">
+                <a href="de/produkte.html" class="lang-option">
+                    <span class="lang-text">DE</span>
+                </a>
+                <a href="en/products.html" class="lang-option">
+                    <span class="lang-text">EN</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
 
     <!-- Placeholder Content -->
     <section class="placeholder-section">
@@ -156,8 +174,10 @@
         </div>
     </div>
 </div>
-    <!-- Scroll to Top Button -->
-    <button id="scroll-to-top" aria-label="Torna su">↑</button>
+ <!-- Scroll to Top -->
+<button id="scroll-to-top" aria-label="Torna su">
+        <img src="img/K floki originale VERDE.png" alt="Back to top">
+</button>
 
     <!-- JavaScript -->
     <script src="js/script.js"></script>
