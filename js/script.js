@@ -236,7 +236,7 @@ function initCookieConsent() {
         // Ricrea l'iframe con src (non data-src)
         mapWrapper.innerHTML = `
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2785.686848395889!2d9.547866!3d45.691667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47815b8a9c8a8a8b%3A0x1234567890abcdef!2sVia%20Redipuglia%2C%2024047%20Treviglio%20BG!5e0!3m2!1sit!2sit!4v1234567890123!5m2!1sit!2sit" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.8199138313566!2d9.593304209293361!3d45.50926041039414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781482f6b70fc15%3A0xb8d77e75ed8b5489!2sFloki%20s.r.l.!5e0!3m2!1sit!2sit!4v1773314944689!5m2!1sit!2sit" 
                 width="100%" 
                 height="450" 
                 style="border:0;" 

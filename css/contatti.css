@@ -159,7 +159,7 @@
 
 .map-info {
     background: var(--gray-50);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
     border: 2px solid var(--gray-200);
     border-left: 4px solid var(--green);
     border-radius: 8px;
