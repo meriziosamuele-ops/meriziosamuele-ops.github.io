@@ -34,7 +34,7 @@
             badge: 'Manuale • Massima Flessibilità',
             title: 'K75',
             subtitle: 'Controllo manuale per produzioni variabili',
-            description: 'Termoformatrice con controllo manuale ideale per produzioni variabili e cambio formato frequente. Sistema diagnostico dedicato per manutenzione rapida e autonoma. Perfetta per chi necessita di massima flessibilità operativa.',
+            description: 'Termoformatrice con controllo manuale, ideale per produzioni variabili e cambio formato frequente. Sistema diagnostico dedicato per manutenzione rapida e autonoma. Perfetta per chi necessita di massima flessibilità operativa.',
             image: basePath + 'img/k-75-removebg-preview.png',  // ✅ Path dinamico
             alt: 'Termoformatrice K75 Manuale'
         },
