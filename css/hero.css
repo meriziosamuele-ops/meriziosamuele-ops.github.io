@@ -8,9 +8,9 @@
 .hero-container {
     --accent: #16a34a;
     --grid-color: rgba(22, 163, 74, 0.15);
-    --industrial-accent: #06b6d4;
-    --industrial-secondary: #0ea5e9;
-    --industrial-grid: rgba(6, 182, 212, 0.15);
+    --industrial-accent: #4ade80;
+    --industrial-secondary: #22c55e;
+    --industrial-grid: rgba(74, 222, 128, 0.15);
 }
 
 /* ========== HERO FULLSCREEN ========== */
@@ -28,11 +28,11 @@
 }
 
 .hero-container[data-world="industrial"] {
-    background: radial-gradient(ellipse at top, #0a1929 0%, #020617 100%);
+    background: radial-gradient(ellipse at top, #0d2e1a 0%, #061408 100%);
 }
 
 .hero-container[data-world="dark"] {
-    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+    background: #ffffff;
 }
 
 /* GRIGLIA SCI-FI ANIMATA */
@@ -59,7 +59,7 @@
 
 .hero-container[data-world="industrial"] .grid-background {
     opacity: 1;
-    --grid-color: rgba(6, 182, 212, 0.15);
+    --grid-color: rgba(74, 222, 128, 0.15);
 }
 
 @keyframes gridPulse {
@@ -102,7 +102,7 @@
     box-shadow: 0 0 10px var(--accent);
 }
 
-/* Particelle cyan per industrial */
+/* Particelle verde tenue per industrial */
 .hero-container[data-world="industrial"] .particle {
     background: var(--industrial-accent);
     box-shadow: 0 0 10px var(--industrial-accent);
@@ -145,13 +145,17 @@
 
 .hero-container[data-world="industrial"] .hero-glow {
     opacity: 0.4;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.5) 0%, rgba(14, 165, 233, 0.3) 50%, transparent 70%);
+    background: radial-gradient(circle, rgba(74, 222, 128, 0.4) 0%, rgba(34, 197, 94, 0.25) 50%, transparent 70%);
     animation: glowPulseIndustrial 3s ease-in-out infinite;
 }
 
+.hero-container[data-world="dark"] .machine-image {
+    filter: none;
+}
+
 .hero-container[data-world="dark"] .hero-glow {
-    opacity: 0.2;
-    background: radial-gradient(circle, rgba(163, 163, 163, 0.3) 0%, transparent 70%);
+    opacity: 0.15;
+    background: radial-gradient(circle, rgba(10, 10, 10, 0.1) 0%, transparent 70%);
 }
 
 @keyframes glowPulse {
@@ -249,16 +253,16 @@
 }
 
 .hero-container[data-world="industrial"] .hero-badge {
-    background: rgba(6, 182, 212, 0.15);
+    background: rgba(74, 222, 128, 0.12);
     border-color: var(--industrial-accent);
     color: var(--industrial-accent);
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.15);
 }
 
 .hero-container[data-world="dark"] .hero-badge {
-    background: rgba(10, 10, 10, 0.05);
-    border-color: #0a0a0a;
-    color: #0a0a0a;
+    background: rgba(10, 10, 10, 0.07);
+    border-color: rgba(10, 10, 10, 0.5);
+    color: rgba(10, 10, 10, 0.7);
 }
 
 .hero-title {
@@ -279,8 +283,8 @@
 .hero-container[data-world="industrial"] .hero-title {
     color: #ffffff;
     text-shadow: 
-        0 0 30px rgba(6, 182, 212, 0.6),
-        0 0 60px rgba(14, 165, 233, 0.4);
+        0 0 30px rgba(74, 222, 128, 0.5),
+        0 0 60px rgba(34, 197, 94, 0.3);
 }
 
 .hero-container[data-world="dark"] .hero-title {
@@ -300,11 +304,11 @@
 }
 
 .hero-container[data-world="industrial"] .hero-subtitle {
-    color: rgba(165, 243, 252, 0.95);
+    color: rgba(187, 247, 208, 0.95);
 }
 
 .hero-container[data-world="dark"] .hero-subtitle {
-    color: #525252;
+    color: rgba(10, 10, 10, 0.7);
 }
 
 /* MACCHINA CENTRALE */
@@ -315,7 +319,7 @@
     height: 500px;
     animation: fadeInRight 1.2s ease-out 0.3s both;
     overflow: hidden;
-    cursor: pointer; /* Feedback visivo che è cliccabile */
+    cursor: pointer;
 }
 
 @keyframes fadeInRight {
@@ -341,24 +345,18 @@
     transition: 
         filter 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
         opacity 0.3s ease,
-        transform 0.4s ease; /* Transizione più veloce e fluida */
+        transform 0.4s ease;
 }
 
-/* HOVER EFFECT - Molto più sottile */
+/* HOVER EFFECT */
 .machine-container:hover .machine-image {
-    transform: translate(-50%, -50%) scale(1.01); /* Solo 2% invece di 5% */
+    transform: translate(-50%, -50%) scale(1.01);
 }
 
 .hero-container[data-world="industrial"] .machine-image {
     filter: 
         drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5))
-        drop-shadow(0 0 40px rgba(6, 182, 212, 0.3));
-}
-
-.hero-container[data-world="industrial"] .machine-image {
-    filter: 
-        drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5))
-        drop-shadow(0 0 40px rgba(6, 182, 212, 0.3));
+        drop-shadow(0 0 40px rgba(74, 222, 128, 0.2));
 }
 
 /* DESCRIZIONE DETTAGLIATA */
@@ -378,16 +376,16 @@
 }
 
 .hero-container[data-world="industrial"] .hero-description {
-    background: rgba(6, 182, 212, 0.08);
+    background: rgba(74, 222, 128, 0.06);
     backdrop-filter: blur(15px);
     border-left-color: var(--industrial-accent);
-    box-shadow: 0 0 30px rgba(6, 182, 212, 0.1);
+    box-shadow: 0 0 30px rgba(74, 222, 128, 0.08);
 }
 
 .hero-container[data-world="dark"] .hero-description {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.35);
     backdrop-filter: blur(10px);
-    border-left-color: #0a0a0a;
+    border-left-color: rgba(10, 10, 10, 0.4);
 }
 
 .hero-description p {
@@ -401,15 +399,15 @@
 }
 
 .hero-container[data-world="industrial"] .hero-description p {
-    color: rgba(224, 242, 254, 0.95);
+    color: rgba(220, 252, 231, 0.95);
 }
 
 .hero-container[data-world="dark"] .hero-description p {
-    color: #0a0a0a;
+    color: rgba(10, 10, 10, 0.85);
     font-weight: 400;
 }
 
-/* CHROMATIC ABERRATION (solo mondo DARK e CYBER) */
+/* CHROMATIC ABERRATION */
 .machine-container::before,
 .machine-container::after {
     content: '';
@@ -427,7 +425,6 @@
     transition: opacity 0.8s ease;
 }
 
-/* Aggiorna dinamicamente in base al modello */
 .hero-container[data-model="k75s"] .machine-container::before,
 .hero-container[data-model="k75s"] .machine-container::after {
     background-image: url('../img/k-75S-removebg-preview.png');
@@ -443,7 +440,7 @@
     background-image: url('../img/k-53-removebg-preview.png');
 }
 
-/* Aberrazione cromatica CYBER - effetto verde */
+/* Aberrazione cromatica CYBER */
 .hero-container[data-world="cyber"] .machine-container::before {
     opacity: 0.3;
     filter: blur(2px);
@@ -458,17 +455,17 @@
     animation: chromatic2 5s ease-in-out infinite reverse;
 }
 
-/* Aberrazione cromatica INDUSTRIAL - effetto cyan/magenta */
+/* Aberrazione cromatica INDUSTRIAL - verde tenue */
 .hero-container[data-world="industrial"] .machine-container::before {
-    opacity: 0.25;
-    filter: blur(2px) hue-rotate(180deg);
+    opacity: 0.2;
+    filter: blur(2px) hue-rotate(100deg);
     mix-blend-mode: screen;
     animation: chromaticCyan 3s ease-in-out infinite;
 }
 
 .hero-container[data-world="industrial"] .machine-container::after {
-    opacity: 0.2;
-    filter: blur(3px) hue-rotate(-180deg);
+    opacity: 0.15;
+    filter: blur(3px) hue-rotate(-80deg);
     mix-blend-mode: screen;
     animation: chromaticMagenta 4s ease-in-out infinite reverse;
 }
@@ -476,22 +473,22 @@
 @keyframes chromaticCyan {
     0%, 100% {
         transform: translate(-50%, -50%) translateX(-3px) translateY(-1px);
-        opacity: 0.25;
+        opacity: 0.2;
     }
     50% {
         transform: translate(-50%, -50%) translateX(3px) translateY(1px);
-        opacity: 0.35;
+        opacity: 0.3;
     }
 }
 
 @keyframes chromaticMagenta {
     0%, 100% {
         transform: translate(-50%, -50%) translateX(2px) translateY(2px);
-        opacity: 0.2;
+        opacity: 0.15;
     }
     50% {
         transform: translate(-50%, -50%) translateX(-2px) translateY(-2px);
-        opacity: 0.3;
+        opacity: 0.25;
     }
 }
 
@@ -565,7 +562,7 @@
     z-index: -1;
 }
 
-/* Bottone industrial - colore cyan */
+/* Bottone industrial - verde tenue */
 .hero-container[data-world="industrial"] .world-btn::before {
     background: var(--industrial-accent);
 }
@@ -579,7 +576,7 @@
 
 .hero-container[data-world="industrial"] .world-btn:hover {
     border-color: var(--industrial-accent);
-    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
+    box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
 }
 
 .world-btn:hover::before {
@@ -597,25 +594,30 @@
     background: var(--industrial-accent);
     border-color: var(--industrial-accent);
     color: #0a0a0a;
-    box-shadow: 0 0 40px rgba(6, 182, 212, 0.6);
+    box-shadow: 0 0 40px rgba(74, 222, 128, 0.5);
 }
 
 /* Stili specifici per mondo DARK */
 .hero-container[data-world="dark"] .world-btn {
-    border-color: rgba(10, 10, 10, 0.2);
+    border-color: rgba(10, 10, 10, 0.25);
     color: rgba(10, 10, 10, 0.6);
+}
+
+.hero-container[data-world="dark"] .world-btn::before {
+    background: #0a0a0a;
 }
 
 .hero-container[data-world="dark"] .world-btn:hover {
     border-color: #0a0a0a;
-    color: #0a0a0a;
+    color: #ffffff;
+    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.2);
 }
 
 .hero-container[data-world="dark"] .world-btn.active {
     background: #0a0a0a;
     border-color: #0a0a0a;
     color: #ffffff;
-    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.3);
+    box-shadow: 0 0 40px rgba(10, 10, 10, 0.3);
 }
 
 /* LABEL sotto i bottoni */
@@ -652,8 +654,7 @@
 }
 
 /* ==========================================================================
-   PROGRESS BAR NAVIGATION - CENTRATA E IN BASSO
-   Area cliccabile AUMENTATA sui markers
+   PROGRESS BAR NAVIGATION
    ========================================================================== */
 
 .hero-progress {
@@ -677,12 +678,12 @@
 }
 
 .hero-container[data-world="industrial"] .hero-progress {
-    background: rgba(6, 182, 212, 0.1);
-    border-color: rgba(6, 182, 212, 0.4);
+    background: rgba(74, 222, 128, 0.08);
+    border-color: rgba(74, 222, 128, 0.3);
 }
 
 .hero-container[data-world="dark"] .hero-progress {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.4);
     border-color: rgba(10, 10, 10, 0.2);
 }
 
@@ -698,7 +699,7 @@
 }
 
 .hero-container[data-world="industrial"] .progress-label {
-    color: rgba(165, 243, 252, 0.8);
+    color: rgba(187, 247, 208, 0.8);
 }
 
 .hero-container[data-world="dark"] .progress-label {
@@ -717,7 +718,7 @@
 }
 
 .hero-container[data-world="industrial"] .progress-track {
-    background: rgba(6, 182, 212, 0.25);
+    background: rgba(74, 222, 128, 0.2);
 }
 
 .hero-container[data-world="dark"] .progress-track {
@@ -741,7 +742,7 @@
 
 .hero-container[data-world="industrial"] .progress-fill {
     background: var(--industrial-accent);
-    box-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
+    box-shadow: 0 0 12px rgba(74, 222, 128, 0.5);
 }
 
 .hero-container[data-world="dark"] .progress-fill {
@@ -773,21 +774,21 @@
 
 .hero-container[data-world="industrial"] .progress-dot {
     background: var(--industrial-accent);
-    border-color: rgba(6, 54, 82, 0.9);
+    border-color: rgba(4, 35, 14, 0.9);
     box-shadow: 
-        0 0 0 4px rgba(6, 182, 212, 0.25),
-        0 0 25px rgba(6, 182, 212, 0.7);
+        0 0 0 4px rgba(74, 222, 128, 0.2),
+        0 0 20px rgba(74, 222, 128, 0.6);
 }
 
 .hero-container[data-world="dark"] .progress-dot {
     background: #0a0a0a;
-    border-color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.8);
     box-shadow: 
         0 0 0 4px rgba(10, 10, 10, 0.15),
         0 0 20px rgba(10, 10, 10, 0.4);
 }
 
-/* Markers sulla barra - container */
+/* Markers sulla barra */
 .progress-markers {
     position: absolute;
     top: 0;
@@ -799,7 +800,6 @@
     pointer-events: none;
 }
 
-/* Markers sulla barra (K75S, K75, K53) */
 .progress-marker {
     position: relative;
     width: 8px;
@@ -813,14 +813,14 @@
 }
 
 .hero-container[data-world="industrial"] .progress-marker {
-    background: rgba(6, 182, 212, 0.5);
+    background: rgba(74, 222, 128, 0.4);
 }
 
 .hero-container[data-world="dark"] .progress-marker {
     background: rgba(10, 10, 10, 0.3);
 }
 
-/* Area cliccabile invisibile più grande (40x40px) */
+/* Area cliccabile invisibile più grande */
 .progress-marker::before {
     content: '';
     position: absolute;
@@ -839,8 +839,8 @@
 }
 
 .hero-container[data-world="industrial"] .progress-marker:hover {
-    background: rgba(6, 182, 212, 0.8);
-    box-shadow: 0 0 12px rgba(6, 182, 212, 0.7);
+    background: rgba(74, 222, 128, 0.7);
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.6);
 }
 
 .hero-container[data-world="dark"] .progress-marker:hover {
@@ -866,7 +866,7 @@
 }
 
 .hero-container[data-world="industrial"] .progress-marker::after {
-    color: rgba(165, 243, 252, 0.5);
+    color: rgba(187, 247, 208, 0.5);
 }
 
 .hero-container[data-world="dark"] .progress-marker::after {
@@ -882,7 +882,7 @@
 
 .hero-container[data-world="industrial"] .progress-marker.active {
     background: var(--industrial-accent);
-    box-shadow: 0 0 15px rgba(6, 182, 212, 0.9);
+    box-shadow: 0 0 12px rgba(74, 222, 128, 0.7);
 }
 
 .hero-container[data-world="dark"] .progress-marker.active {
@@ -902,7 +902,6 @@
 .hero-container[data-world="dark"] .progress-marker.active::after {
     color: #0a0a0a;
 }
-
 /* ==========================================================================
    HERO RESPONSIVE - Ottimizzazioni per tutti i dispositivi
    Mobile: Solo progress bar (no world switcher)

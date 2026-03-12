@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K-75S Automatica - Scheda Tecnica | Optiform</title>
-    <meta name="description" content="Termoformatrice K-75S con PLC programmabile e doppia scheda diagnostica. Scheda tecnica in preparazione.">
+    <title>K75S - Scheda Tecnica | Optiform</title>
+    <meta name="description" content="Termoformatrice K75S totalmente automatica — area di formatura 660×460 mm, 10 zone di riscaldo, ciclo completamente automatico a movimenti pneumatici.">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <!-- CSS Base -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/termo.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/scheda-tecnica.css">
 </head>
 <body>
+
 <!-- Navigation -->
 <nav id="navbar">
     <div class="nav-container">
@@ -23,150 +24,260 @@
                 <img src="img/Logo-Optiform.png" alt="Optiform" class="optiform-logo">
             </a>
         </div>
-        
         <button class="hamburger" id="hamburger" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </button>
-        
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="prodotti.html" class="active">Prodotti</a></li>
             <li><a href="vantaggi.html">Vantaggi</a></li>
             <li><a href="contatti.html">Contatti</a></li>
         </ul>
-
         <div class="lang-switcher">
             <button class="lang-btn active" aria-label="Lingua corrente: Italiano">
                 <span class="lang-code">IT</span>
             </button>
             <div class="lang-dropdown">
-                <a href="de/produkte.html" class="lang-option">
-                    <span class="lang-text">DE</span>
-                </a>
-                <a href="en/products.html" class="lang-option">
-                    <span class="lang-text">EN</span>
-                </a>
+                <a href="de/produkte.html" class="lang-option"><span class="lang-text">DE</span></a>
+                <a href="en/products.html" class="lang-option"><span class="lang-text">EN</span></a>
             </div>
         </div>
     </div>
 </nav>
 
-    <!-- Placeholder Content -->
-    <section class="placeholder-section">
-        <div class="container">
-            <div class="placeholder-content">
-                <!-- Logo/Visual -->
-                <div class="placeholder-visual">K75S</div>
-                
-                <!-- Status Badge -->
-                <div class="placeholder-badge">
-                    <span>Scheda Tecnica in Preparazione</span>
-                </div>
-                
-                <!-- Title -->
-                <h1>K75S Automatica</h1>
-                <p class="placeholder-subtitle">Termoformatrice con PLC programmabile e doppia scheda diagnostica</p>
-                
-                <!-- Message -->
-                <div class="placeholder-message">
-                    <p>Stiamo preparando la scheda tecnica completa con tutte le specifiche, dimensioni e caratteristiche tecniche del modello K75S.</p>
-                    <p>Nel frattempo, puoi richiedere informazioni dettagliate direttamente al nostro team tecnico.</p>
-                </div>
-                
-                <!-- Quick Info -->
-                <div class="placeholder-info-grid">
-                    <div class="info-item">
-                        <div class="info-text">
-                            <strong>Controllo</strong>
-                            <span>PLC Programmabile</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-text">
-                            <strong>Diagnostica</strong>
-                            <span>Integrata</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-text">
-                            <strong>Produzione</strong>
-                            <span>Made in Italy</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- CTA Buttons -->
-                <div class="placeholder-cta">
-                    <a href="contatti.html" class="cta-button primary large">Richiedi Scheda Tecnica</a>
-                    <a href="prodotti.html" class="cta-button secondary">Torna ai Prodotti</a>
-                </div>
-                
-                <!-- Additional Info -->
-                <div class="placeholder-note">
-                    <p><strong>Vuoi maggiori informazioni?</strong></p>
-                    <p>Contattaci via email <a href="mailto:info@optiform.tech">info@optiform.tech</a></p>
-                </div>
-            </div>
+<!-- HERO -->
+<section class="scheda-hero">
+    <div class="scheda-hero-left">
+        <div class="scheda-badge">
+            <span class="scheda-badge-dot"></span>
+            Scheda Tecnica
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>OPTIFORM</h3>
-                    <p>Divisione termoformatura di Floki s.r.l. Dal 2018 progettiamo sistemi di controllo avanzati a Treviglio, nel cuore del distretto industriale lombardo.</p>
-                    <span class="footer-badge">Made in Italy</span>
+        <div class="scheda-model-name">K75S</div>
+        <div class="scheda-model-tagline">Pro · Totalmente Automatica</div>
+
+        <p class="scheda-model-desc">
+            Ciclo totalmente automatico a movimenti pneumatici. Piano, cornice, bloccaggio e pannello di riscaldo comandati pneumaticamente. La scelta per chi vuole il massimo dell'automazione e produttività.
+        </p>
+
+        <div class="scheda-quick-stats">
+            <div class="quick-stat">
+                <span class="quick-stat-value">660×460</span>
+                <span class="quick-stat-label">Area formatura (mm)</span>
+            </div>
+            <div class="quick-stat">
+                <span class="quick-stat-value">10</span>
+                <span class="quick-stat-label">Zone riscaldo</span>
+            </div>
+            <div class="quick-stat">
+                <span class="quick-stat-value">380 kg</span>
+                <span class="quick-stat-label">Peso stimato</span>
+            </div>
+        </div>
+
+                <div class="scheda-hero-cta">
+            <a href="contatti.html" class="cta-button primary">Richiedi Info</a>
+            <a href="prodotti.html" class="cta-button secondary">Tutti i Modelli</a>
+        </div>
+    </div>
+
+    <div class="scheda-hero-right">
+        <img src="img/k-75S-removebg-preview.png" alt="Termoformatrice K75S" class="scheda-hero-img">
+    </div>
+</section>
+
+<!-- SPECIFICHE TECNICHE -->
+<section class="scheda-specs">
+    <div class="container">
+        <p class="section-eyebrow">Dati tecnici</p>
+        <h2 class="section-title">Specifiche</h2>
+
+        <div class="specs-grid">
+            <div class="specs-group">
+                <div class="specs-group-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    Dati di lavoro
                 </div>
-                
-                <div class="footer-column">
-                    <h4>Prodotti</h4>
-                    <ul>
-                        <li><a href="k-53.html">Modello K53</a></li>
-                        <li><a href="k-75.html">Modello K75</a></li>
-                        <li><a href="k-75s.html">Modello K75S</a></li>
-                    </ul>
+                <div class="spec-row">
+                    <span class="spec-name">Area di formatura</span>
+                    <span class="spec-value highlight">660 × 460 mm</span>
                 </div>
-                
-                <div class="footer-column">
-                    <h4>Azienda</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="prodotti.html">Prodotti</a></li>
-                        <li><a href="vantaggi.html">I Nostri Vantaggi</a></li>
-                        <li><a href="contatti.html">Contattaci</a></li>
-                    </ul>
+                <div class="spec-row">
+                    <span class="spec-name">Dimensioni lastra</span>
+                    <span class="spec-value">700 × 500 mm</span>
                 </div>
-                
-                <div class="footer-column">
-                    <h4>Contatti</h4>
-                    <ul>
-                        <li><a href="mailto:info@optiform.tech">info@optiform.tech</a></li>
-                        <li><a href="mailto:porrati@optiform.tech">porrati@optiform.tech</a></li>
-                        <li><a href="https://maps.app.goo.gl/m9pSLx6gd7bqgbkN7">Via Redipuglia, 77<br>24047 Treviglio (BG)</a></li>
-                    </ul>
+                <div class="spec-row">
+                    <span class="spec-name">Massima profondità</span>
+                    <span class="spec-value">320 mm</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-name">Spessore massimo lastra</span>
+                    <span class="spec-value">6 mm</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-name">Zone di riscaldo</span>
+                    <span class="spec-value highlight">10</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-name">Elementi di riscaldo</span>
+                    <span class="spec-value">Ceramici</span>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Optiform - Floki S.r.l. | P.IVA IT04278120169 | optiform.tech</p>
-                <div class="footer-links">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="cookie-policy.html">Cookie Policy</a>
-                    <a href="termini-condizioni.html">Termini e Condizioni</a>
+
+            <div class="specs-group">
+                <div class="specs-group-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    Specifiche tecniche
+                </div>
+                <div class="spec-row">
+                    <span class="spec-name">Dimensione (L×A×P)</span>
+                    <span class="spec-value">1050 × 1800 × 1550 mm</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-name">Peso stimato</span>
+                    <span class="spec-value">380 kg</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-name">Tensione di alimentazione</span>
+                    <span class="spec-value">Monofase o trifase + N</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-name">Tensione (internazionale)</span>
+                    <span class="spec-value">230 Vac</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-name">Massimo consumo elettrico</span>
+                    <span class="spec-value highlight">8.0 kW</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-name">Richiesta aria</span>
+                    <span class="spec-value">6 bar</span>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- Cookie Banner - versione aggiornata con link -->
+    </div>
+</section>
+
+<!-- CARATTERISTICHE -->
+<section class="scheda-features">
+    <div class="container">
+        <p class="section-eyebrow">Funzionalità</p>
+        <h2 class="section-title">Caratteristiche & Opzioni</h2>
+
+        <div class="features-layout">
+            <div>
+                <div class="features-col-title">Caratteristiche principali</div>
+                <ul class="features-list">
+                    <li>Ciclo totalmente automatico a movimenti pneumatici</li>
+                    <li>Regolazione potenza indipendente in 10 zone</li>
+                    <li>Diagnostica resistenze visibile sul display</li>
+                    <li>100 ricette importabili ed esportabili</li>
+                    <li>Movimento pneumatico di cornice, pannello di riscaldo e piano stampo</li>
+                    <li>Galleggiamento automatico lastra</li>
+                    <li>Stiramento lastra</li>
+                    <li>Strumento indicatore livello vuoto</li>
+                    <li>Pompa del vuoto da 16 mc/h con palette a secco (comando manuale o automatico)</li>
+                    <li>Interfaccia web accessibile da mobile, tablet o computer</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="features-col-title">Opzioni disponibili</div>
+                <ul class="features-list options">
+                    <li>Cornici di riduzione area di lavoro</li>
+                    <li>Dispositivo per alimentazione da bobina</li>
+                    <li>Sistema di raffreddamento ad aria forzata</li>
+                    <li>Programmazione accensione riscaldamento</li>
+                    <li>Banco di scarico pezzi per lavorazioni manuali</li>
+                    <li>Elementi di riscaldo al quarzo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- NAV TRA MODELLI -->
+<section class="scheda-nav-modelli">
+    <div class="container">
+        <div class="modelli-nav-grid">
+            <a href="k-53.html" class="modello-nav-item">
+                <div>
+                    <div class="modello-nav-name">K53</div>
+                    <div class="modello-nav-sub">Compatta · Manuale</div>
+                </div>
+                <span class="modello-nav-arrow">→</span>
+            </a>
+            <a href="k-75.html" class="modello-nav-item">
+                <div>
+                    <div class="modello-nav-name">K75</div>
+                    <div class="modello-nav-sub">Standard · Manuale</div>
+                </div>
+                <span class="modello-nav-arrow">→</span>
+            </a>
+            <a href="k-75s.html" class="modello-nav-item active">
+                <div>
+                    <div class="modello-nav-name">K75S</div>
+                    <div class="modello-nav-sub">Pro · Automatica</div>
+                </div>
+                <span class="modello-nav-arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>OPTIFORM</h3>
+                <p>Divisione termoformatura di floKi s.r.l. Dal 2018 progettiamo sistemi di controllo avanzati a Treviglio, nel cuore del distretto industriale lombardo.</p>
+                <span class="footer-badge">Made in Italy</span>
+            </div>
+            <div class="footer-column">
+                <h4>Prodotti</h4>
+                <ul>
+                    <li><a href="k-53.html">Modello K53</a></li>
+                    <li><a href="k-75.html">Modello K75</a></li>
+                    <li><a href="k-75s.html">Modello K75S</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Azienda</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="prodotti.html">Prodotti</a></li>
+                    <li><a href="vantaggi.html">I Nostri Vantaggi</a></li>
+                    <li><a href="contatti.html">Contattaci</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contatti</h4>
+                <ul>
+                    <li><a href="mailto:info@optiform.tech">info@optiform.tech</a></li>
+                    <li><a href="mailto:porrati@optiform.tech">porrati@optiform.tech</a></li>
+                    <li><a href="https://maps.app.goo.gl/m9pSLx6gd7bqgbkN7">Via Redipuglia, 77<br>24047 Treviglio (BG)</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Optiform - floKi s.r.l. | P.IVA IT04278120169 | optiform.tech</p>
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="cookie-policy.html">Cookie Policy</a>
+                <a href="termini-condizioni.html">Termini e Condizioni</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
 <div id="cookie-banner" class="cookie-banner">
     <div class="cookie-content">
         <div class="cookie-text">
             <h3>Cookie e Privacy</h3>
-            <p>Utilizziamo cookie tecnici essenziali per il funzionamento del sito. Per mostrare la mappa Google Maps è necessario il tuo consenso al caricamento di contenuti esterni. <a href="cookie-policy.html" class="cookie-policy-link">Leggi la Cookie Policy</a></p>
+            <p>Utilizziamo cookie tecnici essenziali per il funzionamento del sito. <a href="cookie-policy.html" class="cookie-policy-link">Leggi la Cookie Policy</a></p>
         </div>
         <div class="cookie-actions">
             <button id="cookie-accept" class="cookie-btn">Accetta</button>
@@ -174,12 +285,11 @@
         </div>
     </div>
 </div>
-<!-- Scroll to Top -->
+
 <button id="scroll-to-top" aria-label="Torna su">
-        <img src="img/K floki originale VERDE.png" alt="Back to top">
+    <img src="img/K floki originale VERDE.png" alt="Back to top">
 </button>
 
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
