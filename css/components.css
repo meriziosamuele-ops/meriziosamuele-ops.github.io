@@ -1836,12 +1836,20 @@ footer {
     right: 0;
     background: linear-gradient(180deg, rgba(10, 10, 10, 0.97) 0%, rgba(0, 0, 0, 0.99) 100%);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-top: 1px solid rgba(0, 255, 157, 0.2);
     box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
     padding: 2rem 1.5rem;
     z-index: 10000;
     transform: translateY(100%);
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.5s ease,
+                visibility 0s 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    will-change: transform;
 }
 
 .cookie-banner::before {
@@ -1851,15 +1859,32 @@ footer {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        var(--green) 50%, 
+    background: linear-gradient(90deg,
+        transparent 0%,
+        var(--green) 50%,
         transparent 100%);
     opacity: 0.6;
 }
 
 .cookie-banner.show {
     transform: translateY(0);
+    -webkit-transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.5s ease;
+}
+
+.cookie-banner.hide {
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.5s ease,
+                visibility 0s 0.5s;
 }
 
 .cookie-content {
@@ -1869,6 +1894,7 @@ footer {
     align-items: center;
     justify-content: space-between;
     gap: 3rem;
+    pointer-events: auto;
 }
 
 .cookie-text {
@@ -1895,6 +1921,7 @@ footer {
     height: 16px;
     background: var(--green);
     display: block;
+    flex-shrink: 0;
 }
 
 .cookie-text p {
@@ -1903,6 +1930,17 @@ footer {
     line-height: 1.7;
     margin: 0;
     font-weight: 400;
+}
+
+.cookie-text a {
+    color: var(--green);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.cookie-text a:hover {
+    border-bottom-color: var(--green);
 }
 
 .cookie-actions {
@@ -1937,7 +1975,8 @@ footer {
     height: 0;
     border-radius: 50%;
     background: var(--green);
-    transition: width 0.4s ease, height 0.4s ease, top 0.4s ease, left 0.4s ease;
+    transition: width 0.4s ease, height 0.4s ease,
+                top 0.4s ease, left 0.4s ease;
     transform: translate(-50%, -50%);
     z-index: -1;
 }
@@ -1961,6 +2000,32 @@ footer {
 .cookie-btn:first-child {
     background: rgba(0, 255, 157, 0.1);
     border-color: rgba(0, 255, 157, 0.4);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .cookie-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .cookie-text {
+        max-width: 100%;
+    }
+
+    .cookie-actions {
+        width: 100%;
+    }
+
+    .cookie-btn {
+        flex: 1;
+        text-align: center;
+        padding: 0.875rem 1rem;
+    }
 }
 
 /* ============================================
