@@ -102,7 +102,7 @@
             title: 'K53',
             subtitle: t.k53.subtitle,
             description: t.k53.description,
-            image: basePath + 'img/k-53-removebg-preview.webp',  // ✅ Path dinamico
+            image: basePath + 'img/K-53-removebg-preview.webp',  // ✅ Path dinamico
             alt: 'Termoformatrice K53 Compatta'
         }
     };
