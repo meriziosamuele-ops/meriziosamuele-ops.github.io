@@ -9,42 +9,100 @@
 (function() {
     'use strict';
 
-    // ========== RILEVA PATH BASE PER MULTILINGUA ==========
+// ========== RILEVA PATH BASE PER MULTILINGUA ==========
     // Se siamo in /en/ o /de/, usa '../', altrimenti usa ''
     const currentPath = window.location.pathname;
     const isSubfolder = currentPath.includes('/en/') || currentPath.includes('/de/');
     const basePath = isSubfolder ? '../' : '';
+    const lang = currentPath.includes('/en/') ? 'en' : currentPath.includes('/de/') ? 'de' : 'it';
     
-    console.log('🌐 Language detected:', isSubfolder ? 'EN/DE (subfolder)' : 'IT (root)');
+    console.log('🌐 Language detected:', lang.toUpperCase());
     console.log('📁 Base path:', basePath || '(root)');
+
+    // ========== TRADUZIONI ==========
+    const MODELS_TRANSLATIONS = {
+        it: {
+            k75s: {
+                badge: 'Automatica • PLC Programmabile',
+                subtitle: 'Automazione completa per produzioni ad alto volume',
+                description: 'Termoformatrice con PLC programmabile per automazione completa del ciclo. Sistema diagnostico dedicato per monitoraggio resistenze in tempo reale. Ottimizzata per produzioni continuative ad alto volume con cicli ripetitivi.'
+            },
+            k75: {
+                badge: 'Manuale • Massima Flessibilità',
+                subtitle: 'Controllo manuale per produzioni variabili',
+                description: 'Termoformatrice con controllo manuale, ideale per produzioni variabili e cambio formato frequente. Sistema diagnostico dedicato per manutenzione rapida e autonoma. Perfetta per chi necessita di massima flessibilità operativa.'
+            },
+            k53: {
+                badge: 'Compatta • Dimensioni Ridotte',
+                subtitle: 'Controllo manuale, dimensioni compatte per spazi limitati',
+                description: 'Termoformatrice con controllo manuale e dimensioni compatte, ideale per produzioni variabili in spazi produttivi limitati. Sistema diagnostico integrato per manutenzione rapida. Cambio formato veloce per piccole serie.'
+            }
+        },
+        en: {
+            k75s: {
+                badge: 'Automatic • Programmable PLC',
+                subtitle: 'Complete automation for high-volume production',
+                description: 'Thermoforming machine with programmable PLC for complete cycle automation. Dedicated diagnostic system for real-time heating element monitoring. Optimised for continuous high-volume production with repetitive cycles.'
+            },
+            k75: {
+                badge: 'Manual • Maximum Flexibility',
+                subtitle: 'Manual control for variable production runs',
+                description: 'Thermoforming machine with manual control, ideal for variable production runs and frequent format changes. Dedicated diagnostic system for fast, independent maintenance. Perfect for those who need maximum operational flexibility.'
+            },
+            k53: {
+                badge: 'Compact • Reduced Dimensions',
+                subtitle: 'Manual control, compact size for limited spaces',
+                description: 'Thermoforming machine with manual control and compact dimensions, ideal for variable production in limited production spaces. Integrated diagnostic system for fast maintenance. Quick format change for small runs.'
+            }
+        },
+        de: {
+            k75s: {
+                badge: 'Automatisch • Programmierbares PLC',
+                subtitle: 'Vollständige Automatisierung für Hochvolumenproduktion',
+                description: 'Thermoformmaschine mit programmierbarer SPS für vollständige Zyklusautomatisierung. Dediziertes Diagnosesystem zur Echtzeitüberwachung der Heizelemente. Optimiert für kontinuierliche Hochvolumenproduktion mit repetitiven Zyklen.'
+            },
+            k75: {
+                badge: 'Manuell • Maximale Flexibilität',
+                subtitle: 'Manuelle Steuerung für variable Produktionen',
+                description: 'Thermoformmaschine mit manueller Steuerung, ideal für variable Produktionen und häufigen Formatwechsel. Dediziertes Diagnosesystem für schnelle und eigenständige Wartung. Perfekt für alle, die maximale operative Flexibilität benötigen.'
+            },
+            k53: {
+                badge: 'Kompakt • Reduzierte Abmessungen',
+                subtitle: 'Manuelle Steuerung, kompakte Abmessungen für begrenzte Räume',
+                description: 'Thermoformmaschine mit manueller Steuerung und kompakten Abmessungen, ideal für variable Produktionen in begrenzten Produktionsräumen. Integriertes Diagnosesystem für schnelle Wartung. Schneller Formatwechsel für Kleinserien.'
+            }
+        }
+    };
+
+    const t = MODELS_TRANSLATIONS[lang];
 
     // ========== CONFIGURAZIONE MODELLI ==========
     const MODELS_CONFIG = {
         k75s: {
             world: 'cyber',
-            badge: 'Automatica • PLC Programmabile',
+            badge: t.k75s.badge,
             title: 'K75S',
-            subtitle: 'Automazione completa per produzioni ad alto volume',
-            description: 'Termoformatrice con PLC programmabile per automazione completa del ciclo. Sistema diagnostico dedicato per monitoraggio resistenze in tempo reale. Ottimizzata per produzioni continuative ad alto volume con cicli ripetitivi.',
-            image: basePath + 'img/k-75S-removebg-preview.png',  // ✅ Path dinamico
+            subtitle: t.k75s.subtitle,
+            description: t.k75s.description,
+            image: basePath + 'img/k-75S-removebg-preview.webp',  // ✅ Path dinamico
             alt: 'Termoformatrice K75S Automatica'
         },
         k75: {
             world: 'industrial',
-            badge: 'Manuale • Massima Flessibilità',
+            badge: t.k75.badge,
             title: 'K75',
-            subtitle: 'Controllo manuale per produzioni variabili',
-            description: 'Termoformatrice con controllo manuale, ideale per produzioni variabili e cambio formato frequente. Sistema diagnostico dedicato per manutenzione rapida e autonoma. Perfetta per chi necessita di massima flessibilità operativa.',
-            image: basePath + 'img/k-75-removebg-preview.png',  // ✅ Path dinamico
+            subtitle: t.k75.subtitle,
+            description: t.k75.description,
+            image: basePath + 'img/k-75-removebg-preview.webp',  // ✅ Path dinamico
             alt: 'Termoformatrice K75 Manuale'
         },
         k53: {
             world: 'dark',
-            badge: 'Compatta • Dimensioni Ridotte',
+            badge: t.k53.badge,
             title: 'K53',
-            subtitle: 'Controllo manuale, dimensioni compatte per spazi limitati',
-            description: 'Termoformatrice con controllo manuale e dimensioni compatte, ideale per produzioni variabili in spazi produttivi limitati. Sistema diagnostico integrato per manutenzione rapida. Cambio formato veloce per piccole serie.',
-            image: basePath + 'img/k-53-removebg-preview.png',  // ✅ Path dinamico
+            subtitle: t.k53.subtitle,
+            description: t.k53.description,
+            image: basePath + 'img/k-53-removebg-preview.webp',  // ✅ Path dinamico
             alt: 'Termoformatrice K53 Compatta'
         }
     };
