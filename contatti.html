@@ -1,256 +1,251 @@
 <!DOCTYPE html>
-<html lang="it" class="no-js">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatti - Optiform | Sede a Treviglio</title>
-    <meta name="description" content="Contatta Optiform a Treviglio. Visita la nostra sede operativa con showroom, richiedi informazioni o prenota una demo delle termoformatrici.">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <!--CSS-->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/contatti.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="floKi s.r.l. — Contatti: sede, email e recapiti. Via Redipuglia 77, Treviglio (BG). Automazione industriale." />
+  <title>Contatti | floKi s.r.l.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<!-- Navigation -->
-<nav id="navbar">
-    <div class="nav-container">
-        <div class="logo-wrapper">
-            <a href="index.html" rel="noopener noreferrer" class="optiform-link">
-                <img src="img/Logo-Optiform.webp" alt="Optiform" class="optiform-logo">
+
+  <header class="navbar navbar--solid" id="navbar">
+    <div class="container navbar__inner">
+
+      <a href="index.html" class="navbar__logo" aria-label="floKi s.r.l. — home">
+        <img src="img/logo-floki.jpeg"
+             alt="floKi s.r.l."
+             class="navbar__logo-img"
+             width="120"
+             height="40" />
+        <span class="navbar__logo-tag">Industrial Automation</span>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Navigazione principale">
+        <a href="index.html"     class="navbar__link">Home</a>
+        <a href="servizi.html"   class="navbar__link">Servizi</a>
+        <a href="referenze.html" class="navbar__link">Referenze</a>
+        <a href="contatti.html"  class="navbar__cta is-active">Contatti</a>
+      </nav>
+
+      <button class="navbar__hamburger" id="hamburger"
+              aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+      </button>
+
+    </div>
+
+    <nav class="navbar__mobile" id="mobile-menu" aria-label="Menu mobile">
+      <a href="index.html"     class="navbar__mobile-link">Home</a>
+      <a href="servizi.html"   class="navbar__mobile-link">Servizi</a>
+      <a href="referenze.html" class="navbar__mobile-link">Referenze</a>
+      <a href="contatti.html"  class="navbar__mobile-cta">Contatti</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO INTERNO -->
+    <section class="hero hero--inner">
+      <div class="container hero__content">
+        <div class="hero__eyebrow">MSG.INIT // CONTATTI</div>
+        <h1 class="hero__title">Parliamo del tuo <em>progetto</em>.</h1>
+        <p class="hero__description">
+          Contattaci per discutere le specifiche tecniche del tuo impianto.
+          Rispondiamo entro 24 ore lavorative.
+        </p>
+      </div>
+    </section>
+
+    <!-- BLOCCO CONTATTI -->
+    <section class="section" aria-labelledby="contacts-title">
+      <div class="container">
+
+        <div class="contact-grid">
+
+          <!-- Recapiti -->
+          <div class="contact-block">
+            <div class="contact-block__header">
+              <span class="contact-block__index">01</span>
+              <div class="contact-block__title" id="contacts-title">Recapiti</div>
+            </div>
+            <div class="data-table">
+              <div class="data-row">
+                <span class="data-row__label">Sede</span>
+                <span class="data-row__value">
+                  <a href="https://maps.google.com/?q=Via+Redipuglia+77,+24047+Treviglio+BG"
+                     class="contact-link"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     aria-label="Apri indirizzo in Google Maps">
+                    Via Redipuglia, 77 — 24047 Treviglio (BG)
+                  </a>
+                </span>
+              </div>
+              <div class="data-row">
+                <span class="data-row__label">Email</span>
+                <span class="data-row__value">
+                  <a href="mailto:info@floki.it" class="contact-link">info@floki.it</a>
+                </span>
+              </div>
+              <div class="data-row">
+                <span class="data-row__label">P.IVA</span>
+                <span class="data-row__value">IT04278120169</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dati societari -->
+          <div class="contact-block">
+            <div class="contact-block__header">
+              <span class="contact-block__index">02</span>
+              <div class="contact-block__title">Dati societari</div>
+            </div>
+            <div class="data-table">
+              <div class="data-row">
+                <span class="data-row__label">Ragione sociale</span>
+                <span class="data-row__value">floKi s.r.l.</span>
+              </div>
+              <div class="data-row">
+                <span class="data-row__label">Settore</span>
+                <span class="data-row__value">Sistemi di controllo e automazione industriale</span>
+              </div>
+              <div class="data-row">
+                <span class="data-row__label">Attività dal</span>
+                <span class="data-row__value">2018</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MAPPA -->
+    <section class="section section--map" aria-label="Mappa sede">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Dove siamo</div>
+          <h2>Sede operativa.</h2>
+        </div>
+        <div class="map-embed" role="region" aria-label="Mappa Google Maps — floKi s.r.l., Via Redipuglia 77, Treviglio">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2789.123!2d9.5820!3d45.5210!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47814b2a1c8f5e67%3A0x0!2sVia+Redipuglia%2C+77%2C+24047+Treviglio+BG!5e0!3m2!1sit!2sit!4v1700000000000"
+            width="100%"
+            height="420"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="floKi s.r.l. — Via Redipuglia 77, Treviglio (BG)">
+          </iframe>
+        </div>
+        <div class="map-address-bar">
+          <span class="map-address-bar__text">Via Redipuglia, 77 — 24047 Treviglio (BG)</span>
+          <a href="https://maps.google.com/?q=Via+Redipuglia+77,+24047+Treviglio+BG"
+             class="btn btn--outline"
+             target="_blank"
+             rel="noopener noreferrer">
+            Apri in Google Maps <span class="btn__arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" aria-label="Footer">
+    <div class="container">
+      <div class="footer__body">
+ 
+        <!-- BRAND -->
+        <div class="footer__brand">
+          <a href="index.html" class="footer__brand-name" aria-label="floKi s.r.l. — home">
+            floKi s.r.l.
+          </a>
+          <p class="footer__brand-description">
+            Ingegneria dei sistemi di controllo e automazione industriale.
+            Treviglio (BG), dal 2018.
+          </p>
+        </div>
+ 
+        <!-- NAVIGAZIONE -->
+        <div>
+          <div class="footer__col-title">Navigazione</div>
+          <ul class="footer__links">
+            <li><a href="index.html"     class="footer__link">Home</a></li>
+            <li><a href="servizi.html"   class="footer__link">Servizi</a></li>
+            <li><a href="referenze.html" class="footer__link">Referenze</a></li>
+            <li><a href="contatti.html"  class="footer__link">Contatti</a></li>
+          </ul>
+        </div>
+ 
+        <!-- CONTATTI -->
+        <div>
+          <div class="footer__col-title">Contatti</div>
+          <div class="footer__contact-entry">
+            <span class="footer__contact-key">Sede</span>
+            <a href="https://maps.google.com/?q=Via+Redipuglia+77,+24047+Treviglio+BG"
+               class="footer__contact-val"
+               target="_blank"
+               rel="noopener noreferrer">
+              Via Redipuglia, 77<br />24047 Treviglio (BG)
             </a>
+          </div>
+          <div class="footer__contact-entry">
+            <span class="footer__contact-key">Email</span>
+            <a href="mailto:info@floki.it" class="footer__contact-val">info@floki.it</a>
+          </div>
+          <div class="footer__contact-entry">
+            <span class="footer__contact-key">P.IVA</span>
+            <span class="footer__contact-val">IT04278120169</span>
+          </div>
         </div>
-        
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="prodotti.html">Prodotti</a></li>
-            <li><a href="vantaggi.html">Vantaggi</a></li>
-            <li><a href="contatti.html" class="active">Contatti</a></li>
+ 
+        <!-- LEGALE -->
+        <div>
+          <div class="footer__col-title">Legale</div>
+          <ul class="footer__links">
+            <li><a href="termini.html"  class="footer__link">Termini e condizioni</a></li>
+            <li><a href="privacy.html"  class="footer__link">Privacy Policy</a></li>
+            <li><a href="cookie.html"   class="footer__link">Cookie Policy</a></li>
+          </ul>
+        </div>
+ 
+      </div>
+ 
+      <!-- BARRA INFERIORE -->
+      <div class="footer__bottom">
+        <span class="footer__bottom-copy">
+          © 2018–2026 floKi s.r.l. — Tutti i diritti riservati
+        </span>
+        <ul class="footer__legal-links">
+          <li><a href="termini.html" class="footer__legal-link">Termini</a></li>
+          <li><a href="privacy.html" class="footer__legal-link">Privacy</a></li>
+          <li><a href="cookie.html"  class="footer__legal-link">Cookie</a></li>
+          <li><span>P.IVA IT04278120169</span></li>
         </ul>
-
-        <div class="lang-switcher">
-            <button class="lang-btn active" aria-label="Lingua corrente: Italiano">
-                <span class="lang-code">IT</span>
-            </button>
-            <div class="lang-dropdown">
-                <a href="de/kontakt.html" class="lang-option">
-                    <span class="lang-text">DE</span>
-                </a>
-                <a href="en/contact.html" class="lang-option">
-                    <span class="lang-text">EN</span>
-                </a>
-            </div>
-        </div>
+      </div>
+ 
     </div>
-</nav>
+  </footer>
+ 
+    <button class="back-to-top" id="back-to-top" aria-label="Torna in cima alla pagina">
+    <img src="img/k-floki-originale.png"
+         alt=""
+         class="back-to-top__icon"
+         width="28"
+         height="28"
+         aria-hidden="true" />
+  </button>
 
-    <!-- Hero Section -->
-    <section class="page-header">
-        <div class="container">
-            <h1>Contatta <span class="highlight-green">Optiform</span></h1>
-            <p>Il nostro team tecnico è a disposizione per consulenze, preventivi e informazioni sui nostri sistemi di termoformatura.</p>
-        </div>
-    </section>
-
-    <!-- Informazioni di Contatto -->
-    <section class="contact-section">
-        <div class="container">
-            <div class="contact-grid">
-                <!-- Info Cards -->
-                <div class="contact-info">
-                    <h2>Come <span class="highlight-green">Contattarci</span></h2>
-                    
-                    <div class="info-cards">
-                        <div class="info-card fade-in-up">
-                            <div class="info-content">
-                                <h3>Sede Operativa</h3>
-                                <p><strong>floKi s.r.l. - Divisione Optiform</strong><br></p>
-                                <a href="https://maps.app.goo.gl/m9pSLx6gd7bqgbkN7">Via Redipuglia, 77<br>
-                                24047 Treviglio (BG), Italia</a>
-                                <p class="info-note">
-                                    <strong>Sede produttiva e uffici tecnici</strong><br>
-                                    Ricevimento solo su appuntamento
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="info-card fade-in-up">
-                            <div class="info-content">
-                                <h3>Email</h3>
-                                <a href="mailto:info@optiform.tech">info@optiform.tech</a> <br>
-                                <a href="mailto:porrati@optiform.tech">porrati@optiform.tech</a>
-                                <p class="info-note">Per informazioni</p>
-                            </div>
-                        </div>
-
-                        <div class="info-card fade-in-up">
-                            <div class="info-content">
-                                <h3>Orari</h3>
-                                <p class="info-note">Lun-Ven: 9:00 - 18:00</p>
-                            </div>
-                        </div>
-
-                        <div class="info-card fade-in-up">
-                            <div class="info-content">
-                                <h3>Ragione Sociale</h3>
-                                <p><strong>floKi s.r.l.</strong><br>
-                                P.IVA: IT04278120169<br></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                    <!-- Mappa -->
-                    <div class="map-container fade-in-up">
-                        <h3>Dove Siamo</h3>
-                        <div class="map-wrapper">
-                            <iframe
-                            data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.8199138313566!2d9.593304209293361!3d45.50926041039414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781482f6b70fc15%3A0xb8d77e75ed8b5489!2sFloki%20s.r.l.!5e0!3m2!1sit!2sit!4v1773314944689!5m2!1sit!2sit"
-                            width="100%"
-                            height="450"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                        </div>
-                        <div class="map-info">
-                            <h4>Come Raggiungerci</h4>
-                            <ul>
-                                <li><strong>Da Milano:</strong> 30 km - A4 direzione Brescia, uscita Treviglio</li>
-                                <li><strong>Da Bergamo centro:</strong> 20 km - SP ex SS42 direzione Treviglio</li>
-                                <li><strong>Aeroporto Orio al Serio:</strong> 25 km - 25 minuti in auto</li>
-                            </ul>
-                            <p class="parking-note">Parcheggio disponibile in sede per appuntamenti concordati</p>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </section>
-
-<!-- CTA Contatto -->
-<section class="final-cta">
-    <div class="cta-content">
-        <div class="cta-main">
-            <h2>Richiedi Informazioni</h2>
-            <p class="cta-subtitle">Contattaci per preventivi personalizzati, consulenza tecnica o supporto. Il nostro team risponde rapidamente a ogni richiesta.</p>
-        </div>
-        <div class="cta-actions">
-            <div class="cta-buttons">
-                <a href="mailto:info@optiform.tech?subject=Richiesta%20Informazioni" class="cta-button primary">
-                    Invia Email
-                </a>
-            </div>
-            <div class="cta-info">
-                <span class="cta-highlight">✓ Risposta rapida</span>
-                <span class="cta-highlight">✓ Preventivo dedicato per esigenze produttive</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Supporto Tecnico -->
-    <section class="support-section">
-        <div class="container">
-            <h2 class="section-title-black fade-in-up">Assistenza <span class="highlight-green">e Supporto</span></h2>
-            
-            <div class="support-grid">
-                <div class="support-card fade-in-up">
-                    <h3>Supporto Remoto</h3>
-                    <p>Assistenza per diagnosi e risoluzione problemi. Il PLC permette di effettuare interventi da remoto.</p>
-                </div>
-
-                <div class="support-card fade-in-up">
-                    <h3>Interventi On-Site</h3>
-                    <p>Il nostro team di tecnici è a vostra disposizione per garantire interventi direttamente in loco, assicurando la massima efficienza e la risoluzione di ogni problematica tecnica presso la vostra sede.</p>
-                    <p class="timing">Massima <strong>professionalità</strong> e <strong>competenza</strong></p>
-                </div>
-
-                <div class="support-card fade-in-up">
-                    <h3>Ricambi Originali</h3>
-                    <p>Spedizione ricambi puntuale su richiesta. Codici identificativi chiari visualizzabili dal display della termoformatrice.</p>
-                    <a href="mailto:info@optiform.tech?subject=Richiesta%20Ricambi" class="support-link">Ordina Ricambi</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>OPTIFORM</h3>
-                    <p>Divisione termoformatura di floKi s.r.l. Dal 2018 progettiamo sistemi di controllo avanzati a Treviglio, nel cuore del distretto industriale lombardo.</p>
-                    <span class="footer-badge">Made in Italy</span>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>Prodotti</h4>
-                    <ul>
-                        <li><a href="k-53.html">Modello K53</a></li>
-                        <li><a href="k-75.html">Modello K75</a></li>
-                        <li><a href="k-75s.html">Modello K75S</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>Azienda</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="prodotti.html">Prodotti</a></li>
-                        <li><a href="vantaggi.html">I Nostri Vantaggi</a></li>
-                        <li><a href="contatti.html">Contattaci</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>Contatti</h4>
-                    <ul>
-                        <li><a href="mailto:info@optiform.tech">info@optiform.tech</a></li>
-                        <li><a href="mailto:porrati@optiform.tech">porrati@optiform.tech</a></li>
-                        <li><a href="https://maps.app.goo.gl/m9pSLx6gd7bqgbkN7">Via Redipuglia, 77<br>24047 Treviglio (BG)</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Optiform - floKi s.r.l. | P.IVA IT04278120169 | optiform.tech</p>
-                <div class="footer-links">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="cookie-policy.html">Cookie Policy</a>
-                    <a href="termini-condizioni.html">Termini e Condizioni</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Cookie Banner - versione aggiornata con link -->
-<div id="cookie-banner" class="cookie-banner">
-    <div class="cookie-content">
-        <div class="cookie-text">
-            <h3>Cookie e Privacy</h3>
-            <p>Utilizziamo cookie tecnici essenziali per il funzionamento del sito. Per mostrare la mappa Google Maps è necessario il tuo consenso al caricamento di contenuti esterni. <a href="cookie-policy.html" class="cookie-policy-link">Leggi la Cookie Policy</a></p>
-        </div>
-        <div class="cookie-actions">
-            <button id="cookie-accept" class="cookie-btn">Accetta</button>
-            <button id="cookie-reject" class="cookie-btn">Rifiuta</button>
-        </div>
-    </div>
-</div>
-    <!-- Scroll to Top Button -->
-    <button id="scroll-to-top">
-        <img src="img/K floki originale VERDE.png" alt="Back to top">
-    </button>
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

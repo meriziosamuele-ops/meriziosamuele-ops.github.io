@@ -1,435 +1,288 @@
 <!DOCTYPE html>
-<html lang="it" class="no-js">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optiform - Termoformatrici Professionali | Tecnologia Diagnostica Avanzata</title>
-    <meta name="description" content="Termoformatrici professionali con sistema diagnostico intelligente. Quando la macchina si ferma, sai già cosa sostituire.">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    
-    <!-- CSS Base -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/hero.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="floKi s.r.l. — Automazione industriale avanzata. Progettazione, realizzazione e installazione di impianti e quadri elettrici. Treviglio (BG)." />
+  <title>floKi s.r.l. | Ingegneria dell'Automazione Industriale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
-<!-- Navigation -->
-<nav id="navbar">
-    <div class="nav-container">
-        <div class="logo-wrapper">
-            <a href="index.html" rel="noopener noreferrer" class="optiform-link">
-                <img src="img/Logo-Optiform.webp" alt="Optiform" class="optiform-logo">
+<body class="page-home">
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+
+      <a href="index.html" class="navbar__logo" aria-label="floKi s.r.l. — home">
+        <img src="img/logo-floki.jpeg"
+             alt="floKi s.r.l."
+             class="navbar__logo-img"
+             width="120"
+             height="40" />
+        <span class="navbar__logo-tag">Industrial Automation</span>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Navigazione principale">
+        <a href="index.html"     class="navbar__link is-active">Home</a>
+        <a href="servizi.html"   class="navbar__link">Servizi</a>
+        <a href="referenze.html" class="navbar__link">Referenze</a>
+        <a href="contatti.html"  class="navbar__cta">Contatti</a>
+      </nav>
+
+      <button class="navbar__hamburger" id="hamburger"
+              aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+      </button>
+
+    </div>
+
+    <nav class="navbar__mobile" id="mobile-menu" aria-label="Menu mobile">
+      <a href="index.html"     class="navbar__mobile-link">Home</a>
+      <a href="servizi.html"   class="navbar__mobile-link">Servizi</a>
+      <a href="referenze.html" class="navbar__mobile-link">Referenze</a>
+      <a href="contatti.html"  class="navbar__mobile-cta">Contatti</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO — spline full-viewport con testo e stats integrati direttamente sull'overlay
+         Struttura:
+           .hero-scene  [full-viewport, position: relative]
+             spline-viewer  [position: absolute, inset: 0, pointer-events: none — bloccato]
+             .hero-scene__overlay  [gradiente per leggibilità testo]
+             .hero-scene__content  [testo + stats in basso, sopra l'overlay]
+    -->
+    <div class="hero-scene" role="banner" aria-label="Hero floKi s.r.l.">
+
+      <!-- Spline — mouse libero per l'animazione interna -->
+      <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.70/build/spline-viewer.js"></script>
+      <spline-viewer
+        class="hero-scene__spline"
+        url="https://prod.spline.design/7FB9ciDCb8VE3niw/scene.splinecode"
+        aria-hidden="true">
+      </spline-viewer>
+
+      <!-- Overlay — gradiente per leggibilità testo -->
+      <div class="hero-scene__overlay" aria-hidden="true"></div>
+
+      <!-- Wheel-trap — cattura wheel (blocca zoom Spline) e rilancia mousemove al canvas -->
+      <div class="hero-scene__wheel-trap" id="hero-wheel-trap" aria-hidden="true"></div>
+
+      <!-- Spline cover — nasconde il badge "Built with Spline" in basso a destra -->
+      <div class="hero-scene__spline-cover" aria-hidden="true"></div>
+
+
+
+      <!-- Contenuto — testo e stats direttamente sullo sfondo -->
+      <div class="hero-scene__content">
+
+        <!-- Colonna sinistra: eyebrow + titolo + descrizione -->
+        <div class="hero-scene__text">
+          <div class="hero-scene__eyebrow">Sistemi di controllo su misura</div>
+          <h1 class="hero-scene__title">
+            <em>Automazione</em> e <em>robotica</em> industriale.
+          </h1>
+          <p class="hero-scene__description">
+            Con oltre 20 anni di esperienza copriamo tutte le fasi di progettazione
+            degli impianti. Dal design preliminare all'installazione,
+            puntando alla massima efficienza.
+          </p>
+        </div>
+
+        <!-- Colonna destra: statistiche chiave -->
+        <div class="hero-scene__stats" aria-label="Dati chiave">
+          <div class="hero-scene__stat">
+            <div class="hero-scene__stat-value" data-counter="20" data-suffix="+">20+</div>
+            <div class="hero-scene__stat-label">Anni di esperienza</div>
+          </div>
+          <div class="hero-scene__stat">
+            <div class="hero-scene__stat-value hero-scene__stat-value--amber">ITER</div>
+            <div class="hero-scene__stat-label">Progetto internazionale</div>
+          </div>
+          <div class="hero-scene__stat">
+            <div class="hero-scene__stat-value" data-counter="76" data-suffix="">76</div>
+            <div class="hero-scene__stat-label">Brushless su singolo impianto</div>
+          </div>
+          <div class="hero-scene__stat">
+            <div class="hero-scene__stat-value" data-counter="200" data-suffix="+">200+</div>
+            <div class="hero-scene__stat-label">Nodi EtherCAT su singolo impianto</div>
+          </div>
+        </div>
+
+      </div><!-- /hero-scene__content -->
+
+    </div><!-- /hero-scene -->
+
+    <!-- SERVIZI -->
+    <!-- padding-top extra: compensa lo sforamento (--hero-bleed) dei blocchi hero -->
+    <section class="section section--after-hero" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Le nostre attività</div>
+          <h2 id="services-title">Dalla progettazione all'assistenza.</h2>
+          <p>Competenze complete su ogni fase del ciclo di vita di un impianto di automazione industriale.</p>
+        </div>
+        <div class="bento-grid">
+          <article class="bento-card">
+            <span class="bento-card__index">ACT.01</span>
+            <h3>Progettazione</h3>
+            <p>Ottimizzare la componentistica per ottenere la massima efficienza con il minor costo. Preliminary design e selezione materiali.</p>
+          </article>
+          <article class="bento-card">
+            <span class="bento-card__index">ACT.02</span>
+            <h3>Realizzazione</h3>
+            <p>Quadri elettrici e bordo macchina per il controllo impianti, con verifica di conformità tramite laboratori accreditati a livello mondiale.</p>
+          </article>
+          <article class="bento-card">
+            <span class="bento-card__index">ACT.03</span>
+            <h3>Software</h3>
+            <p>Sviluppo applicazioni customizzate in C, C#, Python, JS, VB. PLC per Beckhoff, Omron, Siemens e robotica Fanuc, Kuka, Comau.</p>
+          </article>
+          <article class="bento-card">
+            <span class="bento-card__index">ACT.04</span>
+            <h3>Installazione</h3>
+            <p>Primo avvio, modifiche e aggiornamenti. Supporto con tecnici montatori, supervisori e programmatori per l'ottimizzazione.</p>
+          </article>
+          <article class="bento-card">
+            <span class="bento-card__index">ACT.05</span>
+            <h3>Training</h3>
+            <p>Corsi formativi sugli impianti: lettura schemi elettrici/pneumatici, utilizzo interfaccia utente e manutenzione.</p>
+          </article>
+          <article class="bento-card">
+            <span class="bento-card__index">ACT.06</span>
+            <h3>Assistenza</h3>
+            <p>Supporto in loco o da remoto per emergenze. Fornitura ricambi e selezione di prodotti alternativi in caso di obsolescenza.</p>
+          </article>
+        </div>
+        <div style="margin-top:var(--sp-8);text-align:center;">
+          <a href="servizi.html" class="btn btn--outline">Vedi tutti i servizi <span class="btn__arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNER -->
+    <section class="section" aria-label="Tecnologie e partner">
+      <div class="container">
+        <div class="partners">
+          <div class="partners__label">Piattaforme e brand</div>
+          <div class="partners__list" role="list">
+            <span class="partner-badge" role="listitem">Beckhoff</span>
+            <span class="partner-badge" role="listitem">Siemens</span>
+            <span class="partner-badge" role="listitem">Omron</span>
+            <span class="partner-badge" role="listitem">Fanuc</span>
+            <span class="partner-badge" role="listitem">Kuka</span>
+            <span class="partner-badge" role="listitem">Comau</span>
+            <span class="partner-badge" role="listitem">EtherCAT</span>
+            <span class="partner-badge" role="listitem">TwinCAT</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" aria-labelledby="cta-title">
+      <div class="container container--narrow" style="text-align:center;">
+        <div class="eyebrow" style="justify-content:center;">Hai un progetto?</div>
+        <h2 id="cta-title" style="margin-bottom:var(--sp-4);">Parliamo del tuo impianto.</h2>
+        <p style="margin-inline:auto;max-width:480px;margin-bottom:var(--sp-8);">
+          Contattaci per discutere le specifiche tecniche. Rispondiamo entro 24 ore lavorative.
+        </p>
+        <a href="contatti.html" class="btn btn--primary">Contattaci <span class="btn__arrow">→</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" aria-label="Footer">
+    <div class="container">
+      <div class="footer__body">
+ 
+        <!-- BRAND -->
+        <div class="footer__brand">
+          <a href="index.html" class="footer__brand-name" aria-label="floKi s.r.l. — home">
+            floKi s.r.l.
+          </a>
+          <p class="footer__brand-description">
+            Ingegneria dei sistemi di controllo e automazione industriale.
+            Treviglio (BG), dal 2018.
+          </p>
+        </div>
+ 
+        <!-- NAVIGAZIONE -->
+        <div>
+          <div class="footer__col-title">Navigazione</div>
+          <ul class="footer__links">
+            <li><a href="index.html"     class="footer__link">Home</a></li>
+            <li><a href="servizi.html"   class="footer__link">Servizi</a></li>
+            <li><a href="referenze.html" class="footer__link">Referenze</a></li>
+            <li><a href="contatti.html"  class="footer__link">Contatti</a></li>
+          </ul>
+        </div>
+ 
+        <!-- CONTATTI -->
+        <div>
+          <div class="footer__col-title">Contatti</div>
+          <div class="footer__contact-entry">
+            <span class="footer__contact-key">Sede</span>
+            <a href="https://maps.google.com/?q=Via+Redipuglia+77,+24047+Treviglio+BG"
+               class="footer__contact-val"
+               target="_blank"
+               rel="noopener noreferrer">
+              Via Redipuglia, 77<br />24047 Treviglio (BG)
             </a>
+          </div>
+          <div class="footer__contact-entry">
+            <span class="footer__contact-key">Email</span>
+            <a href="mailto:info@floki.it" class="footer__contact-val">info@floki.it</a>
+          </div>
+          <div class="footer__contact-entry">
+            <span class="footer__contact-key">P.IVA</span>
+            <span class="footer__contact-val">IT04278120169</span>
+          </div>
         </div>
-        
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="prodotti.html">Prodotti</a></li>
-            <li><a href="vantaggi.html">Vantaggi</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
+ 
+        <!-- LEGALE -->
+        <div>
+          <div class="footer__col-title">Legale</div>
+          <ul class="footer__links">
+            <li><a href="termini.html"  class="footer__link">Termini e condizioni</a></li>
+            <li><a href="privacy.html"  class="footer__link">Privacy Policy</a></li>
+            <li><a href="cookie.html"   class="footer__link">Cookie Policy</a></li>
+          </ul>
+        </div>
+ 
+      </div>
+ 
+      <!-- BARRA INFERIORE -->
+      <div class="footer__bottom">
+        <span class="footer__bottom-copy">
+          © 2018–2026 floKi s.r.l. — Tutti i diritti riservati
+        </span>
+        <ul class="footer__legal-links">
+          <li><a href="termini.html" class="footer__legal-link">Termini</a></li>
+          <li><a href="privacy.html" class="footer__legal-link">Privacy</a></li>
+          <li><a href="cookie.html"  class="footer__legal-link">Cookie</a></li>
+          <li><span>P.IVA IT04278120169</span></li>
         </ul>
-
-        <div class="lang-switcher">
-            <button class="lang-btn active" aria-label="Lingua corrente: Italiano">
-                <span class="lang-code">IT</span>
-            </button>
-            <div class="lang-dropdown">
-                <a href="de/" class="lang-option">
-                    <span class="lang-text">DE</span>
-                </a>
-                <a href="en/" class="lang-option">
-                    <span class="lang-text">EN</span>
-                </a>
-            </div>
-        </div>
+      </div>
+ 
     </div>
-</nav>
-    <!-- HERO FULLSCREEN -->
-    <div class="hero-container" data-world="cyber" data-model="k75s">
-        <!-- GRIGLIA ANIMATA -->
-        <div class="grid-background"></div>
+  </footer>
+ 
+   <button class="back-to-top" id="back-to-top" aria-label="Torna in cima alla pagina">
+    <img src="img/k-floki-originale.png"
+         alt=""
+         class="back-to-top__icon"
+         width="40"
+         height="40"
+         aria-hidden="true" />
+  </button>
 
-        <!-- PARTICELLE -->
-        <div class="particles" id="particles"></div>
-
-        <!-- GLOW CENTRALE -->
-        <div class="hero-glow"></div>
-
-        <!-- PROGRESS BAR - FUORI DAL CONTENUTO CHE SCORRE -->
-        <div class="hero-progress">
-            <span class="progress-label">Modelli</span>
-            <div class="progress-track">
-                <div class="progress-fill"></div>
-                <div class="progress-dot"></div>
-                <div class="progress-markers">
-                    <div class="progress-marker active" data-label="K75S"></div>
-                    <div class="progress-marker" data-label="K75"></div>
-                    <div class="progress-marker" data-label="K53"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- CONTENUTO -->
-        <div class="hero-content">
-            <!-- LAYOUT A DUE COLONNE -->
-            <div class="hero-layout">
-                <!-- COLONNA SINISTRA - TESTO -->
-                <div class="hero-left">
-                    <div class="hero-text">
-                        <div class="hero-badge" id="hero-badge">Automatica • PLC Programmabile</div>
-                        <h1 class="hero-title" id="hero-title">K75S</h1>
-                        <p class="hero-subtitle" id="hero-subtitle">Automazione completa per produzioni ad alto volume</p>
-                    </div>
-
-                    <!-- DESCRIZIONE DETTAGLIATA -->
-                    <div class="hero-description" id="hero-description">
-                        <p>Termoformatrice con PLC programmabile per automazione completa del ciclo. Sistema diagnostico dedicato per monitoraggio resistenze in tempo reale. Ottimizzata per produzioni continuative ad alto volume con cicli ripetitivi.</p>
-                    </div>
-                </div>
-
-                <!-- COLONNA DESTRA - MACCHINA -->
-                <div class="hero-right">
-                    <div class="machine-container">
-                        <img src="img/k-75S-removebg-preview.webp" alt="Termoformatrice K75S" class="machine-image" id="machine-image">
-                    </div>
-                </div>
-            </div>
-
-            <!-- SWITCHER BUTTONS -->
-            <div class="world-switcher">
-                <button class="world-btn active" data-world="cyber" data-model="k75s">
-                    K75S
-                    <span class="world-label">Automatica</span>
-                </button>
-                <button class="world-btn" data-world="industrial" data-model="k75">
-                    K75
-                    <span class="world-label">Manuale</span>
-                </button>
-                <button class="world-btn" data-world="dark" data-model="k53">
-                    K53
-                    <span class="world-label">Compatta</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Come Funziona -->
-    <section class="how-it-works">
-        <div class="how-container">
-            <div class="section-header-center fade-in-up">
-                <span class="section-label">Come funziona</span>
-                <h2>Come Funziona il <span class="highlight-green">Sistema Diagnostico</span></h2>
-                <p class="lead-text">
-                    Una scheda elettronica dedicata lavora in sinergia con il PLC. Monitora costantemente ogni resistenza e, in caso di guasto, identifica quale componente sostituire.
-                </p>
-            </div>
-
-            <!-- CARD 1 - Testo a SINISTRA, Foto a DESTRA -->
-            <div class="feature-row fade-in-up">
-                <div class="feature-card">
-                    <div class="feature-number">01</div>
-                    <h3>Monitoraggio Continuo e Autonomo</h3>
-                    <p>La scheda diagnostica verifica ogni resistenza in sequenza con cicli regolari. Lavora in background senza interferire con la produzione: mentre la macchina produce, il sistema controlla lo stato di salute dei componenti.</p>
-                    <div class="feature-benefit">
-                        <strong>Il vantaggio:</strong> La macchina produce a pieno regime mentre la diagnostica lavora in parallelo. Nessun rallentamento, nessuna interruzione per i controlli.
-                    </div>
-                </div>
-                
-                <div class="feature-image">
-                    <div class="image-frame">
-                        <img src="img/scheda.webp" alt="Sistema diagnostico in funzione">
-                    </div>
-                </div>
-            </div>
-
-            <!-- CARD 2 - Foto a SINISTRA, Testo a DESTRA -->
-            <div class="feature-row reverse">
-                <div class="feature-image">
-                    <div class="image-frame">
-                        <img src= "img/toby.webp" alt="Display diagnostico">
-                    </div>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-number">02</div>
-                    <h3>Rilevamento Guasti</h3>
-                    <p>Quando una resistenza presenta anomalie, il sistema lo rileva e segnala il problema sul display. Nessuna diagnosi manuale: il codice identificativo del componente guasto appare automaticamente.</p>
-                    <div class="feature-benefit">
-                        <strong>Il vantaggio:</strong> Eliminata la fase più lunga e complessa: la ricerca del guasto. Il tecnico sa subito cosa è rotto senza smontare, misurare o testare componenti.
-                    </div>
-                </div>
-            </div>
-
-            <div class="diagnostic-cta">
-                <a href="vantaggi.html" class="cta-button secondary">Vedi i Vantaggi Chiave</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technology Section -->
-    <section class="technology-section">
-        <div class="container-wide">
-            <div class="section-header-center fade-in-up">
-                <span class="section-label">Tecnologia</span>
-                <h2>Innovazione Tecnologica</h2>
-                <p class="section-intro">
-                    Tre caratteristiche uniche che distinguono le nostre termoformatrici
-                </p>
-            </div>
-            
-            <div class="tech-grid">
-                <div class="tech-card fade-in-up">
-                    <div class="tech-number">01</div>
-                    <div class="tech-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="2" y="3" width="20" height="14" rx="2"/>
-                            <line x1="8" y1="21" x2="16" y2="21"/>
-                            <line x1="12" y1="17" x2="12" y2="21"/>
-                        </svg>
-                    </div>
-                    <h3>Architettura Dual-System</h3>
-                    <p>PLC dedicato al controllo operativo e scheda elettronica separata per la diagnostica. Due sistemi indipendenti che lavorano in parallelo senza interferenze.</p>
-                </div>
-                
-                <div class="tech-card fade-in-up">
-                    <div class="tech-number">02</div>
-                    <div class="tech-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="4" y="4" width="16" height="16" rx="2"/>
-                            <rect x="9" y="9" width="6" height="6"/>
-                            <line x1="9" y1="1" x2="9" y2="4"/>
-                            <line x1="15" y1="1" x2="15" y2="4"/>
-                        </svg>
-                    </div>
-                    <h3>Scheda Dedicata Unica</h3>
-                    <p>L'unica sul mercato con elettronica separata solo per il monitoraggio resistenze. Non sovraccarica il PLC e garantisce affidabilità totale del sistema.</p>
-                </div>
-                
-                <div class="tech-card fade-in-up">
-                    <div class="tech-number">03</div>
-                    <div class="tech-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
-                        </svg>
-                    </div>
-                    <h3>Manutenzione Semplificata</h3>
-                    <p>Nessun tecnico specializzato necessario. Chiunque può leggere il codice sul display e sostituire il componente indicato seguendo le istruzioni.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Made in Italy - Background Immersivo -->
-    <section class="made-in-italy">
-        <div class="made-background">
-            <img src="img/roby.webp" alt="Produzione Optiform Treviglio">
-            <div class="made-overlay"></div>
-        </div>
-        
-        <div class="made-content fade-in-up">
-            <div class="made-badge">
-                <span class="italy-flag">🇮🇹</span>
-                <span>Made in Italy</span>
-            </div>
-            
-            <div class="section-header-center">
-                <h2>Eccellenza Italiana nella Termoformatura</h2>
-                
-                <p>
-                    Ogni termoformatrice Optiform è progettata, assemblata e collaudata a <strong>Treviglio (BG)</strong>. L'innovazione del sistema diagnostico nasce dall'esperienza di <strong>floKi s.r.l.</strong>, azienda con consolidata presenza nel mercato dell'automazione industriale.
-                </p>
-            </div>
-            
-            <div class="made-features">
-                <div class="made-feature">
-                    <div class="feature-icon">
-                        <span class="icon-ring"></span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5"/>
-                            <path d="M2 12l10 5 10-5"/>
-                        </svg>
-                    </div>
-                    <h4>Artigianalità Tecnica</h4>
-                    <p>Assemblaggio curato nei minimi dettagli da tecnici specializzati con diversi anni di esperienza nel settore della termoformatura.</p>
-                </div>
-
-                <div class="made-feature">
-                    <div class="feature-icon">
-                        <span class="icon-ring"></span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 11l3 3L22 4"/>
-                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-                        </svg>
-                    </div>
-                    <h4>Componenti Selezionati</h4>
-                    <p>Ogni componente viene testato e certificato prima del montaggio. Il nostro sistema di controllo qualità garantisce prestazioni costanti e durature.</p>
-                </div>
-
-                <div class="made-feature">
-                    <div class="feature-icon">
-                        <span class="icon-ring"></span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-                        </svg>
-                    </div>
-                    <h4>Assistenza Dedicata</h4>
-                    <p>Supporto tecnico in italiano e inglese con interventi rapidi su tutto il territorio nazionale. Conosciamo ogni dettaglio delle nostre macchine.</p>
-                </div>
-
-                <div class="made-feature">
-                    <div class="feature-icon">
-                        <span class="icon-ring"></span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2v20M2 12h20"/>
-                            <circle cx="12" cy="12" r="9"/>
-                        </svg>
-                    </div>
-                    <h4>Personalizzazione</h4>
-                    <p>Capacità di adattare le macchine alle specifiche esigenze produttive. Flessibilità tipica delle aziende italiane di medie dimensioni.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Showcase -->
-    <section class="products-showcase">
-        <div class="container-wide">
-            <div class="section-header-center">
-                <span class="section-label">Prodotti</span>
-                <h2>I Nostri <span class="highlight-green">Modelli</span></h2>
-            </div>
-
-            <div class="products-grid fade-in-up">
-                <a href="k-75.html" class="product-card">
-                    <div class="product-image-wrapper">
-                        <img src="img/k-75-removebg-preview.webp" alt="Termoformatrice K-75 Manuale">
-                        <div class="product-badge">Manuale</div>
-                    </div>
-                    <div class="product-info">
-                        <h3>K75</h3>
-                        <p>Controllo manuale per massima flessibilità. Ideale per produzioni variabili con cambio formato frequente. Sistema diagnostico integrato.</p>
-                        <span class="product-link-arrow">Scopri le specifiche →</span>
-                    </div>
-                </a>
-
-                <a href="k-75s.html" class="product-card">
-                    <div class="product-image-wrapper">
-                        <img src="img/k-75S.webp" alt="Termoformatrice K-75S Automatica">
-                        <div class="product-badge">Automatica</div>
-                    </div>
-                    <div class="product-info">
-                        <h3>K75S</h3>
-                        <p>PLC programmabile per automazione completa. Perfetta per produzioni ad alto volume con cicli ripetitivi. Sistema diagnostico integrato.</p>
-                        <span class="product-link-arrow">Scopri le specifiche →</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="cta-center">
-                <a href="prodotti.html" class="cta-button secondary">Vedi tutti i Prodotti</a>
-            </div>
-        </div>
-    </section>
-
-<!-- Final CTA Section -->
-<section class="final-cta">
-    <div class="cta-content fade-in-up">
-        <div class="cta-main">
-            <h2>Riduci i Tempi di Fermo Macchina</h2>
-            <p class="cta-subtitle">Scopri come il sistema diagnostico Optiform può trasformare la tua manutenzione</p>
-        </div>
-        
-        <div class="cta-actions">
-            <a href="contatti.html" class="cta-button primary">Richiedi Informazioni</a>
-            <div class="cta-info">
-                <span class="cta-highlight">✓ Preventivo gratuito</span>
-                <span class="cta-highlight">✓ Dimostrazione pratica disponibile in sede</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>OPTIFORM</h3>
-                    <p>Divisione termoformatura di floKi s.r.l. Dal 2018 progettiamo sistemi di controllo avanzati a Treviglio, nel cuore del distretto industriale lombardo.</p>
-                    <span class="footer-badge">Made in Italy</span>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>Prodotti</h4>
-                    <ul>
-                        <li><a href="k-53.html">Modello K53</a></li>
-                        <li><a href="k-75.html">Modello K75</a></li>
-                        <li><a href="k-75s.html">Modello K75S</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>Azienda</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="prodotti.html">Prodotti</a></li>
-                        <li><a href="vantaggi.html">I Nostri Vantaggi</a></li>
-                        <li><a href="contatti.html">Contattaci</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>Contatti</h4>
-                    <ul>
-                        <li><a href="mailto:info@optiform.tech">info@optiform.tech</a></li>
-                        <li><a href="mailto:porrati@optiform.tech">porrati@optiform.tech</a></li>
-                        <li><a href="https://maps.app.goo.gl/m9pSLx6gd7bqgbkN7">Via Redipuglia, 77<br>24047 Treviglio (BG)</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Optiform - floKi s.r.l. | P.IVA IT04278120169 | optiform.tech</p>
-                <div class="footer-links">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="cookie-policy.html">Cookie Policy</a>
-                    <a href="termini-condizioni.html">Termini e Condizioni</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Cookie Banner - versione aggiornata con link -->
-<div id="cookie-banner" class="cookie-banner">
-    <div class="cookie-content">
-        <div class="cookie-text">
-            <h3>Cookie e Privacy</h3>
-            <p>Utilizziamo cookie tecnici essenziali per il funzionamento del sito. Per mostrare la mappa Google Maps è necessario il tuo consenso al caricamento di contenuti esterni. <a href="cookie-policy.html" class="cookie-policy-link">Leggi la Cookie Policy</a></p>
-        </div>
-        <div class="cookie-actions">
-            <button id="cookie-accept" class="cookie-btn">Accetta</button>
-            <button id="cookie-reject" class="cookie-btn">Rifiuta</button>
-        </div>
-    </div>
-</div>
-    <!-- Scroll to Top Button -->
-    <button id="scroll-to-top">
-        <img src="img/K floki originale VERDE.png" alt="Back to top">
-    </button>
-
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
-    <script src="js/home.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

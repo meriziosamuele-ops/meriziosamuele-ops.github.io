@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="floKi s.r.l. — Referenze: impianti di automazione industriale realizzati. Progetto ITER, automotive, casalinghi, automazione CNC." />
+  <title>Referenze | floKi s.r.l.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="navbar navbar--solid" id="navbar">
+    <div class="container navbar__inner">
+
+      <a href="index.html" class="navbar__logo" aria-label="floKi s.r.l. — home">
+        <img src="img/logo-floki.jpeg"
+             alt="floKi s.r.l."
+             class="navbar__logo-img"
+             width="120"
+             height="40" />
+        <span class="navbar__logo-tag">Industrial Automation</span>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Navigazione principale">
+        <a href="index.html"     class="navbar__link">Home</a>
+        <a href="servizi.html"   class="navbar__link">Servizi</a>
+        <a href="referenze.html" class="navbar__link is-active">Referenze</a>
+        <a href="contatti.html"  class="navbar__cta">Contatti</a>
+      </nav>
+
+      <button class="navbar__hamburger" id="hamburger"
+              aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+      </button>
+
+    </div>
+
+    <nav class="navbar__mobile" id="mobile-menu" aria-label="Menu mobile">
+      <a href="index.html"     class="navbar__mobile-link">Home</a>
+      <a href="servizi.html"   class="navbar__mobile-link">Servizi</a>
+      <a href="referenze.html" class="navbar__mobile-link">Referenze</a>
+      <a href="contatti.html"  class="navbar__mobile-cta">Contatti</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO INTERNO -->
+    <section class="hero hero--inner">
+      <div class="container hero__content">
+        <div class="hero__eyebrow">DOC.ID // REFERENZE</div>
+        <h1 class="hero__title">Archivio <em>referenze</em>.</h1>
+        <p class="hero__description">
+          Selezione di impianti e sistemi di controllo realizzati in diversi settori industriali.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         PROGETTO FEATURED — ITER
+         Struttura verticale:
+           1. Header (titolo, eyebrow)
+           2. Video overview — hero visivo, autoplay muto loop
+           3. Body split: testo+dati sinistra / foto impianto destra
+           4. Video secondario con controls — dettaglio operativo
+    ===================================================================== -->
+    <section class="section" aria-labelledby="iter-title">
+      <div class="container">
+
+        <div class="project-featured">
+
+          <!-- 1. HEADER -->
+          <div class="project-featured__header">
+            <span class="project-featured__eyebrow">PRJ.01 — BIG SCIENCE</span>
+            <h2 class="project-featured__title" id="iter-title">
+              Avvolgimento superconduttori<br />(Progetto ITER)
+            </h2>
+            <div class="project-featured__subtitle">
+              Impianto produzione magneti superconduttori — ITER PF coils
+            </div>
+          </div>
+
+          <!-- RIGA SUPERIORE: testo sinistra | video destra -->
+          <div class="project-featured__row-top">
+
+            <div class="project-featured__description">
+              <p>Impianto composto da: 1 tavola rotante, 2 despooler, 6 raddrizzatrici,
+                2 curvatrici, 2 impianti di lavaggio e 2 nastratrici.</p>
+              <p>L'architettura hardware e software gestisce una complessità estrema,
+                movimentando magneti con diametro fino a 24 metri per il reattore
+                a fusione nucleare ITER.</p>
+              <div class="data-table">
+                <div class="data-row">
+                  <span class="data-row__label">Metriche motori</span>
+                  <span class="data-row__value">76 Brushless — 1200 A</span>
+                </div>
+                <div class="data-row">
+                  <span class="data-row__label">Rete di campo</span>
+                  <span class="data-row__value">Oltre 200 nodi EtherCAT</span>
+                </div>
+                <div class="data-row">
+                  <span class="data-row__label">Tecnologia</span>
+                  <span class="data-row__value">Beckhoff (Motion, PLC, Safety)</span>
+                </div>
+                <div class="data-row">
+                  <span class="data-row__label">Dimensioni magnete</span>
+                  <span class="data-row__value">Fino a 24 m di diametro</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-featured__photo-cell">
+              <div class="project-featured__video-label">PH.01 — Iter overview</div>
+              <img src="img/Iter.jpg"
+                   alt="Impianto ITER — motore brushless"
+                   loading="lazy"
+                   width="800"
+                   height="400" />
+            </div>
+
+          </div>
+
+          <!-- RIGA INFERIORE: 2 foto affiancate full-width -->
+          <div class="project-featured__row-bottom">
+
+            <figure class="project-featured__photo-cell">
+              <img src="img/DSCN4569.jpg"
+                   alt="Impianto ITER — vista panoramica struttura e macchine"
+                   loading="lazy"
+                   width="800"
+                   height="400" />
+            </figure>
+
+            <figure class="project-featured__photo-cell">
+              <img src="img/DSCN4652.jpg"
+                   alt="Dettaglio cablaggio EtherCAT — quadro Beckhoff impianto ITER"
+                   loading="lazy"
+                   width="800"
+                   height="400" />
+            </figure>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         GRIGLIA PROGETTI SECONDARI
+    ===================================================================== -->
+    <section class="section" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Altri impianti</div>
+          <h2 id="projects-title">Ulteriori referenze.</h2>
+        </div>
+
+        <div class="project-grid">
+
+          <!-- AUTOMOTIVE -->
+          <article class="project-card">
+            <div class="project-card__image">
+              <img src="img/SP02-scaled.jpg"
+                   alt="Impianto asservimento presse automotive"
+                   loading="lazy"
+                   width="600"
+                   height="180" />
+            </div>
+            <div class="project-card__header">
+              <span class="project-card__sector">Automotive</span>
+              <h3 class="project-card__title">Asservimento presse</h3>
+            </div>
+            <div class="project-card__body">
+              <p class="project-card__description">
+                Impianto per la produzione di particolari metallici per mercato automotive.
+                Despooler con doppio caricatore, impianto di lubrificazione lamiere,
+                robot aggiuntivo per ribaltamento pezzo, impilatore finale.
+              </p>
+            </div>
+            <div class="project-metrics">
+              <div>
+                <div class="project-metric__value">8</div>
+                <div class="project-metric__label">Presse</div>
+              </div>
+              <div>
+                <div class="project-metric__value">5</div>
+                <div class="project-metric__label">Robot</div>
+              </div>
+            </div>
+            <div class="project-card__footer">PLC Siemens — Robot Comau</div>
+          </article>
+
+          <!-- CASALINGHI -->
+          <article class="project-card">
+            <!--
+              GA-Quadri-scaled.jpg — quadro Beckhoff con servo drive
+              Perfetto per rappresentare la complessità del sistema pulitura metalli
+            -->
+            <div class="project-card__video">
+              <video
+                muted
+                autoplay
+                loop
+                playsinline
+                controls
+                preload="none"
+                poster="img/1813_6-scaled.jpg">
+                <source src="img/GL3.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="project-card__header">
+              <span class="project-card__sector">Casalinghi</span>
+              <h3 class="project-card__title">Pulitura metalli</h3>
+            </div>
+            <div class="project-card__body">
+              <p class="project-card__description">
+                Smerigliatura, satinatura e lucidatura di prodotti per casalinghi.
+                Impianto composto da: 2 tavole rotanti, 19 unità di pulitura
+                e 12 conveyor. Normativa CSA (600V).
+              </p>
+            </div>
+            <div class="project-metrics">
+              <div>
+                <div class="project-metric__value">38</div>
+                <div class="project-metric__label">Brushless</div>
+              </div>
+              <div>
+                <div class="project-metric__value">37</div>
+                <div class="project-metric__label">Inverter</div>
+              </div>
+            </div>
+            <div class="project-card__footer">Motion, PLC e Safety Beckhoff — 3 Robot Fanuc — 600V CSA</div>
+          </article>
+
+          <!-- AUTOMAZIONE CNC -->
+          <article class="project-card">
+            <div class="project-card__video">
+              <video
+                muted
+                autoplay
+                loop
+                playsinline
+                controls
+                preload="none"
+                poster="img/1813_6-scaled.jpg">
+                <source src="img/AL_gray-_stabilized.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="project-card__header">
+              <span class="project-card__sector">Automazione</span>
+              <h3 class="project-card__title">Asservimento calandre CNC</h3>
+            </div>
+            <div class="project-card__body">
+              <p class="project-card__description">
+                Automazione per la realizzazione di lampade. Operatività continua
+                24/7 con 12 ore di autonomia. 1 calandra CNC e 4 zone di scarico.
+              </p>
+            </div>
+            <div class="project-metrics">
+              <div>
+                <div class="project-metric__value">24/7</div>
+                <div class="project-metric__label">Operatività</div>
+              </div>
+              <div>
+                <div class="project-metric__value">12h</div>
+                <div class="project-metric__label">Autonomia</div>
+              </div>
+            </div>
+            <div class="project-card__footer">PLC Siemens — Robot Fanuc</div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" aria-label="Footer">
+    <div class="container">
+      <div class="footer__body">
+
+        <!-- BRAND -->
+        <div class="footer__brand">
+          <a href="index.html" class="footer__brand-name" aria-label="floKi s.r.l. — home">
+            floKi s.r.l.
+          </a>
+          <p class="footer__brand-description">
+            Ingegneria dei sistemi di controllo e automazione industriale.
+            Treviglio (BG), dal 2018.
+          </p>
+        </div>
+
+        <!-- NAVIGAZIONE -->
+        <div>
+          <div class="footer__col-title">Navigazione</div>
+          <ul class="footer__links">
+            <li><a href="index.html"     class="footer__link">Home</a></li>
+            <li><a href="servizi.html"   class="footer__link">Servizi</a></li>
+            <li><a href="referenze.html" class="footer__link">Referenze</a></li>
+            <li><a href="contatti.html"  class="footer__link">Contatti</a></li>
+          </ul>
+        </div>
+
+        <!-- CONTATTI -->
+        <div>
+          <div class="footer__col-title">Contatti</div>
+          <div class="footer__contact-entry">
+            <span class="footer__contact-key">Sede</span>
+            <a href="https://maps.google.com/?q=Via+Redipuglia+77,+24047+Treviglio+BG"
+               class="footer__contact-val"
+               target="_blank"
+               rel="noopener noreferrer">
+              Via Redipuglia, 77<br />24047 Treviglio (BG)
+            </a>
+          </div>
+          <div class="footer__contact-entry">
+            <span class="footer__contact-key">Email</span>
+            <a href="/cdn-cgi/l/email-protection#6b02050d042b0d0704000245021f" class="footer__contact-val"><span class="__cf_email__" data-cfemail="a0c9cec6cfe0c6cccfcbc98ec9d4">[email&#160;protected]</span></a>
+          </div>
+          <div class="footer__contact-entry">
+            <span class="footer__contact-key">P.IVA</span>
+            <span class="footer__contact-val">IT04278120169</span>
+          </div>
+        </div>
+
+        <!-- LEGALE -->
+        <div>
+          <div class="footer__col-title">Legale</div>
+          <ul class="footer__links">
+            <li><a href="termini.html"  class="footer__link">Termini e condizioni</a></li>
+            <li><a href="privacy.html"  class="footer__link">Privacy Policy</a></li>
+            <li><a href="cookie.html"   class="footer__link">Cookie Policy</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- BARRA INFERIORE -->
+      <div class="footer__bottom">
+        <span class="footer__bottom-copy">
+          © 2018–2026 floKi s.r.l. — Tutti i diritti riservati
+        </span>
+        <ul class="footer__legal-links">
+          <li><a href="termini.html" class="footer__legal-link">Termini</a></li>
+          <li><a href="privacy.html" class="footer__legal-link">Privacy</a></li>
+          <li><a href="cookie.html"  class="footer__legal-link">Cookie</a></li>
+          <li><span>P.IVA IT04278120169</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Torna in cima alla pagina">
+    <img src="img/k-floki-originale.png"
+         alt=""
+         class="back-to-top__icon"
+         width=
