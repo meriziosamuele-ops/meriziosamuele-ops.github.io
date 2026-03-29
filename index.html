@@ -3,286 +3,548 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="floKi s.r.l. — Automazione industriale avanzata. Progettazione, realizzazione e installazione di impianti e quadri elettrici. Treviglio (BG)." />
+  <meta name="description" content="floKi s.r.l. — Automazione industriale avanzata. Progettazione, realizzazione e installazione di impianti e quadri elettrici." />
   <title>floKi s.r.l. | Ingegneria dell'Automazione Industriale</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="page-home">
+<body>
+
+  <!-- ── NAVBAR ─────────────────────────────────────────────────────────────── -->
   <header class="navbar" id="navbar">
     <div class="container navbar__inner">
-
-      <a href="index.html" class="navbar__logo" aria-label="floKi s.r.l. — home">
-        <img src="img/logo-floki.jpeg"
-             alt="floKi s.r.l."
-             class="navbar__logo-img"
-             width="120"
-             height="40" />
-        <span class="navbar__logo-tag">Industrial Automation</span>
+      <a href="#home" class="logo">
+        <img src="img/logo-floki.jpeg" alt="floKi s.r.l." class="logo__img" />
+        <span class="logo__tag">Industrial Automation</span>
       </a>
-
-      <nav class="navbar__nav" aria-label="Navigazione principale">
-        <a href="index.html"     class="navbar__link is-active">Home</a>
-        <a href="servizi.html"   class="navbar__link">Servizi</a>
-        <a href="referenze.html" class="navbar__link">Referenze</a>
-        <a href="contatti.html"  class="navbar__cta">Contatti</a>
+      <nav class="nav-links">
+        <a href="#servizi">Servizi</a>
+        <a href="#referenze">Referenze</a>
+        <a href="#contatti">Contatti</a>
       </nav>
-
-      <button class="navbar__hamburger" id="hamburger"
-              aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
-        <span class="navbar__hamburger-bar"></span>
-        <span class="navbar__hamburger-bar"></span>
-        <span class="navbar__hamburger-bar"></span>
-      </button>
-
+      <a href="#contatti" class="btn btn--solid btn--small">Parla con noi</a>
     </div>
-
-    <nav class="navbar__mobile" id="mobile-menu" aria-label="Menu mobile">
-      <a href="index.html"     class="navbar__mobile-link">Home</a>
-      <a href="servizi.html"   class="navbar__mobile-link">Servizi</a>
-      <a href="referenze.html" class="navbar__mobile-link">Referenze</a>
-      <a href="contatti.html"  class="navbar__mobile-cta">Contatti</a>
-    </nav>
   </header>
 
   <main>
 
-    <!-- HERO — spline full-viewport con testo e stats integrati direttamente sull'overlay
-         Struttura:
-           .hero-scene  [full-viewport, position: relative]
-             spline-viewer  [position: absolute, inset: 0, pointer-events: none — bloccato]
-             .hero-scene__overlay  [gradiente per leggibilità testo]
-             .hero-scene__content  [testo + stats in basso, sopra l'overlay]
-    -->
-    <div class="hero-scene" role="banner" aria-label="Hero floKi s.r.l.">
+    <!-- ── HERO ───────────────────────────────────────────────────────────────── -->
+    <section id="home" class="hero">
+      <canvas class="hero__particles" id="heroParticles" aria-hidden="true"></canvas>
 
-      <!-- Spline — mouse libero per l'animazione interna -->
-      <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.70/build/spline-viewer.js"></script>
-      <spline-viewer
-        class="hero-scene__spline"
-        url="https://prod.spline.design/7FB9ciDCb8VE3niw/scene.splinecode"
-        aria-hidden="true">
-      </spline-viewer>
-
-      <!-- Overlay — gradiente per leggibilità testo -->
-      <div class="hero-scene__overlay" aria-hidden="true"></div>
-
-      <!-- Wheel-trap — cattura wheel (blocca zoom Spline) e rilancia mousemove al canvas -->
-      <div class="hero-scene__wheel-trap" id="hero-wheel-trap" aria-hidden="true"></div>
-
-      <!-- Spline cover — nasconde il badge "Built with Spline" in basso a destra -->
-      <div class="hero-scene__spline-cover" aria-hidden="true"></div>
-
-
-
-      <!-- Contenuto — testo e stats direttamente sullo sfondo -->
-      <div class="hero-scene__content">
-
-        <!-- Colonna sinistra: eyebrow + titolo + descrizione -->
-        <div class="hero-scene__text">
-          <div class="hero-scene__eyebrow">Sistemi di controllo su misura</div>
-          <h1 class="hero-scene__title">
-            <em>Automazione</em> e <em>robotica</em> industriale.
-          </h1>
-          <p class="hero-scene__description">
-            Con oltre 20 anni di esperienza copriamo tutte le fasi di progettazione
-            degli impianti. Dal design preliminare all'installazione,
-            puntando alla massima efficienza.
-          </p>
-        </div>
-
-        <!-- Colonna destra: statistiche chiave -->
-        <div class="hero-scene__stats" aria-label="Dati chiave">
-          <div class="hero-scene__stat">
-            <div class="hero-scene__stat-value" data-counter="20" data-suffix="+">20+</div>
-            <div class="hero-scene__stat-label">Anni di esperienza</div>
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <div class="badge-tech">
+            Sistemi di controllo su misura
           </div>
-          <div class="hero-scene__stat">
-            <div class="hero-scene__stat-value hero-scene__stat-value--amber">ITER</div>
-            <div class="hero-scene__stat-label">Progetto internazionale</div>
+          <h1 class="hero__title">Automazione<br>&amp; Robotica<br><span class="text-accent">Industriale.</span></h1>
+          <p class="hero__desc">Con oltre 20 anni di esperienza copriamo tutte le fasi di progettazione degli impianti. Dal design preliminare all'installazione, puntando alla massima efficienza.</p>
+
+          <div class="hero__actions">
+            <a href="#contatti" class="btn btn--solid">Inizia il progetto <span class="arrow">→</span></a>
+            <a href="#servizi" class="btn btn--outline">Esplora i servizi</a>
           </div>
-          <div class="hero-scene__stat">
-            <div class="hero-scene__stat-value" data-counter="76" data-suffix="">76</div>
-            <div class="hero-scene__stat-label">Brushless su singolo impianto</div>
+
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__image-wrapper hero__image-wrapper--tilt">
+            <img src="img/robot.png" alt="Robot Industriale" class="hero__img" />
+            <div class="hero__visual-badge">Soluzioni Industria 4.0</div>
           </div>
-          <div class="hero-scene__stat">
-            <div class="hero-scene__stat-value" data-counter="200" data-suffix="+">200+</div>
-            <div class="hero-scene__stat-label">Nodi EtherCAT su singolo impianto</div>
-          </div>
-        </div>
 
-      </div><!-- /hero-scene__content -->
-
-    </div><!-- /hero-scene -->
-
-    <!-- SERVIZI -->
-    <!-- padding-top extra: compensa lo sforamento (--hero-bleed) dei blocchi hero -->
-    <section class="section section--after-hero" aria-labelledby="services-title">
-      <div class="container">
-        <div class="section-header">
-          <div class="eyebrow">Le nostre attività</div>
-          <h2 id="services-title">Dalla progettazione all'assistenza.</h2>
-          <p>Competenze complete su ogni fase del ciclo di vita di un impianto di automazione industriale.</p>
-        </div>
-        <div class="bento-grid">
-          <article class="bento-card">
-            <span class="bento-card__index">ACT.01</span>
-            <h3>Progettazione</h3>
-            <p>Ottimizzare la componentistica per ottenere la massima efficienza con il minor costo. Preliminary design e selezione materiali.</p>
-          </article>
-          <article class="bento-card">
-            <span class="bento-card__index">ACT.02</span>
-            <h3>Realizzazione</h3>
-            <p>Quadri elettrici e bordo macchina per il controllo impianti, con verifica di conformità tramite laboratori accreditati a livello mondiale.</p>
-          </article>
-          <article class="bento-card">
-            <span class="bento-card__index">ACT.03</span>
-            <h3>Software</h3>
-            <p>Sviluppo applicazioni customizzate in C, C#, Python, JS, VB. PLC per Beckhoff, Omron, Siemens e robotica Fanuc, Kuka, Comau.</p>
-          </article>
-          <article class="bento-card">
-            <span class="bento-card__index">ACT.04</span>
-            <h3>Installazione</h3>
-            <p>Primo avvio, modifiche e aggiornamenti. Supporto con tecnici montatori, supervisori e programmatori per l'ottimizzazione.</p>
-          </article>
-          <article class="bento-card">
-            <span class="bento-card__index">ACT.05</span>
-            <h3>Training</h3>
-            <p>Corsi formativi sugli impianti: lettura schemi elettrici/pneumatici, utilizzo interfaccia utente e manutenzione.</p>
-          </article>
-          <article class="bento-card">
-            <span class="bento-card__index">ACT.06</span>
-            <h3>Assistenza</h3>
-            <p>Supporto in loco o da remoto per emergenze. Fornitura ricambi e selezione di prodotti alternativi in caso di obsolescenza.</p>
-          </article>
-        </div>
-        <div style="margin-top:var(--sp-8);text-align:center;">
-          <a href="servizi.html" class="btn btn--outline">Vedi tutti i servizi <span class="btn__arrow">→</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- PARTNER -->
-    <section class="section" aria-label="Tecnologie e partner">
-      <div class="container">
-        <div class="partners">
-          <div class="partners__label">Piattaforme e brand</div>
-          <div class="partners__list" role="list">
-            <span class="partner-badge" role="listitem">Beckhoff</span>
-            <span class="partner-badge" role="listitem">Siemens</span>
-            <span class="partner-badge" role="listitem">Omron</span>
-            <span class="partner-badge" role="listitem">Fanuc</span>
-            <span class="partner-badge" role="listitem">Kuka</span>
-            <span class="partner-badge" role="listitem">Comau</span>
-            <span class="partner-badge" role="listitem">EtherCAT</span>
-            <span class="partner-badge" role="listitem">TwinCAT</span>
+          <div class="stats-float">
+            <div class="stat-box">
+              <span class="stat-val" data-counter="20" data-suffix="+">20+</span>
+              <span class="stat-lbl">Anni di esperienza</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-val text-amber">ITER</span>
+              <span class="stat-lbl">Progetto Internazionale</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-val" data-counter="76">76</span>
+              <span class="stat-lbl">Brushless su singolo impianto</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-val" data-counter="200" data-suffix="+">200+</span>
+              <span class="stat-lbl">Nodi EtherCAT su impianto</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section" aria-labelledby="cta-title">
-      <div class="container container--narrow" style="text-align:center;">
-        <div class="eyebrow" style="justify-content:center;">Hai un progetto?</div>
-        <h2 id="cta-title" style="margin-bottom:var(--sp-4);">Parliamo del tuo impianto.</h2>
-        <p style="margin-inline:auto;max-width:480px;margin-bottom:var(--sp-8);">
-          Contattaci per discutere le specifiche tecniche. Rispondiamo entro 24 ore lavorative.
-        </p>
-        <a href="contatti.html" class="btn btn--primary">Contattaci <span class="btn__arrow">→</span></a>
+    <!-- ── STATS EXTRA ─────────────────────────────────────────────────────────── -->
+    <div class="stats-extra">
+      <div class="container">
+        <div class="stats-extra__inner">
+
+          <div class="stats-extra__item">
+            <span class="stats-extra__sup">Pulitura metalli</span>
+            <span class="stats-extra__val" data-counter="38">38</span>
+            <span class="stats-extra__label">Brushless su singolo impianto di smerigliatura, satinatura e lucidatura. 37 inverter in parallelo.</span>
+          </div>
+
+          <div class="stats-extra__item">
+            <span class="stats-extra__sup">Automotive</span>
+            <span class="stats-extra__val" data-counter="8">8</span>
+            <span class="stats-extra__label">Presse asservite con 5 robot Comau su un'unica linea di produzione particolari metallici.</span>
+          </div>
+
+          <div class="stats-extra__item">
+            <span class="stats-extra__sup">Asservimento calandre</span>
+            <span class="stats-extra__val">12 <span class="unit">h</span></span>
+            <span class="stats-extra__label">Autonomia operativa su impianto CNC per lampade. 4 zone di scarico automatizzate, ciclo 24/7.</span>
+          </div>
+
+          <div class="stats-extra__item">
+            <span class="stats-extra__sup">Pulitura — unità</span>
+            <span class="stats-extra__val" data-counter="19">19</span>
+            <span class="stats-extra__label">Unità di pulitura gestite da un singolo PLC Beckhoff con 2 tavole rotanti e 12 conveyor.</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PERCHÉ FLOKI ───────────────────────────────────────────────────────── -->
+    <section class="why-section">
+      <div class="container">
+
+        <div class="why-header reveal">
+          <span class="eyebrow">Valore aggiunto</span>
+          <h2 class="why-title">Perché scegliere flo<span class="text-accent">K</span>i.</h2>
+        </div>
+
+        <div class="why-card why-card--main reveal">
+          <span class="why-card__n">01</span>
+          <div class="why-card__content">
+            <h3 class="why-card__title">Un solo interlocutore, dall'analisi al collaudo.</h3>
+            <div>
+              <p class="why-card__desc">Progettiamo, cabliamo, programmiamo e avviamo internamente — senza subappaltare nessuna fase. Il progetto non cambia mani: rimane nelle stesse mani dall'inizio alla fine. Questo elimina gli errori di traduzione tra fornitori, accorcia i tempi e garantisce che chi installa sappia esattamente perché ogni scelta è stata fatta.</p>
+              <div class="why-card__chain">
+                <span>Progettazione</span>
+                <span class="why-chain-sep">→</span>
+                <span>Elettrico</span>
+                <span class="why-chain-sep">→</span>
+                <span>Software PLC</span>
+                <span class="why-chain-sep">→</span>
+                <span>Commissioning</span>
+                <span class="why-chain-sep">→</span>
+                <span>Supporto</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-row">
+          <div class="why-card why-card--sub reveal">
+            <span class="why-card__n">02</span>
+            <div class="why-card__content">
+              <h3 class="why-card__title">Adattiamo il sistema agli standard del cliente.</h3>
+              <div>
+                <p class="why-card__desc">Nessuna soluzione preconfezionata. Lavoriamo con Beckhoff, Siemens, Omron, Fanuc, Kuka e Comau: scegliamo la tecnologia giusta per il progetto, non quella che conosciamo meglio. Se il cliente ha già uno standard hardware o software, lo seguiamo.</p>
+                <div class="why-card__tags">
+                  <span>Beckhoff</span><span>Siemens</span><span>Omron</span><span>Fanuc</span><span>Kuka</span><span>Comau</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="why-card why-card--sub reveal">
+            <span class="why-card__n">03</span>
+            <div class="why-card__content">
+              <h3 class="why-card__title">Il know-how rimane in azienda.</h3>
+              <div>
+                <p class="why-card__desc">Formiamo il personale del cliente su lettura schemi, utilizzo HMI e manutenzione ordinaria. L'obiettivo è rendere l'impianto autonomo: non creare una dipendenza dal nostro supporto, ma trasferire competenza reale a chi lavora sulla macchina ogni giorno.</p>
+                <div class="why-card__tags">
+                  <span>Formazione schemi</span><span>HMI</span><span>Manutenzione</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Retrofit banner -->
+      <div class="container">
+        <div class="retrofit-banner reveal">
+          <div class="retrofit-banner__left">
+            <span class="retrofit-banner__eyebrow">Revamping &amp; Retrofit</span>
+            <h3 class="retrofit-banner__title">Impianti esistenti portati agli standard attuali.</h3>
+            <p class="retrofit-banner__desc">Sostituzione di vecchi PLC, cablaggi e azionamenti senza fermi macchina inutili. Ogni linea aggiornata ai requisiti Industria 4.0 in termini di connettività, sicurezza e tracciabilità.</p>
+          </div>
+          <div class="retrofit-banner__right">
+            <div class="retrofit-banner__tags">
+              <span class="srv-tag">Sostituzione PLC</span>
+              <span class="srv-tag">Aggiornamento azionamenti</span>
+              <span class="srv-tag">Industria 4.0</span>
+              <span class="srv-tag">Nessun fermo inutile</span>
+            </div>
+            <a href="#contatti" class="btn btn--banner">Richiedi sopralluogo <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── SERVIZI ──────────────────────────────────────────────────────────── -->
+    <section id="servizi" class="services">
+      <div class="container">
+
+        <div class="services__header">
+          <div class="reveal">
+            <div class="eyebrow">Competenze tecniche</div>
+            <h2 class="services__title">Aree di<br>intervento.</h2>
+          </div>
+          <p class="services__intro reveal reveal--delay">Dalla progettazione all'avviamento, ogni fase è gestita internamente con team specializzati. Sei aree operative, un unico referente.</p>
+        </div>
+
+        <div class="srv-grid2">
+
+          <div class="srv2-card reveal">
+            <div class="srv2-card__top">
+              <span class="srv2-card__num">01</span>
+              <span class="srv2-card__tag">Design</span>
+            </div>
+            <h3 class="srv2-card__title">Progettazione &amp; Selezione</h3>
+            <p class="srv2-card__desc">Ottimizziamo la componentistica per la massima efficienza al costo minore. Preliminary design, design esecutivo, selezione componentistica — con le nostre scelte o sugli standard del cliente.</p>
+            <div class="srv2-card__tags">
+              <span class="srv-tag">Preliminary design</span>
+              <span class="srv-tag">Design esecutivo</span>
+              <span class="srv-tag">Componentistica</span>
+            </div>
+          </div>
+
+          <div class="srv2-card reveal">
+            <div class="srv2-card__top">
+              <span class="srv2-card__num">02</span>
+              <span class="srv2-card__tag">Electrical</span>
+            </div>
+            <h3 class="srv2-card__title">Quadri &amp; Cablaggio</h3>
+            <p class="srv2-card__desc">Quadri elettrici e cablaggio bordo macchina. Verifica di conformità a cablaggio ultimato, in collaborazione con laboratori accreditati a livello mondiale per export e sicurezza.</p>
+            <div class="srv2-card__tags">
+              <span class="srv-tag">Quadri elettrici</span>
+              <span class="srv-tag">Cablaggio BM</span>
+              <span class="srv-tag">Certificazione</span>
+            </div>
+          </div>
+
+          <div class="srv2-card reveal">
+            <div class="srv2-card__top">
+              <span class="srv2-card__num">03</span>
+              <span class="srv2-card__tag">Software</span>
+            </div>
+            <h3 class="srv2-card__title">Software PLC &amp; Motion</h3>
+            <p class="srv2-card__desc">Sviluppo software custom e programmazione PLC / Motion Safety. Stack: C, C#, Python, JS. PLC: Beckhoff, Omron, Siemens. Robot: Kuka, Fanuc, Comau (antropomorfi, scara, delta).</p>
+            <div class="srv2-card__tags">
+              <span class="srv-tag">Beckhoff TwinCAT</span>
+              <span class="srv-tag">Siemens TIA</span>
+              <span class="srv-tag">Motion Safety</span>
+            </div>
+          </div>
+
+          <div class="srv2-card reveal">
+            <div class="srv2-card__top">
+              <span class="srv2-card__num">04</span>
+              <span class="srv2-card__tag">Field Ops</span>
+            </div>
+            <h3 class="srv2-card__title">Setup &amp; Avviamento</h3>
+            <p class="srv2-card__desc">Supporto completo dal primo avvio fino a modifiche e ampliamenti. Tecnici montatori, supervisori e programmatori sul posto per il tuning del processo produttivo.</p>
+            <div class="srv2-card__tags">
+              <span class="srv-tag">Commissioning</span>
+              <span class="srv-tag">SAT / FAT</span>
+              <span class="srv-tag">On-site tuning</span>
+            </div>
+          </div>
+
+          <div class="srv2-card reveal">
+            <div class="srv2-card__top">
+              <span class="srv2-card__num">05</span>
+              <span class="srv2-card__tag">Training</span>
+            </div>
+            <h3 class="srv2-card__title">Formazione Staff</h3>
+            <p class="srv2-card__desc">Il nostro know-how nelle vostre mani. Corsi formativi specifici: lettura schemi elettrici, pneumatici e idraulici, utilizzo HMI, manutenzione ordinaria e straordinaria.</p>
+            <div class="srv2-card__tags">
+              <span class="srv-tag">Schemi elettrici</span>
+              <span class="srv-tag">HMI</span>
+              <span class="srv-tag">Manutenzione</span>
+            </div>
+          </div>
+
+          <div class="srv2-card reveal">
+            <div class="srv2-card__top">
+              <span class="srv2-card__num">06</span>
+              <span class="srv2-card__tag">Support</span>
+            </div>
+            <h3 class="srv2-card__title">Supporto &amp; Ricambi</h3>
+            <p class="srv2-card__desc">Interventi rapidi in loco o da remoto. Fornitura ricambi, supporto nella scelta di prodotti alternativi per obsolescenza. Continuità del servizio garantita.</p>
+            <div class="srv2-card__tags">
+              <span class="srv-tag">Remote support</span>
+              <span class="srv-tag">Ricambi</span>
+              <span class="srv-tag">Obsolescenza</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── REFERENZE ─────────────────────────────────────────────────────────── -->
+    <section id="referenze" class="hmi-projects">
+      <div class="hmi-projects__bg" aria-hidden="true"></div>
+      <div class="container">
+
+        <div class="hmi-projects__header reveal reveal--dark">
+          <h2 class="hmi-projects__title">Impianti<br>realizzati.</h2>
+          <p class="hmi-projects__sub">Sistemi di controllo in settori industriali eterogenei — dalla Big Science all'automotive.</p>
+        </div>
+
+        <!-- ITER showcase -->
+        <div class="prj-showcase reveal reveal--dark">
+          <div class="prj-showcase__inner">
+            <div class="prj-showcase__data">
+              <div class="prj-showcase__sector">BIG SCIENCE - FUSION ENERGY</div>
+              <h3 class="prj-showcase__name">Avvolgimento superconduttori<br><span class="text-accent">ITER PF Coils</span></h3>
+              <p class="prj-showcase__desc">Impianto produzione magneti superconduttori per il reattore a fusione nucleare ITER. 1 tavola rotante, 2 despooler, 6 raddrizzatrici, 2 curvatrici, 2 impianti lavaggio, 2 nastratrici. Diametro massimo 24 m.</p>
+
+              <div class="prj-metrics">
+                <div class="prj-metric">
+                  <span class="seg-display--lg" data-counter="76">76</span>
+                  <span class="prj-metric__unit">brushless / 1200 A</span>
+                  <span class="prj-metric__lbl">MOTORI</span>
+                </div>
+                <div class="prj-metric">
+                  <span class="seg-display--lg" data-counter="200" data-suffix="+">200+</span>
+                  <span class="prj-metric__unit">EtherCAT nodes</span>
+                  <span class="prj-metric__lbl">RETE DI CAMPO</span>
+                </div>
+                <div class="prj-metric">
+                  <span class="seg-display--lg">24<sup>m</sup></span>
+                  <span class="prj-metric__unit">diametro max</span>
+                  <span class="prj-metric__lbl">DIMENSIONI</span>
+                </div>
+              </div>
+
+              <div class="prj-showcase__stack">
+                <span class="stack-badge">Beckhoff Motion</span>
+                <span class="stack-badge">TwinCAT PLC</span>
+                <span class="stack-badge">Safety PLC</span>
+                <span class="stack-badge">EtherCAT</span>
+              </div>
+            </div>
+
+            <div class="prj-showcase__visual">
+              <img src="img/Iter.jpg" alt="Impianto ITER" loading="lazy" />
+              <div class="prj-showcase__overlay" aria-hidden="true">
+                <div class="overlay-cross overlay-cross--tl"></div>
+                <div class="overlay-cross overlay-cross--tr"></div>
+                <div class="overlay-cross overlay-cross--bl"></div>
+                <div class="overlay-cross overlay-cross--br"></div>
+                <div class="overlay-target"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid altri progetti -->
+        <div class="prj-grid">
+
+          <article class="prj-card reveal reveal--dark">
+            <div class="prj-card__media">
+              <img src="img/SP02-scaled.jpg" alt="Asservimento presse automotive" loading="lazy" />
+            </div>
+            <div class="prj-card__body">
+              <h4 class="prj-card__name">Asservimento presse</h4>
+              <p class="prj-card__desc">Produzione particolari metallici. Despooler doppio caricatore, lubrificazione lamiere, robot ribaltamento pezzo, impilatore finale.</p>
+              <div class="prj-card__metrics">
+                <div class="prj-card__metric">
+                  <strong data-counter="8">8</strong>
+                  <span>Presse</span>
+                </div>
+                <div class="prj-card__metric">
+                  <strong data-counter="5">5</strong>
+                  <span>Robot</span>
+                </div>
+                <div class="prj-card__metric">
+                  <strong>24/7</strong>
+                  <span>Operatività</span>
+                </div>
+              </div>
+              <div class="prj-card__footer">
+                <span class="stack-badge stack-badge--sm">PLC Siemens</span>
+                <span class="stack-badge stack-badge--sm">Robot Comau</span>
+                <span class="stack-badge stack-badge--sm">Safety</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="prj-card reveal reveal--dark">
+            <div class="prj-card__media">
+              <video muted autoplay loop playsinline poster="img/1813_6-scaled.jpg">
+                <source src="img/GL3.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="prj-card__body">
+              <h4 class="prj-card__name">Pulitura metalli</h4>
+              <p class="prj-card__desc">Smerigliatura, satinatura e lucidatura. 2 tavole rotanti, 19 unità di pulitura, 12 conveyor. Normativa CSA 600V.</p>
+              <div class="prj-card__metrics">
+                <div class="prj-card__metric">
+                  <strong data-counter="38">38</strong>
+                  <span>Brushless</span>
+                </div>
+                <div class="prj-card__metric">
+                  <strong data-counter="37">37</strong>
+                  <span>Inverter</span>
+                </div>
+                <div class="prj-card__metric">
+                  <strong data-counter="19">19</strong>
+                  <span>Unità</span>
+                </div>
+              </div>
+              <div class="prj-card__footer">
+                <span class="stack-badge stack-badge--sm">Beckhoff</span>
+                <span class="stack-badge stack-badge--sm">Robot Fanuc</span>
+                <span class="stack-badge stack-badge--sm">CSA 600V</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="prj-card reveal reveal--dark">
+            <div class="prj-card__media">
+              <video muted autoplay loop playsinline poster="img/1813_6-scaled.jpg">
+                <source src="img/AL_gray-_stabilized.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="prj-card__body">
+              <h4 class="prj-card__name">Asservimento calandre</h4>
+              <p class="prj-card__desc">Automazione per lampade. Operatività 24/7 con 12h di autonomia. 1 calandra CNC, 4 zone di scarico automatizzate.</p>
+              <div class="prj-card__metrics">
+                <div class="prj-card__metric">
+                  <strong>24/7</strong>
+                  <span>Operatività</span>
+                </div>
+                <div class="prj-card__metric">
+                  <strong>12h</strong>
+                  <span>Autonomia</span>
+                </div>
+                <div class="prj-card__metric">
+                  <strong data-counter="4">4</strong>
+                  <span>Zone scarico</span>
+                </div>
+              </div>
+              <div class="prj-card__footer">
+                <span class="stack-badge stack-badge--sm">PLC Siemens</span>
+                <span class="stack-badge stack-badge--sm">Robot Fanuc</span>
+                <span class="stack-badge stack-badge--sm">CNC</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- CTA inline referenze -->
+        <div class="prj-cta reveal reveal--dark">
+          <div class="prj-cta__text">
+            <p>Il tuo impianto potrebbe essere il prossimo. <strong>Contattaci</strong> per una valutazione tecnica preliminare.</p>
+          </div>
+          <a href="#contatti" class="btn btn--banner">Avvia il progetto <span class="arrow">→</span></a>
+        </div>
+
+      </div>
+    </section>
+
+<!--Contatti-->
+<section id="contatti" class="section section--light contact-section">
+      <div class="container">
+        <div class="contact-layout">
+          
+          <div class="contact-text reveal">
+            <span class="eyebrow">Inizia oggi</span>
+            <h2 class="contact-title">Parliamo del tuo<br>impianto.</h2>
+            <p class="contact-desc">Contattaci per discutere le specifiche tecniche del tuo progetto. Rispondiamo entro 24 ore lavorative.</p>
+            
+            <div class="contact-info-card">
+              <table class="tech-table">
+                <tr>
+                  <th>Sede</th>
+                  <td>
+                    <a href="https://maps.google.com/?q=Via+Redipuglia+77+Treviglio+BG" target="_blank" rel="noopener" class="link-hover">
+                      Via Redipuglia, 77<br>24047 Treviglio (BG)
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Email</th>
+                  <td><a href="mailto:info@floki.it" class="link-hover">info@floki.it</a></td>
+                </tr>
+                <tr>
+                  <th>P.IVA</th>
+                  <td><span class="text-mono">IT04278120169</span></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="contact-map reveal reveal--right">
+            <div class="map-wrapper">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2789.123!2d9.5820!3d45.5210!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47814b2a1c8f5e67%3A0x0!2sVia+Redipuglia%2C+77%2C+24047+Treviglio+BG!5e0!3m2!1sit!2sit!4v1700000000000" style="border:0;width:100%;height:100%;" allowfullscreen="" loading="lazy" title="Sede floKi s.r.l."></iframe>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer" aria-label="Footer">
-    <div class="container">
-      <div class="footer__body">
- 
-        <!-- BRAND -->
-        <div class="footer__brand">
-          <a href="index.html" class="footer__brand-name" aria-label="floKi s.r.l. — home">
-            floKi s.r.l.
-          </a>
-          <p class="footer__brand-description">
-            Ingegneria dei sistemi di controllo e automazione industriale.
-            Treviglio (BG), dal 2018.
-          </p>
-        </div>
- 
-        <!-- NAVIGAZIONE -->
-        <div>
-          <div class="footer__col-title">Navigazione</div>
-          <ul class="footer__links">
-            <li><a href="index.html"     class="footer__link">Home</a></li>
-            <li><a href="servizi.html"   class="footer__link">Servizi</a></li>
-            <li><a href="referenze.html" class="footer__link">Referenze</a></li>
-            <li><a href="contatti.html"  class="footer__link">Contatti</a></li>
-          </ul>
-        </div>
- 
-        <!-- CONTATTI -->
-        <div>
-          <div class="footer__col-title">Contatti</div>
-          <div class="footer__contact-entry">
-            <span class="footer__contact-key">Sede</span>
-            <a href="https://maps.google.com/?q=Via+Redipuglia+77,+24047+Treviglio+BG"
-               class="footer__contact-val"
-               target="_blank"
-               rel="noopener noreferrer">
-              Via Redipuglia, 77<br />24047 Treviglio (BG)
-            </a>
+  <footer class="footer">
+    <div class="container footer__container">
+
+      <div class="footer__top">
+        <div class="footer__brand reveal">
+          <div class="footer__logo">
+            <h3>flo<span class="text-accent">K</span>i</h3>
+            <span class="footer__logo-tag">Industrial Automation</span>
           </div>
-          <div class="footer__contact-entry">
-            <span class="footer__contact-key">Email</span>
-            <a href="mailto:info@floki.it" class="footer__contact-val">info@floki.it</a>
+          <p>Ingegneria dei sistemi di controllo e automazione industriale. Treviglio (BG), dal 2018.</p>
+        </div>
+        
+        <div class="footer__nav reveal reveal--delay">
+          <div class="footer__col">
+            <h4>Navigazione</h4>
+            <a href="#home">Home</a>
+            <a href="#servizi">Servizi</a>
+            <a href="#referenze">Referenze</a>
+            <a href="#contatti">Contatti</a>
           </div>
-          <div class="footer__contact-entry">
-            <span class="footer__contact-key">P.IVA</span>
-            <span class="footer__contact-val">IT04278120169</span>
+          <div class="footer__col">
+            <h4>Legale</h4>
+            <a href="termini.html">Termini e condizioni</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="cookie.html">Cookie Policy</a>
           </div>
         </div>
- 
-        <!-- LEGALE -->
-        <div>
-          <div class="footer__col-title">Legale</div>
-          <ul class="footer__links">
-            <li><a href="termini.html"  class="footer__link">Termini e condizioni</a></li>
-            <li><a href="privacy.html"  class="footer__link">Privacy Policy</a></li>
-            <li><a href="cookie.html"   class="footer__link">Cookie Policy</a></li>
-          </ul>
-        </div>
- 
       </div>
- 
-      <!-- BARRA INFERIORE -->
-      <div class="footer__bottom">
-        <span class="footer__bottom-copy">
-          © 2018–2026 floKi s.r.l. — Tutti i diritti riservati
-        </span>
-        <ul class="footer__legal-links">
-          <li><a href="termini.html" class="footer__legal-link">Termini</a></li>
-          <li><a href="privacy.html" class="footer__legal-link">Privacy</a></li>
-          <li><a href="cookie.html"  class="footer__legal-link">Cookie</a></li>
-          <li><span>P.IVA IT04278120169</span></li>
-        </ul>
+
+      <div class="footer__bottom reveal">
+        <p>© 2018–2026 floKi s.r.l. — Tutti i diritti riservati</p>
+        <div class="footer__sys-info">
+          <span class="dot"></span>
+          <span>P.IVA IT04278120169</span>
+        </div>
       </div>
- 
     </div>
   </footer>
- 
-   <button class="back-to-top" id="back-to-top" aria-label="Torna in cima alla pagina">
-    <img src="img/k-floki-originale.png"
-         alt=""
-         class="back-to-top__icon"
-         width="40"
-         height="40"
-         aria-hidden="true" />
-  </button>
 
+    <button id="scroll-to-top">
+        <img src="img/k-floki-originale.png" alt="Back to top">
+    </button>
   <script src="js/main.js"></script>
 </body>
 </html>

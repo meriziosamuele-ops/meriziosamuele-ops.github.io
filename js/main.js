@@ -1,190 +1,323 @@
 /* =============================================================================
    floKi s.r.l. — main.js
-   Logica UI: navbar scroll state + hamburger mobile menu toggle
-   Nessuna dipendenza esterna.
    ============================================================================= */
 
+/* ---------------------------------------------------------------------------
+   1. Navbar scroll state
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+  var navbar = document.getElementById('navbar');
+  if (!navbar) return;
+  function onScroll() {
+    navbar.classList.toggle('is-scrolled', window.scrollY > 24);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}());
+
+/* ---------------------------------------------------------------------------
+   2. Counter animation
+--------------------------------------------------------------------------- */
 (function () {
   'use strict';
 
-  var navbar     = document.getElementById('navbar');
-  var hamburger  = document.getElementById('hamburger');
-  var mobileMenu = document.getElementById('mobile-menu');
+  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
 
-  /* ---------------------------------------------------------------------------
-     Navbar: trasparente sulla hero (index.html), opaca sulle pagine interne.
-     Su tutte le pagine diventa opaca dopo 24px di scroll.
-  --------------------------------------------------------------------------- */
-  var isHomepage = document.body.classList.contains('page-home');
-
-  /* Pagine interne — navbar opaca al caricamento */
-  if (navbar && !isHomepage) {
-    navbar.classList.add('navbar--solid');
+  function animateCounter(el) {
+    var target   = parseInt(el.dataset.counter, 10);
+    var suffix   = el.dataset.suffix || '';
+    var duration = target <= 10 ? 700 : target <= 30 ? 900 : 1400;
+    if (isNaN(target)) return;
+    var startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var p = Math.min((ts - startTime) / duration, 1);
+      el.textContent = Math.round(easeOutCubic(p) * target) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target + suffix;
+    }
+    requestAnimationFrame(step);
   }
 
+  var counters = document.querySelectorAll('[data-counter]');
+  if (!counters.length) return;
+
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { animateCounter(e.target); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.35 });
+    counters.forEach(function (el) { obs.observe(el); });
+  } else {
+    counters.forEach(animateCounter);
+  }
+}());
+
+/* ---------------------------------------------------------------------------
+   3. Stats extra — reveal con linea verticale
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+  var items = document.querySelectorAll('.stats-extra__item');
+  if (!items.length) { items.forEach(function (el) { el.classList.add('is-visible'); }); return; }
+  if (!('IntersectionObserver' in window)) { items.forEach(function (el) { el.classList.add('is-visible'); }); return; }
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.3 });
+  items.forEach(function (el) { obs.observe(el); });
+}());
+
+/* ---------------------------------------------------------------------------
+   4. Reveal on scroll — .reveal e .reveal--dark
+      Stagger automatico per gruppi di figli contigui
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+
+  var reveals = document.querySelectorAll('.reveal, .reveal--dark');
+  if (!reveals.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    reveals.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.10, rootMargin: '0px 0px -36px 0px' });
+
+  reveals.forEach(function (el) { obs.observe(el); });
+}());
+
+/* ---------------------------------------------------------------------------
+   5. Particle canvas — hero background
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+
+  var canvas = document.getElementById('heroParticles');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  var RAF;
+
+  var COLORS = [
+    'rgba(37, 99, 235, 0.18)',
+    'rgba(37, 99, 235, 0.09)',
+    'rgba(217, 119, 6, 0.12)',
+    'rgba(217, 119, 6, 0.06)',
+    'rgba(100, 116, 139, 0.07)',
+  ];
+
+  function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+
+  function Particle() { this.reset(); }
+  Particle.prototype.reset = function () {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.r = Math.random() * 2.5 + 0.5;
+    this.vx = (Math.random() - 0.5) * 0.4;
+    this.vy = (Math.random() - 0.5) * 0.3;
+    this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    this.life = 0;
+    this.maxLife = 200 + Math.random() * 300;
+  };
+  Particle.prototype.update = function () {
+    this.x += this.vx; this.y += this.vy; this.life++;
+    if (this.life > this.maxLife || this.x < -10 || this.x > canvas.width + 10 || this.y < -10 || this.y > canvas.height + 10) {
+      this.reset(); this.life = 0;
+    }
+  };
+  Particle.prototype.draw = function () {
+    var alpha = Math.sin((this.life / this.maxLife) * Math.PI);
+    ctx.save(); ctx.globalAlpha = alpha; ctx.fillStyle = this.color;
+    ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+  };
+
+  function init() {
+    particles = [];
+    var count = Math.min(Math.floor((canvas.width * canvas.height) / 14000), 60);
+    for (var i = 0; i < count; i++) {
+      var p = new Particle();
+      p.life = Math.floor(Math.random() * p.maxLife);
+      particles.push(p);
+    }
+  }
+
+  function drawConnections() {
+    var maxDist = 120;
+    for (var i = 0; i < particles.length; i++) {
+      for (var j = i + 1; j < particles.length; j++) {
+        var dx = particles[i].x - particles[j].x;
+        var dy = particles[i].y - particles[j].y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < maxDist) {
+          ctx.save(); ctx.globalAlpha = (1 - dist / maxDist) * 0.08;
+          ctx.strokeStyle = 'rgba(37, 99, 235, 1)'; ctx.lineWidth = 0.5;
+          ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke(); ctx.restore();
+        }
+      }
+    }
+  }
+
+  function loop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawConnections();
+    particles.forEach(function (p) { p.update(); p.draw(); });
+    RAF = requestAnimationFrame(loop);
+  }
+
+  resize(); init(); loop();
+
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () { cancelAnimationFrame(RAF); resize(); init(); loop(); }, 200);
+  });
+
+  if ('IntersectionObserver' in window) {
+    var heroSection = document.getElementById('home');
+    if (heroSection) {
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) loop(); else cancelAnimationFrame(RAF);
+      }, { threshold: 0 }).observe(heroSection);
+    }
+  }
+}());
+
+/* ---------------------------------------------------------------------------
+   6. Parallax hero image
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+  var heroImg = document.querySelector('.hero__img');
+  if (!heroImg) return;
+  var hero = document.getElementById('home');
   function onScroll() {
-    if (!navbar) return;
-    if (window.scrollY > 24) {
-      navbar.classList.add('is-scrolled');
-    } else {
-      navbar.classList.remove('is-scrolled');
+    if (!hero) return;
+    var rect = hero.getBoundingClientRect();
+    if (rect.bottom <= 0 || rect.top >= window.innerHeight) return;
+    var shift = Math.min(Math.max((-rect.top / hero.offsetHeight) * 40, -20), 20);
+    heroImg.style.transform = 'translateY(' + shift + 'px)';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+}());
+
+/* ---------------------------------------------------------------------------
+   7. (tilt 3D rimosso) — hover via CSS translateY
+--------------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------------
+   8. Why-chain: stagger sequenziale
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+  var chain = document.querySelector('.why-card__chain');
+  if (!chain || !('IntersectionObserver' in window)) return;
+  var items = chain.querySelectorAll('span');
+  items.forEach(function (item) {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(8px)';
+    item.style.transition = 'opacity 0.45s cubic-bezier(0.22,1,0.36,1), transform 0.45s cubic-bezier(0.22,1,0.36,1)';
+  });
+  new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) {
+      items.forEach(function (item, i) {
+        setTimeout(function () {
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        }, i * 75);
+      });
     }
-  }
+  }, { threshold: 0.5 }).observe(chain);
+}());
 
-  if (navbar) {
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
-  /* ---------------------------------------------------------------------------
-     Hamburger: toggle menu mobile
-  --------------------------------------------------------------------------- */
-  function openMenu() {
-    hamburger.classList.add('is-open');
-    mobileMenu.classList.add('is-open');
-    hamburger.setAttribute('aria-expanded', 'true');
-    hamburger.setAttribute('aria-label', 'Chiudi menu');
-  }
-
-  function closeMenu() {
-    hamburger.classList.remove('is-open');
-    mobileMenu.classList.remove('is-open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    hamburger.setAttribute('aria-label', 'Apri menu');
-  }
-
-  if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', function () {
-      if (mobileMenu.classList.contains('is-open')) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
+/* ---------------------------------------------------------------------------
+   9. Stat boxes hero — fade-in stagger (integra l'animazione CSS)
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+  /* Le stat box entrano già via animation CSS nel container .stats-float.
+     Aggiungiamo stagger ai singoli .stat-box per un effetto più ricco. */
+  var boxes = document.querySelectorAll('.stat-box');
+  boxes.forEach(function (box, i) {
+    box.style.opacity = '0';
+    box.style.transform = 'translateY(10px)';
+    box.style.transition = 'opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1)';
+    box.style.transitionDelay = (0.65 + i * 0.09) + 's';
+    /* Fa partire la transizione dopo load */
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        box.style.opacity = '1';
+        box.style.transform = 'translateY(0)';
+      });
     });
+  });
+}());
 
-    // Chiude al click su qualsiasi link del menu mobile
-    var mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(function (link) {
-      link.addEventListener('click', closeMenu);
-    });
+/* ---------------------------------------------------------------------------
+   10. Stack badges nelle referenze — entrano in sequenza al viewport
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+  if (!('IntersectionObserver' in window)) return;
 
-    // Chiude se la finestra viene allargata oltre il breakpoint mobile
-    window.addEventListener('resize', function () {
-      if (window.innerWidth >= 768) {
-        closeMenu();
-      }
-    });
-  }
+  var showcaseStack = document.querySelector('.prj-showcase__stack');
+  if (!showcaseStack) return;
 
+  var badges = showcaseStack.querySelectorAll('.stack-badge');
+  badges.forEach(function (b) {
+    b.style.opacity = '0';
+    b.style.transform = 'translateY(6px)';
+    b.style.transition = 'opacity 0.4s cubic-bezier(0.22,1,0.36,1), transform 0.4s cubic-bezier(0.22,1,0.36,1)';
+  });
 
-  /* ---------------------------------------------------------------------------
-     Back to top: mostra il pulsante dopo 300px di scroll, click → top
-  --------------------------------------------------------------------------- */
-  var backToTop = document.getElementById('back-to-top');
+  new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) {
+      badges.forEach(function (b, i) {
+        setTimeout(function () {
+          b.style.opacity = '1';
+          b.style.transform = 'translateY(0)';
+        }, i * 80);
+      });
+    }
+  }, { threshold: 0.6 }).observe(showcaseStack);
+}());
 
-  function updateBackToTop() {
+/* ---------------------------------------------------------------------------
+   11. Scroll to top — visibilità e animazione
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+
+  // Usa l'ID corretto che hai nel CSS e nell'HTML (#scroll-to-top)
+  var scrollBtn = document.querySelector('#scroll-to-top'); 
+  if (!scrollBtn) return;
+
+  // Gestione visibilità al variare dello scroll
+  window.addEventListener('scroll', function () {
     if (window.scrollY > 300) {
-      backToTop.classList.add('is-visible');
+      scrollBtn.classList.add('visible');
     } else {
-      backToTop.classList.remove('is-visible');
+      scrollBtn.classList.remove('visible');
     }
-  }
+  }, { passive: true });
 
-  if (backToTop) {
-    window.addEventListener('scroll', updateBackToTop, { passive: true });
-    updateBackToTop(); // stato iniziale
-
-    backToTop.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Gestione click per risalita fluida
+  scrollBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
-  }
-
-})();
-
-  /* ---------------------------------------------------------------------------
-     Hero counters — anima i valori numerici al primo scroll visible
-     Usa IntersectionObserver; fallback immediato se non supportato.
-  --------------------------------------------------------------------------- */
-  (function () {
-    function animateCounter(el) {
-      var target = parseInt(el.dataset.counter, 10);
-      if (isNaN(target)) return;
-      var suffix = el.dataset.suffix || '';
-      var start  = null;
-      var dur    = 1400;
-
-      function step(ts) {
-        if (!start) start = ts;
-        var p    = Math.min((ts - start) / dur, 1);
-        var ease = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(ease * target) + suffix;
-        if (p < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }
-
-    var counters = document.querySelectorAll('[data-counter]');
-    if (!counters.length) return;
-
-    if ('IntersectionObserver' in window) {
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-      counters.forEach(function (c) { obs.observe(c); });
-    } else {
-      counters.forEach(animateCounter);
-    }
-  }());
-
-  /* ---------------------------------------------------------------------------
-     Hero wheel-trap
-     Il viewer Spline ha pointer-events:none — non riceve wheel events, quindi
-     non può zoomare. Il trap rilancia solo i pointer events (mouse follow robot)
-     senza intercettare lo scroll: nessun preventDefault, scroll compositor-driven.
-  --------------------------------------------------------------------------- */
-  (function () {
-    var trap   = document.getElementById('hero-wheel-trap');
-    var viewer = document.querySelector('.hero-scene__spline');
-    if (!trap || !viewer) return;
-
-    /* Attende che Spline crei il canvas nello shadow DOM prima di cacharlo */
-    var canvas = null;
-    function getCanvas() {
-      if (canvas) return canvas;
-      var shadow = viewer.shadowRoot;
-      if (shadow) canvas = shadow.querySelector('canvas');
-      return canvas;
-    }
-
-    /* Re-dispatcha i pointer events sul canvas Spline per il mouse follow.
-       Nessun wheel listener — lo scroll rimane gestito dal compositor (fluido). */
-    function relayPointer(e) {
-      var c = getCanvas();
-      if (!c) return;
-      c.dispatchEvent(new PointerEvent(e.type, {
-        bubbles:     true,
-        cancelable:  true,
-        clientX:     e.clientX,
-        clientY:     e.clientY,
-        screenX:     e.screenX,
-        screenY:     e.screenY,
-        movementX:   e.movementX,
-        movementY:   e.movementY,
-        pointerId:   e.pointerId,
-        pointerType: e.pointerType,
-        pressure:    e.pressure,
-        isPrimary:   e.isPrimary
-      }));
-    }
-
-    ['pointermove', 'pointerdown', 'pointerup',
-     'pointerenter', 'pointerleave', 'pointerover'].forEach(function (type) {
-      trap.addEventListener(type, relayPointer, { passive: true });
-    });
-
-  }());
+  });
+}());
