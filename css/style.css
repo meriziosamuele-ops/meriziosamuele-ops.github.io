@@ -754,7 +754,6 @@ p  { font-size: 1.125rem; color: var(--text-muted); }
     align-items: flex-start;
     justify-content: flex-start;
     margin-top: 2rem;
-    /* Spazio extra in basso per il stats-float che sporge */
     padding-bottom: 120px;
   }
   .hero__image-wrapper { position: relative; width: 100%; height: 380px; }
@@ -812,15 +811,21 @@ p  { font-size: 1.125rem; color: var(--text-muted); }
   .logo__tag { display: none; }
 
   /* Hero */
-  .hero__visual { padding-bottom: 140px; }
-  .hero__image-wrapper { height: 280px; }
+  .hero__visual { display: none; }
   .hero__actions { flex-direction: column; align-items: stretch; }
   .hero__actions .btn { justify-content: center; }
 
-  /* Stats float: griglia 2x2 su mobile, padding ridotto */
+  /* Stats float: esce dal posizionamento assoluto, entra nel flusso sotto il testo */
   .stats-float {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    width: 100%;
+    margin-top: 0;
     padding: 0.25rem;
     grid-template-columns: 1fr 1fr;
+    animation: none;
   }
   .stat-box { padding: 0.85rem 0.6rem; }
   .stat-val { font-size: 1.6rem; }
