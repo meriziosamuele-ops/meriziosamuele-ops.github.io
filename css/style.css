@@ -810,25 +810,22 @@ p  { font-size: 1.125rem; color: var(--text-muted); }
   .navbar .btn { display: none; }
   .logo__tag { display: none; }
 
-  /* Hero */
-  .hero__visual { display: none; }
+  /* Hero — nascondo solo l'immagine, le stats-float restano nel visual */
+  .hero__image-wrapper { display: none; }
+  .hero__visual {
+    height: 160px;
+    min-height: auto;
+    padding-bottom: 0;
+    margin-top: 0;
+  }
   .hero__actions { flex-direction: column; align-items: stretch; }
   .hero__actions .btn { justify-content: center; }
 
-  /* Stats float: esce dal posizionamento assoluto, entra nel flusso sotto il testo */
-  .stats-float {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    left: auto;
-    width: 100%;
-    margin-top: 0;
-    padding: 0.25rem;
-    grid-template-columns: 1fr 1fr;
-    animation: none;
-  }
-  .stat-box { padding: 0.85rem 0.6rem; }
-  .stat-val { font-size: 1.6rem; }
+  /* Stats float: padding e font ridotti per stare nell'altezza del visual */
+  .stats-float { padding: 0.25rem; }
+  .stat-box { padding: 0.75rem 0.5rem; }
+  .stat-val { font-size: 1.5rem; }
+  .stat-lbl { font-size: 0.6rem; }
 
   /* Stats extra */
   .stats-extra__inner { grid-template-columns: 1fr; }
