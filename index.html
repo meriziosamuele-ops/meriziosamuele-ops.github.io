@@ -13,7 +13,7 @@
 <body>
 
   <!-- ── NAVBAR ─────────────────────────────────────────────────────────────── -->
-  <header class="navbar" id="navbar">
+<header class="navbar" id="navbar">
     <div class="container navbar__inner">
       <a href="#home" class="logo">
         <img src="img/logo-floki.jpeg" alt="floKi s.r.l." class="logo__img" />
@@ -24,7 +24,21 @@
         <a href="#referenze">Referenze</a>
         <a href="#contatti">Contatti</a>
       </nav>
-      <a href="#contatti" class="btn btn--solid btn--small">Parla con noi</a>
+      
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-switcher__btn" aria-haspopup="true" aria-expanded="false" aria-label="Cambia lingua">
+          <span class="lang-current">IT</span>
+          <svg class="lang-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="lang-switcher__menu" aria-hidden="true">
+          <a href="index.html" class="lang-switcher__link is-active">IT</a>
+          <a href="en/index.html" class="lang-switcher__link">EN</a>
+          <a href="de/index.html" class="lang-switcher__link">DE</a>
+        </div>
+      </div>
+
     </div>
   </header>
 
@@ -171,10 +185,11 @@
       </div>
 
       <!-- Retrofit banner -->
-      <div class="container">
-        <div class="retrofit-banner reveal">
+      <div class="container reveal"> 
+        
+        <div class="retrofit-banner"> 
           <div class="retrofit-banner__left">
-            <span class="retrofit-banner__eyebrow">Revamping &amp; Retrofit</span>
+            <span class="retrofit-banner__eyebrow">Revamping & Retrofit</span>
             <h3 class="retrofit-banner__title">Impianti esistenti portati agli standard attuali.</h3>
             <p class="retrofit-banner__desc">Sostituzione di vecchi PLC, cablaggi e azionamenti senza fermi macchina inutili. Ogni linea aggiornata ai requisiti Industria 4.0 in termini di connettività, sicurezza e tracciabilità.</p>
           </div>
@@ -474,7 +489,7 @@
                 <tr>
                   <th>Sede</th>
                   <td>
-                    <a href="https://maps.google.com/?q=Via+Redipuglia+77+Treviglio+BG" target="_blank" rel="noopener" class="link-hover">
+                    <a href="https://maps.app.goo.gl/TuFwgykwF8qx2DG1A" target="_blank" rel="noopener" class="link-hover">
                       Via Redipuglia, 77<br>24047 Treviglio (BG)
                     </a>
                   </td>
@@ -493,7 +508,7 @@
 
           <div class="contact-map reveal reveal--right">
             <div class="map-wrapper">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2789.123!2d9.5820!3d45.5210!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47814b2a1c8f5e67%3A0x0!2sVia+Redipuglia%2C+77%2C+24047+Treviglio+BG!5e0!3m2!1sit!2sit!4v1700000000000" style="border:0;width:100%;height:100%;" allowfullscreen="" loading="lazy" title="Sede floKi s.r.l."></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.0372333768073!2d9.592003189186206!3d45.50932909649313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781482f6b70fc15%3A0xb8d77e75ed8b5489!2sFloki%20s.r.l.!5e0!3m2!1sit!2sit!4v1774795457172!5m2!1sit!2sit" style="border:0;width:100%;height:100%;" allowfullscreen="" loading="lazy" title="Sede floKi s.r.l."></iframe>
             </div>
           </div>
 
@@ -503,7 +518,7 @@
 
   </main>
 
-  <footer class="footer">
+<footer class="footer">
     <div class="container footer__container">
 
       <div class="footer__top">
@@ -512,7 +527,7 @@
             <h3>flo<span class="text-accent">K</span>i</h3>
             <span class="footer__logo-tag">Industrial Automation</span>
           </div>
-          <p>Ingegneria dei sistemi di controllo e automazione industriale. Treviglio (BG), dal 2018.</p>
+          <p>Progettazione, sviluppo e avviamento di sistemi per l'automazione industriale. Oltre 20 anni di esperienza sul campo. Treviglio (BG), dal 2018.</p>
         </div>
         
         <div class="footer__nav reveal reveal--delay">
@@ -523,11 +538,21 @@
             <a href="#referenze">Referenze</a>
             <a href="#contatti">Contatti</a>
           </div>
+          
           <div class="footer__col">
             <h4>Legale</h4>
             <a href="termini.html">Termini e condizioni</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="cookie.html">Cookie Policy</a>
+          </div>
+
+          <div class="footer__col">
+            <h4>Contatti</h4>
+            <a href="mailto:info@floki.it">info@floki.it</a>
+            <a href="https://maps.app.goo.gl/TuFwgykwF8qx2DG1A" target="_blank" rel="noopener">
+              Via Redipuglia, 77<br>
+              24047 Treviglio (BG)
+            </a>
           </div>
         </div>
       </div>

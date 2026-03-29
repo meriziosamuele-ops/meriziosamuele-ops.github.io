@@ -15,9 +15,9 @@
 
   --accent:        #2563EB;
   --accent-hover:  #1D4ED8;
-  --amber:         #D97706;
-  --amber-pale:    #FEF3C7;
-  --amber-mid:     #92400E;
+  --amber:         #EAB308; /* Giallo industriale puro */
+  --amber-pale:    #FEF9C3; /* Giallo pastello per i tag chiari */
+  --amber-mid:     #A16207;
 
   --border:        #E2E8F0;
   --border-dark:   rgba(255, 255, 255, 0.08);
@@ -28,7 +28,6 @@
   --hmi-border:    rgba(37, 99, 235, 0.22);
   --hmi-border-hi: rgba(37, 99, 235, 0.65);
   --hmi-grid:      rgba(37, 99, 235, 0.055);
-  --hmi-green:     #22C55E;
 
   --font-sans: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -122,6 +121,94 @@ p  { font-size: 1.125rem; color: var(--text-muted); }
 }
 .nav-links a:hover { color: var(--text-main); }
 .nav-links a:hover::after { width: 100%; }
+
+/* ── LANGUAGE SWITCHER ────────────────────────────────────────────────────── */
+.lang-switcher {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-mono); /* Stile tecnico */
+}
+
+.lang-switcher__btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.45rem 0.85rem;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s var(--ease);
+}
+
+.lang-switcher__btn:hover,
+.lang-switcher.is-open .lang-switcher__btn {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--bg-light);
+}
+
+.lang-icon {
+  transition: transform 0.3s var(--ease);
+}
+.lang-switcher.is-open .lang-icon {
+  transform: rotate(180deg);
+}
+
+/* Menu a tendina */
+.lang-switcher__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.3s var(--ease);
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 101;
+  overflow: hidden;
+}
+
+.lang-switcher.is-open .lang-switcher__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-switcher__link {
+  padding: 0.6rem 1rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+  text-align: center;
+}
+
+.lang-switcher__link:hover {
+  background: var(--bg-light);
+  color: var(--accent);
+}
+
+/* Nasconde la lingua attualmente selezionata dal menu a tendina */
+.lang-switcher__link.is-active {
+  display: none; 
+}
+
+/* Responsive: Assicuriamoci che rimanga visibile su mobile */
+@media (max-width: 768px) {
+  .lang-switcher { display: inline-block; }
+}
 
 /* ═══════════════════════════════════════════════════════════════════════════
    REVEAL ANIMATIONS — scroll-triggered, smooth
@@ -598,6 +685,33 @@ p  { font-size: 1.125rem; color: var(--text-muted); }
 .prj-cta__text .hmi-label { margin-bottom: 0.4rem; }
 .prj-cta__text p { font-size: 0.98rem; color: rgba(255,255,255,0.45); margin: 0; }
 .prj-cta__text p strong { color: rgba(255,255,255,0.8); font-weight: 600; }
+
+/* ── NUOVA ANIMAZIONE REVEAL DARK (Referenze) ────────────────────────────── */
+.reveal--dark {
+  opacity: 0;
+  /* Effetto profondità per le card scure: partono un po' più in basso e rimpicciolite */
+  transform: translateY(40px) scale(0.97);
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), 
+              transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal--dark.is-visible { 
+  opacity: 1; 
+  transform: translateY(0) scale(1); 
+}
+
+/* Stagger Progetti:
+  La riga 109 originale faceva "sbarellare" un po' l'ordine.
+  Raggruppiamo i ritardi per farli sembrare una sequenza fluida.
+*/
+.prj-grid .reveal--dark:nth-child(1) { transition-delay: 0.10s; }
+.prj-grid .reveal--dark:nth-child(2) { transition-delay: 0.25s; }
+.prj-grid .reveal--dark:nth-child(3) { transition-delay: 0.40s; }
+
+/* Rimuoviamo il ritardo su mobile per evitare spazi neri durante lo scroll veloce */
+@media (max-width: 768px) {
+  .prj-grid .reveal--dark { transition-delay: 0s !important; }
+}
 /* ── CONTATTI ─────────────────────────────────────────────────────────────── */
 .contact-section { background: var(--bg-light); padding-block: var(--sp-xl); border-bottom: 1px solid var(--border); }
 .contact-layout { 
@@ -788,4 +902,41 @@ p  { font-size: 1.125rem; color: var(--text-muted); }
   .tech-table th { padding-bottom: 0.2rem; border-bottom: none; }
   .tech-table td { padding-top: 0; }
   .footer__nav { flex-direction: column; gap: 2rem; }
+}
+
+
+/* ── NUOVA ANIMAZIONE ENTRATA SERVIZI (Bento Reveal) ────────────────────── */
+/* Sovrascriviamo l'animazione di base solo per le card dei servizi */
+.srv-grid2 .srv2-card.reveal {
+  opacity: 0;
+  /* Aggiunto un leggero scale (0.95) per creare un effetto profondità/zoom-in */
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.srv-grid2 .srv2-card.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Nuovo Stagger (Ritardo): 
+  Invece di un "serpente" lineare, facciamo entrare le card quasi a coppie 
+  basandoci sulle righe visive della griglia.
+*/
+/* Prima riga */
+.srv-grid2 .srv2-card.reveal:nth-child(1) { transition-delay: 0.0s; }
+.srv-grid2 .srv2-card.reveal:nth-child(2) { transition-delay: 0.1s; }
+
+/* Seconda riga */
+.srv-grid2 .srv2-card.reveal:nth-child(3) { transition-delay: 0.15s; }
+.srv-grid2 .srv2-card.reveal:nth-child(4) { transition-delay: 0.25s; }
+
+/* Terza riga */
+.srv-grid2 .srv2-card.reveal:nth-child(5) { transition-delay: 0.30s; }
+.srv-grid2 .srv2-card.reveal:nth-child(6) { transition-delay: 0.40s; }
+
+/* Su mobile togliamo quasi tutto il ritardo perché le card sono incolonnate */
+@media (max-width: 768px) {
+  .srv-grid2 .srv2-card.reveal { transition-delay: 0s !important; }
 }

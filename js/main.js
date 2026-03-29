@@ -321,3 +321,32 @@
     });
   });
 }());
+
+
+/* ---------------------------------------------------------------------------
+   12. Language Switcher (Dropdown)
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+  
+  var langSwitcher = document.getElementById('langSwitcher');
+  if (!langSwitcher) return;
+
+  var btn = langSwitcher.querySelector('.lang-switcher__btn');
+
+  // Apri/Chiudi al click
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation(); // Evita che il click si propaghi al document
+    langSwitcher.classList.toggle('is-open');
+    var isOpen = langSwitcher.classList.contains('is-open');
+    btn.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Chiudi cliccando fuori dal selettore
+  document.addEventListener('click', function (e) {
+    if (!langSwitcher.contains(e.target)) {
+      langSwitcher.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+}());
