@@ -1,1652 +1,605 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lunghi &amp; Gigliotti &#8212; Studio Tecnico Associato</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --paper:  #F4F1EB;
-  --warm:   #EDE9E0;
-  --stone:  #C8C2B4;
-  --mid:    #544E48;
-  --slate:  #3E3B36;
-  --ink:    #1A1814;
-  --brick:  #B05A3A;
-  --brick-l:#C87050;
-  --brick-d:#8A4028;
-  --border: rgba(30,26,20,.10);
-  --ff-d: "Playfair Display","Georgia",serif;
-  --ff-b: "Outfit",system-ui,sans-serif;
-  --ff-m: "Space Mono",monospace;
-  --max:1140px; --g:clamp(1.5rem,5vw,5rem)
-}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:var(--ff-b);font-size:19px;line-height:1.7;overflow-x:hidden}
-
-/* =====================
-   SCROLL REVEAL
-   ===================== */
-.rv{opacity:0;will-change:opacity,transform}
-.rv[data-rv="fade"]{transform:none}
-.rv[data-rv="up"],.rv{transform:translateY(28px)}
-.rv[data-rv="down"]{transform:translateY(-28px)}
-.rv[data-rv="left"]{transform:translateX(40px)}
-.rv[data-rv="right"]{transform:translateX(-40px)}
-.rv[data-rv="scale"]{transform:scale(.92)}
-.rv[data-rv="rotate"]{transform:translateY(20px) rotate(-2deg)}
-.rv[data-rv="card"]{transform:none}
-.rv.in{opacity:1;transform:none!important;transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
-.rv[data-rv="card"].in{transition:opacity .55s ease}
-.rv.d1.in{transition-delay:.10s}
-.rv.d2.in{transition-delay:.20s}
-.rv.d3.in{transition-delay:.30s}
-.rv.d4.in{transition-delay:.40s}
-.rv.d5.in{transition-delay:.50s}
-.rv.d6.in{transition-delay:.60s}
-.rv.slow.in{transition-duration:1.3s}
-.rv.fast.in{transition-duration:.5s}
-
-.word-reveal .word{display:inline-block;overflow:hidden;padding:.15em .06em;margin:-.15em -.06em}
-.word-reveal .word-inner{display:inline-block;transform:translateY(110%);opacity:0;transition:transform .8s cubic-bezier(.22,1,.36,1),opacity .6s ease}
-.word-reveal.in .word-inner{transform:translateY(0);opacity:1}
-.word-reveal.in .word:nth-child(1) .word-inner{transition-delay:.05s}
-.word-reveal.in .word:nth-child(2) .word-inner{transition-delay:.13s}
-.word-reveal.in .word:nth-child(3) .word-inner{transition-delay:.21s}
-.word-reveal.in .word:nth-child(4) .word-inner{transition-delay:.29s}
-.word-reveal.in .word:nth-child(5) .word-inner{transition-delay:.37s}
-.word-reveal.in .word:nth-child(6) .word-inner{transition-delay:.45s}
-.word-reveal.in .word:nth-child(7) .word-inner{transition-delay:.53s}
-
-@keyframes nav-in{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
-
-/* =====================
-   NAV — Integrata nella Hero (Stile Screenshot)
-   ===================== */
-nav {
-  position: absolute; 
-  top: 0; left: 0; right: 0; 
-  z-index: 300;
-  
-  background: transparent !important; 
-  border-bottom: none !important; 
-  backdrop-filter: none !important; 
-  -webkit-backdrop-filter: none !important;
-  box-shadow: none !important;
-  
-  animation: nav-in .7s cubic-bezier(.22,1,.36,1) both;
-}
-
-.nav-in { 
-  max-width: var(--max); 
-  margin: 0 auto; 
-  padding: 2.5rem var(--g); 
-  display: flex; align-items: center; justify-content: space-between; gap: 2rem; 
-}
-
-/* --- LOGO --- */
-.brand { text-decoration: none; display: flex; flex-direction: column; gap: .08rem; }
-.brand-name { font-family: var(--ff-d); font-size: 1.3rem; font-weight: 600; letter-spacing: .01em; line-height: 1.1; color: var(--ink); }
-.brand-sub { font-family: var(--ff-m); font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--mid); }
-
-/* --- LINK MENU --- */
-.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-.nav-links a { 
-  font-family: var(--ff-b); font-size: 1rem; font-weight: 400; letter-spacing: .04em; 
-  text-decoration: none; position: relative; transition: color .2s, opacity .2s; 
-}
-
-/* GESTIONE COLORI LINK (Adattata alla diagonale 1.5fr 1fr) */
-/* Servizi e Portfolio (sul chiaro) */
-.nav-links li:nth-child(1) a,
-.nav-links li:nth-child(2) a {
-  color: var(--ink); 
-}
-/* Il Team e Metodo (sullo scuro) */
-.nav-links li:nth-child(3) a,
-.nav-links li:nth-child(4) a {
-  color: var(--paper); 
-}
-
-.nav-links a::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--brick); transition: width .3s ease; }
-.nav-links a:hover { opacity: 0.7; }
-.nav-links a:hover::after { width: 100%; }
-
-/* --- BOTTONE CTA --- */
-.nav-cta { 
-  padding: .6rem 1.6rem; border-radius: 1px; font-weight: 500!important; 
-  background: var(--brick)!important; color: var(--paper)!important; 
-  transition: background .2s, transform .15s!important; 
-}
-.nav-cta::after { display: none!important; }
-.nav-cta:hover { background: var(--brick-d)!important; transform: translateY(-1px); opacity: 1!important; }
-
-/* Menu Hamburger Mobile */
-.hbtn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
-.hbtn span { display: block; width: 22px; height: 1.5px; transition: transform .3s, opacity .3s, background .4s; transform-origin: center; background: var(--ink); }
-.hbtn.o span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.hbtn.o span:nth-child(2) { opacity: 0; }
-.hbtn.o span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-/* Menu Fullscreen Mobile */
-.mob { display: none; position: fixed; inset: 0; z-index: 299; background: var(--paper); flex-direction: column; align-items: center; justify-content: center; gap: 2.2rem; }
-.mob.o { display: flex; animation: fi .25s ease; }
-.mob a { font-family: var(--ff-d); font-size: 2.6rem; font-weight: 600; color: var(--ink); text-decoration: none; transition: color .2s; }
-.mob a:hover { color: var(--brick); }
-
-@keyframes fi { from { opacity: 0 } to { opacity: 1 } }
-@keyframes nav-in { from { transform: translateY(-100%); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
-
-/* =====================
-   HERO SPLIT (RESTYLING DIAGONALE)
-   ===================== */
-#hero {
-  padding-top: 0;
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: 1fr auto; 
-  position: relative;
-  background-color: var(--paper);
-  overflow: hidden;
-}
-
-.hero-split {
-  display: grid;
-  /* Proporzione corretta per spingere la diagonale al punto giusto per il menu */
-  grid-template-columns: 1fr 1.25fr; 
-  min-height: calc(100vh - 140px);
-  /* RIMOSSO IL PADDING-TOP: La nav ora fluttua sopra il contenuto */
-  padding-top: 0; 
-  position: relative;
-}
-
-/* =====================
-   LATO CHIARO — SINISTRA
-   ===================== */
-.hero-light {
-  background: var(--paper);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* Padding top aumentato per compensare la nav che ora è in absolute */
-  padding: 8rem 5rem 4rem var(--g); 
-  position: relative;
-  z-index: 1; 
-}
-
-/* --- EYEBROW --- */
-.hero-eyebrow {
-  font-family: var(--ff-m);
-  font-size: .78rem;
-  letter-spacing: .25em;
-  text-transform: uppercase;
-  color: var(--brick);
-  display: flex;
-  align-items: center;
-  gap: .8rem;
-  margin-bottom: 2rem;
-  animation: eyebrow-in .8s cubic-bezier(.22,1,.36,1) .3s both;
-}
-.hero-eyebrow::before {
-  content: "";
-  width: 24px;
-  height: 1px;
-  background: var(--brick);
-}
-
-/* --- TITOLO --- */
-.hero-light h1 {
-  font-family: var(--ff-d);
-  font-size: clamp(2.8rem, 4vw, 4.5rem);
-  font-weight: 600;
-  line-height: 1.1;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-  margin-bottom: 1.8rem;
-  max-width: 15ch;
-  animation: desc-in .9s cubic-bezier(.22,1,.36,1) .5s both;
-}
-.hero-light h1 em {
-  font-style: italic;
-  color: var(--brick);
-  font-weight: 400;
-}
-
-/* --- DESCRIZIONE --- */
-.hero-desc {
-  font-size: 1.1rem;
-  font-weight: 300;
-  color: var(--mid);
-  line-height: 1.85;
-  max-width: 480px;
-  margin-bottom: 3rem;
-  animation: desc-in .9s cubic-bezier(.22,1,.36,1) .7s both;
-}
-
-/* --- BOTTONI CTA --- */
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  z-index: 2;
-}
-
-.btn-p {
-  font-family: var(--ff-b);
-  font-size: .95rem;
-  font-weight: 500;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--paper);
-  background: var(--brick);
-  padding: .95rem 1rem;
-  text-decoration: none;
-  border-radius: 1px;
-  transition: background .25s, transform .15s;
-  display: inline-block;
-  animation: btn-in .8s cubic-bezier(.22,1,.36,1) .9s both;
-}
-.btn-p:hover { background: var(--brick-d); transform: translateY(-1px); }
-
-.btn-s {
-  font-family: var(--ff-b);
-  font-size: .95rem;
-  font-weight: 400;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--slate);
-  border: 1px solid var(--stone);
-  padding: .95rem 2rem;
-  text-decoration: none;
-  border-radius: 1px;
-  transition: border-color .25s, color .25s;
-  display: inline-block;
-  animation: btn-in .8s cubic-bezier(.22,1,.36,1) 1.0s both;
-}
-.btn-s:hover { border-color: var(--slate); color: var(--ink); }
-
-/* =====================
-   LATO SCURO — DESTRA (LA DIAGONALE E LA FOTO)
-   ===================== */
-.hero-dark {
-  background-color: rgb(29, 39, 40);
-  background-image: url('img/hero.png'); 
-  
-  /* Rimpicciolisci e sposta come volevi tu */
-  background-size: 90%; 
-  background-position: 80% center; 
-  background-repeat: no-repeat;
-  
-  /* IL TRUCCO CSS */
-  background-blend-mode: lighten; /* Se non funziona bene, prova con 'screen' */
-  
-  position: relative;
-  overflow: hidden;
-  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
-  animation: image-in 1.2s cubic-bezier(.22,1,.36,1) both;
-  z-index: 2; 
-}
-
-.hero-dark::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(26, 24, 20, 0.4); 
-  z-index: 0;
-}
-
-.hero-dark-content {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-}
-
-/* =====================
-   ANIMAZIONI
-   ===================== */
-@keyframes eyebrow-in{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
-@keyframes desc-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-@keyframes btn-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-@keyframes image-in { from { opacity: 0; transform: scale(1.02); } to { opacity: 1; transform: scale(1); } }
-
-/* =====================
-   RESPONSIVE (MOBILE)
-   ===================== */
-@media (max-width: 991px) {
-  .hero-split {
-    grid-template-columns: 1fr; 
-    min-height: auto;
-    padding-top: 0;
-  }
-  
-  .hero-light {
-    padding: 8rem var(--g) 4rem var(--g); /* Mantiene lo spazio per la nav in mobile */
-    text-align: center;
-    align-items: center;
-  }
-  
-  .hero-light h1 { font-size: clamp(2.4rem, 8vw, 3.2rem); margin: 0 auto 1.5rem auto; }
-  .hero-desc { margin: 0 auto 2rem auto; }
-  .hero-actions { justify-content: center; }
-  
-  .hero-dark {
-    min-height: 400px;
-    clip-path: none; 
-    margin-top: 0;
-  }
-  
-  /* Reset colori menu su tablet/mobile (tutti scuri perché la nav su mobile è su sfondo chiaro) */
-  .nav-links li:nth-child(3) a,
-  .nav-links li:nth-child(4) a {
-    color: var(--ink); 
-  }
-}
-
-/* =====================
-   RESPONSIVE (MOBILE)
-   ===================== */
-@media (max-width: 991px) {
-  .hero-split {
-    grid-template-columns: 1fr; /* Impila verticalmente */
-    min-height: auto;
-    padding-top: 2rem;
-  }
-  
-  .hero-light {
-    padding: 3rem var(--g);
-    text-align: center;
-    align-items: center;
-  }
-  
-  .hero-light h1 {
-    font-size: clamp(2.4rem, 8vw, 3.2rem);
-    margin: 0 auto 1.5rem auto;
-  }
-  
-  .hero-desc {
-    margin: 0 auto 2rem auto;
-  }
-  
-  .hero-actions {
-    justify-content: center;
-  }
-  
-  .hero-dark {
-    min-height: 400px;
-    /* Rimuove la diagonale su mobile per pulizia */
-    clip-path: none; 
-    margin-top: -2rem; /* Sovrapposizione leggera */
-  }
-}
-/* HERO STATS BAR */
-.hero-bar{border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(4,1fr)}
-.hb-item{padding:1.6rem var(--g);border-right:1px solid var(--border);overflow:hidden}
-.hb-item:last-child{border-right:none}
-.hb-num{font-family:var(--ff-d);font-size:2.6rem;font-weight:600;color:var(--ink);line-height:1;margin-bottom:.25rem}
-.hb-label{font-family:var(--ff-m);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mid)}
-@keyframes tick-up{from{transform:translateY(60%);opacity:0}to{transform:translateY(0);opacity:1}}
-.hb-num.in{animation:tick-up .7s cubic-bezier(.22,1,.36,1) both}
-
-/* UTILITY */
-.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--g)}
-.sec-tag{font-family:var(--ff-m);font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--brick);display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem}
-.sec-tag::before{content:"";width:0;height:1px;background:var(--brick);transition:width .8s cubic-bezier(.22,1,.36,1)}
-.sec-tag.in::before{width:20px}
-h2{font-family:var(--ff-d);font-size:clamp(2.4rem,3.6vw,3.5rem);font-weight:600;color:var(--ink);line-height:1.1;letter-spacing:-.01em}
-h2 em{font-style:italic;color:var(--brick);font-weight:400}
-
-/* SERVIZI */
-#servizi{padding:8rem 0;background:var(--paper)}
-.sv-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
-.sv-intro p{font-size:1.1rem;font-weight:300;color:var(--mid);line-height:1.9;max-width:400px}
-.sv-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.sv-card{background:var(--paper);padding:2.8rem;border:1px solid transparent;border-right-color:var(--stone);border-bottom-color:var(--stone);transition:background .25s,box-shadow .4s,opacity .55s ease}
-.sv-card:nth-child(even){border-right-color:transparent}
-.sv-card:nth-child(3),.sv-card:nth-child(4){border-bottom-color:transparent}
-.sv-card:hover{background:var(--warm);box-shadow:0 8px 40px rgba(176,90,58,.08)}
-.sv-card:hover .sv-icon{background:var(--brick);border-color:var(--brick);color:var(--paper)}
-.sv-icon{width:52px;height:52px;border:1.5px solid var(--stone);display:flex;align-items:center;justify-content:center;margin-bottom:1.8rem;transition:background .25s,border-color .25s,color .25s;color:var(--brick)}
-.sv-icon svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.sv-num{font-family:var(--ff-m);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-bottom:.6rem}
-.sv-card h3{font-family:var(--ff-d);font-size:1.85rem;font-weight:600;color:var(--ink);margin-bottom:.8rem}
-.sv-card>p{font-size:1.05rem;font-weight:300;color:var(--mid);line-height:1.85}
-.sv-list{list-style:none;margin-top:1.2rem}
-.sv-list li{font-size:1rem;font-weight:300;color:var(--mid);padding:.35rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem}
-.sv-list li::before{content:"";width:4px;height:4px;background:var(--brick);flex-shrink:0;border-radius:50%}
-
-/* =====================
-   PORTFOLIO — layout editoriale
-   ===================== */
-#portfolio{padding:8rem 0;background:var(--warm)}
-.pf-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
-.pf-intro p{font-size:1.1rem;font-weight:300;color:var(--mid);line-height:1.9;max-width:400px}
-
-/* Filter tabs */
-.pf-filters{display:flex;gap:0;margin-bottom:3.5rem;border-bottom:1px solid var(--stone)}
-.pf-filter{font-family:var(--ff-m);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);background:none;border:none;cursor:pointer;padding:.8rem 1.6rem .8rem 0;margin-right:1rem;position:relative;transition:color .2s}
-.pf-filter::after{content:"";position:absolute;bottom:-1px;left:0;width:0;height:2px;background:var(--brick);transition:width .35s cubic-bezier(.22,1,.36,1)}
-.pf-filter.active{color:var(--ink)}
-.pf-filter.active::after{width:100%}
-.pf-filter:hover{color:var(--ink)}
-
-/* ============================================
-   PORTFOLIO GRID — layout editoriale asimmetrico
-   5 colonne, righe a altezza fissa
-   ============================================ */
-.pf-grid{
-  display:grid;
-  grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr 2fr;
-  grid-template-rows: 280px 200px 260px;
-  gap:3px;
-  background:rgba(138,130,120,.25);
-}
-
-/* Cella 1: hero grande, colonne 1–2, righe 1–2 */
-.pf-item:nth-child(1){ grid-column:1/3; grid-row:1/3; }
-/* Cella 2: banner orizzontale largo, colonne 3–5, riga 1 */
-.pf-item:nth-child(2){ grid-column:3/6; grid-row:1/2; }
-/* Cella 3: quadrato, colonna 3, riga 2 */
-.pf-item:nth-child(3){ grid-column:3/4; grid-row:2/3; }
-/* Cella 4: quadrato, colonne 4–5, riga 2 */
-.pf-item:nth-child(4){ grid-column:4/6; grid-row:2/3; }
-/* Cella 5: striscia orizzontale piena, colonne 1–3, riga 3 */
-.pf-item:nth-child(5){ grid-column:1/3; grid-row:3/4; }
-/* Cella 6: verticale, colonna 3, riga 3 */
-.pf-item:nth-child(6){ grid-column:3/4; grid-row:3/4; }
-/* Cella 7–8: due celle finali */
-.pf-item:nth-child(7){ grid-column:4/5; grid-row:3/4; }
-.pf-item:nth-child(8){ grid-column:5/6; grid-row:3/4; }
-
-.pf-item{
-  position:relative;
-  overflow:hidden;
-  cursor:pointer;
-  background:var(--paper);
-  min-height:0;
-}
-
-.pf-bg{
-  position:absolute;inset:0;
-  transition:transform .7s cubic-bezier(.22,1,.36,1);
-  overflow:hidden;
-}
-.pf-item:hover .pf-bg{transform:scale(1.04)}
-
-.pf-bg-1{background:linear-gradient(135deg,#E8E3D8 0%,#D4CCBE 100%)}
-.pf-bg-2{background:linear-gradient(135deg,#E4DDD0 0%,#CEC5B5 100%)}
-.pf-bg-3{background:linear-gradient(135deg,#DDD8CE 0%,#C8C0B0 100%)}
-.pf-bg-4{background:linear-gradient(135deg,#EAE5DA 0%,#D6CEBD 100%)}
-.pf-bg-5{background:linear-gradient(135deg,#E0DBD0 0%,#CABFAF 100%)}
-.pf-bg-6{background:linear-gradient(135deg,#E6E1D6 0%,#D0C9B8 100%)}
-.pf-bg-7{background:linear-gradient(135deg,#DDD6CC 0%,#CCC3B2 100%)}
-.pf-bg-8{background:linear-gradient(135deg,#E2DDD3 0%,#D4CCB8 100%)}
-
-.pf-bg::before{
-  content:"";
-  position:absolute;inset:0;
-  background-image:linear-gradient(var(--stone) 1px,transparent 1px),linear-gradient(90deg,var(--stone) 1px,transparent 1px);
-  background-size:24px 24px;
-  opacity:.25;
-}
-
-/* Numero decorativo grande */
-.pf-deco-num{
-  position:absolute;
-  bottom:-0.1em;
-  right:.3rem;
-  font-family:var(--ff-d);
-  font-size:8rem;
-  font-weight:700;
-  color:rgba(138,130,120,.12);
-  line-height:1;
-  pointer-events:none;
-  transition:color .4s;
-  letter-spacing:-.04em;
-}
-.pf-item:hover .pf-deco-num{color:rgba(176,90,58,.12)}
-
-.pf-drawing{
-  position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  padding:1.5rem;
-}
-.pf-drawing svg{
-  width:100%;height:100%;
-  max-width:220px;max-height:180px;
-  stroke:var(--slate);fill:none;
-  stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;
-  opacity:.55;
-  transition:opacity .4s ease;
-}
-.pf-item:hover .pf-drawing svg{opacity:.85}
-
-/* Overlay hover */
-.pf-overlay{
-  position:absolute;inset:0;
-  background:rgba(26,24,20,0);
-  transition:background .4s ease;
-  display:flex;flex-direction:column;justify-content:flex-end;
-  padding:1.6rem;
-}
-.pf-item:hover .pf-overlay{background:rgba(26,24,20,.6)}
-
-.pf-meta{
-  transform:translateY(12px);opacity:0;
-  transition:transform .4s cubic-bezier(.22,1,.36,1),opacity .35s ease;
-}
-.pf-item:hover .pf-meta{transform:translateY(0);opacity:1}
-
-.pf-cat{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brick-l);margin-bottom:.4rem;display:block}
-.pf-title{font-family:var(--ff-d);font-size:1.15rem;font-weight:600;color:var(--paper);line-height:1.25}
-.pf-year{font-family:var(--ff-m);font-size:.62rem;letter-spacing:.15em;color:rgba(244,241,235,.45);margin-top:.3rem;display:block}
-
-/* Label statica per celle grandi (1,2,5) */
-.pf-label-static{
-  position:absolute;bottom:0;left:0;right:0;
-  padding:.9rem 1.2rem;
-  background:linear-gradient(transparent,rgba(26,24,20,.42));
-  transition:opacity .3s ease;
-}
-.pf-item:hover .pf-label-static{opacity:0}
-.pf-label-static .pf-cat-s{font-family:var(--ff-m);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,241,235,.6);display:block;margin-bottom:.2rem}
-.pf-label-static .pf-title-s{font-family:var(--ff-d);font-size:1rem;font-weight:600;color:var(--paper)}
-
-.pf-tag{
-  position:absolute;top:1rem;right:1rem;
-  font-family:var(--ff-m);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--slate);background:rgba(244,241,235,.8);
-  padding:.25rem .6rem;
-  backdrop-filter:blur(4px);
-  transition:opacity .3s ease;
-}
-.pf-item:hover .pf-tag{opacity:0}
-
-.pf-cta{text-align:center;margin-top:4rem}
-.pf-cta p{font-size:1.05rem;font-weight:300;color:var(--mid);margin-bottom:1.5rem}
-
-/* =====================
-   TEAM — con foto professionali
-   ===================== */
-#team{padding:8rem 0;background:var(--paper)}
-.team-head{margin-bottom:4rem}
-.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
-
-.team-card{
-  background:var(--warm);
-  border:1px solid transparent;
-  border-right-color:var(--stone);
-  transition:background .25s,transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s,opacity .55s ease;
-  overflow:hidden;
-  display:flex;flex-direction:column;
-}
-.team-card:nth-child(even){border-right-color:transparent}
-.team-card:hover{background:var(--warm);transform:translateY(-4px);box-shadow:0 12px 40px rgba(26,24,20,.08)}
-
-/* Foto professionale — occupa l'intera larghezza della card, aspect-ratio fisso */
-.team-photo{
-  width:100%;
-  aspect-ratio:4/3;
-  position:relative;
-  overflow:hidden;
-  background:var(--warm);
-  flex-shrink:0;
-}
-.team-photo img{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center top;
-  display:block;
-  transition:transform .6s cubic-bezier(.22,1,.36,1);
-}
-.team-card:hover .team-photo img{transform:scale(1.03)}
-
-/* Placeholder quando non c'è ancora la foto */
-.team-photo-placeholder{
-  width:100%;height:100%;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  background:var(--slate);
-  gap:.8rem;
-}
-.team-initials-big{
-  font-family:var(--ff-d);
-  font-size:5rem;font-weight:600;
-  color:rgba(244,241,235,.15);
-  letter-spacing:.05em;
-  line-height:1;
-}
-.team-photo-hint{
-  font-family:var(--ff-m);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
-  color:rgba(244,241,235,.3);
-}
-/* Barra con iniziali colorate sopra il placeholder */
-.team-photo-bar{
-  position:absolute;bottom:0;left:0;right:0;
-  background:linear-gradient(transparent,rgba(26,24,20,.7));
-  padding:1.2rem 1.5rem .8rem;
-}
-.team-photo-bar .initials-pill{
-  display:inline-flex;align-items:center;justify-content:center;
-  width:44px;height:44px;
-  background:var(--brick);
-  font-family:var(--ff-d);font-size:1.1rem;font-weight:600;
-  color:var(--paper);
-}
-
-/* Contenuto testuale */
-.team-info{padding:2rem 2rem 2rem;display:flex;flex-direction:column;gap:1.4rem;flex:1}
-.team-name-block{}
-.team-card h3{font-family:var(--ff-d);font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:.2rem}
-.team-role{font-family:var(--ff-m);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brick)}
-.team-bio{font-size:1.05rem;font-weight:300;color:var(--mid);line-height:1.85}
-.team-tags{display:flex;flex-wrap:wrap;gap:.5rem}
-.tag{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brick);border:1px solid rgba(176,90,58,.3);padding:.3rem .7rem;transition:background .2s,color .2s}
-.tag:hover{background:rgba(176,90,58,.1)}
-/* Contatto nella card */
-.team-contact{
-  font-family:var(--ff-m);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--stone);text-decoration:none;
-  display:flex;align-items:center;gap:.5rem;
-  margin-top:auto;padding-top:1rem;
-  border-top:1px solid var(--border);
-  transition:color .2s;
-}
-.team-contact:hover{color:var(--brick)}
-.team-contact::before{content:"";width:12px;height:1px;background:currentColor}
-
-/* PROCESSO */
-#processo{padding:8rem 0;background:var(--warm)}
-.proc-head{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
-.proc-head p{font-size:1.1rem;font-weight:300;color:var(--mid);line-height:1.9}
-.proc-list{display:flex;flex-direction:column;gap:0}
-.proc-item{display:grid;grid-template-columns:80px 1fr;gap:2rem;padding:2.5rem 0;border-bottom:1px solid var(--border);align-items:start;cursor:default;transition:background .2s,padding-left .3s cubic-bezier(.22,1,.36,1)}
-.proc-item:first-child{border-top:1px solid var(--border)}
-.proc-item:hover .proc-step-n{color:var(--brick)}
-.proc-left{text-align:right}
-.proc-step-n{font-family:var(--ff-m);font-size:2.4rem;font-weight:700;color:var(--stone);line-height:1;transition:color .25s}
-.proc-step-label{font-family:var(--ff-m);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--stone);margin-top:.2rem}
-.proc-right h4{font-family:var(--ff-d);font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:.5rem}
-.proc-right p{font-size:1.05rem;font-weight:300;color:var(--mid);line-height:1.8}
-
-/* CONTATTI */
-#contatti{padding:8rem 0;background:var(--ink)}
-#contatti .sec-tag{color:var(--brick-l)}
-#contatti .sec-tag::before{background:var(--brick-l)}
-#contatti h2{color:var(--paper)}
-#contatti h2 em{color:var(--brick-l)}
-.cont-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:7rem;margin-top:4rem;align-items:start}
-.cont-block h3{font-family:var(--ff-d);font-size:1.35rem;font-weight:400;font-style:italic;color:var(--warm);border-bottom:1px solid rgba(244,241,235,.10);padding-bottom:1.5rem;margin-bottom:1.5rem}
-.cont-row{display:flex;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid rgba(244,241,235,.07);align-items:flex-start}
-.cont-ico{width:40px;height:40px;border:1px solid rgba(244,241,235,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--brick-l)}
-.cont-ico svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.cont-txt .lbl{font-family:var(--ff-m);font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,241,235,.3);margin-bottom:.2rem}
-.cont-txt p,.cont-txt a{font-size:1.07rem;font-weight:300;color:rgba(244,241,235,.7);text-decoration:none;line-height:1.5;transition:color .2s}
-.cont-txt a:hover{color:var(--brick-l)}
-.wa-btn{display:inline-flex;align-items:center;gap:.7rem;background:#25D366;color:#fff;font-family:var(--ff-b);font-size:.9rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.9rem 1.8rem;text-decoration:none;margin-top:2rem;transition:background .25s}
-.wa-btn:hover{background:#1fb85a}
-.wa-btn svg{width:20px;height:20px;fill:currentColor}
-.f-wrap{background:rgba(244,241,235,.05);border:1px solid rgba(244,241,235,.10);padding:2rem;margin-top:-8rem}
-.f-wrap h3{font-family:var(--ff-d);font-size:1.75rem;font-weight:400;color:var(--warm);margin-bottom:.3rem}
-.f-wrap-sub{font-size:1rem;font-weight:300;color:rgba(244,241,235,.35);margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(244,241,235,.08)}
-.fg{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem}
-.fg label{font-family:var(--ff-m);font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,241,235,.35)}
-.fg input,.fg select,.fg textarea{background:rgba(244,241,235,.06);border:1px solid rgba(244,241,235,.12);padding:.8rem 1rem;font-family:var(--ff-b);font-size:17px;color:var(--warm);outline:none;transition:border-color .25s;width:100%}
-.fg input::placeholder,.fg textarea::placeholder{color:rgba(244,241,235,.2)}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--brick-l)}
-.fg select option{background:#2a2724;color:var(--warm)}
-.fg textarea{resize:none;min-height:88px}
-.f2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.f-sub-btn{width:100%;margin-top:.5rem;background:var(--brick);color:var(--paper);font-family:var(--ff-b);font-size:.9rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:1.1rem;border:none;cursor:pointer;transition:background .25s}
-.f-sub-btn:hover{background:var(--brick-d)}
-.f-ok{display:none;text-align:center;padding:3rem 1rem}
-.f-ok-ck{font-size:2.5rem;color:var(--brick-l);margin-bottom:.8rem}
-.f-ok h3{font-family:var(--ff-d);font-size:1.9rem;font-weight:400;color:var(--warm);margin-bottom:.5rem}
-.f-ok p{font-size:1.05rem;color:rgba(244,241,235,.4)}
-
-/* FOOTER */
-footer{background:#111009;padding:5rem var(--g) 2rem;border-top:1px solid rgba(244,241,235,.06)}
-.ft-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;padding-bottom:4rem}
-.ft-brand{font-family:var(--ff-d);font-size:1.5rem;font-weight:600;color:var(--paper);display:block;margin-bottom:1.2rem}
-.ft-brand em{color:var(--brick-l);font-style:italic}
-.ft-mission{font-size:0.95rem;color:rgba(244,241,235,.4);line-height:1.6;max-width:320px}
-.ft-h{font-family:var(--ff-m);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--brick-l);display:block;margin-bottom:1.5rem}
-.ft-nav-list{list-style:none}
-.ft-nav-list li{margin-bottom:.8rem}
-.ft-nav-list a,.ft-nav-list p{font-size:.95rem;color:rgba(244,241,235,.6);text-decoration:none;transition:color .2s}
-.ft-nav-list a:hover{color:var(--paper)}
-.ft-bottom{border-top:1px solid rgba(244,241,235,.05);padding-top:2rem}
-.ft-bottom-in{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
-.ft-legal p{font-family:var(--ff-m);font-size:.65rem;color:rgba(244,241,235,.2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
-.ft-links{display:flex;gap:2rem}
-.ft-links a{font-family:var(--ff-m);font-size:.65rem;color:rgba(244,241,235,.3);text-decoration:none;text-transform:uppercase;transition:color .2s}
-.ft-links a:hover{color:var(--brick-l)}
-
-/* LIGHTBOX */
-.lb-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(26,24,20,.92);backdrop-filter:blur(8px);align-items:center;justify-content:center}
-.lb-overlay.open{display:flex;animation:lbIn .3s ease}
-@keyframes lbIn{from{opacity:0}to{opacity:1}}
-.lb-box{background:var(--warm);max-width:680px;width:90%;max-height:90vh;overflow:auto;position:relative;padding:2.5rem}
-.lb-close{position:absolute;top:1.2rem;right:1.2rem;background:none;border:none;cursor:pointer;font-size:1.4rem;color:var(--mid);transition:color .2s;line-height:1}
-.lb-close:hover{color:var(--ink)}
-.lb-drawing{width:100%;height:220px;background:var(--paper);border:1px solid var(--stone);display:flex;align-items:center;justify-content:center;margin-bottom:1.8rem;position:relative;overflow:hidden}
-.lb-drawing::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--stone) 1px,transparent 1px),linear-gradient(90deg,var(--stone) 1px,transparent 1px);background-size:24px 24px;opacity:.25}
-.lb-drawing svg{width:60%;height:80%;stroke:var(--slate);fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;position:relative;z-index:1}
-.lb-cat{font-family:var(--ff-m);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brick);margin-bottom:.5rem}
-.lb-h{font-family:var(--ff-d);font-size:2rem;font-weight:600;color:var(--ink);margin-bottom:.4rem}
-.lb-loc{font-family:var(--ff-m);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1.4rem;display:flex;align-items:center;gap:.5rem}
-.lb-loc::before{content:"";width:12px;height:1px;background:var(--mid)}
-.lb-desc{font-size:1rem;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:1.6rem}
-.lb-specs{display:grid;grid-template-columns:1fr 1fr;gap:1rem;border-top:1px solid var(--border);padding-top:1.4rem}
-.lb-spec-item .lb-spec-lbl{font-family:var(--ff-m);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);margin-bottom:.2rem}
-.lb-spec-item .lb-spec-val{font-size:1rem;font-weight:400;color:var(--ink)}
-
-/* =====================
-   RESPONSIVE
-   ===================== */
-@media (max-width: 991px) {
-  .hero-dark {
-    display: none; /* Rimuove il blocco immagine su mobile */
-  }
-  .hero-light {
-    padding: 6rem var(--g) 3rem var(--g);
-    min-height: auto; /* Evita spazi vuoti eccessivi */
-  }
-}
-
-@media(max-width:900px){
-  :root{--g:1.5rem}
-  body{font-size:17px}
-  .nav-links{display:none}
-  .hbtn{display:flex}
-  .brand-name{font-size:1.2rem}
-  .brand-sub{font-size:.6rem;letter-spacing:.15em}
-
-  /* Hero split → stack su mobile */
-  .hero-split{grid-template-columns:1fr;min-height:auto;grid-template-rows:auto auto}
-  .hero-light{padding:4rem var(--g) 3rem;min-height:60vw;justify-content:flex-end}
-  .hero-dark{min-height:50vw;padding-top:0}
-  .hero-dark-content{padding:2rem var(--g)}
-  .board{height:220px;max-width:100%}
-  h1{font-size:clamp(2.4rem,7vw,3.4rem);max-width:100%}
-  .hero-desc{font-size:1.05rem;max-width:100%;margin-bottom:2.2rem}
-  .hero-eyebrow{font-size:.75rem;margin-bottom:1.5rem}
-  .btn-p,.btn-s{font-size:.92rem;padding:.9rem 1.6rem;width:100%;text-align:center}
-  .hero-actions{flex-direction:column;gap:.75rem}
-
-  .hero-bar{grid-template-columns:1fr 1fr}
-  .hb-item{padding:1.3rem 1.5rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .hb-item:nth-child(2n){border-right:none}
-  .hb-item:nth-child(3),.hb-item:nth-child(4){border-bottom:none}
-  .hb-num{font-size:2.1rem}
-  .hb-label{font-size:.66rem}
-
-  .sv-intro{grid-template-columns:1fr;gap:1.5rem;margin-bottom:3rem}
-  .sv-intro p{max-width:100%}
-  .sv-grid{grid-template-columns:1fr}
-  .sv-card{padding:2rem}
-  .sv-card:nth-child(even){border-right-color:transparent}
-  .sv-card:nth-child(3),.sv-card:nth-child(4){border-bottom-color:var(--stone)}
-  .sv-card:last-child{border-bottom-color:transparent}
-  .sv-card h3{font-size:1.6rem}
-
-  /* Portfolio tablet */
-  .pf-intro{grid-template-columns:1fr;gap:1.5rem;margin-bottom:3rem}
-  .pf-intro p{max-width:100%}
-  .pf-grid{
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:auto;
-    grid-auto-rows:200px;
-  }
-  .pf-item:nth-child(1){grid-column:1/3;grid-row:1/2}
-  .pf-item:nth-child(2){grid-column:1/3;grid-row:2/3}
-  .pf-item:nth-child(3){grid-column:1/2;grid-row:3/4}
-  .pf-item:nth-child(4){grid-column:2/3;grid-row:3/4}
-  .pf-item:nth-child(5){grid-column:1/3;grid-row:4/5}
-  .pf-item:nth-child(6){grid-column:1/2;grid-row:5/6}
-  .pf-item:nth-child(7){grid-column:2/3;grid-row:5/6}
-  .pf-item:nth-child(8){grid-column:1/3;grid-row:6/7}
-
-  /* Team tablet */
-  .team-grid{grid-template-columns:1fr}
-  .team-card{border-right-color:transparent!important;border-bottom:1px solid var(--stone)}
-  .team-card:last-child{border-bottom:none}
-  .team-card h3{font-size:1.45rem}
-  .team-bio{font-size:1.05rem}
-  .team-head{margin-bottom:3rem}
-
-  .proc-head{grid-template-columns:1fr;gap:1.5rem;margin-bottom:3rem}
-  .proc-head p{font-size:1.07rem}
-  .proc-item{grid-template-columns:60px 1fr;gap:1.2rem;padding:2rem 0}
-  .proc-step-n{font-size:1.8rem}
-  .proc-right h4{font-size:1.3rem}
-  .proc-right p{font-size:1.05rem}
-  .cont-grid{grid-template-columns:1fr;gap:3rem}
-  .f-wrap{margin-top:0}
-  .ft-in{grid-template-columns:1fr;gap:3rem;text-align:center}
-  .ft-mission{max-width:100%}
-  .ft-bottom-in{justify-content:center;text-align:center}
-  .ft-links{justify-content:center}
-}
-
-@media(max-width:600px){
-  :root{--g:1.25rem}
-  body{font-size:16px}
-  .brand-name{font-size:1.1rem}
-  .brand-sub{display:none}
-  .nav-in{padding:.85rem var(--g)}
-  .mob a{font-size:2.3rem}
-  h1{font-size:2.3rem;margin-bottom:1.4rem}
-  .hero-light{padding:3rem var(--g) 2.5rem}
-  .hero-dark{min-height:60vw}
-  .board{height:180px}
-  .bd-house{width:130px}
-
-  .hero-bar{grid-template-columns:1fr 1fr}
-  .hb-item{padding:1.1rem 1rem}
-  .hb-num{font-size:1.9rem}
-  .hb-label{font-size:.62rem;letter-spacing:.12em}
-  #servizi,#team,#processo,#contatti,#portfolio{padding:5rem 0}
-  h2{font-size:2.1rem}
-  .sv-card{padding:1.6rem}
-  .sv-card h3{font-size:1.5rem}
-  .sv-icon{width:44px;height:44px;margin-bottom:1.4rem}
-  .sv-list li{font-size:.97rem}
-
-  .pf-filters{flex-wrap:wrap;gap:.5rem;border-bottom:none;margin-bottom:2rem}
-  .pf-filter{padding:.5rem 1rem;border:1px solid var(--stone);font-size:.65rem}
-  .pf-filter.active{border-color:var(--brick);color:var(--brick)}
-  .pf-filter::after{display:none}
-  .pf-grid{
-    grid-template-columns:1fr 1fr;
-    grid-auto-rows:140px;
-    gap:2px;
-  }
-  .pf-item:nth-child(1){grid-column:1/3;grid-row:1/3}
-  .pf-item:nth-child(2){grid-column:1/3;grid-row:3/4}
-  .pf-item:nth-child(3){grid-column:1/2;grid-row:4/5}
-  .pf-item:nth-child(4){grid-column:2/3;grid-row:4/5}
-  .pf-item:nth-child(5){grid-column:1/3;grid-row:5/6}
-  .pf-item:nth-child(6){grid-column:1/2;grid-row:6/7}
-  .pf-item:nth-child(7){grid-column:2/3;grid-row:6/7}
-  .pf-item:nth-child(8){grid-column:1/3;grid-row:7/8}
-  .pf-title{font-size:.95rem}
-  .pf-label-static .pf-title-s{font-size:.85rem}
-  .pf-deco-num{font-size:5rem}
-
-  .team-info{padding:1.5rem}
-  .team-card h3{font-size:1.35rem}
-  .team-bio{font-size:.97rem}
-
-  .proc-item{grid-template-columns:50px 1fr;gap:1rem;padding:1.6rem 0}
-  .proc-step-n{font-size:1.6rem}
-  .proc-right h4{font-size:1.25rem}
-  .cont-block h3{font-size:1.15rem}
-  .wa-btn{width:100%;justify-content:center;font-size:.9rem}
-  .f2{grid-template-columns:1fr}
-  .f-wrap{padding:1.5rem}
-  .lb-box{padding:1.5rem}
-  .lb-specs{grid-template-columns:1fr}
-}
-
-@media(max-width:380px){
-  h1{font-size:2rem}
-  .board{height:160px}
-  .bd-house{width:110px}
-  .hb-num{font-size:1.7rem}
-}
-
-@media(hover:none){
-  .team-card:hover{transform:none;box-shadow:none}
-  .btn-p:hover{transform:none}
-  .pf-item:hover .pf-bg{transform:none}
-  .pf-item .pf-meta{transform:none;opacity:1}
-  .pf-item:hover .pf-overlay{background:rgba(26,24,20,.5)}
-  .pf-item .pf-label-static{display:none}
-}
-
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  .rv{opacity:1;transform:none}
-  .word-reveal .word-inner{transform:none;opacity:1}
-  .bd-house svg path,.bd-house svg polyline,.bd-house svg rect,.bd-house svg line,.bd-house svg circle{stroke-dashoffset:0}
-  .hero-dark{background:var(--ink)!important}
-}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="floKi s.r.l. — Automazione industriale avanzata. Progettazione, realizzazione e installazione di impianti e quadri elettrici." />
+  <title>floKi s.r.l. | Ingegneria dell'Automazione Industriale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 </head>
 <body>
 
-  <!-- MOBILE MENU -->
-  <div class="mob" id="mob">
-    <a href="#servizi">Servizi</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#team">Team</a>
-    <a href="#processo">Metodo</a>
-    <a href="#contatti">Contatti</a>
+  <a href="#main" class="skip-link">Vai al contenuto</a>
+
+  <!-- ── NAVBAR ─────────────────────────────────────────────────────────────── -->
+<header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#home" class="logo">
+        <img src="img/logo-floki.jpeg" alt="floKi s.r.l." class="logo__img" />
+        <span class="logo__tag">Industrial Automation</span>
+      </a>
+      <nav class="nav-links" aria-label="Navigazione principale">
+        <a href="#servizi">Servizi</a>
+        <a href="#referenze">Referenze</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+
+      <div class="navbar__end">
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="mobileNav">
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-switcher__btn" aria-haspopup="true" aria-expanded="false" aria-label="Cambia lingua">
+          <span class="lang-current">IT</span>
+          <svg class="lang-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="lang-switcher__menu" aria-hidden="true">
+          <a href="index.html" class="lang-switcher__link is-active">IT</a>
+          <a href="en/index.html" class="lang-switcher__link">EN</a>
+          <a href="de/index.html" class="lang-switcher__link">DE</a>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav__backdrop" id="mobileNavBackdrop" tabindex="-1"></div>
+    <div class="mobile-nav__panel" role="dialog" aria-modal="true" aria-label="Menu">
+      <nav class="mobile-nav__links" aria-label="Navigazione mobile">
+        <a href="#servizi">Servizi</a>
+        <a href="#referenze">Referenze</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+      <a href="#contatti" class="btn btn--solid mobile-nav__cta">Inizia il progetto <span class="arrow">→</span></a>
+    </div>
   </div>
 
-  <!-- NAV -->
-  <nav id="nav" class="light-side">
-    <div class="nav-in">
-      <a href="#hero" class="brand">
-        <span class="brand-name">Lunghi &amp; Gigliotti</span>
-        <span class="brand-sub">Studio Tecnico Associato &middot; Lodi</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#servizi">Servizi</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#team">Il Team</a></li>
-        <li><a href="#processo">Metodo</a></li>
-        <li><a href="#contatti" class="nav-cta">Contattaci</a></li>
-      </ul>
-      <button class="hbtn" id="hbtn" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </nav>
+  <main id="main" tabindex="-1">
 
-  <!-- HERO -->
-<section id="hero">
-    <div class="hero-split">
+    <!-- ── HERO ───────────────────────────────────────────────────────────────── -->
+    <section id="home" class="hero">
+      <canvas class="hero__particles" id="heroParticles" aria-hidden="true"></canvas>
 
-      <div class="hero-light">
-        <div class="hero-eyebrow">Geometri Associati &mdash; Lodi</div>
-        <h1 class="word-reveal rv" data-rv="up">
-          <span class="word"><span class="word-inner">La</span></span>&#32;<span class="word"><span class="word-inner">tua</span></span>&#32;<span class="word"><span class="word-inner">proprietà</span></span><br><em><span class="word"><span class="word-inner">progettata</span></span>&#32;<span class="word"><span class="word-inner">per</span></span>&#32;<span class="word"><span class="word-inner">il</span></span>&#32;<span class="word"><span class="word-inner">futuro.</span></span></em>
-        </h1>
-        <p class="hero-desc">Lorenzo Lunghi e Lucrezia Giada Gigliotti. Due professionisti giovani, formati sulle normative più recenti, con gli strumenti di oggi e la precisione di sempre. Progettazione, pratiche edilizie, catasto e certificazioni energetiche — seguiti dall'inizio alla fine, senza intermediari.</p>
-        <div class="hero-actions">
-          <a href="#contatti" class="btn-p">Richiedi un preventivo</a>
-          <a href="#portfolio" class="btn-s">Vedi il portfolio</a>
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <div class="badge-tech">
+            Sistemi di controllo su misura
+          </div>
+          <h1 class="hero__title">Automazione<br>&amp; Robotica<br><span class="text-accent">Industriale.</span></h1>
+          <p class="hero__desc">Con oltre 20 anni di esperienza copriamo tutte le fasi di progettazione degli impianti. Dal design preliminare all'installazione, puntando alla massima efficienza.</p>
+
+          <div class="hero__actions">
+            <a href="#contatti" class="btn btn--solid">Inizia il progetto <span class="arrow">→</span></a>
+            <a href="#servizi" class="btn btn--outline">Esplora i servizi</a>
+          </div>
+
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__image-wrapper hero__image-wrapper--tilt">
+            <img src="img/robot.png" alt="Robot Industriale" class="hero__img" />
+            <div class="hero__visual-badge">Soluzioni Industria 4.0</div>
+          </div>
+
+          <div class="stats-float">
+            <div class="stat-box">
+              <span class="stat-val" data-counter="20" data-suffix="+">20+</span>
+              <span class="stat-lbl">Anni di esperienza</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-val text-amber">ITER</span>
+              <span class="stat-lbl">Progetto Internazionale</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-val" data-counter="76">76</span>
+              <span class="stat-lbl">Brushless su singolo impianto</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-val" data-counter="200" data-suffix="+">200+</span>
+              <span class="stat-lbl">Nodi EtherCAT su impianto</span>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="hero-dark" id="heroDark">
-        <div class="hero-dark-content">
-           </div>
-      </div>
+    <!-- ── STATS EXTRA ─────────────────────────────────────────────────────────── -->
+    <div class="stats-extra">
+      <div class="container">
+        <div class="stats-extra__inner">
 
-    </div><div class="hero-bar">
-      <div class="hb-item rv" data-rv="up"><div class="hb-num" data-count="100" data-suffix="+">+100</div><div class="hb-label">Pratiche Completate</div></div>
-      <div class="hb-item rv d1" data-rv="up"><div class="hb-num" data-count="5" data-suffix="+">5+</div><div class="hb-label">Anni di Esperienza</div></div>
-      <div class="hb-item rv d2" data-rv="up"><div class="hb-num" data-count="2" data-suffix="">2</div><div class="hb-label">Professionisti Dedicati</div></div>
-      <div class="hb-item rv d3" data-rv="up"><div class="hb-num" data-count="100" data-suffix="%">100%</div><div class="hb-label">Clienti Seguiti</div></div>
-    </div>
-  </section>
+          <div class="stats-extra__item">
+            <span class="stats-extra__sup">Pulitura metalli</span>
+            <span class="stats-extra__val" data-counter="38">38</span>
+            <span class="stats-extra__label">Brushless su singolo impianto di smerigliatura, satinatura e lucidatura. 37 inverter in parallelo.</span>
+          </div>
 
-  <!-- SERVIZI -->
-  <section id="servizi">
-    <div class="wrap">
-      <div class="sv-intro">
-        <div class="rv" data-rv="up">
-          <div class="sec-tag rv">I nostri servizi</div>
-          <h2>Dal progetto<br><em>al cantiere.</em></h2>
-        </div>
-        <p class="rv d2" data-rv="up">Un supporto tecnico completo per privati e imprese. Dalla prima consulenza alla consegna degli atti, con trasparenza e rispetto delle scadenze.</p>
-      </div>
-      <div class="sv-grid">
-        <div class="sv-card rv" data-rv="card">
-          <div class="sv-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-          <div class="sv-num">01 &mdash; Servizio</div>
-          <h3>Progettazione</h3>
-          <p>Progettiamo nuove costruzioni, ristrutturazioni e ampliamenti residenziali e commerciali. Dall&rsquo;idea al progetto esecutivo.</p>
-          <ul class="sv-list">
-            <li>Progettazione architettonica</li>
-            <li>Ristrutturazioni e ampliamenti</li>
-            <li>Direzione lavori e contabilit&agrave;</li>
-            <li>Computi metrici estimativi</li>
-            <li>Relazioni tecniche e grafici</li>
-          </ul>
-        </div>
-        <div class="sv-card rv d1" data-rv="card">
-          <div class="sv-icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
-          <div class="sv-num">02 &mdash; Servizio</div>
-          <h3>Pratiche Edilizie</h3>
-          <p>Gestiamo l&rsquo;intero iter burocratico per ogni tipo di intervento, dalle comunicazioni alle autorizzazioni presso Comuni e Soprintendenza.</p>
-          <ul class="sv-list">
-            <li>CILA e SCIA</li>
-            <li>Permesso di Costruire</li>
-            <li>Condoni e sanatorie</li>
-            <li>Certificato di agibilit&agrave;</li>
-            <li>Pratiche in Regione Lombardia</li>
-          </ul>
-        </div>
-        <div class="sv-card rv d2" data-rv="card">
-          <div class="sv-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
-          <div class="sv-num">03 &mdash; Servizio</div>
-          <h3>Pratiche Catastali</h3>
-          <p>Aggiornamenti, variazioni e frazionamenti catastali. Planimetrie aggiornate e corrette, visure e certificati, tutto online in tempi rapidi.</p>
-          <ul class="sv-list">
-            <li>Accatastamenti e variazioni</li>
-            <li>Frazionamenti e fusioni</li>
-            <li>Aggiornamento planimetrie</li>
-            <li>Visure e ricerche catastali</li>
-            <li>Classamenti e rendite</li>
-          </ul>
-        </div>
-        <div class="sv-card rv d3" data-rv="card">
-          <div class="sv-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-          <div class="sv-num">04 &mdash; Servizio</div>
-          <h3>Certificazioni Energetiche</h3>
-          <p>APE obbligatorio per compravendite e locazioni. Diagnosi energetica e supporto per l&rsquo;accesso ai bonus fiscali edilizi.</p>
-          <ul class="sv-list">
-            <li>APE per compravendita e locazione</li>
-            <li>Diagnosi energetica</li>
-            <li>Superbonus ed Ecobonus</li>
-            <li>Relazione ex Legge 10</li>
-            <li>Attestati per bonifici detraibili</li>
-          </ul>
+          <div class="stats-extra__item">
+            <span class="stats-extra__sup">Automotive</span>
+            <span class="stats-extra__val" data-counter="8">8</span>
+            <span class="stats-extra__label">Presse asservite con 5 robot Comau su un'unica linea di produzione particolari metallici.</span>
+          </div>
+
+          <div class="stats-extra__item">
+            <span class="stats-extra__sup">Asservimento calandre</span>
+            <span class="stats-extra__val">12 <span class="unit">h</span></span>
+            <span class="stats-extra__label">Autonomia operativa su impianto CNC per lampade. 4 zone di scarico automatizzate, ciclo 24/7.</span>
+          </div>
+
+          <div class="stats-extra__item">
+            <span class="stats-extra__sup">Pulitura — unità</span>
+            <span class="stats-extra__val" data-counter="19">19</span>
+            <span class="stats-extra__label">Unità di pulitura gestite da un singolo PLC Beckhoff con 2 tavole rotanti e 12 conveyor.</span>
+          </div>
+
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <div class="wrap">
-      <div class="pf-intro">
-        <div class="rv" data-rv="up">
-          <div class="sec-tag rv">Lavori selezionati</div>
-          <h2>Idee che<br><em>prendono forma.</em></h2>
-        </div>
-        <p class="rv d2" data-rv="up">Ogni progetto racconta una storia diversa. Una selezione di interventi completati nel territorio lodigiano e dintorni, tra residenziale, industriale e certificazioni.</p>
-      </div>
+    <!-- ── PERCHÉ FLOKI ───────────────────────────────────────────────────────── -->
+    <section class="why-section">
+      <div class="container">
 
-      <div class="pf-filters rv" data-rv="up">
-        <button class="pf-filter active" data-filter="tutti">Tutti</button>
-        <button class="pf-filter" data-filter="progettazione">Progettazione</button>
-        <button class="pf-filter" data-filter="edilizia">Pratiche Edilizie</button>
-        <button class="pf-filter" data-filter="catasto">Catasto</button>
-        <button class="pf-filter" data-filter="energia">Energia</button>
-      </div>
-
-      <div class="pf-grid rv" data-rv="card">
-
-        <!-- 1: grande, col 1-2, righe 1-2 -->
-        <div class="pf-item" data-category="progettazione" data-title="Villa Residenziale Privata" data-loc="Lodi, 2023" data-desc="Progettazione completa di nuova costruzione residenziale monofamiliare su due livelli. Redazione del progetto architettonico, strutturale e impiantistico, con direzione lavori fino al collaudo finale." data-spec1-l="Superficie" data-spec1-v="280 m²" data-spec2-l="Tipologia" data-spec2-v="Nuova costruzione" data-spec3-l="Pratica" data-spec3-v="Permesso di Costruire" data-spec4-l="Anno" data-spec4-v="2023">
-          <div class="pf-bg pf-bg-1"></div>
-          <div class="pf-drawing">
-            <svg viewBox="0 0 200 160"><polyline points="20,90 100,20 180,90"/><rect x="30" y="90" width="140" height="60"/><rect x="80" y="110" width="40" height="40"/><rect x="42" y="100" width="26" height="22"/><line x1="42" y1="111" x2="68" y2="111"/><line x1="55" y1="100" x2="55" y2="122"/><rect x="130" y="100" width="26" height="22"/><line x1="130" y1="111" x2="156" y2="111"/><line x1="143" y1="100" x2="143" y2="122"/><rect x="122" y="32" width="18" height="28"/><line x1="30" y1="152" x2="170" y2="152" stroke-dasharray="4,3"/></svg>
-          </div>
-          <span class="pf-deco-num">01</span>
-          <span class="pf-tag">Progettazione</span>
-          <div class="pf-label-static"><span class="pf-cat-s">Progettazione</span><span class="pf-title-s">Villa Residenziale, Lodi</span></div>
-          <div class="pf-overlay"><div class="pf-meta"><span class="pf-cat">Progettazione</span><div class="pf-title">Villa Residenziale Privata</div><span class="pf-year">Lodi &mdash; 2023</span></div></div>
+        <div class="why-header">
+          <span class="eyebrow reveal">Valore aggiunto</span>
+          <h2 class="why-title reveal reveal--delay">Perché scegliere flo<span class="text-accent">K</span>i.</h2>
         </div>
 
-        <!-- 2: banner orizzontale, col 3-5, riga 1 -->
-        <div class="pf-item" data-category="edilizia" data-title="Capannone Industriale" data-loc="Casalpusterlengo, 2022" data-desc="Gestione completa della pratica edilizia per la realizzazione di un capannone produttivo. SCIA, pratiche antincendio, agibilità e coordinamento con gli enti competenti della provincia di Lodi." data-spec1-l="Superficie" data-spec1-v="1.200 m²" data-spec2-l="Tipologia" data-spec2-v="Fabbricato produttivo" data-spec3-l="Pratica" data-spec3-v="SCIA + Agibilità" data-spec4-l="Anno" data-spec4-v="2022">
-          <div class="pf-bg pf-bg-2"></div>
-          <div class="pf-drawing">
-            <svg viewBox="0 0 200 140"><rect x="10" y="40" width="180" height="80"/><polyline points="10,40 100,10 190,40"/><line x1="10" y1="70" x2="190" y2="70"/><rect x="20" y="75" width="30" height="45"/><rect x="60" y="75" width="30" height="45"/><rect x="100" y="75" width="30" height="45"/><rect x="140" y="75" width="30" height="45"/></svg>
-          </div>
-          <span class="pf-deco-num">02</span>
-          <span class="pf-tag">Edilizia</span>
-          <div class="pf-label-static"><span class="pf-cat-s">Pratiche Edilizie</span><span class="pf-title-s">Capannone Industriale, Casalpusterlengo</span></div>
-          <div class="pf-overlay"><div class="pf-meta"><span class="pf-cat">Pratiche Edilizie</span><div class="pf-title">Capannone Industriale</div><span class="pf-year">Casalpusterlengo &mdash; 2022</span></div></div>
-        </div>
-
-        <!-- 3: quadrato, col 3, riga 2 -->
-        <div class="pf-item" data-category="energia" data-title="APE Condominio — 12 Unità" data-loc="Lodi Vecchio, 2024" data-desc="Redazione degli attestati di prestazione energetica per un condominio di 12 unità immobiliari. Diagnosi energetica completa, analisi dell'involucro e degli impianti, con valutazione degli interventi migliorativi ammissibili al Superbonus." data-spec1-l="Unità" data-spec1-v="12 appartamenti" data-spec2-l="Tipologia" data-spec2-v="APE + Diagnosi" data-spec3-l="Pratica" data-spec3-v="Superbonus 110%" data-spec4-l="Anno" data-spec4-v="2024">
-          <div class="pf-bg pf-bg-3"></div>
-          <div class="pf-drawing">
-            <svg viewBox="0 0 160 140"><rect x="20" y="20" width="120" height="100"/><line x1="20" y1="53" x2="140" y2="53"/><line x1="20" y1="86" x2="140" y2="86"/><line x1="60" y1="20" x2="60" y2="120"/><line x1="100" y1="20" x2="100" y2="120"/><rect x="65" y="90" width="30" height="30"/><circle cx="145" cy="25" r="10"/><path d="M140 25 L145 30 L152 20" stroke-width="1.5"/></svg>
-          </div>
-          <span class="pf-deco-num">03</span>
-          <span class="pf-tag">Energia</span>
-          <div class="pf-overlay"><div class="pf-meta"><span class="pf-cat">Certificazione Energetica</span><div class="pf-title">APE Condominio 12 Unità</div><span class="pf-year">Lodi Vecchio &mdash; 2024</span></div></div>
-        </div>
-
-        <!-- 4: rettangolo, col 4-5, riga 2 -->
-        <div class="pf-item" data-category="catasto" data-title="Frazionamento Catastale" data-loc="Codogno, 2023" data-desc="Frazionamento di un'unità immobiliare residenziale in tre appartamenti indipendenti. Redazione delle nuove planimetrie catastali, aggiornamento in Agenzia delle Entrate e gestione delle pratiche di variazione di classamento e rendita." data-spec1-l="Unità" data-spec1-v="1 → 3 appartamenti" data-spec2-l="Tipologia" data-spec2-v="Frazionamento" data-spec3-l="Ufficio" data-spec3-v="Agenzia Entrate" data-spec4-l="Anno" data-spec4-v="2023">
-          <div class="pf-bg pf-bg-4"></div>
-          <div class="pf-drawing">
-            <svg viewBox="0 0 180 140"><rect x="10" y="10" width="160" height="120"/><line x1="90" y1="10" x2="90" y2="130" stroke-dasharray="5,3"/><line x1="10" y1="70" x2="90" y2="70" stroke-dasharray="5,3"/><rect x="20" y="20" width="35" height="40"/><rect x="20" y="80" width="55" height="38"/><rect x="100" y="20" width="60" height="100"/><rect x="30" y="95" width="18" height="20"/><rect x="110" y="80" width="28" height="30"/></svg>
-          </div>
-          <span class="pf-deco-num">04</span>
-          <span class="pf-tag">Catasto</span>
-          <div class="pf-overlay"><div class="pf-meta"><span class="pf-cat">Catasto</span><div class="pf-title">Frazionamento Catastale</div><span class="pf-year">Codogno &mdash; 2023</span></div></div>
-        </div>
-
-        <!-- 5: striscia orizzontale larga, col 1-3, riga 3 -->
-        <div class="pf-item" data-category="edilizia" data-title="Ristrutturazione Centro Storico" data-loc="Sant'Angelo Lodigiano, 2024" data-desc="Progettazione e direzione lavori per la ristrutturazione integrale di un'abitazione nel centro storico vincolato. Pratiche in Soprintendenza, CILA per le opere interne e coordinamento degli interventi strutturali." data-spec1-l="Superficie" data-spec1-v="145 m²" data-spec2-l="Tipologia" data-spec2-v="Ristrutturazione" data-spec3-l="Vincolo" data-spec3-v="Soprintendenza" data-spec4-l="Anno" data-spec4-v="2024">
-          <div class="pf-bg pf-bg-5"></div>
-          <div class="pf-drawing">
-            <svg viewBox="0 0 280 130"><rect x="15" y="10" width="250" height="110"/><rect x="15" y="10" width="155" height="55"/><rect x="170" y="10" width="95" height="55"/><rect x="15" y="65" width="95" height="55"/><rect x="110" y="65" width="155" height="55"/><rect x="28" y="75" width="25" height="30"/><path d="M28 90 L53 90 M40 75 L40 105" stroke-width="1"/><rect x="128" y="73" width="50" height="38"/><rect x="55" y="18" width="40" height="30"/><rect x="180" y="18" width="70" height="30"/></svg>
-          </div>
-          <span class="pf-deco-num">05</span>
-          <span class="pf-tag">Edilizia</span>
-          <div class="pf-label-static"><span class="pf-cat-s">Ristrutturazione</span><span class="pf-title-s">Centro Storico Vincolato, S. Angelo Lodigiano</span></div>
-          <div class="pf-overlay"><div class="pf-meta"><span class="pf-cat">Ristrutturazione</span><div class="pf-title">Centro Storico Vincolato</div><span class="pf-year">S. Angelo Lodigiano &mdash; 2024</span></div></div>
-        </div>
-
-        <!-- 6: verticale, col 3, riga 3 -->
-        <div class="pf-item" data-category="progettazione" data-title="Ampliamento Fabbricato Agricolo" data-loc="Dresano, 2022" data-desc="Progettazione e direzione lavori per l'ampliamento di un fabbricato agricolo esistente. Redazione del progetto strutturale, pratiche comunali e gestione delle pratiche di aggiornamento catastale finale." data-spec1-l="Volumetria" data-spec1-v="+480 m³" data-spec2-l="Tipologia" data-spec2-v="Ampliamento" data-spec3-l="Pratica" data-spec3-v="PDC Agricolo" data-spec4-l="Anno" data-spec4-v="2022">
-          <div class="pf-bg pf-bg-6"></div>
-          <div class="pf-drawing">
-            <svg viewBox="0 0 200 130"><rect x="10" y="50" width="100" height="70"/><polyline points="10,50 60,15 110,50"/><rect x="110" y="60" width="80" height="60"/><polyline points="110,60 150,30 190,60"/><rect x="25" y="78" width="28" height="42"/><rect x="65" y="85" width="32" height="35"/><rect x="120" y="82" width="20" height="38"/><rect x="155" y="82" width="20" height="38"/></svg>
-          </div>
-          <span class="pf-deco-num">06</span>
-          <span class="pf-tag">Progettazione</span>
-          <div class="pf-overlay"><div class="pf-meta"><span class="pf-cat">Progettazione</span><div class="pf-title">Ampliamento Agricolo</div><span class="pf-year">Dresano &mdash; 2022</span></div></div>
-        </div>
-
-        <!-- 7: quadrato, col 4, riga 3 -->
-        <div class="pf-item" data-category="energia" data-title="Superbonus — Villa Bifamiliare" data-loc="Lodi, 2023" data-desc="Gestione completa della pratica Superbonus 110% per una villa bifamiliare. Coordinamento di tutti i professionisti coinvolti, asseverazioni, APE pre e post intervento, comunicazione ENEA e visto di conformità." data-spec1-l="Intervento" data-spec1-v="Cappotto + Impianti" data-spec2-l="Classe" data-spec2-v="Salto di 2 classi" data-spec3-l="Pratica" data-spec3-v="Superbonus 110%" data-spec4-l="Anno" data-spec4-v="2023">
-          <div class="pf-bg pf-bg-7"></div>
-          <div class="pf-drawing">
-            <svg viewBox="0 0 180 140"><polyline points="15,80 90,15 165,80"/><rect x="25" y="80" width="130" height="50"/><rect x="65" y="100" width="50" height="30"/><rect x="35" y="88" width="24" height="22"/><rect x="120" y="88" width="24" height="22"/><circle cx="155" cy="22" r="14"/><line x1="155" y1="8" x2="155" y2="12"/><line x1="155" y1="32" x2="155" y2="36"/><line x1="141" y1="22" x2="145" y2="22"/><line x1="165" y1="22" x2="169" y2="22"/></svg>
-          </div>
-          <span class="pf-deco-num">07</span>
-          <span class="pf-tag">Energia</span>
-          <div class="pf-overlay"><div class="pf-meta"><span class="pf-cat">Superbonus</span><div class="pf-title">Villa Bifamiliare</div><span class="pf-year">Lodi &mdash; 2023</span></div></div>
-        </div>
-
-        <!-- 8: quadrato, col 5, riga 3 -->
-        <div class="pf-item" data-category="catasto" data-title="Accatastamento Nuovo Fabbricato" data-loc="Paullo, 2024" data-desc="Accatastamento di un nuovo fabbricato residenziale di tre piani con sei unità immobiliari. Redazione delle planimetrie catastali, attribuzione delle rendite proposte e deposito in Agenzia delle Entrate tramite procedura Docfa." data-spec1-l="Unità" data-spec1-v="6 appartamenti" data-spec2-l="Tipologia" data-spec2-v="Nuovo accatastamento" data-spec3-l="Software" data-spec3-v="Docfa" data-spec4-l="Anno" data-spec4-v="2024">
-          <div class="pf-bg pf-bg-8"></div>
-          <div class="pf-drawing">
-            <svg viewBox="0 0 160 150"><rect x="20" y="10" width="120" height="130"/><line x1="20" y1="50" x2="140" y2="50"/><line x1="20" y1="90" x2="140" y2="90"/><line x1="80" y1="10" x2="80" y2="140"/><rect x="30" y="20" width="35" height="22"/><rect x="90" y="20" width="35" height="22"/><rect x="30" y="60" width="35" height="22"/><rect x="90" y="60" width="35" height="22"/><rect x="30" y="100" width="35" height="22"/><rect x="90" y="100" width="35" height="22"/></svg>
-          </div>
-          <span class="pf-deco-num">08</span>
-          <span class="pf-tag">Catasto</span>
-          <div class="pf-overlay"><div class="pf-meta"><span class="pf-cat">Catasto</span><div class="pf-title">Accatastamento Fabbricato</div><span class="pf-year">Paullo &mdash; 2024</span></div></div>
-        </div>
-
-      </div><!-- /pf-grid -->
-
-      <div class="pf-cta rv" data-rv="up">
-        <p>Hai un progetto in mente? Parliamone insieme.</p>
-        <a href="#contatti" class="btn-p">Richiedi un preventivo</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEAM -->
-  <section id="team">
-    <div class="wrap">
-      <div class="team-head rv" data-rv="up">
-        <div class="sec-tag rv">Chi siamo</div>
-        <h2>Il tuo team <em>di fiducia.</em></h2>
-      </div>
-      <div class="team-grid">
-
-        <!-- Card Lorenzo Lunghi -->
-        <div class="team-card rv" data-rv="card">
-          <!-- Zona foto — sostituire src con il percorso della foto reale -->
-          <div class="team-photo">
-            <!--
-              PER INSERIRE LA FOTO REALE:
-              Rimuovere il blocco .team-photo-placeholder qui sotto
-              e sostituirlo con:
-              <img src="foto-lorenzo-lunghi.jpg" alt="Lorenzo Lunghi — Geometra">
-            -->
-            <div class="team-photo-placeholder">
-              <span class="team-initials-big">LL</span>
-              <span class="team-photo-hint">Foto professionale</span>
-              <div class="team-photo-bar">
-                <span class="initials-pill">LL</span>
+        <div class="why-card why-card--main reveal">
+          <span class="why-card__n">01</span>
+          <div class="why-card__content">
+            <h3 class="why-card__title">Un solo interlocutore, dall'analisi al collaudo.</h3>
+            <div>
+              <p class="why-card__desc">Progettiamo, cabliamo, programmiamo e avviamo internamente — senza subappaltare nessuna fase. Il progetto non cambia mani: rimane nelle stesse mani dall'inizio alla fine. Questo elimina gli errori di traduzione tra fornitori, accorcia i tempi e garantisce che chi installa sappia esattamente perché ogni scelta è stata fatta.</p>
+              <div class="why-card__chain">
+                <span>Progettazione</span>
+                <span class="why-chain-sep">→</span>
+                <span>Elettrico</span>
+                <span class="why-chain-sep">→</span>
+                <span>Software PLC</span>
+                <span class="why-chain-sep">→</span>
+                <span>Commissioning</span>
+                <span class="why-chain-sep">→</span>
+                <span>Supporto</span>
               </div>
             </div>
           </div>
-          <div class="team-info">
-            <div class="team-name-block">
-              <h3>Lorenzo Lunghi</h3>
-              <div class="team-role">Geometra &mdash; Iscritto al Collegio di Lodi</div>
-            </div>
-            <p class="team-bio">Specializzato nella progettazione di residenze private e fabbricati produttivi, gestione di pratiche edilizie presso Comuni del territorio lodigiano e direzione lavori. Approccio diretto e orientato al risultato, con attenzione al rispetto dei tempi e dei costi.</p>
-            <div class="team-tags">
-              <span class="tag">Progettazione</span>
-              <span class="tag">Pratiche Edilizie</span>
-              <span class="tag">Direzione Lavori</span>
-            </div>
-            <a href="mailto:l.lunghi@studiolunghigigliotti.it" class="team-contact">l.lunghi@studiolunghigigliotti.it</a>
-          </div>
         </div>
 
-        <!-- Card Lucrezia Gigliotti -->
-        <div class="team-card rv d2" data-rv="card">
-          <div class="team-photo">
-            <!--
-              PER INSERIRE LA FOTO REALE:
-              Rimuovere il blocco .team-photo-placeholder qui sotto
-              e sostituirlo con:
-              <img src="foto-lucrezia-gigliotti.jpg" alt="Lucrezia Giada Gigliotti — Geometra">
-            -->
-            <div class="team-photo-placeholder">
-              <span class="team-initials-big">LG</span>
-              <span class="team-photo-hint">Foto professionale</span>
-              <div class="team-photo-bar">
-                <span class="initials-pill">LG</span>
+        <div class="why-row">
+          <div class="why-card why-card--sub reveal reveal--delay">
+            <span class="why-card__n">02</span>
+            <div class="why-card__content">
+              <h3 class="why-card__title">Adattiamo il sistema agli standard del cliente.</h3>
+              <div>
+                <p class="why-card__desc">Nessuna soluzione preconfezionata. Lavoriamo con Beckhoff, Siemens, Omron, Fanuc, Kuka e Comau: scegliamo la tecnologia giusta per il progetto, non quella che conosciamo meglio. Se il cliente ha già uno standard hardware o software, lo seguiamo.</p>
+                <div class="why-card__tags">
+                  <span>Beckhoff</span><span>Siemens</span><span>Omron</span><span>Fanuc</span><span>Kuka</span><span>Comau</span>
+                </div>
               </div>
             </div>
           </div>
-          <div class="team-info">
-            <div class="team-name-block">
-              <h3>Lucrezia Giada Gigliotti</h3>
-              <div class="team-role">Geometra &mdash; Iscritta al Collegio di Lodi</div>
+
+          <div class="why-card why-card--sub reveal reveal--delay-2">
+            <span class="why-card__n">03</span>
+            <div class="why-card__content">
+              <h3 class="why-card__title">Il know-how rimane in azienda.</h3>
+              <div>
+                <p class="why-card__desc">Formiamo il personale del cliente su lettura schemi, utilizzo HMI e manutenzione ordinaria. L'obiettivo è rendere l'impianto autonomo: non creare una dipendenza dal nostro supporto, ma trasferire competenza reale a chi lavora sulla macchina ogni giorno.</p>
+                <div class="why-card__tags">
+                  <span>Formazione schemi</span><span>HMI</span><span>Manutenzione</span>
+                </div>
+              </div>
             </div>
-            <p class="team-bio">Esperta di pratiche catastali, aggiornamenti e variazioni, e certificazioni energetiche APE. Supporto qualificato per compravendite immobiliari, locazioni e accesso agli incentivi fiscali. Cura personale nella gestione di ogni fascicolo.</p>
-            <div class="team-tags">
-              <span class="tag">Catasto</span>
-              <span class="tag">Certificazioni APE</span>
-              <span class="tag">Superbonus</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Retrofit banner -->
+      <div class="container">
+        <div class="retrofit-banner">
+          <div class="retrofit-banner__left reveal">
+            <span class="retrofit-banner__eyebrow">Revamping & Retrofit</span>
+            <h3 class="retrofit-banner__title">Impianti esistenti portati agli standard attuali.</h3>
+            <p class="retrofit-banner__desc">Sostituzione di vecchi PLC, cablaggi e azionamenti senza fermi macchina inutili. Ogni linea aggiornata ai requisiti Industria 4.0 in termini di connettività, sicurezza e tracciabilità.</p>
+          </div>
+          <div class="retrofit-banner__right">
+            <div class="retrofit-banner__tags reveal reveal--delay">
+              <span class="srv-tag">Sostituzione PLC</span>
+              <span class="srv-tag">Aggiornamento azionamenti</span>
+              <span class="srv-tag">Industria 4.0</span>
+              <span class="srv-tag">Nessun fermo inutile</span>
             </div>
-            <a href="mailto:l.gigliotti@studiolunghigigliotti.it" class="team-contact">l.gigliotti@studiolunghigigliotti.it</a>
+            <a href="#contatti" class="btn btn--banner reveal reveal--tight reveal--delay-2">Richiedi sopralluogo <span class="arrow">→</span></a>
           </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── SERVIZI ──────────────────────────────────────────────────────────── -->
+    <section id="servizi" class="services">
+      <div class="container">
+
+        <div class="services__header">
+          <div class="reveal reveal--left">
+            <div class="eyebrow">Competenze tecniche</div>
+            <h2 class="services__title">Aree di<br>intervento.</h2>
+          </div>
+          <p class="services__intro reveal reveal--right reveal--delay">Dalla progettazione all'avviamento, ogni fase è gestita internamente con team specializzati. Sei aree operative, un unico referente.</p>
+        </div>
+
+        <div class="srv-grid2">
+
+          <div class="srv2-card reveal">
+            <div class="srv2-card__top">
+              <span class="srv2-card__num">01</span>
+              <span class="srv2-card__tag">Design</span>
+            </div>
+            <h3 class="srv2-card__title">Progettazione &amp; Selezione</h3>
+            <p class="srv2-card__desc">Ottimizziamo la componentistica per la massima efficienza al costo minore. Preliminary design, design esecutivo, selezione componentistica — con le nostre scelte o sugli standard del cliente.</p>
+            <div class="srv2-card__tags">
+              <span class="srv-tag">Preliminary design</span>
+              <span class="srv-tag">Design esecutivo</span>
+              <span class="srv-tag">Componentistica</span>
+            </div>
+          </div>
+
+          <div class="srv2-card reveal">
+            <div class="srv2-card__top">
+              <span class="srv2-card__num">02</span>
+              <span class="srv2-card__tag">Electrical</span>
+            </div>
+            <h3 class="srv2-card__title">Quadri &amp; Cablaggio</h3>
+            <p class="srv2-card__desc">Quadri elettrici e cablaggio bordo macchina. Verifica di conformità a cablaggio ultimato, in collaborazione con laboratori accreditati a livello mondiale per export e sicurezza.</p>
+            <div class="srv2-card__tags">
+              <span class="srv-tag">Quadri elettrici</span>
+              <span class="srv-tag">Cablaggio BM</span>
+              <span class="srv-tag">Certificazione</span>
+            </div>
+          </div>
+
+          <div class="srv2-card reveal">
+            <div class="srv2-card__top">
+              <span class="srv2-card__num">03</span>
+              <span class="srv2-card__tag">Software</span>
+            </div>
+            <h3 class="srv2-card__title">Software PLC &amp; Motion</h3>
+            <p class="srv2-card__desc">Sviluppo software custom e programmazione PLC / Motion Safety. Stack: C, C#, Python, JS. PLC: Beckhoff, Omron, Siemens. Robot: Kuka, Fanuc, Comau (antropomorfi, scara, delta).</p>
+            <div class="srv2-card__tags">
+              <span class="srv-tag">Beckhoff TwinCAT</span>
+              <span class="srv-tag">Siemens TIA</span>
+              <span class="srv-tag">Motion Safety</span>
+            </div>
+          </div>
+
+          <div class="srv2-card reveal">
+            <div class="srv2-card__top">
+              <span class="srv2-card__num">04</span>
+              <span class="srv2-card__tag">Field Ops</span>
+            </div>
+            <h3 class="srv2-card__title">Setup &amp; Avviamento</h3>
+            <p class="srv2-card__desc">Supporto completo dal primo avvio fino a modifiche e ampliamenti. Tecnici montatori, supervisori e programmatori sul posto per il tuning del processo produttivo.</p>
+            <div class="srv2-card__tags">
+              <span class="srv-tag">Commissioning</span>
+              <span class="srv-tag">SAT / FAT</span>
+              <span class="srv-tag">On-site tuning</span>
+            </div>
+          </div>
+
+          <div class="srv2-card reveal">
+            <div class="srv2-card__top">
+              <span class="srv2-card__num">05</span>
+              <span class="srv2-card__tag">Training</span>
+            </div>
+            <h3 class="srv2-card__title">Formazione Staff</h3>
+            <p class="srv2-card__desc">Il nostro know-how nelle vostre mani. Corsi formativi specifici: lettura schemi elettrici, pneumatici e idraulici, utilizzo HMI, manutenzione ordinaria e straordinaria.</p>
+            <div class="srv2-card__tags">
+              <span class="srv-tag">Schemi elettrici</span>
+              <span class="srv-tag">HMI</span>
+              <span class="srv-tag">Manutenzione</span>
+            </div>
+          </div>
+
+          <div class="srv2-card reveal">
+            <div class="srv2-card__top">
+              <span class="srv2-card__num">06</span>
+              <span class="srv2-card__tag">Support</span>
+            </div>
+            <h3 class="srv2-card__title">Supporto &amp; Ricambi</h3>
+            <p class="srv2-card__desc">Interventi rapidi in loco o da remoto. Fornitura ricambi, supporto nella scelta di prodotti alternativi per obsolescenza. Continuità del servizio garantita.</p>
+            <div class="srv2-card__tags">
+              <span class="srv-tag">Remote support</span>
+              <span class="srv-tag">Ricambi</span>
+              <span class="srv-tag">Obsolescenza</span>
+            </div>
+          </div>
+
         </div>
 
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROCESSO -->
-  <section id="processo">
-    <div class="wrap">
-      <div class="proc-head">
-        <div class="rv" data-rv="up">
-          <div class="sec-tag rv">Come lavoriamo</div>
-          <h2>Dall'idea<br><em>alla consegna.</em></h2>
-        </div>
-        <p class="rv d2" data-rv="up">Ogni incarico segue un iter preciso. Sappiamo che dietro ogni pratica c&rsquo;&egrave; una casa, un cantiere, una scadenza importante.</p>
-      </div>
-      <div class="proc-list">
-        <div class="proc-item rv" data-rv="card">
-          <div class="proc-left"><div class="proc-step-n">01</div><div class="proc-step-label">Fase</div></div>
-          <div class="proc-right"><h4>Primo contatto e sopralluogo</h4><p>Ascoltiamo le esigenze, effettuiamo un sopralluogo in loco e raccogliamo la documentazione esistente. La consulenza iniziale &egrave; gratuita.</p></div>
-        </div>
-        <div class="proc-item rv d1" data-rv="card">
-          <div class="proc-left"><div class="proc-step-n">02</div><div class="proc-step-label">Fase</div></div>
-          <div class="proc-right"><h4>Elaborazione del progetto</h4><p>Redigiamo tavole grafiche, relazioni tecniche e computo estimativo. Tutto viene condiviso con il cliente prima di procedere.</p></div>
-        </div>
-        <div class="proc-item rv d2" data-rv="card">
-          <div class="proc-left"><div class="proc-step-n">03</div><div class="proc-step-label">Fase</div></div>
-          <div class="proc-right"><h4>Deposito pratiche e iter burocratico</h4><p>Gestiamo il deposito e il monitoraggio di tutte le pratiche presso Comuni, Catasto, Regione e altri enti competenti.</p></div>
-        </div>
-        <div class="proc-item rv d3" data-rv="card">
-          <div class="proc-left"><div class="proc-step-n">04</div><div class="proc-step-label">Fase</div></div>
-          <div class="proc-right"><h4>Consegna e assistenza post-pratica</h4><p>Consegniamo il fascicolo completo e rimaniamo disponibili per chiarimenti, integrazioni e aggiornamenti futuri.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- ── REFERENZE ─────────────────────────────────────────────────────────── -->
+    <section id="referenze" class="hmi-projects">
+      <div class="hmi-projects__bg" aria-hidden="true"></div>
+      <div class="container">
 
-  <!-- CONTATTI -->
-  <section id="contatti">
-    <div class="wrap">
-      <div class="rv" data-rv="up">
-        <div class="sec-tag rv">Dove siamo</div>
-        <h2>Parliamo del<br>tuo <em>progetto</em></h2>
+        <div class="hmi-projects__header">
+          <h2 class="hmi-projects__title reveal reveal--dark">Impianti<br>realizzati.</h2>
+          <p class="hmi-projects__sub reveal reveal--dark reveal--delay">Sistemi di controllo in settori industriali eterogenei — dalla Big Science all'automotive.</p>
+        </div>
+
+        <!-- ITER showcase -->
+        <div class="prj-showcase">
+          <div class="prj-showcase__inner">
+            <div class="prj-showcase__data reveal reveal--dark reveal--left">
+              <div class="prj-showcase__sector">BIG SCIENCE - FUSION ENERGY</div>
+              <h3 class="prj-showcase__name">Avvolgimento superconduttori<br><span class="text-accent">ITER PF Coils</span></h3>
+              <p class="prj-showcase__desc">Impianto produzione magneti superconduttori per il reattore a fusione nucleare ITER. 1 tavola rotante, 2 despooler, 6 raddrizzatrici, 2 curvatrici, 2 impianti lavaggio, 2 nastratrici. Diametro massimo 24 m.</p>
+
+              <div class="prj-metrics">
+                <div class="prj-metric">
+                  <span class="seg-display--lg" data-counter="76">76</span>
+                  <span class="prj-metric__unit">brushless / 1200 A</span>
+                  <span class="prj-metric__lbl">MOTORI</span>
+                </div>
+                <div class="prj-metric">
+                  <span class="seg-display--lg" data-counter="200" data-suffix="+">200+</span>
+                  <span class="prj-metric__unit">EtherCAT nodes</span>
+                  <span class="prj-metric__lbl">RETE DI CAMPO</span>
+                </div>
+                <div class="prj-metric">
+                  <span class="seg-display--lg">24<sup>m</sup></span>
+                  <span class="prj-metric__unit">diametro max</span>
+                  <span class="prj-metric__lbl">DIMENSIONI</span>
+                </div>
+              </div>
+
+              <div class="prj-showcase__stack">
+                <span class="stack-badge">Beckhoff Motion</span>
+                <span class="stack-badge">TwinCAT PLC</span>
+                <span class="stack-badge">Safety PLC</span>
+                <span class="stack-badge">EtherCAT</span>
+              </div>
+            </div>
+
+            <div class="prj-showcase__visual reveal reveal--dark reveal--right reveal--delay">
+              <img src="img/Iter.jpg" alt="Impianto ITER" loading="lazy" />
+              <div class="prj-showcase__overlay" aria-hidden="true">
+                <div class="overlay-cross overlay-cross--tl"></div>
+                <div class="overlay-cross overlay-cross--tr"></div>
+                <div class="overlay-cross overlay-cross--bl"></div>
+                <div class="overlay-cross overlay-cross--br"></div>
+                <div class="overlay-target"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid altri progetti -->
+        <div class="prj-grid">
+
+          <article class="prj-card reveal reveal--dark">
+            <div class="prj-card__media">
+              <img src="img/SP02-scaled.jpg" alt="Asservimento presse automotive" loading="lazy" />
+            </div>
+            <div class="prj-card__body">
+              <h4 class="prj-card__name">Asservimento presse</h4>
+              <p class="prj-card__desc">Produzione particolari metallici. Despooler doppio caricatore, lubrificazione lamiere, robot ribaltamento pezzo, impilatore finale.</p>
+              <div class="prj-card__metrics">
+                <div class="prj-card__metric">
+                  <strong data-counter="8">8</strong>
+                  <span>Presse</span>
+                </div>
+                <div class="prj-card__metric">
+                  <strong data-counter="5">5</strong>
+                  <span>Robot</span>
+                </div>
+                <div class="prj-card__metric">
+                  <strong>24/7</strong>
+                  <span>Operatività</span>
+                </div>
+              </div>
+              <div class="prj-card__footer">
+                <span class="stack-badge stack-badge--sm">PLC Siemens</span>
+                <span class="stack-badge stack-badge--sm">Robot Comau</span>
+                <span class="stack-badge stack-badge--sm">Safety</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="prj-card reveal reveal--dark">
+            <div class="prj-card__media">
+              <video muted autoplay loop playsinline poster="img/1813_6-scaled.jpg">
+                <source src="img/GL3.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="prj-card__body">
+              <h4 class="prj-card__name">Pulitura metalli</h4>
+              <p class="prj-card__desc">Smerigliatura, satinatura e lucidatura. 2 tavole rotanti, 19 unità di pulitura, 12 conveyor. Normativa CSA 600V.</p>
+              <div class="prj-card__metrics">
+                <div class="prj-card__metric">
+                  <strong data-counter="38">38</strong>
+                  <span>Brushless</span>
+                </div>
+                <div class="prj-card__metric">
+                  <strong data-counter="37">37</strong>
+                  <span>Inverter</span>
+                </div>
+                <div class="prj-card__metric">
+                  <strong data-counter="19">19</strong>
+                  <span>Unità</span>
+                </div>
+              </div>
+              <div class="prj-card__footer">
+                <span class="stack-badge stack-badge--sm">Beckhoff</span>
+                <span class="stack-badge stack-badge--sm">Robot Fanuc</span>
+                <span class="stack-badge stack-badge--sm">CSA 600V</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="prj-card reveal reveal--dark">
+            <div class="prj-card__media">
+              <video muted autoplay loop playsinline poster="img/1813_6-scaled.jpg">
+                <source src="img/AL_gray-_stabilized.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="prj-card__body">
+              <h4 class="prj-card__name">Asservimento calandre</h4>
+              <p class="prj-card__desc">Automazione per lampade. Operatività 24/7 con 12h di autonomia. 1 calandra CNC, 4 zone di scarico automatizzate.</p>
+              <div class="prj-card__metrics">
+                <div class="prj-card__metric">
+                  <strong>24/7</strong>
+                  <span>Operatività</span>
+                </div>
+                <div class="prj-card__metric">
+                  <strong>12h</strong>
+                  <span>Autonomia</span>
+                </div>
+                <div class="prj-card__metric">
+                  <strong data-counter="4">4</strong>
+                  <span>Zone scarico</span>
+                </div>
+              </div>
+              <div class="prj-card__footer">
+                <span class="stack-badge stack-badge--sm">PLC Siemens</span>
+                <span class="stack-badge stack-badge--sm">Robot Fanuc</span>
+                <span class="stack-badge stack-badge--sm">CNC</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- CTA inline referenze -->
+        <div class="prj-cta">
+          <div class="prj-cta__text reveal reveal--dark">
+            <p>Il tuo impianto potrebbe essere il prossimo. <strong>Contattaci</strong> per una valutazione tecnica preliminare.</p>
+          </div>
+          <a href="#contatti" class="btn btn--banner reveal reveal--dark reveal--tight reveal--delay-2">Avvia il progetto <span class="arrow">→</span></a>
+        </div>
+
       </div>
-      <div class="cont-grid">
-        <div class="cont-block rv" data-rv="left">
-          <h3>Studio Lunghi &amp; Gigliotti</h3>
-          <div class="cont-row">
-            <div class="cont-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <div class="cont-txt"><div class="lbl">Indirizzo</div><p>via Milano, 1 - Dresano</p></div>
+    </section>
+
+<!--Contatti-->
+<section id="contatti" class="section section--light contact-section">
+      <div class="container">
+        <div class="contact-layout">
+          
+          <div class="contact-text">
+            <div class="contact-text__lead reveal">
+              <span class="eyebrow">Inizia oggi</span>
+              <h2 class="contact-title">Parliamo del tuo<br>impianto.</h2>
+            </div>
+            <p class="contact-desc reveal reveal--delay">Contattaci per discutere le specifiche tecniche del tuo progetto. Rispondiamo entro 24 ore lavorative.</p>
+
+            <div class="contact-info-card reveal reveal--delay-2">
+              <table class="tech-table">
+                <tr>
+                  <th>Sede</th>
+                  <td>
+                    <a href="https://maps.app.goo.gl/TuFwgykwF8qx2DG1A" target="_blank" rel="noopener" class="link-hover">
+                      Via Redipuglia, 77<br>24047 Treviglio (BG)
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Email</th>
+                  <td><a href="mailto:info@floki.it" class="link-hover">info@floki.it</a></td>
+                </tr>
+                <tr>
+                  <th>P.IVA</th>
+                  <td><span class="text-mono">IT04278120169</span></td>
+                </tr>
+              </table>
+            </div>
           </div>
-          <div class="cont-row">
-            <div class="cont-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.87 19.79 19.79 0 01.22 1.18 2 2 0 012.2 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.72 6.72l1.06-1.06a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-            <div class="cont-txt"><div class="lbl">Telefono</div><a href="tel:+390350000000">035 000 0000</a></div>
+
+          <div class="contact-map reveal reveal--right reveal--delay-3">
+            <div class="map-wrapper">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.0372333768073!2d9.592003189186206!3d45.50932909649313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781482f6b70fc15%3A0xb8d77e75ed8b5489!2sFloki%20s.r.l.!5e0!3m2!1sit!2sit!4v1774795457172!5m2!1sit!2sit" style="border:0;width:100%;height:100%;" allowfullscreen="" loading="lazy" title="Sede floKi s.r.l."></iframe>
+            </div>
           </div>
-          <div class="cont-row">
-            <div class="cont-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div class="cont-txt"><div class="lbl">Email</div><a href="mailto:info@studiolunghigigliotti.it">info@studiolunghigigliotti.it</a></div>
-          </div>
-          <div class="cont-row">
-            <div class="cont-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            <div class="cont-txt"><div class="lbl">Orari di apertura</div><p>Lun&ndash;Ven: 9:00&ndash;13:00 / 14:30&ndash;18:30<br>Sabato su appuntamento</p></div>
-          </div>
-          <a href="https://wa.me/393331234567?text=Buongiorno%2C%20vorrei%20richiedere%20un%20preventivo" target="_blank" class="wa-btn">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Scrivici su WhatsApp
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+<footer class="footer">
+  <div class="container footer__container">
+
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__logo reveal">
+          <h3>flo<span class="text-accent">K</span>i</h3>
+          <span class="footer__logo-tag">Industrial Automation</span>
+        </div>
+        <div class="footer__desc reveal reveal--delay">
+        <p>Progettazione, sviluppo e avviamento di sistemi per l'automazione industriale. Oltre 20 anni di esperienza sul campo. Treviglio (BG), dal 2018.</p>
+        </div>
+      </div>
+      
+      <div class="footer__nav reveal reveal--delay-2">
+        <div class="footer__col">
+          <h4>Navigazione</h4>
+          <a href="#home">Home</a>
+          <a href="#servizi">Servizi</a>
+          <a href="#referenze">Referenze</a>
+          <a href="#contatti">Contatti</a>
+        </div>
+        
+        <div class="footer__col">
+          <h4>Legale</h4>
+          <a href="termini.html">Termini e condizioni</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="cookie.html">Cookie Policy</a>
+        </div>
+
+        <div class="footer__col">
+          <h4>Contatti</h4>
+          <a href="mailto:info@floki.it">info@floki.it</a>
+          <a href="https://maps.google.com/?q=Via+Redipuglia+77+24047+Treviglio+BG" target="_blank" rel="noopener">
+            Via Redipuglia, 77<br>
+            24047 Treviglio (BG)
           </a>
         </div>
-        <div class="rv d1" data-rv="right">
-          <div class="f-wrap">
-            <h3>Richiedi un preventivo</h3>
-            <p class="f-wrap-sub">Risposta entro 48 ore lavorative.</p>
-            <form id="cForm">
-              <div class="f2">
-                <div class="fg"><label>Nome e Cognome</label><input type="text" placeholder="Mario Rossi" required/></div>
-                <div class="fg"><label>Telefono</label><input type="tel" placeholder="+39 333 0000000" required/></div>
-              </div>
-              <div class="fg"><label>Email</label><input type="email" placeholder="mario@esempio.it" required/></div>
-              <div class="fg">
-                <label>Tipo di pratica</label>
-                <select required>
-                  <option value="">Seleziona il servizio</option>
-                  <option>Progettazione</option>
-                  <option>Pratica Edilizia (CILA / SCIA / PDC)</option>
-                  <option>Pratica Catastale</option>
-                  <option>Certificazione Energetica APE</option>
-                  <option>Superbonus / Ecobonus</option>
-                  <option>Altro</option>
-                </select>
-              </div>
-              <div class="fg"><label>Descrizione</label><textarea placeholder="Descrivi brevemente il tuo immobile e la tua esigenza..."></textarea></div>
-              <button type="submit" class="f-sub-btn">Iniziamo i lavori</button>
-            </form>
-            <div class="f-ok" id="formOk">
-              <div class="f-ok-ck">&#10003;</div>
-              <h3>Richiesta inviata</h3>
-              <p>Vi contatteremo entro 24 ore lavorative.</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="ft-in">
-      <div class="ft-col rv" data-rv="up">
-        <span class="ft-brand">Lunghi &amp; <em>Gigliotti</em></span>
-        <p class="ft-mission">Studio Tecnico Associato specializzato in progettazione architettonica, pratiche edilizie e consulenza catastale nel territorio lodigiano.</p>
+    <div class="footer__bottom reveal">
+      <p>© 2018–2026 floKi s.r.l. — Tutti i diritti riservati</p>
+      <div class="footer__sys-info">
+        <span class="dot"></span>
+        <span>P.IVA IT04278120169</span>
+        <span class="dot"></span>
+        <span class="footer__credits">
+          Foto: <a href="https://commons.wikimedia.org/wiki/File:ITER_Tokamak_mockup.jpg" target="_blank" rel="noopener">ITER Tokamak mockup</a> di Johannes Reimer (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>)
+        </span>
       </div>
-      <div class="ft-col rv d1" data-rv="up">
-        <span class="ft-h">Navigazione</span>
-        <ul class="ft-nav-list">
-          <li><a href="#servizi">I nostri Servizi</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Il Team Professionale</a></li>
-          <li><a href="#processo">Il nostro Metodo</a></li>
-          <li><a href="#contatti">Richiedi Preventivo</a></li>
-        </ul>
-      </div>
-      <div class="ft-col rv d2" data-rv="up">
-        <span class="ft-h">Contatti</span>
-        <ul class="ft-nav-list">
-          <li><a href="mailto:info@studiolunghigigliotti.it">info@studiolunghigigliotti.it</a></li>
-          <li><a href="tel:+390371000000">T. 0371 000 000</a></li>
-          <li><p>via Milano, 1 - Dresano</p></li>
-        </ul>
-      </div>
-    </div>
-    <div class="ft-bottom">
-      <div class="ft-bottom-in">
-        <div class="ft-legal">
-          <p>&copy; 2026 Studio Lunghi Gigliotti &middot; P.IVA 00000000000</p>
-          <p>Iscritti al Collegio dei Geometri di Lodi n. 123/456</p>
-        </div>
-        <div class="ft-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Cookie Policy</a>
-          <a href="#">Note Legali</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- LIGHTBOX -->
-  <div class="lb-overlay" id="lbOverlay" role="dialog" aria-modal="true">
-    <div class="lb-box" id="lbBox">
-      <button class="lb-close" id="lbClose" aria-label="Chiudi">&times;</button>
-      <div class="lb-drawing" id="lbDrawing"></div>
-      <div class="lb-cat" id="lbCat"></div>
-      <div class="lb-h" id="lbH"></div>
-      <div class="lb-loc" id="lbLoc"></div>
-      <div class="lb-desc" id="lbDesc"></div>
-      <div class="lb-specs" id="lbSpecs"></div>
     </div>
   </div>
+</footer>
 
-  <script>
-  /* =====================
-     NAV SCROLL + SPLIT DETECTION
-  ===================== */
-  const nav       = document.getElementById("nav");
-  const heroDark  = document.getElementById("heroDark");
-  const heroVeil  = document.getElementById("heroVeil");
-  let heroBottom  = 0;
-
-  function getHeroBottom() {
-    const hero = document.getElementById("hero");
-    if (hero) heroBottom = hero.getBoundingClientRect().bottom + scrollY;
-  }
-  getHeroBottom();
-  window.addEventListener("resize", getHeroBottom);
-
-  function updateNav() {
-    const scrollY = window.scrollY;
-    const vw = window.innerWidth;
-    const past = scrollY > heroBottom - 80;
-
-    /* Soglia oltre la hero → sempre chiaro */
-    if (past) {
-      nav.classList.add("sc");
-      nav.classList.remove("light-side","dark-side");
-      return;
-    }
-    nav.classList.remove("sc");
-
-    /* Dentro la hero: su desktop il cursore/posizione orizzontale
-       determina se siamo sopra il lato chiaro o scuro.
-       Usiamo semplicemente la posizione di scroll: all'inizio
-       siamo sopra il lato chiaro. La split è 50/50 su desktop. */
-    if (vw >= 900) {
-      /* left half → light, right half → dark
-         La navbar è full-width. Definiamo come "lato scuro"
-         quando il cursore è nella metà destra — ma senza
-         tracking del mouse è più pulito basarsi su un breakpoint
-         temporale: mostriamo il toggle in base all'asse X del mouse */
-      // nav già light di default, il mouse tracking lo gestiamo
-      // nel mousemove qui sotto
-    } else {
-      // mobile: l'hero è stacked, la parte scura è sotto
-      // → nav sempre chiara dentro la hero su mobile
-      nav.classList.add("light-side");
-      nav.classList.remove("dark-side");
-    }
-  }
-
-  /* Tracking mouse asse X per capire su quale lato si trova il cursore */
-  let lastMouseX = 0;
-  document.addEventListener("mousemove", (e) => {
-    lastMouseX = e.clientX;
-    if (window.scrollY < heroBottom - 80 && window.innerWidth >= 900) {
-      const half = window.innerWidth / 2;
-      if (lastMouseX >= half) {
-        nav.classList.add("dark-side");
-        nav.classList.remove("light-side");
-      } else {
-        nav.classList.add("light-side");
-        nav.classList.remove("dark-side");
-      }
-    }
-  });
-
-  window.addEventListener("scroll", updateNav);
-  updateNav();
-
-  /* =====================
-     HERO DARK → SCHIARISCE ALLO SCROLL
-  ===================== */
-  function updateHeroVeil() {
-    if (!heroDark || !heroVeil) return;
-    const rect = heroDark.getBoundingClientRect();
-    const viewH = window.innerHeight;
-    // inizia a schiarire quando la parte scura è al 40% dello schermo
-    const progress = Math.max(0, Math.min(1,
-      (viewH * 0.4 - rect.top) / (viewH * 0.6)
-    ));
-    heroVeil.style.opacity = progress;
-    if (progress > 0.15) {
-      heroDark.classList.add("revealed");
-    } else {
-      heroDark.classList.remove("revealed");
-    }
-  }
-  window.addEventListener("scroll", updateHeroVeil, { passive:true });
-  updateHeroVeil();
-
-  /* =====================
-     MOBILE MENU
-  ===================== */
-  const hbtn = document.getElementById("hbtn");
-  const mob  = document.getElementById("mob");
-  function tm(f) {
-    const o = f !== undefined ? f : !hbtn.classList.contains("o");
-    hbtn.classList.toggle("o", o);
-    mob.classList.toggle("o", o);
-    document.body.style.overflow = o ? "hidden" : "";
-  }
-  hbtn.addEventListener("click", () => tm());
-  mob.querySelectorAll("a").forEach(a => a.addEventListener("click", () => tm(false)));
-
-  /* =====================
-     FORM
-  ===================== */
-  document.getElementById("cForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    this.style.display = "none";
-    document.getElementById("formOk").style.display = "block";
-  });
-
-  /* =====================
-     SCROLL REVEAL
-  ===================== */
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("in");
-    });
-  }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
-  document.querySelectorAll(".rv").forEach(el => revealObs.observe(el));
-
-  /* HERO WORD REVEAL */
-  function triggerHeroReveals() {
-    document.querySelectorAll(".word-reveal").forEach(el => {
-      setTimeout(() => el.classList.add("in"), 200);
-    });
-  }
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", triggerHeroReveals);
-  } else {
-    triggerHeroReveals();
-  }
-
-  /* =====================
-     COUNTER
-  ===================== */
-  function animateCount(el) {
-    const target = parseInt(el.dataset.count, 10);
-    const suffix = el.dataset.suffix || "";
-    const prefix = el.dataset.prefix || "";
-    const duration = 1200, step = 16;
-    const steps = Math.round(duration / step);
-    let current = 0;
-    const increment = target / steps;
-    const timer = setInterval(() => {
-      current = Math.min(current + increment, target);
-      el.textContent = prefix + Math.round(current) + suffix;
-      if (current >= target) clearInterval(timer);
-    }, step);
-  }
-  const counterObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && entry.target.dataset.count && !entry.target.dataset.counted) {
-        entry.target.dataset.counted = "1";
-        animateCount(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll(".hb-num[data-count]").forEach(el => counterObs.observe(el));
-
-  /* SEC-TAG LINE */
-  const tagObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("in"); });
-  }, { threshold: 0.5 });
-  document.querySelectorAll(".sec-tag").forEach(el => tagObs.observe(el));
-
-  /* BOARD REVEAL */
-  setTimeout(() => {
-    const board = document.querySelector(".board");
-    if (board) board.classList.add("in");
-  }, 500);
-
-  /* PROC HIGHLIGHT */
-  const procItems = document.querySelectorAll(".proc-item");
-  const procObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const num = entry.target.querySelector(".proc-step-n");
-        if (num) {
-          setTimeout(() => {
-            num.style.transition = "color .4s ease";
-            num.style.color = "var(--brick)";
-            setTimeout(() => { num.style.color = ""; }, 800);
-          }, 200);
-        }
-      }
-    });
-  }, { threshold: 0.6 });
-  procItems.forEach(el => procObs.observe(el));
-
-  /* =====================
-     PORTFOLIO FILTERS
-  ===================== */
-  const filters = document.querySelectorAll(".pf-filter");
-  const pfItems = document.querySelectorAll(".pf-item");
-  filters.forEach(btn => {
-    btn.addEventListener("click", () => {
-      filters.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      const f = btn.dataset.filter;
-      pfItems.forEach(item => {
-        const match = f === "tutti" || item.dataset.category === f;
-        item.style.transition = "opacity .35s ease, transform .35s ease";
-        if (match) {
-          item.style.opacity = "1";
-          item.style.transform = "none";
-          item.style.pointerEvents = "";
-        } else {
-          item.style.opacity = "0.18";
-          item.style.transform = "scale(.97)";
-          item.style.pointerEvents = "none";
-        }
-      });
-    });
-  });
-
-  /* =====================
-     LIGHTBOX
-  ===================== */
-  const lbOverlay = document.getElementById("lbOverlay");
-  const lbClose   = document.getElementById("lbClose");
-  pfItems.forEach(item => {
-    item.addEventListener("click", () => {
-      const d = item.dataset;
-      document.getElementById("lbCat").textContent  = item.querySelector(".pf-tag")?.textContent || d.category;
-      document.getElementById("lbH").textContent    = d.title;
-      document.getElementById("lbLoc").textContent  = d.loc;
-      document.getElementById("lbDesc").textContent = d.desc;
-      const drawingEl = item.querySelector(".pf-drawing");
-      const lbD = document.getElementById("lbDrawing");
-      lbD.innerHTML = "";
-      if (drawingEl) lbD.appendChild(drawingEl.cloneNode(true));
-      const specs = document.getElementById("lbSpecs");
-      specs.innerHTML = "";
-      for (let i = 1; i <= 4; i++) {
-        const l = d[`spec${i}L`], v = d[`spec${i}V`];
-        if (l && v) specs.innerHTML += `<div class="lb-spec-item"><div class="lb-spec-lbl">${l}</div><div class="lb-spec-val">${v}</div></div>`;
-      }
-      lbOverlay.classList.add("open");
-      document.body.style.overflow = "hidden";
-    });
-  });
-  function closeLb() {
-    lbOverlay.classList.remove("open");
-    document.body.style.overflow = "";
-  }
-  lbClose.addEventListener("click", closeLb);
-  lbOverlay.addEventListener("click", e => { if (e.target === lbOverlay) closeLb(); });
-  document.addEventListener("keydown", e => { if (e.key === "Escape") closeLb(); });
-  </script>
+    <button id="scroll-to-top">
+        <img src="img/k-floki-originale.png" alt="Back to top">
+    </button>
+  <script src="js/main.js"></script>
 </body>
 </html>
