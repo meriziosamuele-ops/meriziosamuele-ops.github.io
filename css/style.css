@@ -178,16 +178,17 @@ p  { font-size: 1.125rem; color: var(--text-muted); }
   height: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
   padding-top: env(safe-area-inset-top, 0px);
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(16px) saturate(1.35);
-  -webkit-backdrop-filter: blur(16px) saturate(1.35);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
-  z-index: 100; display: flex; align-items: center;
-  transition: box-shadow 0.45s var(--ease), background 0.45s var(--ease), border-color 0.45s var(--ease);
+  /* Stesso bianco del logo: opaco sempre, niente vetro (lo scroll non “cambia” il colore) */
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  transition: box-shadow 0.45s var(--ease), border-color 0.45s var(--ease);
 }
 .navbar.is-scrolled {
-  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--bg-white);
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.05);
   border-bottom-color: var(--border);
 }
 .navbar__inner { display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 1rem; }
@@ -1291,16 +1292,34 @@ p  { font-size: 1.125rem; color: var(--text-muted); }
     margin-bottom: 1.35rem;
   }
 
-  /* Stats extra */
+  /* Stats extra — centrato e con respiro orizzontale (non attaccato a sinistra) */
   .stats-extra { padding-block: 2rem; }
-  .stats-extra__inner { grid-template-columns: 1fr; }
+  .stats-extra__inner {
+    grid-template-columns: 1fr;
+    padding-inline: 0;
+  }
   .stats-extra__item {
     border-right: none;
     border-bottom: 1px solid rgba(217,119,6,0.18);
-    padding: 1.5rem 0;
+    padding: 1.65rem max(1.5rem, env(safe-area-inset-left, 0px)) 1.65rem max(1.5rem, env(safe-area-inset-right, 0px));
+    text-align: center;
+    align-items: center;
   }
   .stats-extra__item:last-child { border-bottom: none; }
-  .stats-extra__label { font-size: 0.8rem; }
+  /* Linea laterale desktop: su mobile ingombra con il testo centrato */
+  .stats-extra__item::before { display: none; }
+  .stats-extra__sup,
+  .stats-extra__val,
+  .stats-extra__label {
+    text-align: center;
+    width: 100%;
+  }
+  .stats-extra__label {
+    font-size: 0.8rem;
+    max-width: 34rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   /* Why */
   .why-section { padding-block: var(--sp-xl); }
