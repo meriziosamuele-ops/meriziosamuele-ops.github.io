@@ -7,9 +7,11 @@
 <meta name="description" content="Optiform è la divisione termoformatura di floKi s.r.l. Termoformatrici professionali K53, K75, K75S con sistema diagnostico integrato. Made in Italy, Treviglio (BG).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<!-- Font aggiornati: Rajdhani, Orbitron, Montserrat, Inter (come optiform.tech) + Barlow per compatibilità base -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css" />
 <link rel="stylesheet" href="css/optiform.css" />
+
 </head>
 <body>
 
@@ -26,8 +28,10 @@
       </a>
       <div class="nav-divider"></div>
       <a href="https://optiform.tech" target="_blank" rel="noopener">
-        <img class="nav-logo-img" src="https://optiform.tech/img/Logo-Optiform.webp"
-             alt="Optiform" onerror="this.style.display='none'">
+        <img class="nav-logo-img"
+             src="https://optiform.tech/img/Logo-Optiform.webp"
+             alt="Optiform"
+             onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<span style=\'font-family:Rajdhani,sans-serif;font-weight:700;font-size:1.1rem;color:#16a34a;letter-spacing:0.05em;\'>OPTIFORM</span>')">
       </a>
     </div>
 
@@ -93,7 +97,6 @@
 <section class="hero">
     <div class="hero-left">
         <div class="hero-inner">
-            <div class="hero-eyebrow">floKi s.r.l. &nbsp;·&nbsp; Divisione Prodotto</div>
             <div class="hero-tag"><span class="dot"></span>Sistema Diagnostico Integrato</div>
             <h1 class="hero-h1 grad">
                 OPTIFORM
@@ -132,47 +135,51 @@
 <section class="story">
     <div class="container">
         <div class="story-grid">
-            <div>
-                <p class="eyebrow r">La nostra storia</p>
-                <h2 class="story-title r r1">Quando la<br><span class="grad">diagnostica<br>cambia tutto</span></h2>
-                <p class="body-text r r2">
-                    Optiform nasce dall'esperienza di <strong>floKi s.r.l.</strong> nell'automazione industriale.
-                    Ogni termoformatrice monta una <strong>scheda elettronica dedicata</strong> che monitora
-                    costantemente tutte le resistenze in background, senza mai rallentare la produzione.
-                </p>
-                <p class="body-text r r2">
-                    Quando qualcosa si guasta, il display mostra il <strong>codice del componente da sostituire</strong>.
-                    Zero diagnosi manuale, zero sprechi di tempo, massima autonomia operativa.
-                </p>
-                <div class="r r3" style="margin-top: 2rem;">
-                    <a href="https://optiform.tech/" target="_blank" rel="noopener" class="btn-g" style="color: var(--green); border-color: rgba(24,168,78,0.3);">Scopri la nostra azienda</a>
-                </div>
+            
+            <div class="story-content_block r r1">
+                <p class="eyebrow r" style="color:var(--op-green);justify-content:center;margin-bottom:1rem;">Il nostro DNA</p>
+                <h2 class="story-title">DNA Elettronico,<br><span class="grad">Cuore Industriale</span></h2>
                 
-                <div class="stats r r4">
-                    <div class="stat" data-n="3"><div class="stat-n">3</div><div class="stat-l">Modelli disponibili</div></div>
-                    <div class="stat" data-n="100"><div class="stat-n">100+</div><div class="stat-l">Ricette memorizzabili</div></div>
-                    <div class="stat" data-n="2018"><div class="stat-n">2018</div><div class="stat-l">Anno di fondazione</div></div>
-                    <div class="stat" data-n="10"><div class="stat-n">10</div><div class="stat-l">Zone riscaldo K75/K75S</div></div>
+                <div class="body-text-wrapper r r2">
+                    <p class="body-text">
+                        Optiform è l'evoluzione verticale di <strong>floKi s.r.l.</strong>, azienda di Treviglio (BG) leader nei sistemi di controllo. Nata nel <strong>2025</strong>, la nostra divisione ha applicato decenni di competenza in <strong>schede elettroniche e firmware</strong> direttamente alla costruzione di termoformatrici professionali.
+                    </p>
+                    <p class="body-text">
+                        Abbiamo creato una tecnologia diagnostica unica che monitora ogni componente in tempo reale. Progettazione e collaudo sono 100% Made in Treviglio.
+                    </p>
+                </div>
+
+                <div class="stats-compact r r3">
+                    <div class="stat-mini">
+                        <span class="stat-mini-n">2025</span>
+                        <span class="stat-mini-l">Anno Fondazione</span>
+                    </div>
+                    <div class="stat-mini">
+                        <span class="stat-mini-n">3</span>
+                        <span class="stat-mini-l">Modelli</span>
+                    </div>
+                    <div class="stat-mini">
+                        <span class="stat-mini-n">100%</span>
+                        <span class="stat-mini-l">Diagnostica Attiva</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="story-visual r r2">
-                <div class="story-machine-wrap">
-                    <div class="corner-tl"></div>
-                    <div class="corner-br"></div>
-                    <div class="story-machine-flag">🇮🇹 &nbsp;Treviglio (BG), Italia</div>
-                    <img class="story-machine-img" src="https://optiform.tech/img/scheda.webp" alt="Termoformatrice Optiform K75S" onerror="this.style.display='none'">
+            <div class="story-visual_block r r2">
+                <div class="story-image-container">
+                    
+                    <img class="story-machine-img" src="https://optiform.tech/img/scheda.webp" alt="Scheda elettronica diagnostica Optiform" onerror="this.style.display='none'">
                 </div>
             </div>
+
         </div>
     </div>
 </section>
 
 <section class="diag">
-    <div class="diag-bg-text">DIAG</div>
     <div class="container">
         <div class="diag-header">
-            <p class="eyebrow r" style="color:var(--green);justify-content:center;margin-bottom:1rem;">Tecnologia esclusiva</p>
+            <p class="eyebrow r" style="color:var(--op-green);justify-content:center;margin-bottom:1rem;">Tecnologia esclusiva</p>
             <h2 class="diag-title r r1">Il sistema che elimina<br>i fermi macchina</h2>
             <p class="diag-sub r r2">Architettura dual-system: PLC per il controllo operativo e scheda dedicata per il monitoraggio delle resistenze. Due sistemi in parallelo, zero interferenze.</p>
         </div>
@@ -199,7 +206,7 @@
                 <p class="feat-text">Non servono tecnici specializzati. Chiunque può leggere il codice e sostituire il componente indicato. Costi di assistenza ridotti e massima autonomia operativa per il tuo team.</p>
             </div>
         </div>
-        
+
         <div class="r r3" style="text-align: center; margin-top: 4rem; position: relative; z-index: 2;">
             <a href="https://optiform.tech/vantaggi.html" target="_blank" rel="noopener" class="btn-p">
                 Approfondisci la tecnologia
@@ -265,19 +272,15 @@
                 </div>
             </a>
         </div>
-        
+
         <div class="r r3" style="text-align: center; margin-top: 4rem;">
-            <a href="https://optiform.tech/prodotti.html" target="_blank" rel="noopener" class="btn-g" style="color: var(--black); border-color: var(--gray-400);">Confronta le specifiche tecniche</a>
+            <a href="https://optiform.tech/prodotti.html" target="_blank" rel="noopener" class="btn-g" style="color: #0a0a0a; border-color: #c0c0bc;">Confronta le specifiche tecniche</a>
         </div>
     </div>
 </section>
 
 <section class="cta-wrap">
     <div class="cta-bg"></div>
-    <div class="cta-mark tl"></div>
-    <div class="cta-mark tr"></div>
-    <div class="cta-mark bl"></div>
-    <div class="cta-mark br"></div>
     <div class="container">
         <div class="cta-inner">
             <p class="cta-kicker r">Divisione termoformatura di floKi s.r.l.</p>
@@ -293,7 +296,6 @@
             </div>
 
             <div class="trust r r4">
-                <div class="ti2"><div class="check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="2,5 4,7 8,3"/></svg></div>Preventivo gratuito</div>
                 <div class="ti2"><div class="check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="2,5 4,7 8,3"/></svg></div>Demo in sede</div>
                 <div class="ti2"><div class="check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="2,5 4,7 8,3"/></svg></div>Assistenza tecnica</div>
                 <div class="ti2"><div class="check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="2,5 4,7 8,3"/></svg></div>Made in Italy</div>
@@ -309,8 +311,9 @@
         <a href="schede-elettroniche.html">Schede Elettroniche</a>
         <a href="https://optiform.tech" target="_blank" rel="noopener">optiform.tech ↗</a>
     </div>
+    <!-- Indirizzo corretto: Via Redipuglia, 77 24047 Treviglio (BG) -->
     <div class="footer-info">
-        Via Pontirolo 10, Treviglio (BG)<br>
+        Via Redipuglia, 77 — 24047 Treviglio (BG)<br>
         P.IVA IT04278120169 · Made in Italy
     </div>
 </footer>
