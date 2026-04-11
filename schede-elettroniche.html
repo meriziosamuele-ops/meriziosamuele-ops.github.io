@@ -92,19 +92,16 @@
 
   <main>
 
-    <!-- ── HERO ────────────────────────────────────────────────────────────── -->
     <section class="se-hero">
 
       <div class="se-hero__left">
         <div class="se-hero__inner">
-          <p class="se-hero__eyebrow">floKi s.r.l. &nbsp;·&nbsp; Divisione R&amp;D</p>
           <div class="se-hero__tag">
             <span class="se-blink"></span>
             Hardware &amp; Firmware Custom
           </div>
           <h1 class="se-hero__h1">
-            Schede<br>
-            Elettro<span class="accent">niche</span>
+            Schede <span class="accent">Elettroniche</span>
           </h1>
           <p class="se-hero__meta">Treviglio (BG) &nbsp;·&nbsp; PCB Design &nbsp;·&nbsp; Embedded Firmware</p>
           <p class="se-hero__desc">
@@ -129,31 +126,12 @@
         <div class="se-hero__glow"></div>
         <div class="se-hero__dots"></div>
 
-        <div class="se-hero__pcb">
-          <!-- PCB schematic diagram (CSS puro) -->
-          <div class="pcb-diagram">
-            <div class="pcb-trace pcb-trace--h"></div>
-            <div class="pcb-trace pcb-trace--v"></div>
-            <div class="pcb-trace pcb-trace--h"></div>
-            <div class="pcb-trace pcb-trace--h"></div>
-            <div class="pcb-trace pcb-trace--v"></div>
-            <div class="pcb-trace pcb-trace--h"></div>
-            <div class="pcb-trace pcb-trace--v"></div>
-            <div class="pcb-trace pcb-trace--h"></div>
-            <div class="pcb-chip pcb-chip--mcu"  data-label="MCU / ARM"></div>
-            <div class="pcb-chip pcb-chip--ic1"  data-label="PWR REG"></div>
-            <div class="pcb-chip pcb-chip--ic2"  data-label="EEPROM"></div>
-            <div class="pcb-chip pcb-chip--ic3"  data-label="CAN/ETH"></div>
-            <div class="pcb-chip pcb-chip--conn" data-label="I/O CONN"></div>
-            <div class="pcb-via"></div>
-            <div class="pcb-via"></div>
-            <div class="pcb-via"></div>
-            <div class="pcb-via"></div>
-          </div>
-          <div class="pcb-statusbar">
-            <span class="pcb-led"></span>
-            <span>Rev 2.4 — Design verificato</span>
-            <span>DRC: 0 errori</span>
+        <div class="se-hero__photos">
+          <div class="se-hero__photo-wrapper">
+            <div class="photo-glow"></div>
+            <div class="tech-image-container float-anim">
+              <img src="img/scheda-2.webp" alt="Progettazione PCB Custom floKi" class="tech-image">
+            </div>
           </div>
         </div>
 
@@ -178,7 +156,6 @@
     </section>
 
 
-    <!-- ── PROCESSO ────────────────────────────────────────────────────────── -->
     <section id="servizi-pcb" class="se-pipeline">
       <div class="container">
 
@@ -300,11 +277,10 @@
     </section>
 
 
-    <!-- ── STACK TECNOLOGICO ───────────────────────────────────────────────── -->
-    <section class="se-stack">
+   <section class="se-stack">
       <div class="se-stack__bg-text" aria-hidden="true">STACK</div>
       <div class="container">
-
+ 
         <div class="se-stack__header">
           <p class="eyebrow r"
              style="color:rgba(6,182,212,.8);justify-content:center;margin-bottom:1rem;">
@@ -315,75 +291,81 @@
             Scegliamo le tecnologie più adatte al progetto, non quelle che conosciamo meglio.
           </p>
         </div>
-
-        <div class="se-stack__grid">
-
-          <div class="se-stack__item r">
-            <span class="se-stack__category">Hardware</span>
-            <div class="se-stack__name">PCB Design</div>
-            <div class="se-stack__sep"></div>
-            <p class="se-stack__desc">
-              Schemi e layout mono e multistrato. Regole DRC rigorose,
-              analisi integrità segnale su linee critiche.
-            </p>
-            <div class="se-stack__chips">
-              <span class="se-chip">KiCad</span>
-              <span class="se-chip">Altium</span>
-              <span class="se-chip">4–8 layer</span>
+ 
+        <div class="se-stack__layout">
+ 
+          <div class="se-stack__grid">
+ 
+            <div class="se-stack__item r">
+              <span class="se-stack__category">Hardware</span>
+              <div class="se-stack__name">PCB Design</div>
+              <div class="se-stack__sep"></div>
+              <p class="se-stack__desc">
+                Schemi e layout mono e multistrato. Regole DRC rigorose,
+                analisi integrità segnale su linee critiche.
+              </p>
+              <div class="se-stack__chips">
+                <span class="se-chip">KiCad</span>
+                <span class="se-chip">Altium</span>
+                <span class="se-chip">4–8 layer</span>
+              </div>
             </div>
-          </div>
-
-          <div class="se-stack__item r r1">
-            <span class="se-stack__category">Firmware</span>
-            <div class="se-stack__name">Embedded SW</div>
-            <div class="se-stack__sep"></div>
-            <p class="se-stack__desc">
-              Firmware bare-metal e RTOS. Porting HAL, driver custom,
-              bootloader con update OTA via campo.
-            </p>
-            <div class="se-stack__chips">
-              <span class="se-chip">C / C++</span>
-              <span class="se-chip">FreeRTOS</span>
-              <span class="se-chip">ARM Cortex</span>
+ 
+            <div class="se-stack__item r r1">
+              <span class="se-stack__category">Firmware</span>
+              <div class="se-stack__name">Embedded SW</div>
+              <div class="se-stack__sep"></div>
+              <p class="se-stack__desc">
+                Firmware bare-metal e RTOS. Porting HAL, driver custom,
+                bootloader con update OTA via campo.
+              </p>
+              <div class="se-stack__chips">
+                <span class="se-chip">C / C++</span>
+                <span class="se-chip">FreeRTOS</span>
+                <span class="se-chip">ARM Cortex</span>
+              </div>
             </div>
-          </div>
-
-          <div class="se-stack__item r r2">
-            <span class="se-stack__category">Connettività</span>
-            <div class="se-stack__name">Protocolli</div>
-            <div class="se-stack__sep"></div>
-            <p class="se-stack__desc">
-              Integrazione nativa con bus industriali. Sviluppo slave EtherCAT,
-              nodi CANopen, dispositivi Modbus RTU/TCP.
-            </p>
-            <div class="se-stack__chips">
-              <span class="se-chip">EtherCAT</span>
-              <span class="se-chip">CANopen</span>
-              <span class="se-chip">Modbus</span>
+ 
+            <div class="se-stack__item r r2">
+              <span class="se-stack__category">Connettività</span>
+              <div class="se-stack__name">Protocolli</div>
+              <div class="se-stack__sep"></div>
+              <p class="se-stack__desc">
+                Integrazione nativa con bus industriali. Sviluppo slave EtherCAT,
+                nodi CANopen, dispositivi Modbus RTU/TCP.
+              </p>
+              <div class="se-stack__chips">
+                <span class="se-chip">EtherCAT</span>
+                <span class="se-chip">CANopen</span>
+                <span class="se-chip">Modbus</span>
+              </div>
             </div>
-          </div>
-
-          <div class="se-stack__item r r3">
-            <span class="se-stack__category">Piattaforme</span>
-            <div class="se-stack__name">MCU &amp; SoC</div>
-            <div class="se-stack__sep"></div>
-            <p class="se-stack__desc">
-              Selezione del microcontrollore ottimale per costo, periferiche
-              richieste e disponibilità a lungo termine.
-            </p>
-            <div class="se-stack__chips">
-              <span class="se-chip">STM32</span>
-              <span class="se-chip">ESP32</span>
-              <span class="se-chip">AVR / RISC-V</span>
+ 
+            <div class="se-stack__item r r3">
+              <span class="se-stack__category">Piattaforme</span>
+              <div class="se-stack__name">MCU &amp; SoC</div>
+              <div class="se-stack__sep"></div>
+              <p class="se-stack__desc">
+                Selezione del microcontrollore ottimale per costo, periferiche
+                richieste e disponibilità a lungo termine.
+              </p>
+              <div class="se-stack__chips">
+                <span class="se-chip">STM32</span>
+                <span class="se-chip">ESP32</span>
+                <span class="se-chip">AVR / RISC-V</span>
+              </div>
             </div>
+ 
           </div>
-
+ 
+          <div class="se-stack__photo">
+            <img src="img/scheda-1.webp" alt="Dettaglio PCB floKi" loading="lazy">
+          </div>
+ 
         </div>
       </div>
     </section>
 
-
-    <!-- ── CASE STUDY — OPTIFORM ──────────────────────────────────────────── -->
     <section class="se-case">
       <div class="container">
         <div class="se-case__inner">
@@ -411,46 +393,11 @@
             </a>
           </div>
 
-          <div class="se-case__visual r r2">
-            <div class="se-case__board">
-              <div class="se-corner-mark tl"></div>
-              <div class="se-corner-mark tr"></div>
-              <div class="se-corner-mark bl"></div>
-              <div class="se-corner-mark br"></div>
-
-              <div class="board-header">
-                <span class="board-id">FLK-DIAG-R4 &nbsp;·&nbsp; Optiform Diagnostic Board</span>
-                <div class="board-status">
-                  <span class="board-led"></span>
-                  ONLINE
-                </div>
-              </div>
-
-              <div class="board-diag">
-                <div class="board-diag__cell">
-                  <span class="board-diag__label">Resistenze monitorate</span>
-                  <span class="board-diag__value board-diag__value--ok">10 / 10</span>
-                </div>
-                <div class="board-diag__cell">
-                  <span class="board-diag__label">Stato sistema</span>
-                  <span class="board-diag__value board-diag__value--ok">OK</span>
-                </div>
-                <div class="board-diag__cell">
-                  <span class="board-diag__label">Cicli totali</span>
-                  <span class="board-diag__value">48.291</span>
-                </div>
-                <div class="board-diag__cell">
-                  <span class="board-diag__label">Ultima anomalia</span>
-                  <span class="board-diag__value board-diag__value--warn">—</span>
-                </div>
-              </div>
-
-              <div class="board-tags">
-                <span class="board-tag">ARM Cortex-M0</span>
-                <span class="board-tag">Dual-system</span>
-                <span class="board-tag">4-layer PCB</span>
-                <span class="board-tag">Made in Italy</span>
-              </div>
+          <div class="se-case__photo-wrapper r r2">
+            <div class="tech-frame"></div>
+            
+            <div class="tech-image-container">
+              <img src="https://optiform.tech/img/scheda.webp" alt="Scheda Diagnostica Optiform" class="tech-image" loading="lazy">
             </div>
           </div>
 
@@ -459,7 +406,6 @@
     </section>
 
 
-    <!-- ── CTA ─────────────────────────────────────────────────────────────── -->
     <section class="se-cta">
       <div class="se-cta__bg" aria-hidden="true"></div>
       <div class="se-cta__mark tl" aria-hidden="true"></div>
@@ -476,7 +422,7 @@
           </h2>
           <p class="se-cta__desc r r2">
             Contattaci con le specifiche del tuo progetto. Valutiamo la fattibilità
-            tecnica e forniamo un preventivo entro 48 ore lavorative.
+            tecnica e forniamo un preventivo completo.
           </p>
 
           <div class="se-cta__btns r r3">
@@ -491,22 +437,6 @@
           </div>
 
           <div class="se-cta__trust r r4">
-            <div class="se-trust-item">
-              <div class="se-trust-check">
-                <svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2">
-                  <polyline points="2,5 4,7 8,3"/>
-                </svg>
-              </div>
-              Preventivo gratuito
-            </div>
-            <div class="se-trust-item">
-              <div class="se-trust-check">
-                <svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2">
-                  <polyline points="2,5 4,7 8,3"/>
-                </svg>
-              </div>
-              Risposta entro 48h
-            </div>
             <div class="se-trust-item">
               <div class="se-trust-check">
                 <svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2">
@@ -531,7 +461,6 @@
   </main>
 
 
-  <!-- ── FOOTER ──────────────────────────────────────────────────────────── -->
   <footer class="se-footer">
     <div class="se-footer__brand">
       Schede Elettroniche &nbsp;·&nbsp;
@@ -548,9 +477,7 @@
     </div>
   </footer>
 
-  <!-- main.js gestisce navbar scroll, reveal con classe .r, nav dropdown -->
   <script src="js/main.js"></script>
-  <!-- optiform.js gestisce reveal .r e nav dropdown (riusato su questa pagina) -->
   <script src="js/schede-elettroniche.js"></script>
 
 </body>
