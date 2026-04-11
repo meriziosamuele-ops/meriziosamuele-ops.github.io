@@ -8,49 +8,87 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css" />
 <link rel="stylesheet" href="css/optiform.css" />
 </head>
 <body>
 
-<nav class="nav">
+<header class="navbar navbar--dark" id="navbar">
+  <div class="container navbar__inner">
+
     <div class="nav-brand">
-        <a href="index.html" class="nav-back-link" aria-label="Torna a floKi s.r.l.">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-            <span>floKi s.r.l.</span>
-        </a>
-        <div class="nav-divider"></div>
-        <a href="https://optiform.tech" target="_blank" rel="noopener">
-            <img class="nav-logo-img" src="https://optiform.tech/img/Logo-Optiform.webp" alt="Optiform" onerror="this.style.display='none'">
-        </a>
+      <a href="index.html" class="nav-back-link" aria-label="Torna a floKi s.r.l.">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+        <span>floKi s.r.l.</span>
+      </a>
+      <div class="nav-divider"></div>
+      <a href="https://optiform.tech" target="_blank" rel="noopener">
+        <img class="nav-logo-img" src="https://optiform.tech/img/Logo-Optiform.webp"
+             alt="Optiform" onerror="this.style.display='none'">
+      </a>
     </div>
 
-    <ul class="nav-links">
-        <li><a href="https://optiform.tech/k-53.html" target="_blank" rel="noopener">K53</a></li>
-        <li><a href="https://optiform.tech/k-75.html" target="_blank" rel="noopener">K75</a></li>
-        <li><a href="https://optiform.tech/k-75s.html" target="_blank" rel="noopener">K75S</a></li>
-        <li>
-            <div class="nav-dropdown">
-                <button class="nav-dropdown__btn" aria-haspopup="true" aria-expanded="false">
-                    Divisioni
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="nav-dropdown__menu" role="menu">
-                    <a href="optiform.html" class="nav-dropdown__item is-current" role="menuitem">
-                        <span class="nav-dropdown__label">Optiform</span>
-                        <span class="nav-dropdown__sub">Termoformatura professionale</span>
-                    </a>
-                    <div class="nav-dropdown__divider"></div>
-                    <a href="schede-elettroniche.html" class="nav-dropdown__item" role="menuitem">
-                        <span class="nav-dropdown__label">Schede Elettroniche</span>
-                        <span class="nav-dropdown__sub">Progettazione PCB &amp; Firmware</span>
-                    </a>
-                </div>
-            </div>
-        </li>
-    </ul>
+    <nav class="nav-links" aria-label="Navigazione">
+      <a href="https://optiform.tech/k-53.html" target="_blank" rel="noopener">K53</a>
+      <a href="https://optiform.tech/k-75.html" target="_blank" rel="noopener">K75</a>
+      <a href="https://optiform.tech/k-75s.html" target="_blank" rel="noopener">K75S</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown__btn" aria-haspopup="true" aria-expanded="false"
+                aria-label="Divisioni">
+          Divisioni
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="nav-dropdown__menu" role="menu">
+          <a href="optiform.html" class="nav-dropdown__item is-current" role="menuitem">
+            <span class="nav-dropdown__label">Optiform</span>
+            <span class="nav-dropdown__sub">Termoformatura professionale</span>
+          </a>
+          <div class="nav-dropdown__divider"></div>
+          <a href="schede-elettroniche.html" class="nav-dropdown__item" role="menuitem">
+            <span class="nav-dropdown__label">Schede Elettroniche</span>
+            <span class="nav-dropdown__sub">Progettazione PCB &amp; Firmware</span>
+          </a>
+        </div>
+      </div>
+    </nav>
 
-    <a href="https://optiform.tech/contatti.html" target="_blank" rel="noopener" class="nav-cta">Contatti</a>
-</nav>
+    <div class="navbar__end">
+      <button type="button" class="nav-toggle" id="navToggle"
+              aria-label="Apri menu" aria-expanded="false" aria-controls="mobileNav">
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+      <a href="https://optiform.tech/contatti.html" target="_blank" rel="noopener"
+         class="nav-cta">Contatti</a>
+    </div>
+
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileNavBackdrop" tabindex="-1"></div>
+  <div class="mobile-nav__panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <nav class="mobile-nav__links" aria-label="Navigazione mobile">
+      <a href="https://optiform.tech/k-53.html" target="_blank" rel="noopener">K53</a>
+      <a href="https://optiform.tech/k-75.html" target="_blank" rel="noopener">K75</a>
+      <a href="https://optiform.tech/k-75s.html" target="_blank" rel="noopener">K75S</a>
+      <a href="index.html" style="color: #2563EB;">← floKi s.r.l.</a>
+      <a href="schede-elettroniche.html" style="color: #2563EB;">Schede Elettroniche →</a>
+    </nav>
+    <a href="https://optiform.tech/contatti.html" target="_blank" rel="noopener"
+       class="btn btn--solid mobile-nav__cta">
+      Contatti <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
 
 <section class="hero">
     <div class="hero-left">
