@@ -422,18 +422,97 @@ body {
   .se-stack__grid { grid-template-columns: 1fr; }
 }
  
-/* ── CASE STUDY ───────────────────────────────────────────────────────────── */
-.se-case { background: var(--se-surface); border-top: 1px solid var(--se-border-blue); border-bottom: 1px solid var(--se-border-blue); padding: 7rem 0; position: relative; overflow: hidden; }
-.se-case::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 50%, rgba(37,99,235,0.08) 0%, transparent 55%); pointer-events: none; }
-.se-case__inner  { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; position: relative; z-index: 2; }
-.se-case__label  { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--se-cyan); margin-bottom: 1rem; display: block; }
-.se-case__title  { font-family: var(--font-sans); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; letter-spacing: -0.03em; color: #ffffff; line-height: 1.1; margin-bottom: 1.5rem; text-transform: uppercase; }
-.se-case__title .grad { background: linear-gradient(110deg, var(--se-blue-l) 0%, var(--se-cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.se-case__desc   { font-size: 0.95rem; line-height: 1.82; color: rgba(255,255,255,0.7); margin-bottom: 2rem; }
-.se-case__desc strong { color: #ffffff; font-weight: 600; }
-.se-case__cta    { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.85rem 1.9rem; background: rgba(37,99,235,0.12); color: var(--se-blue-l); font-family: var(--font-mono); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--se-border-blue); transition: background 0.28s ease, border-color 0.28s ease, color 0.28s ease; }
-.se-case__cta:hover { background: rgba(37,99,235,0.22); border-color: var(--se-border-blue-hi); color: #ffffff; }
+/* ── CASE STUDY (Versione Chiara) ─────────────────────────────────────────── */
+.se-case { 
+  background: #ffffff; /* Sfondo bianco pulito */
+  border-top: 1px solid rgba(37, 99, 235, 0.1); /* Bordo molto più tenue */
+  border-bottom: 1px solid rgba(37, 99, 235, 0.1); 
+  padding: 7rem 0; 
+  position: relative; 
+  overflow: hidden; 
+}
 
+.se-case::before { 
+  content: ''; 
+  position: absolute; 
+  inset: 0; 
+  /* Alone azzurro leggerissimo per dare tridimensionalità allo sfondo bianco */
+  background: radial-gradient(ellipse at 80% 50%, rgba(37, 99, 235, 0.04) 0%, transparent 55%); 
+  pointer-events: none; 
+}
+
+.se-case__inner { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 6rem; 
+  align-items: center; 
+  position: relative; 
+  z-index: 2; 
+}
+
+.se-case__label { 
+  font-family: var(--font-mono); 
+  font-size: 0.6rem; 
+  font-weight: 700; 
+  letter-spacing: 0.2em; 
+  text-transform: uppercase; 
+  color: var(--se-blue); /* Su sfondo chiaro il blu puro si legge meglio del cyan */
+  margin-bottom: 1rem; 
+  display: block; 
+}
+
+.se-case__title { 
+  font-family: var(--font-sans); 
+  font-size: clamp(1.8rem, 3vw, 2.6rem); 
+  font-weight: 800; 
+  letter-spacing: -0.03em; 
+  color: #0f172a; /* Blu scuro/ardesia (quasi nero) per massimo contrasto */
+  line-height: 1.1; 
+  margin-bottom: 1.5rem; 
+  text-transform: uppercase; 
+}
+
+.se-case__title .grad { 
+  background: linear-gradient(110deg, var(--se-blue) 0%, var(--se-cyan) 100%); 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-clip: text; 
+}
+
+.se-case__desc { 
+  font-size: 0.95rem; 
+  line-height: 1.82; 
+  color: #475569; /* Grigio testo ottimizzato per la lettura su bianco */
+  margin-bottom: 2rem; 
+}
+
+.se-case__desc strong { 
+  color: #0f172a; /* I grassetti tornano molto scuri per risaltare */
+  font-weight: 700; 
+}
+
+.se-case__cta { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 0.6rem; 
+  padding: 0.85rem 1.9rem; 
+  background: rgba(37, 99, 235, 0.05); /* Sfondo azzurro semi-trasparente */
+  color: var(--se-blue); 
+  font-family: var(--font-mono); 
+  font-size: 0.64rem; 
+  font-weight: 700; 
+  letter-spacing: 0.1em; 
+  text-transform: uppercase; 
+  border: 1px solid rgba(37, 99, 235, 0.2); 
+  transition: background 0.28s ease, border-color 0.28s ease, color 0.28s ease; 
+}
+
+/* Hover sul bottone: si riempie di blu scuro e il testo diventa bianco */
+.se-case__cta:hover { 
+  background: var(--se-blue); 
+  border-color: var(--se-blue); 
+  color: #ffffff; 
+}
 /* ── CTA ──────────────────────────────────────────────────────────────────── */
 .se-cta { background: var(--se-black); padding: 9rem 0; position: relative; overflow: hidden; }
 .se-cta__bg { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 900px; height: 500px; background: radial-gradient(ellipse, rgba(37,99,235,0.1) 0%, transparent 65%); pointer-events: none; }
