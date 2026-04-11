@@ -403,3 +403,32 @@
     }
   });
 }());
+/* ---------------------------------------------------------------------------
+   14. Nav dropdown — apertura/chiusura con click e Escape
+   (gestisce il dropdown "Divisioni" nella navbar principale)
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+
+  document.querySelectorAll('.nav-dropdown').forEach(function (dd) {
+    var btn = dd.querySelector('.nav-dropdown__btn');
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = dd.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open);
+    });
+
+    document.addEventListener('click', function () {
+      dd.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        dd.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+}());

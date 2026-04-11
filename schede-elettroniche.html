@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Progettazione schede elettroniche custom e firmware embedded per applicazioni industriali. PCB design, prototipi, produzione serie. floKi s.r.l., Treviglio (BG)." />
+  <title>Schede Elettroniche | Divisione R&D — floKi s.r.l.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/schede-elettroniche.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+</head>
+<body>
+
+  <!-- ── NAVBAR ──────────────────────────────────────────────────────────── -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+
+      <div class="nav-brand">
+        <a href="index.html" class="nav-back-link" aria-label="Torna a floKi s.r.l.">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 5l-7 7 7 7"/>
+          </svg>
+          <span>floKi s.r.l.</span>
+        </a>
+        <div class="nav-divider"></div>
+        <span class="nav-page-label">Schede Elettroniche</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Navigazione">
+        <a href="index.html#servizi">Servizi</a>
+        <a href="index.html#referenze">Referenze</a>
+        <a href="index.html#contatti">Contatti</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown__btn" aria-haspopup="true" aria-expanded="false"
+                  aria-label="Divisioni">
+            Divisioni
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown__menu" role="menu">
+            <a href="optiform.html" class="nav-dropdown__item" role="menuitem">
+              <span class="nav-dropdown__label">Optiform</span>
+              <span class="nav-dropdown__sub">Termoformatura professionale</span>
+            </a>
+            <div class="nav-dropdown__divider"></div>
+            <a href="schede-elettroniche.html" class="nav-dropdown__item is-current"
+               role="menuitem">
+              <span class="nav-dropdown__label">Schede Elettroniche</span>
+              <span class="nav-dropdown__sub">Progettazione PCB &amp; Firmware</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <a href="index.html#contatti" class="nav-cta">Contatti</a>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- ── HERO ────────────────────────────────────────────────────────────── -->
+    <section class="se-hero">
+
+      <div class="se-hero__left">
+        <div class="se-hero__inner">
+          <p class="se-hero__eyebrow">floKi s.r.l. &nbsp;·&nbsp; Divisione R&amp;D</p>
+          <div class="se-hero__tag">
+            <span class="se-blink"></span>
+            Hardware &amp; Firmware Custom
+          </div>
+          <h1 class="se-hero__h1">
+            Schede<br>
+            Elettro<span class="accent">niche</span>
+          </h1>
+          <p class="se-hero__meta">Treviglio (BG) &nbsp;·&nbsp; PCB Design &nbsp;·&nbsp; Embedded Firmware</p>
+          <p class="se-hero__desc">
+            Quando le soluzioni standard non bastano. Progettiamo
+            <em>hardware dedicato</em> e firmware embedded per macchine e impianti
+            industriali — dalla specifica tecnica alla produzione in serie.
+          </p>
+          <div class="se-hero__actions">
+            <a href="index.html#contatti" class="btn-primary">
+              Richiedi un preventivo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <a href="#servizi-pcb" class="btn-ghost">Cosa facciamo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="se-hero__right">
+        <div class="se-hero__glow"></div>
+        <div class="se-hero__dots"></div>
+
+        <div class="se-hero__pcb">
+          <!-- PCB schematic diagram (CSS puro) -->
+          <div class="pcb-diagram">
+            <div class="pcb-trace pcb-trace--h"></div>
+            <div class="pcb-trace pcb-trace--v"></div>
+            <div class="pcb-trace pcb-trace--h"></div>
+            <div class="pcb-trace pcb-trace--h"></div>
+            <div class="pcb-trace pcb-trace--v"></div>
+            <div class="pcb-trace pcb-trace--h"></div>
+            <div class="pcb-trace pcb-trace--v"></div>
+            <div class="pcb-trace pcb-trace--h"></div>
+            <div class="pcb-chip pcb-chip--mcu"  data-label="MCU / ARM"></div>
+            <div class="pcb-chip pcb-chip--ic1"  data-label="PWR REG"></div>
+            <div class="pcb-chip pcb-chip--ic2"  data-label="EEPROM"></div>
+            <div class="pcb-chip pcb-chip--ic3"  data-label="CAN/ETH"></div>
+            <div class="pcb-chip pcb-chip--conn" data-label="I/O CONN"></div>
+            <div class="pcb-via"></div>
+            <div class="pcb-via"></div>
+            <div class="pcb-via"></div>
+            <div class="pcb-via"></div>
+          </div>
+          <div class="pcb-statusbar">
+            <span class="pcb-led"></span>
+            <span>Rev 2.4 — Design verificato</span>
+            <span>DRC: 0 errori</span>
+          </div>
+        </div>
+
+        <div class="se-hero__badges">
+          <span class="se-badge">PCB Multilayer</span>
+          <span class="se-badge">Firmware C / C++</span>
+        </div>
+
+        <div class="se-corner tl" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1">
+            <path d="M0 12 L0 0 L12 0"/>
+          </svg>
+        </div>
+        <div class="se-corner br" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1">
+            <path d="M12 24 L24 24 L24 12"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── PROCESSO ────────────────────────────────────────────────────────── -->
+    <section id="servizi-pcb" class="se-pipeline">
+      <div class="container">
+
+        <div class="se-pipeline__header">
+          <p class="eyebrow r" style="justify-content:center;">Competenze</p>
+          <h2 class="se-pipeline__title r r1">Dalla specifica<br>al prodotto.</h2>
+          <p class="se-pipeline__sub r r2">
+            Gestiamo l'intero ciclo di sviluppo: schema elettrico, layout PCB,
+            firmware, test e avviamento sul campo.
+          </p>
+        </div>
+
+        <div class="se-steps">
+
+          <div class="se-step r" data-n="01">
+            <span class="se-step__num">01</span>
+            <span class="se-step__tag">HW Design</span>
+            <h3 class="se-step__title">Schema &amp; Layout PCB</h3>
+            <div class="se-step__sep"></div>
+            <p class="se-step__desc">
+              Progettazione dello schema elettrico e del layout PCB mono o multistrato.
+              Selezione componentistica ottimizzata per costo, disponibilità e longevità.
+              Design for Manufacturing fin dalla prima revisione.
+            </p>
+            <div class="se-step__tags">
+              <span class="se-tag">Schema elettrico</span>
+              <span class="se-tag">PCB multilayer</span>
+              <span class="se-tag">DFM</span>
+            </div>
+          </div>
+
+          <div class="se-step r r1" data-n="02">
+            <span class="se-step__num">02</span>
+            <span class="se-step__tag">Firmware</span>
+            <h3 class="se-step__title">Sviluppo Firmware Embedded</h3>
+            <div class="se-step__sep"></div>
+            <p class="se-step__desc">
+              Firmware bare-metal e RTOS in C/C++ per microcontrollori ARM, AVR, ESP32.
+              Gestione periferiche, protocolli industriali (Modbus, CANopen, EtherCAT),
+              bootloader e aggiornamento OTA.
+            </p>
+            <div class="se-step__tags">
+              <span class="se-tag">C / C++</span>
+              <span class="se-tag">RTOS</span>
+              <span class="se-tag">Modbus / CAN</span>
+            </div>
+          </div>
+
+          <div class="se-step r r2" data-n="03">
+            <span class="se-step__num">03</span>
+            <span class="se-step__tag">Prototipazione</span>
+            <h3 class="se-step__title">Prototipo &amp; Validazione</h3>
+            <div class="se-step__sep"></div>
+            <p class="se-step__desc">
+              Assemblaggio prototipo, test funzionale, debug e iterazione rapida.
+              Verifica EMC preliminare prima di procedere alla produzione serie.
+              Documentazione tecnica completa consegnata con il prototipo.
+            </p>
+            <div class="se-step__tags">
+              <span class="se-tag">Assemblaggio SMD</span>
+              <span class="se-tag">Test funzionale</span>
+              <span class="se-tag">EMC pre-compliance</span>
+            </div>
+          </div>
+
+          <div class="se-step r" data-n="04">
+            <span class="se-step__num">04</span>
+            <span class="se-step__tag">Produzione</span>
+            <h3 class="se-step__title">Produzione in Serie</h3>
+            <div class="se-step__sep"></div>
+            <p class="se-step__desc">
+              Gestione della produzione presso partner certificati con controllo qualità
+              integrato. Programmazione in-circuit, test ICT/AOI, gestione obsolescenza
+              componenti nel lungo periodo.
+            </p>
+            <div class="se-step__tags">
+              <span class="se-tag">Serie OEM</span>
+              <span class="se-tag">ICT / AOI</span>
+              <span class="se-tag">Qualità</span>
+            </div>
+          </div>
+
+          <div class="se-step r r1" data-n="05">
+            <span class="se-step__num">05</span>
+            <span class="se-step__tag">Integrazione</span>
+            <h3 class="se-step__title">Integrazione con PLC &amp; Sistemi</h3>
+            <div class="se-step__sep"></div>
+            <p class="se-step__desc">
+              Le schede si integrano nativamente con i sistemi di controllo floKi:
+              Beckhoff TwinCAT, Siemens TIA Portal, Omron.
+              Un unico fornitore, nessuna interfaccia grigia.
+            </p>
+            <div class="se-step__tags">
+              <span class="se-tag">EtherCAT slave</span>
+              <span class="se-tag">Profinet</span>
+              <span class="se-tag">TwinCAT</span>
+            </div>
+          </div>
+
+          <div class="se-step r r2" data-n="06">
+            <span class="se-step__num">06</span>
+            <span class="se-step__tag">Case study</span>
+            <h3 class="se-step__title">Scheda Diagnostica Optiform</h3>
+            <div class="se-step__sep"></div>
+            <p class="se-step__desc">
+              La scheda montata sulle termoformatrici Optiform è un prodotto sviluppato
+              interamente in house: monitoraggio continuo delle resistenze,
+              codice guasto su display, architettura dual-system con PLC.
+            </p>
+            <div class="se-step__tags">
+              <span class="se-tag">Prodotto proprio</span>
+              <span class="se-tag">Diagnostica</span>
+              <a href="optiform.html" class="se-tag se-tag--accent">→ Vedi Optiform</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── STACK TECNOLOGICO ───────────────────────────────────────────────── -->
+    <section class="se-stack">
+      <div class="se-stack__bg-text" aria-hidden="true">STACK</div>
+      <div class="container">
+
+        <div class="se-stack__header">
+          <p class="eyebrow r"
+             style="color:rgba(6,182,212,.8);justify-content:center;margin-bottom:1rem;">
+            Tecnologie
+          </p>
+          <h2 class="se-stack__title r r1">Il nostro stack<br>tecnico.</h2>
+          <p class="se-stack__sub r r2">
+            Scegliamo le tecnologie più adatte al progetto, non quelle che conosciamo meglio.
+          </p>
+        </div>
+
+        <div class="se-stack__grid">
+
+          <div class="se-stack__item r">
+            <span class="se-stack__category">Hardware</span>
+            <div class="se-stack__name">PCB Design</div>
+            <div class="se-stack__sep"></div>
+            <p class="se-stack__desc">
+              Schemi e layout mono e multistrato. Regole DRC rigorose,
+              analisi integrità segnale su linee critiche.
+            </p>
+            <div class="se-stack__chips">
+              <span class="se-chip">KiCad</span>
+              <span class="se-chip">Altium</span>
+              <span class="se-chip">4–8 layer</span>
+            </div>
+          </div>
+
+          <div class="se-stack__item r r1">
+            <span class="se-stack__category">Firmware</span>
+            <div class="se-stack__name">Embedded SW</div>
+            <div class="se-stack__sep"></div>
+            <p class="se-stack__desc">
+              Firmware bare-metal e RTOS. Porting HAL, driver custom,
+              bootloader con update OTA via campo.
+            </p>
+            <div class="se-stack__chips">
+              <span class="se-chip">C / C++</span>
+              <span class="se-chip">FreeRTOS</span>
+              <span class="se-chip">ARM Cortex</span>
+            </div>
+          </div>
+
+          <div class="se-stack__item r r2">
+            <span class="se-stack__category">Connettività</span>
+            <div class="se-stack__name">Protocolli</div>
+            <div class="se-stack__sep"></div>
+            <p class="se-stack__desc">
+              Integrazione nativa con bus industriali. Sviluppo slave EtherCAT,
+              nodi CANopen, dispositivi Modbus RTU/TCP.
+            </p>
+            <div class="se-stack__chips">
+              <span class="se-chip">EtherCAT</span>
+              <span class="se-chip">CANopen</span>
+              <span class="se-chip">Modbus</span>
+            </div>
+          </div>
+
+          <div class="se-stack__item r r3">
+            <span class="se-stack__category">Piattaforme</span>
+            <div class="se-stack__name">MCU &amp; SoC</div>
+            <div class="se-stack__sep"></div>
+            <p class="se-stack__desc">
+              Selezione del microcontrollore ottimale per costo, periferiche
+              richieste e disponibilità a lungo termine.
+            </p>
+            <div class="se-stack__chips">
+              <span class="se-chip">STM32</span>
+              <span class="se-chip">ESP32</span>
+              <span class="se-chip">AVR / RISC-V</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── CASE STUDY — OPTIFORM ──────────────────────────────────────────── -->
+    <section class="se-case">
+      <div class="container">
+        <div class="se-case__inner">
+
+          <div class="r">
+            <span class="se-case__label">Prodotto sviluppato in-house</span>
+            <h2 class="se-case__title">
+              Scheda Diagnostica<br>
+              <span class="grad">Optiform</span>
+            </h2>
+            <p class="se-case__desc">
+              La prova concreta delle nostre competenze: la scheda elettronica montata
+              su ogni termoformatrice Optiform è progettata, sviluppata e prodotta
+              internamente. <strong>Monitoraggio continuo delle resistenze</strong> in background,
+              architettura dual-system indipendente dal PLC operativo,
+              <strong>codice guasto diretto su display</strong> senza fermare la produzione.
+            </p>
+            <a href="optiform.html" class="se-case__cta">
+              Scopri la divisione Optiform
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="se-case__visual r r2">
+            <div class="se-case__board">
+              <div class="se-corner-mark tl"></div>
+              <div class="se-corner-mark tr"></div>
+              <div class="se-corner-mark bl"></div>
+              <div class="se-corner-mark br"></div>
+
+              <div class="board-header">
+                <span class="board-id">FLK-DIAG-R4 &nbsp;·&nbsp; Optiform Diagnostic Board</span>
+                <div class="board-status">
+                  <span class="board-led"></span>
+                  ONLINE
+                </div>
+              </div>
+
+              <div class="board-diag">
+                <div class="board-diag__cell">
+                  <span class="board-diag__label">Resistenze monitorate</span>
+                  <span class="board-diag__value board-diag__value--ok">10 / 10</span>
+                </div>
+                <div class="board-diag__cell">
+                  <span class="board-diag__label">Stato sistema</span>
+                  <span class="board-diag__value board-diag__value--ok">OK</span>
+                </div>
+                <div class="board-diag__cell">
+                  <span class="board-diag__label">Cicli totali</span>
+                  <span class="board-diag__value">48.291</span>
+                </div>
+                <div class="board-diag__cell">
+                  <span class="board-diag__label">Ultima anomalia</span>
+                  <span class="board-diag__value board-diag__value--warn">—</span>
+                </div>
+              </div>
+
+              <div class="board-tags">
+                <span class="board-tag">ARM Cortex-M0</span>
+                <span class="board-tag">Dual-system</span>
+                <span class="board-tag">4-layer PCB</span>
+                <span class="board-tag">Made in Italy</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── CTA ─────────────────────────────────────────────────────────────── -->
+    <section class="se-cta">
+      <div class="se-cta__bg" aria-hidden="true"></div>
+      <div class="se-cta__mark tl" aria-hidden="true"></div>
+      <div class="se-cta__mark tr" aria-hidden="true"></div>
+      <div class="se-cta__mark bl" aria-hidden="true"></div>
+      <div class="se-cta__mark br" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="se-cta__inner">
+          <p class="se-cta__kicker r">floKi s.r.l. — Divisione R&amp;D</p>
+          <h2 class="se-cta__h2 r r1">
+            Hai un progetto<br>
+            <span class="grad">da sviluppare?</span>
+          </h2>
+          <p class="se-cta__desc r r2">
+            Contattaci con le specifiche del tuo progetto. Valutiamo la fattibilità
+            tecnica e forniamo un preventivo entro 48 ore lavorative.
+          </p>
+
+          <div class="se-cta__btns r r3">
+            <a href="index.html#contatti" class="btn-cta">
+              Inizia il progetto
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <a href="index.html" class="btn-back-home">← Torna a floKi</a>
+          </div>
+
+          <div class="se-cta__trust r r4">
+            <div class="se-trust-item">
+              <div class="se-trust-check">
+                <svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2">
+                  <polyline points="2,5 4,7 8,3"/>
+                </svg>
+              </div>
+              Preventivo gratuito
+            </div>
+            <div class="se-trust-item">
+              <div class="se-trust-check">
+                <svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2">
+                  <polyline points="2,5 4,7 8,3"/>
+                </svg>
+              </div>
+              Risposta entro 48h
+            </div>
+            <div class="se-trust-item">
+              <div class="se-trust-check">
+                <svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2">
+                  <polyline points="2,5 4,7 8,3"/>
+                </svg>
+              </div>
+              Documentazione completa
+            </div>
+            <div class="se-trust-item">
+              <div class="se-trust-check">
+                <svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2">
+                  <polyline points="2,5 4,7 8,3"/>
+                </svg>
+              </div>
+              Produzione serie inclusa
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ── FOOTER ──────────────────────────────────────────────────────────── -->
+  <footer class="se-footer">
+    <div class="se-footer__brand">
+      Schede Elettroniche &nbsp;·&nbsp;
+      flo<span>K</span>i s.r.l.
+    </div>
+    <div class="se-footer__links">
+      <a href="index.html">← floKi s.r.l.</a>
+      <a href="optiform.html">Optiform</a>
+      <a href="index.html#contatti">Contatti</a>
+    </div>
+    <div class="se-footer__info">
+      Via Redipuglia 77, Treviglio (BG)<br>
+      P.IVA IT04278120169
+    </div>
+  </footer>
+
+  <!-- main.js gestisce navbar scroll, reveal con classe .r, nav dropdown -->
+  <script src="js/main.js"></script>
+  <!-- optiform.js gestisce reveal .r e nav dropdown (riusato su questa pagina) -->
+  <script src="js/optiform.js"></script>
+
+</body>
+</html>

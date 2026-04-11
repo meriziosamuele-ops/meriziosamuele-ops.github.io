@@ -12,45 +12,64 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
 </head>
 <body>
 
   <a href="#main" class="skip-link">Vai al contenuto</a>
 
   <!-- ── NAVBAR ─────────────────────────────────────────────────────────────── -->
-<header class="navbar" id="navbar">
+  <header class="navbar" id="navbar">
     <div class="container navbar__inner">
       <a href="#home" class="logo">
         <img src="img/logo-floki.jpeg" alt="floKi s.r.l." class="logo__img" />
         <span class="logo__tag">Industrial Automation</span>
       </a>
+
       <nav class="nav-links" aria-label="Navigazione principale">
         <a href="#servizi">Servizi</a>
         <a href="#referenze">Referenze</a>
         <a href="#contatti">Contatti</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown__btn" aria-haspopup="true" aria-expanded="false" aria-label="Apri menu Divisioni">
+            Divisioni
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown__menu" role="menu">
+            <a href="optiform.html" class="nav-dropdown__item" role="menuitem">
+              <span class="nav-dropdown__label">Optiform</span>
+              <span class="nav-dropdown__sub">Termoformatura professionale</span>
+            </a>
+            <div class="nav-dropdown__divider"></div>
+            <a href="schede-elettroniche.html" class="nav-dropdown__item" role="menuitem">
+              <span class="nav-dropdown__label">Schede Elettroniche</span>
+              <span class="nav-dropdown__sub">Progettazione PCB &amp; Firmware</span>
+            </a>
+          </div>
+        </div>
       </nav>
 
       <div class="navbar__end">
-      <button type="button" class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="mobileNav">
-        <span class="nav-toggle__bar" aria-hidden="true"></span>
-        <span class="nav-toggle__bar" aria-hidden="true"></span>
-        <span class="nav-toggle__bar" aria-hidden="true"></span>
-      </button>
-      <div class="lang-switcher" id="langSwitcher">
-        <button class="lang-switcher__btn" aria-haspopup="true" aria-expanded="false" aria-label="Cambia lingua">
-          <span class="lang-current">IT</span>
-          <svg class="lang-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="mobileNav">
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
         </button>
-        <div class="lang-switcher__menu" aria-hidden="true">
-          <a href="index.html" class="lang-switcher__link is-active">IT</a>
-          <a href="en/index.html" class="lang-switcher__link">EN</a>
-          <a href="de/index.html" class="lang-switcher__link">DE</a>
+        <div class="lang-switcher" id="langSwitcher">
+          <button class="lang-switcher__btn" aria-haspopup="true" aria-expanded="false" aria-label="Cambia lingua">
+            <span class="lang-current">IT</span>
+            <svg class="lang-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="lang-switcher__menu" aria-hidden="true">
+            <a href="index.html" class="lang-switcher__link is-active">IT</a>
+            <a href="en/index.html" class="lang-switcher__link">EN</a>
+            <a href="de/index.html" class="lang-switcher__link">DE</a>
+          </div>
         </div>
       </div>
-      </div>
-
     </div>
   </header>
 
@@ -61,6 +80,8 @@
         <a href="#servizi">Servizi</a>
         <a href="#referenze">Referenze</a>
         <a href="#contatti">Contatti</a>
+        <a href="optiform.html" style="color: #18a84e;">Optiform →</a>
+        <a href="schede-elettroniche.html" style="color: #18a84e;">Schede Elettroniche →</a>
       </nav>
       <a href="#contatti" class="btn btn--solid mobile-nav__cta">Inizia il progetto <span class="arrow">→</span></a>
     </div>
@@ -84,70 +105,118 @@
             <a href="#contatti" class="btn btn--solid">Inizia il progetto <span class="arrow">→</span></a>
             <a href="#servizi" class="btn btn--outline">Esplora i servizi</a>
           </div>
-
         </div>
 
         <div class="hero__visual">
           <div class="hero__image-wrapper hero__image-wrapper--tilt">
             <img src="img/robot.png" alt="Robot Industriale" class="hero__img" />
-            <div class="hero__visual-badge">Soluzioni Industria 4.0</div>
+            <div class="hero__visual-badge">Soluzioni Industry 4.0</div>
           </div>
 
-          <div class="stats-float">
-            <div class="stat-box">
-              <span class="stat-val" data-counter="20" data-suffix="+">20+</span>
-              <span class="stat-lbl">Anni di esperienza</span>
-            </div>
-            <div class="stat-box">
-              <span class="stat-val text-amber">ITER</span>
-              <span class="stat-lbl">Progetto Internazionale</span>
-            </div>
-            <div class="stat-box">
-              <span class="stat-val" data-counter="76">76</span>
-              <span class="stat-lbl">Brushless su singolo impianto</span>
-            </div>
-            <div class="stat-box">
-              <span class="stat-val" data-counter="200" data-suffix="+">200+</span>
-              <span class="stat-lbl">Nodi EtherCAT su impianto</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- ── STATS EXTRA ─────────────────────────────────────────────────────────── -->
-    <div class="stats-extra">
-      <div class="container">
-        <div class="stats-extra__inner">
+    <!-- ── DIVISIONI ─────────────────────────────────────────────────────────── -->
+<section class="divisions">
+  <div class="divisions__glow" aria-hidden="true"></div>
+  <div class="container">
 
-          <div class="stats-extra__item">
-            <span class="stats-extra__sup">Pulitura metalli</span>
-            <span class="stats-extra__val" data-counter="38">38</span>
-            <span class="stats-extra__label">Brushless su singolo impianto di smerigliatura, satinatura e lucidatura. 37 inverter in parallelo.</span>
-          </div>
-
-          <div class="stats-extra__item">
-            <span class="stats-extra__sup">Automotive</span>
-            <span class="stats-extra__val" data-counter="8">8</span>
-            <span class="stats-extra__label">Presse asservite con 5 robot Comau su un'unica linea di produzione particolari metallici.</span>
-          </div>
-
-          <div class="stats-extra__item">
-            <span class="stats-extra__sup">Asservimento calandre</span>
-            <span class="stats-extra__val">12 <span class="unit">h</span></span>
-            <span class="stats-extra__label">Autonomia operativa su impianto CNC per lampade. 4 zone di scarico automatizzate, ciclo 24/7.</span>
-          </div>
-
-          <div class="stats-extra__item">
-            <span class="stats-extra__sup">Pulitura — unità</span>
-            <span class="stats-extra__val" data-counter="19">19</span>
-            <span class="stats-extra__label">Unità di pulitura gestite da un singolo PLC Beckhoff con 2 tavole rotanti e 12 conveyor.</span>
-          </div>
-
-        </div>
-      </div>
+    <div class="divisions__header">
+      <span class="eyebrow reveal reveal--up">Le nostre divisioni</span>
+      <h2 class="divisions__title reveal reveal--up reveal--delay">Prodotto &amp; Ricerca applicata.</h2>
+      <p class="divisions__intro reveal reveal--up reveal--delay-2">
+        Oltre all'automazione su commessa, floKi sviluppa prodotti e tecnologie proprie.
+        Due divisioni che traducono il know-how ingegneristico in soluzioni di mercato.
+      </p>
     </div>
 
+    <div class="divisions__bento">
+
+      <!-- Optiform -->
+      <a href="optiform.html" class="div-card reveal reveal--dark">
+        <div class="div-card__left">
+          <div class="div-card__num">01</div>
+          <div class="div-card__head">
+            <span class="div-card__badge">Divisione Prodotto</span>
+            <span class="div-card__arrow">→</span>
+          </div>
+          <div class="div-card__name">Optiform</div>
+          <div class="div-card__stats">
+            <div class="div-stat">
+              <span class="div-stat__val">K53</span>
+              <span class="div-stat__lbl">Entry</span>
+            </div>
+            <div class="div-stat">
+              <span class="div-stat__val">K75</span>
+              <span class="div-stat__lbl">Standard</span>
+            </div>
+            <div class="div-stat">
+              <span class="div-stat__val">K75S</span>
+              <span class="div-stat__lbl">Pro</span>
+            </div>
+          </div>
+        </div>
+        <div class="div-card__right">
+          <p class="div-card__desc">
+            Termoformatrici professionali progettate e assemblate a Treviglio.
+            Sistema diagnostico integrato sviluppato in house: monitoraggio continuo
+            delle resistenze con codice guasto diretto sul display, senza fermare la produzione.
+          </p>
+          <div class="div-card__tags">
+            <span>K53</span>
+            <span>K75</span>
+            <span>K75S</span>
+            <span>Made in Italy</span>
+            <span>Sistema diagnostico</span>
+          </div>
+          <span class="div-card__cta">Scopri Optiform <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <!-- Schede Elettroniche -->
+      <a href="schede-elettroniche.html" class="div-card reveal reveal--dark reveal--delay">
+        <div class="div-card__left">
+          <div class="div-card__num">02</div>
+          <div class="div-card__head">
+            <span class="div-card__badge">Divisione R&amp;D</span>
+            <span class="div-card__arrow">→</span>
+          </div>
+          <div class="div-card__name">Schede Elettroniche</div>
+          <div class="div-card__stats">
+            <div class="div-stat">
+              <span class="div-stat__val">PCB</span>
+              <span class="div-stat__lbl">Design</span>
+            </div>
+            <div class="div-stat">
+              <span class="div-stat__val">FW</span>
+              <span class="div-stat__lbl">C / C++</span>
+            </div>
+            <div class="div-stat">
+              <span class="div-stat__val">HW</span>
+              <span class="div-stat__lbl">Embedded</span>
+            </div>
+          </div>
+        </div>
+        <div class="div-card__right">
+          <p class="div-card__desc">
+            Progettazione di schede elettroniche custom dalla specifica al firmware.
+            Hardware dedicato per applicazioni industriali dove le soluzioni standard
+            non bastano: PCB design, firmware embedded, prototipazione e produzione serie.
+          </p>
+          <div class="div-card__tags">
+            <span>PCB Design</span>
+            <span>Firmware C/C++</span>
+            <span>Prototipazione</span>
+            <span>Produzione serie</span>
+          </div>
+          <span class="div-card__cta">Scopri la divisione <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
     <!-- ── PERCHÉ FLOKI ───────────────────────────────────────────────────────── -->
     <section class="why-section">
       <div class="container">
@@ -212,7 +281,7 @@
       <div class="container">
         <div class="retrofit-banner">
           <div class="retrofit-banner__left reveal">
-            <span class="retrofit-banner__eyebrow">Revamping & Retrofit</span>
+            <span class="retrofit-banner__eyebrow">Revamping &amp; Retrofit</span>
             <h3 class="retrofit-banner__title">Impianti esistenti portati agli standard attuali.</h3>
             <p class="retrofit-banner__desc">Sostituzione di vecchi PLC, cablaggi e azionamenti senza fermi macchina inutili. Ogni linea aggiornata ai requisiti Industria 4.0 in termini di connettività, sicurezza e tracciabilità.</p>
           </div>
@@ -228,7 +297,6 @@
         </div>
       </div>
     </section>
-
 
     <!-- ── SERVIZI ──────────────────────────────────────────────────────────── -->
     <section id="servizi" class="services">
@@ -329,7 +397,6 @@
           </div>
 
         </div>
-
       </div>
     </section>
 
@@ -497,11 +564,11 @@
       </div>
     </section>
 
-<!--Contatti-->
-<section id="contatti" class="section section--light contact-section">
+    <!-- ── CONTATTI ───────────────────────────────────────────────────────────── -->
+    <section id="contatti" class="section section--light contact-section">
       <div class="container">
         <div class="contact-layout">
-          
+
           <div class="contact-text">
             <div class="contact-text__lead reveal">
               <span class="eyebrow">Inizia oggi</span>
@@ -542,64 +609,72 @@
     </section>
 
   </main>
-<footer class="footer">
-  <div class="container footer__container">
 
-    <div class="footer__top">
-      <div class="footer__brand">
-        <div class="footer__logo reveal">
-          <h3>flo<span class="text-accent">K</span>i</h3>
-          <span class="footer__logo-tag">Industrial Automation</span>
+  <footer class="footer">
+    <div class="container footer__container">
+
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo reveal">
+            <h3>flo<span class="text-accent">K</span>i</h3>
+            <span class="footer__logo-tag">Industrial Automation</span>
+          </div>
+          <div class="footer__desc reveal reveal--delay">
+            <p>Progettazione, sviluppo e avviamento di sistemi per l'automazione industriale. Oltre 20 anni di esperienza sul campo. Treviglio (BG), dal 2018.</p>
+          </div>
         </div>
-        <div class="footer__desc reveal reveal--delay">
-        <p>Progettazione, sviluppo e avviamento di sistemi per l'automazione industriale. Oltre 20 anni di esperienza sul campo. Treviglio (BG), dal 2018.</p>
+
+        <div class="footer__nav reveal reveal--delay-2">
+          <div class="footer__col">
+            <h4>Navigazione</h4>
+            <a href="#home">Home</a>
+            <a href="#servizi">Servizi</a>
+            <a href="#referenze">Referenze</a>
+            <a href="#contatti">Contatti</a>
+          </div>
+
+          <div class="footer__col">
+            <h4>Divisioni</h4>
+            <a href="optiform.html">Optiform</a>
+            <a href="schede-elettroniche.html">Schede Elettroniche</a>
+          </div>
+
+          <div class="footer__col">
+            <h4>Legale</h4>
+            <a href="termini.html">Termini e condizioni</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="cookie.html">Cookie Policy</a>
+          </div>
+
+          <div class="footer__col">
+            <h4>Contatti</h4>
+            <a href="mailto:info@floki.it">info@floki.it</a>
+            <a href="https://maps.google.com/?q=Via+Redipuglia+77+24047+Treviglio+BG" target="_blank" rel="noopener">
+              Via Redipuglia, 77<br>
+              24047 Treviglio (BG)
+            </a>
+          </div>
         </div>
       </div>
-      
-      <div class="footer__nav reveal reveal--delay-2">
-        <div class="footer__col">
-          <h4>Navigazione</h4>
-          <a href="#home">Home</a>
-          <a href="#servizi">Servizi</a>
-          <a href="#referenze">Referenze</a>
-          <a href="#contatti">Contatti</a>
-        </div>
-        
-        <div class="footer__col">
-          <h4>Legale</h4>
-          <a href="termini.html">Termini e condizioni</a>
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="cookie.html">Cookie Policy</a>
-        </div>
 
-        <div class="footer__col">
-          <h4>Contatti</h4>
-          <a href="mailto:info@floki.it">info@floki.it</a>
-          <a href="https://maps.google.com/?q=Via+Redipuglia+77+24047+Treviglio+BG" target="_blank" rel="noopener">
-            Via Redipuglia, 77<br>
-            24047 Treviglio (BG)
-          </a>
+      <div class="footer__bottom reveal">
+        <p>© 2018–2026 floKi s.r.l. — Tutti i diritti riservati</p>
+        <div class="footer__sys-info">
+          <span class="dot"></span>
+          <span>P.IVA IT04278120169</span>
+          <span class="dot"></span>
+          <span class="footer__credits">
+            Foto: <a href="https://commons.wikimedia.org/wiki/File:ITER_Tokamak_mockup.jpg" target="_blank" rel="noopener">ITER Tokamak mockup</a> di Johannes Reimer (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>)
+          </span>
         </div>
       </div>
     </div>
+  </footer>
 
-    <div class="footer__bottom reveal">
-      <p>© 2018–2026 floKi s.r.l. — Tutti i diritti riservati</p>
-      <div class="footer__sys-info">
-        <span class="dot"></span>
-        <span>P.IVA IT04278120169</span>
-        <span class="dot"></span>
-        <span class="footer__credits">
-          Foto: <a href="https://commons.wikimedia.org/wiki/File:ITER_Tokamak_mockup.jpg" target="_blank" rel="noopener">ITER Tokamak mockup</a> di Johannes Reimer (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>)
-        </span>
-      </div>
-    </div>
-  </div>
-</footer>
+  <button id="scroll-to-top">
+    <img src="img/k-floki-originale.png" alt="Back to top">
+  </button>
 
-    <button id="scroll-to-top">
-        <img src="img/k-floki-originale.png" alt="Back to top">
-    </button>
   <script src="js/main.js"></script>
 </body>
 </html>
