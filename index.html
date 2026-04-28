@@ -22,7 +22,7 @@
   <header class="navbar" id="navbar">
     <div class="container navbar__inner">
       <a href="#home" class="logo">
-        <img src="img/logo-floki.jpeg" alt="floKi s.r.l." class="logo__img" />
+        <img src="img/logo-floki.png" alt="floKi s.r.l." class="logo__img" />
         <span class="logo__tag">Industrial Automation</span>
       </a>
 
@@ -89,130 +89,74 @@
 
   <main id="main" tabindex="-1">
 
-    <section id="home" class="hero">
-      <canvas class="hero__particles" id="heroParticles" aria-hidden="true"></canvas>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     STEP 1 — CURSORE CUSTOM
+     Incolla SUBITO DOPO il tag <body> apertura, prima dello skip-link
+     ═══════════════════════════════════════════════════════════════════════ -->
+<div class="cursor-dot"  aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
 
-      <div class="container hero__grid">
-        <div class="hero__content">
-          <div class="badge-tech">
-            Sistemi di controllo su misura
-          </div>
-          <h1 class="hero__title">Automazione<br>& Robotica<br><span class="text-accent">Industriale.</span></h1>
-          <p class="hero__desc">Con oltre 20 anni di esperienza, sviluppiamo il sistema di controllo del tuo impianto. Dal design preliminare al collaudo, gestiamo internamente l'intera automazione. Zero subappalti, zero dispersioni.</p>
 
-          <div class="hero__actions">
-            <a href="#contatti" class="btn btn--solid">Richiedi analisi di fattibilità <span class="arrow">→</span></a>
-            <a href="#servizi" class="btn btn--outline">Esplora le competenze</a>
-          </div>
-        </div>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     HERO — sostituisce il blocco <section id="home" class="hero"> in index.html
+     Classi usate: tutte già definite in style.css + premium-final.css
+     ═══════════════════════════════════════════════════════════════════════ -->
+<section id="home" class="hero">
+  <canvas class="hero__particles" id="heroParticles" aria-hidden="true"></canvas>
+  <div class="hero__grid-bg" aria-hidden="true"></div>
 
-        <div class="hero__visual">
-          <div class="hero__image-wrapper hero__image-wrapper--tilt">
-            <img src="img/robot.png" alt="Robot Industriale" class="hero__img" />
-            <div class="hero__visual-badge">Soluzioni Industry 4.0</div>
-          </div>
+  <div class="container hero__grid">
 
-        </div>
+    <!-- COLONNA SINISTRA: testo -->
+    <div class="hero__content">
+
+      <div class="badge-tech">
+        <span class="badge-tech__dot" aria-hidden="true"></span>
+        Sistemi di controllo su misura
       </div>
-    </section>
 
-    <section class="divisions">
-  <div class="divisions__glow" aria-hidden="true"></div>
-  <div class="container">
+      <h1 class="hero__title">
+        <span class="hero__title-line hero__title-line--serif">Automazione</span>
+        <span class="hero__title-line hero__title-line--serif">&amp; Robotica</span>
+        <span class="hero__title-line hero__title-line--accent">Industriale.</span>
+      </h1>
 
-    <div class="divisions__header">
-      <span class="eyebrow reveal reveal--up">Le nostre divisioni</span>
-      <h2 class="divisions__title reveal reveal--up reveal--delay">Prodotto & Ricerca applicata.</h2>
-      <p class="divisions__intro reveal reveal--up reveal--delay-2">
-        Oltre all'automazione su commessa, floKi sviluppa prodotti e tecnologie proprie.
-        Due divisioni che traducono il know-how ingegneristico in soluzioni di mercato.
-      </p>
-    </div>
+      <p class="hero__desc">Con oltre 20 anni di esperienza, sviluppiamo il sistema di controllo del tuo impianto. Dal design preliminare al collaudo, gestiamo internamente l'intera automazione. Zero subappalti, zero dispersioni.</p>
 
-    <div class="divisions__bento">
-
-      <a href="optiform.html" class="div-card reveal reveal--dark">
-        <div class="div-card__left">
-          <div class="div-card__num">01</div>
-          <div class="div-card__head">
-            <span class="div-card__badge">Divisione Prodotto</span>
-            <span class="div-card__arrow">→</span>
-          </div>
-          <div class="div-card__name">Optiform</div>
-          <div class="div-card__stats">
-            <div class="div-stat">
-              <span class="div-stat__val">K53</span>
-              <span class="div-stat__lbl">Entry</span>
-            </div>
-            <div class="div-stat">
-              <span class="div-stat__val">K75</span>
-              <span class="div-stat__lbl">Standard</span>
-            </div>
-            <div class="div-stat">
-              <span class="div-stat__val">K75S</span>
-              <span class="div-stat__lbl">Pro</span>
-            </div>
-          </div>
-        </div>
-        <div class="div-card__right">
-          <p class="div-card__desc">
-            Termoformatrici professionali progettate e assemblate a Treviglio.
-            Sistema diagnostico integrato sviluppato in house: monitoraggio continuo
-            delle resistenze con codice guasto diretto sul display, senza fermare la produzione.
-          </p>
-          <div class="div-card__tags">
-            <span>K53</span>
-            <span>K75</span>
-            <span>K75S</span>
-            <span>Made in Italy</span>
-            <span>Sistema diagnostico</span>
-          </div>
-          <span class="div-card__cta">Scopri Optiform <span class="arrow">→</span></span>
-        </div>
-      </a>
-
-      <a href="schede-elettroniche.html" class="div-card reveal reveal--dark reveal--delay">
-        <div class="div-card__left">
-          <div class="div-card__num">02</div>
-          <div class="div-card__head">
-            <span class="div-card__badge">Divisione R&D</span>
-            <span class="div-card__arrow">→</span>
-          </div>
-          <div class="div-card__name">Schede Elettroniche</div>
-          <div class="div-card__stats">
-            <div class="div-stat">
-              <span class="div-stat__val">PCB</span>
-              <span class="div-stat__lbl">Design</span>
-            </div>
-            <div class="div-stat">
-              <span class="div-stat__val">FW</span>
-              <span class="div-stat__lbl">C / C++</span>
-            </div>
-            <div class="div-stat">
-              <span class="div-stat__val">HW</span>
-              <span class="div-stat__lbl">Embedded</span>
-            </div>
-          </div>
-        </div>
-        <div class="div-card__right">
-          <p class="div-card__desc">
-            Progettazione di schede elettroniche custom dalla specifica al firmware.
-            Hardware dedicato per applicazioni industriali dove le soluzioni standard
-            non bastano: PCB design, firmware embedded, prototipazione e produzione serie.
-          </p>
-          <div class="div-card__tags">
-            <span>PCB Design</span>
-            <span>Firmware C/C++</span>
-            <span>Prototipazione</span>
-            <span>Produzione serie</span>
-          </div>
-          <span class="div-card__cta">Scopri la divisione <span class="arrow">→</span></span>
-        </div>
-      </a>
+      <div class="hero__actions">
+        <a href="#contatti" class="btn btn--solid">Richiedi analisi di fattibilità <span class="arrow">→</span></a>
+        <a href="#servizi" class="btn btn--outline">Esplora le competenze</a>
+      </div>
 
     </div>
+
+    <!-- COLONNA DESTRA: immagine -->
+    <div class="hero__visual">
+
+      <!-- Wrapper immagine: classe originale + tilt hover -->
+      <div class="hero__image-wrapper hero__image-wrapper--tilt">
+
+        <!-- HUD corners: dentro il wrapper, overflow:hidden li contiene -->
+        <span class="hud-corner hud-corner--tl" aria-hidden="true"></span>
+        <span class="hud-corner hud-corner--tr" aria-hidden="true"></span>
+        <span class="hud-corner hud-corner--bl" aria-hidden="true"></span>
+        <span class="hud-corner hud-corner--br" aria-hidden="true"></span>
+
+        <img src="img/robot.png" alt="Robot Industriale floKi" class="hero__img" />
+
+      </div>
+    </div>
+
   </div>
+
+  <!-- Scroll indicator: fuori dalla griglia, posizionato in absolute -->
+  <div class="hero__scroll-indicator" aria-hidden="true">
+    <span class="hero__scroll-line"></span>
+    <span class="hero__scroll-text">Scorri</span>
+  </div>
+
 </section>
+
     <section class="why-section">
       <div class="container">
 
@@ -291,6 +235,71 @@
         </div>
       </div>
     </section>
+
+        <!--
+  ═══════════════════════════════════════════════════════════════════════════════
+  CROSSLINK DIVISIONI — variante homepage (index.html)
+  Incollare tra </main> e <footer class="footer">
+  CSS: base.css → sezione "CROSSLINK DIVISIONI"
+  ═══════════════════════════════════════════════════════════════════════════════
+-->
+<section class="divisions-crosslink">
+  <div class="crosslink__inner container">
+
+    <div class="crosslink__header reveal">
+      <span class="crosslink__eyebrow">Ecosistema floKi</span>
+      <p class="crosslink__headline">Due divisioni.<br>Un unico know-how.</p>
+    </div>
+
+    <div class="crosslink__cards">
+
+      <!-- Card Optiform -->
+      <a href="optiform.html" class="crosslink-card reveal reveal--delay">
+        <div class="crosslink-card__accent crosslink-card__accent--green"></div>
+        <div class="crosslink-card__body">
+          <span class="crosslink-card__num">01</span>
+          <div class="crosslink-card__head">
+            <span class="crosslink-card__badge crosslink-card__badge--green">Divisione Prodotto</span>
+          </div>
+          <h3 class="crosslink-card__name">Optiform</h3>
+          <p class="crosslink-card__desc">
+            Termoformatrici professionali progettate e assemblate a Treviglio.
+            Sistema diagnostico integrato sviluppato in house — unico sul mercato.
+          </p>
+          <div class="crosslink-card__tags">
+            <span>K53</span><span>K75</span><span>K75S</span><span>Made in Italy</span>
+          </div>
+          <span class="crosslink-card__cta crosslink-card__cta--green">
+            Scopri Optiform <span aria-hidden="true">→</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card Schede Elettroniche -->
+      <a href="schede-elettroniche.html" class="crosslink-card reveal reveal--delay-2">
+        <div class="crosslink-card__accent crosslink-card__accent--orange"></div>
+        <div class="crosslink-card__body">
+          <span class="crosslink-card__num">02</span>
+          <div class="crosslink-card__head">
+            <span class="crosslink-card__badge crosslink-card__badge--orange">Divisione R&amp;D</span>
+          </div>
+          <h3 class="crosslink-card__name">Schede Elettroniche</h3>
+          <p class="crosslink-card__desc">
+            PCB design, firmware embedded e produzione in serie per applicazioni
+            industriali dove le soluzioni standard non bastano.
+          </p>
+          <div class="crosslink-card__tags">
+            <span>PCB Design</span><span>Firmware C/C++</span><span>Produzione serie</span>
+          </div>
+          <span class="crosslink-card__cta crosslink-card__cta--orange">
+            Scopri la divisione <span aria-hidden="true">→</span>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
 
     <section id="servizi" class="services">
       <div class="container">
@@ -552,6 +561,7 @@
 
       </div>
     </section>
+    
 
     <section id="contatti" class="section section--light contact-section">
       <div class="container">
@@ -595,6 +605,9 @@
         </div>
       </div>
     </section>
+
+
+    
 
   </main>
 

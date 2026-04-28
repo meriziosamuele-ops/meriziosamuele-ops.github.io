@@ -2,19 +2,29 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Optiform – Divisione Termoformatura | floKi s.r.l.</title>
 <meta name="description" content="Optiform è la divisione termoformatura di floKi s.r.l. Termoformatrici professionali K53, K75, K75S con sistema diagnostico integrato. Made in Italy, Treviglio (BG).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Font aggiornati: Rajdhani, Orbitron, Montserrat, Inter (come optiform.tech) + Barlow per compatibilità base -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css" />
-<link rel="stylesheet" href="css/optiform.css" />
-
+<!-- DM Serif Display aggiunto per i titoli premium (stesso pattern di index e schede) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/optiform.css">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32-v.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16-v.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-v.png">
 </head>
 <body>
 
+<!-- Cursore custom — identico a index e schede (base.css lo gestisce) -->
+<div class="cursor-dot"  aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════════════ -->
 <header class="navbar navbar--dark" id="navbar">
   <div class="container navbar__inner">
 
@@ -31,14 +41,15 @@
         <img class="nav-logo-img"
              src="https://optiform.tech/img/Logo-Optiform.webp"
              alt="Optiform"
-             onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<span style=\'font-family:Rajdhani,sans-serif;font-weight:700;font-size:1.1rem;color:#16a34a;letter-spacing:0.05em;\'>OPTIFORM</span>')">
+             onerror="this.style.display='none'">
       </a>
     </div>
 
     <nav class="nav-links" aria-label="Navigazione">
-      <a href="https://optiform.tech/k-53.html" target="_blank" rel="noopener">K53</a>
-      <a href="https://optiform.tech/k-75.html" target="_blank" rel="noopener">K75</a>
-      <a href="https://optiform.tech/k-75s.html" target="_blank" rel="noopener">K75S</a>
+      <a href="#perche-optiform">Perché Optiform</a>
+      <a href="#prodotti">Modelli</a>
+      <a href="#tecnologia">Tecnologia</a>
+      <a href="#contatti">Contatti</a>
       <div class="nav-dropdown">
         <button class="nav-dropdown__btn" aria-haspopup="true" aria-expanded="false"
                 aria-label="Divisioni">
@@ -70,254 +81,630 @@
         <span class="nav-toggle__bar" aria-hidden="true"></span>
         <span class="nav-toggle__bar" aria-hidden="true"></span>
       </button>
-      <a href="https://optiform.tech/contatti.html" target="_blank" rel="noopener"
-         class="nav-cta">Contatti</a>
+      <a href="#contatti" class="nav-cta">Contatti</a>
     </div>
 
   </div>
 </header>
 
+<!-- ═══════════════════════════════════════════════════
+     MOBILE NAV
+═══════════════════════════════════════════════════ -->
 <div class="mobile-nav" id="mobileNav" aria-hidden="true">
   <div class="mobile-nav__backdrop" id="mobileNavBackdrop" tabindex="-1"></div>
   <div class="mobile-nav__panel" role="dialog" aria-modal="true" aria-label="Menu">
     <nav class="mobile-nav__links" aria-label="Navigazione mobile">
-      <a href="https://optiform.tech/k-53.html" target="_blank" rel="noopener">K53</a>
-      <a href="https://optiform.tech/k-75.html" target="_blank" rel="noopener">K75</a>
-      <a href="https://optiform.tech/k-75s.html" target="_blank" rel="noopener">K75S</a>
-      <a href="index.html" style="color: #2563EB;">← floKi s.r.l.</a>
-      <a href="schede-elettroniche.html" style="color: #2563EB;">Schede Elettroniche →</a>
+      <a href="#perche-optiform">Perché Optiform</a>
+      <a href="#prodotti">Modelli</a>
+      <a href="#tecnologia">Tecnologia</a>
+      <a href="#contatti">Contatti</a>
+      <a href="index.html">← floKi s.r.l.</a>
+      <a href="schede-elettroniche.html">Schede Elettroniche →</a>
     </nav>
-    <a href="https://optiform.tech/contatti.html" target="_blank" rel="noopener"
-       class="btn btn--solid mobile-nav__cta">
-      Contatti <span class="arrow">→</span>
+    <a href="#contatti" class="btn btn--solid mobile-nav__cta">
+      Contattaci <span class="arrow">→</span>
     </a>
   </div>
 </div>
 
-<section class="hero">
+<main id="main" tabindex="-1">
+
+  <!-- ═══════════════════════════════════════════════════
+       HERO — split 50/50, dark entrambe le colonne
+       Upgrade premium: dot animato, DM Serif italic sul titolo,
+       angoli HUD completi (tutti e quattro), scroll indicator
+  ═══════════════════════════════════════════════════ -->
+  <section class="hero" id="home">
+
     <div class="hero-left">
-        <div class="hero-inner">
-            <div class="hero-tag"><span class="dot"></span>Sistema Diagnostico Integrato</div>
-            <h1 class="hero-h1 grad">
-                OPTIFORM
-            </h1>
-            <p class="hero-sub">Treviglio (BG) &nbsp;·&nbsp; Made in Italy &nbsp;·&nbsp; Dal 2018</p>
-            <p class="hero-desc">
-                La nostra divisione dedicata alla <em>termoformatura professionale</em>.
-                Macchine progettate e assemblate a Treviglio, con una tecnologia diagnostica
-                che nessun altro produttore offre sul mercato.
-            </p>
-            <div class="hero-cta">
-                <a href="https://optiform.tech" target="_blank" rel="noopener" class="btn-p">
-                    Esplora Optiform
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-                <a href="https://optiform.tech/prodotti.html" target="_blank" rel="noopener" class="btn-g">Vedi i modelli</a>
-            </div>
+      <div class="hero-inner">
+
+        <!-- Dot animato con classe dedicata (CSS in optiform.css) -->
+        <div class="hero-tag">
+          <span class="hero-tag__dot" aria-hidden="true"></span>
+          Sistema Diagnostico Integrato
         </div>
+
+        <!-- Prima riga: Inter bold — seconda: DM Serif Display italic con gradiente verde -->
+        <h1 class="hero-h1">
+          La&nbsp;termoformatrice&nbsp;che<br>
+          <span class="grad-serif">si autodiagnostica.</span>
+        </h1>
+
+        <p class="hero-sub">Treviglio (BG) &nbsp;·&nbsp; Made in Italy &nbsp;·&nbsp; Dal 2025</p>
+
+        <p class="hero-desc">
+          Optiform è la divisione termoformatura di <em>floKi s.r.l.</em>
+          Macchine progettate e assemblate internamente, con una tecnologia
+          diagnostica che nessun altro costruttore offre sul mercato.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#prodotti" class="btn-p">
+            Scopri i modelli
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contatti" class="btn-g">Richiedi informazioni</a>
+        </div>
+
+      </div>
     </div>
 
     <div class="hero-right">
-        <div class="hero-glow"></div>
-        <div class="hero-dots"></div>
-        <div class="hero-machine-wrap">
-            <img class="hero-machine" src="https://optiform.tech/img/k-75S-removebg-preview.webp" alt="Termoformatrice Optiform K75S" onerror="this.style.opacity='0'">
-        </div>
-        <div class="hero-bgs">
-            <span class="hbg">K75S · Automatica</span>
-            <span class="hbg">Made in Italy</span>
-        </div>
-        <div class="hero-corner tl"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 12 L0 0 L12 0"/></svg></div>
-        <div class="hero-corner br"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 24 L24 24 L24 12"/></svg></div>
-    </div>
-</section>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-dots" aria-hidden="true"></div>
 
-<section class="story">
+      <div class="hero-machine-wrap">
+        <img class="hero-machine"
+             src="https://optiform.tech/img/k-75-removebg-preview.webp"
+             alt="Termoformatrice Optiform K75S"
+             onerror="this.style.opacity='0'">
+      </div>
+
+    </div>
+
+    <!-- Scroll indicator — posizionato in assoluto rispetto a .hero,
+         al centro della colonna sinistra (left: 25%) -->
+    <div class="hero-scroll-indicator" aria-hidden="true">
+      <span class="hero-scroll-line"></span>
+      <span class="hero-scroll-text">Scorri</span>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PERCHÉ OPTIFORM — why-cards con struttura corretta
+       Card 01: why-card--main (3 col: num | titolo | desc+chain)
+       Card 02/03: why-card--sub in why-row (2 col: num | content)
+       data-num per i watermark numerici in background
+  ═══════════════════════════════════════════════════ -->
+  <section id="perche-optiform" class="why-section">
     <div class="container">
-        <div class="story-grid">
-            
-            <div class="story-content_block r r1">
-                <p class="eyebrow r" style="color:var(--op-green);justify-content:center;margin-bottom:1rem;">Il nostro DNA</p>
-                <h2 class="story-title">DNA Elettronico,<br><span class="grad">Cuore Industriale</span></h2>
-                
-                <div class="body-text-wrapper r r2">
-                    <p class="body-text">
-                        Optiform è l'evoluzione verticale di <strong>floKi s.r.l.</strong>, azienda di Treviglio (BG) leader nei sistemi di controllo. Nata nel <strong>2025</strong>, la nostra divisione ha applicato decenni di competenza in <strong>schede elettroniche e firmware</strong> direttamente alla costruzione di termoformatrici professionali.
-                    </p>
-                    <p class="body-text">
-                        Abbiamo creato una tecnologia diagnostica unica che monitora ogni componente in tempo reale. Progettazione e collaudo sono 100% Made in Treviglio.
-                    </p>
-                </div>
 
-                <div class="stats-compact r r3">
-                    <div class="stat-mini">
-                        <span class="stat-mini-n">2025</span>
-                        <span class="stat-mini-l">Anno Fondazione</span>
-                    </div>
-                    <div class="stat-mini">
-                        <span class="stat-mini-n">3</span>
-                        <span class="stat-mini-l">Modelli</span>
-                    </div>
-                    <div class="stat-mini">
-                        <span class="stat-mini-n">100%</span>
-                        <span class="stat-mini-l">Diagnostica Attiva</span>
-                    </div>
-                </div>
-            </div>
+      <div class="why-header">
+        <span class="why-eyebrow reveal">Valore differenziale</span>
+        <h2 class="why-title reveal reveal--delay">
+          Perché scegliere <span class="text-accent" style="color: var(--op-green);">Optiform.</span>
+        </h2>
+      </div>
 
-            <div class="story-visual_block r r2">
-                <div class="story-image-container">
-                    
-                    <img class="story-machine-img" src="img/scrivania-1.webp" alt="Scheda elettronica diagnostica Optiform" onerror="this.style.display='none'">
-                </div>
-            </div>
-
+      <!-- Card 01 — principale, 3 colonne -->
+      <div class="why-card why-card--main reveal" data-num="01">
+        <span class="why-card__n">01</span>
+        <h3 class="why-card__title">
+          Diagnostica in background che non ferma la produzione.
+        </h3>
+        <div class="why-card__right">
+          <p class="why-card__desc">
+            La scheda elettronica dedicata monitora ogni resistenza in tempo reale mentre
+            la macchina produce a pieno regime. Quando un componente presenta anomalie,
+            il codice appare direttamente sul display — senza fermi, senza aprire il pannello,
+            senza chiamare un tecnico.
+          </p>
+          <div class="why-card__chain">
+            <span>Produzione continua</span>
+            <span class="why-chain-sep">→</span>
+            <span>Monitoraggio real-time</span>
+            <span class="why-chain-sep">→</span>
+            <span>Codice guasto su display</span>
+            <span class="why-chain-sep">→</span>
+            <span>Sostituzione immediata</span>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
 
-<section class="diag">
+      <!-- Row — due card sub affiancate -->
+      <div class="why-row">
+
+        <div class="why-card why-card--sub reveal reveal--delay" data-num="02">
+          <span class="why-card__n">02</span>
+          <div class="why-card__right">
+            <h3 class="why-card__title">
+              Nessun tecnico specializzato per la manutenzione.
+            </h3>
+            <p class="why-card__desc">
+              Il sistema indica esattamente quale componente sostituire. Chiunque può leggere
+              il codice sul display e intervenire. Costi di assistenza azzerati, autonomia
+              operativa massima per il tuo team — senza dipendenza dal costruttore.
+            </p>
+            <div class="why-card__tags">
+              <span>Manutenzione autonoma</span>
+              <span>Zero formazione tecnica</span>
+              <span>Codice diretto su display</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-card why-card--sub reveal reveal--delay-2" data-num="03">
+          <span class="why-card__n">03</span>
+          <div class="why-card__right">
+            <h3 class="why-card__title">
+              Progettazione e assemblaggio 100% interni.
+            </h3>
+            <p class="why-card__desc">
+              Hardware, firmware e meccanica nascono nello stesso stabilimento di Treviglio.
+              La stessa competenza elettronica che governa impianti da decine di milioni di
+              euro è applicata a ogni singola termoformatrice. Nessun componente generico —
+              tutto è scelto per durare.
+            </p>
+            <div class="why-card__tags">
+              <span>Made in Treviglio</span>
+              <span>PCB proprietario</span>
+              <span>Firmware in-house</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /why-row -->
+
+      <!-- Banner architettura Dual-System — pattern arch-banner di optiform.css -->
+      <div class="arch-banner">
+        <div class="arch-banner__left reveal">
+          <span class="arch-banner__eyebrow">Architettura Dual-System</span>
+          <h3 class="arch-banner__title">Due sistemi in parallelo. Zero interferenze.</h3>
+          <p class="arch-banner__desc">
+            PLC per il controllo operativo e scheda dedicata per il monitoraggio delle
+            resistenze lavorano in parallelo e non si parlano. La diagnostica non rallenta
+            mai la macchina di un millisecondo.
+          </p>
+        </div>
+        <div class="arch-banner__right">
+          <div class="arch-banner__tags reveal reveal--delay">
+            <span class="srv-tag">PLC operativo</span>
+            <span class="srv-tag">Scheda diagnostica</span>
+            <span class="srv-tag">Monitoraggio real-time</span>
+            <span class="srv-tag">Nessun fermo produzione</span>
+          </div>
+          <a href="https://optiform.tech/vantaggi.html" target="_blank" rel="noopener"
+             class="btn-arch reveal reveal--delay-2">
+            Approfondisci la tecnologia <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PRODOTTI — tre modelli
+  ═══════════════════════════════════════════════════ -->
+  <section id="prodotti" class="products">
     <div class="container">
-        <div class="diag-header">
-            <p class="eyebrow r" style="color:var(--op-green);justify-content:center;margin-bottom:1rem;">Tecnologia esclusiva</p>
-            <h2 class="diag-title r r1">Il sistema che elimina<br>i fermi macchina</h2>
-            <p class="diag-sub r r2">Architettura dual-system: PLC per il controllo operativo e scheda dedicata per il monitoraggio delle resistenze. Due sistemi in parallelo, zero interferenze.</p>
-        </div>
 
-        <div class="feat-grid">
-            <div class="feat r">
-                <span class="feat-n">01</span>
-                <div class="feat-name">Monitoraggio Continuo</div>
-                <div class="feat-sep"></div>
-                <p class="feat-text">La scheda diagnostica controlla ogni resistenza durante la produzione senza mai rallentarla. La macchina produce a pieno regime mentre il sistema verifica lo stato dei componenti in background.</p>
+      <div class="ph">
+        <span class="eyebrow reveal" style="color: var(--op-green); justify-content: center; display: flex;">La gamma</span>
+        <h2 class="sec-title serif-title reveal reveal--delay">
+          Tre modelli.<br><em>Una tecnologia.</em>
+        </h2>
+        <p class="reveal reveal--delay-2"
+           style="text-align: center; color: var(--op-muted); max-width: 520px; margin: 1rem auto 0; font-size: 1rem; line-height: 1.75;">
+          Ogni macchina include il sistema diagnostico integrato. La differenza è nelle
+          dimensioni, nel grado di automazione e nell'area di formatura.
+        </p>
+      </div>
+
+      <div class="prod-grid">
+
+        <a class="prod reveal" href="https://optiform.tech/k-53.html" target="_blank" rel="noopener">
+          <div class="prod-img">
+            <img src="https://optiform.tech/img/K-53-removebg-preview.webp"
+                 alt="Optiform K53" onerror="this.style.display='none'">
+          </div>
+          <div class="prod-body">
+            <span class="prod-chip">Compatta</span>
+            <div class="prod-name">K53</div>
+            <div class="prod-tagline">Manuale · Ingombro ridotto</div>
+            <div class="prod-specs">
+              <div class="spec"><span class="sk">Area formatura</span><span class="sv">480 × 330 mm</span></div>
+              <div class="spec"><span class="sk">Zone riscaldo</span><span class="sv">4</span></div>
+              <div class="spec"><span class="sk">Consumo max</span><span class="sv">2.6 kW</span></div>
+              <div class="spec"><span class="sk">Diagnostica</span><span class="sv">Integrata</span></div>
             </div>
+          </div>
+        </a>
 
-            <div class="feat r r1">
-                <span class="feat-n">02</span>
-                <div class="feat-name">Diagnosi Automatica</div>
-                <div class="feat-sep"></div>
-                <p class="feat-text">Quando una resistenza presenta anomalie, il codice del componente guasto appare direttamente sul display. Il tecnico sa esattamente cosa sostituire senza aprire la macchina né misurare nulla.</p>
+        <a class="prod reveal reveal--delay" href="https://optiform.tech/k-75.html" target="_blank" rel="noopener">
+          <div class="prod-img">
+            <img src="https://optiform.tech/img/k-75-removebg-preview.webp"
+                 alt="Optiform K75" onerror="this.style.display='none'">
+          </div>
+          <div class="prod-body">
+            <span class="prod-chip">Manuale</span>
+            <div class="prod-name">K75</div>
+            <div class="prod-tagline">Standard · Piano ampio</div>
+            <div class="prod-specs">
+              <div class="spec"><span class="sk">Area formatura</span><span class="sv">660 × 460 mm</span></div>
+              <div class="spec"><span class="sk">Zone riscaldo</span><span class="sv">10</span></div>
+              <div class="spec"><span class="sk">Consumo max</span><span class="sv">8.0 kW</span></div>
+              <div class="spec"><span class="sk">Diagnostica</span><span class="sv">Integrata</span></div>
             </div>
+          </div>
+        </a>
 
-            <div class="feat r r2">
-                <span class="feat-n">03</span>
-                <div class="feat-name">Manutenzione Accessibile</div>
-                <div class="feat-sep"></div>
-                <p class="feat-text">Non servono tecnici specializzati. Chiunque può leggere il codice e sostituire il componente indicato. Costi di assistenza ridotti e massima autonomia operativa per il tuo team.</p>
+        <a class="prod reveal reveal--delay-2" href="https://optiform.tech/k-75s.html" target="_blank" rel="noopener">
+          <div class="prod-img">
+            <img src="https://optiform.tech/img/k-75S-removebg-preview.webp"
+                 alt="Optiform K75S" onerror="this.style.display='none'">
+          </div>
+          <div class="prod-body">
+            <span class="prod-chip">Automatica</span>
+            <div class="prod-name">K75S</div>
+            <div class="prod-tagline">Pro · Ciclo pneumatico completo</div>
+            <div class="prod-specs">
+              <div class="spec"><span class="sk">Area formatura</span><span class="sv">660 × 460 mm</span></div>
+              <div class="spec"><span class="sk">Controllo</span><span class="sv">PLC</span></div>
+              <div class="spec"><span class="sk">Consumo max</span><span class="sv">8.0 kW</span></div>
+              <div class="spec"><span class="sk">Diagnostica</span><span class="sv">Integrata</span></div>
             </div>
-        </div>
+          </div>
+        </a>
 
-        <div class="r r3" style="text-align: center; margin-top: 4rem; position: relative; z-index: 2;">
-            <a href="https://optiform.tech/vantaggi.html" target="_blank" rel="noopener" class="btn-p">
-                Approfondisci la tecnologia
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;" class="reveal reveal--delay-3">
+        <a href="https://optiform.tech/prodotti.html" target="_blank" rel="noopener"
+           class="btn-g" style="color: var(--op-text); border-color: var(--op-border-hi);">
+          Confronta le specifiche tecniche complete
+        </a>
+      </div>
+
     </div>
-</section>
+  </section>
 
-<section class="products">
+  <!-- ═══════════════════════════════════════════════════
+       TECNOLOGIA — case study scheda diagnostica
+  ═══════════════════════════════════════════════════ -->
+  <section id="tecnologia" class="story">
     <div class="container">
-        <div class="ph">
-            <p class="eyebrow r" style="color:var(--op-green);justify-content:center;margin-bottom:1rem;">La gamma</p>
-            <h2 class="sec-title r r1">Tre modelli, <span class="grad">una tecnologia</span></h2>
+      <div class="story-grid">
+
+        <div class="story-content_block reveal">
+          <span class="eyebrow-op">Il cuore elettronico</span>
+          <h2 class="story-title serif-title">
+            La scheda che nessun<br><em>altro costruttore ha.</em>
+          </h2>
+
+          <div class="body-text-wrapper">
+            <p class="body-text">
+              La divisione Optiform è l'applicazione diretta di
+              <strong>vent'anni di competenza in elettronica industriale</strong>
+              alla termoformatura professionale. La scheda diagnostica integrata è progettata,
+              sviluppata e prodotta internamente dal team floKi — la stessa struttura che
+              realizza sistemi di controllo per reattori a fusione nucleare e impianti automotive.
+            </p>
+            <p class="body-text">
+              Architettura dual-system: il PLC gestisce il ciclo operativo mentre la scheda
+              dedicata monitora lo stato di ogni singola resistenza in background. I due
+              sistemi sono <strong>completamente indipendenti</strong> — nessuna interferenza,
+              nessun rallentamento, zero compromessi sulla produttività.
+            </p>
+          </div>
+
+          <div class="stats-compact reveal reveal--delay">
+            <div class="stat-mini">
+              <span class="stat-mini-n">100%</span>
+              <span class="stat-mini-l">In-house</span>
+            </div>
+            <div class="stat-mini">
+              <span class="stat-mini-n">Dual</span>
+              <span class="stat-mini-l">Sistema</span>
+            </div>
+            <div class="stat-mini">
+              <span class="stat-mini-n">0</span>
+              <span class="stat-mini-l">Fermi</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 2.5rem;" class="reveal reveal--delay-2">
+            <a href="schede-elettroniche.html" class="btn-p"
+               style="border-radius: 980px; padding: 11px 24px; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 8px;">
+              Scopri la divisione Schede Elettroniche
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
 
-        <div class="prod-grid">
-            <a class="prod r" href="https://optiform.tech/k-53.html" target="_blank" rel="noopener">
-                <div class="prod-img">
-                    <img src="https://optiform.tech/img/K-53-removebg-preview.webp" alt="K53" onerror="this.style.display='none'">
-                </div>
-                <div class="prod-body">
-                    <span class="prod-chip">Compatta</span>
-                    <div class="prod-name">K53</div>
-                    <div class="prod-tagline">Manuale · Dimensioni ridotte</div>
-                    <div class="prod-specs">
-                        <div class="spec"><span class="sk">Area formatura</span><span class="sv">480×330 mm</span></div>
-                        <div class="spec"><span class="sk">Zone riscaldo</span><span class="sv">4</span></div>
-                        <div class="spec"><span class="sk">Consumo max</span><span class="sv">2.6 kW</span></div>
-                    </div>
-                </div>
-            </a>
-
-            <a class="prod r r1" href="https://optiform.tech/k-75.html" target="_blank" rel="noopener">
-                <div class="prod-img">
-                    <img src="https://optiform.tech/img/k-75-removebg-preview.webp" alt="K75" onerror="this.style.display='none'">
-                </div>
-                <div class="prod-body">
-                    <span class="prod-chip">Manuale</span>
-                    <div class="prod-name">K75</div>
-                    <div class="prod-tagline">Standard · Piano ampio</div>
-                    <div class="prod-specs">
-                        <div class="spec"><span class="sk">Area formatura</span><span class="sv">660×460 mm</span></div>
-                        <div class="spec"><span class="sk">Zone riscaldo</span><span class="sv">10</span></div>
-                        <div class="spec"><span class="sk">Consumo max</span><span class="sv">8.0 kW</span></div>
-                    </div>
-                </div>
-            </a>
-
-            <a class="prod r r2" href="https://optiform.tech/k-75s.html" target="_blank" rel="noopener">
-                <div class="prod-img">
-                    <img src="https://optiform.tech/img/k-75S-removebg-preview.webp" alt="K75S" onerror="this.style.display='none'">
-                </div>
-                <div class="prod-body">
-                    <span class="prod-chip">Automatica</span>
-                    <div class="prod-name">K75S</div>
-                    <div class="prod-tagline">Pro · Ciclo pneumatico completo</div>
-                    <div class="prod-specs">
-                        <div class="spec"><span class="sk">Area formatura</span><span class="sv">660×460 mm</span></div>
-                        <div class="spec"><span class="sk">Controllo</span><span class="sv">PLC</span></div>
-                        <div class="spec"><span class="sk">Consumo max</span><span class="sv">8.0 kW</span></div>
-                    </div>
-                </div>
-            </a>
+        <div class="story-visual_block reveal reveal--right reveal--delay">
+          <div class="story-image-container">
+            <img class="story-machine-img"
+                 src="https://optiform.tech/img/scheda.webp"
+                 alt="Scheda Diagnostica Optiform"
+                 onerror="this.style.opacity='0.15'">
+          </div>
         </div>
 
-        <div class="r r3" style="text-align: center; margin-top: 4rem;">
-            <a href="https://optiform.tech/prodotti.html" target="_blank" rel="noopener" class="btn-g" style="color: #0a0a0a; border-color: #c0c0bc;">Confronta le specifiche tecniche</a>
-        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<section class="cta-wrap">
-    <div class="cta-bg"></div>
+  <!-- ═══════════════════════════════════════════════════
+       CROSSLINK DIVISIONI
+  ═══════════════════════════════════════════════════ -->
+  <section class="divisions-crosslink">
+    <div class="crosslink__inner container">
+
+      <div class="crosslink__header reveal">
+        <span class="crosslink__eyebrow">Ecosistema floKi</span>
+        <p class="crosslink__headline">Parte di un sistema<br>più grande.</p>
+      </div>
+
+      <div class="crosslink__cards">
+
+        <a href="index.html" class="crosslink-card reveal reveal--delay">
+          <div class="crosslink-card__accent crosslink-card__accent--blue"></div>
+          <div class="crosslink-card__body">
+            <span class="crosslink-card__num">←</span>
+            <div class="crosslink-card__head">
+              <span class="crosslink-card__badge crosslink-card__badge--blue">Casa madre</span>
+            </div>
+            <h3 class="crosslink-card__name">floKi s.r.l.</h3>
+            <p class="crosslink-card__desc">
+              Automazione e robotica industriale su commessa. Progettazione elettrica,
+              software PLC, motion control e commissioning — tutto internamente.
+            </p>
+            <div class="crosslink-card__tags">
+              <span>Beckhoff</span><span>Siemens</span><span>Fanuc</span><span>Kuka</span>
+            </div>
+            <span class="crosslink-card__cta crosslink-card__cta--blue">
+              Vai a floKi s.r.l. <span aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
+
+        <a href="schede-elettroniche.html" class="crosslink-card reveal reveal--delay-2">
+          <div class="crosslink-card__accent crosslink-card__accent--orange"></div>
+          <div class="crosslink-card__body">
+            <span class="crosslink-card__num">02</span>
+            <div class="crosslink-card__head">
+              <span class="crosslink-card__badge crosslink-card__badge--orange">Divisione R&amp;D</span>
+            </div>
+            <h3 class="crosslink-card__name">Schede Elettroniche</h3>
+            <p class="crosslink-card__desc">
+              PCB design, firmware embedded e produzione in serie. La stessa tecnologia
+              che alimenta la scheda diagnostica di ogni macchina Optiform.
+            </p>
+            <div class="crosslink-card__tags">
+              <span>PCB Design</span><span>Firmware C/C++</span><span>Produzione serie</span>
+            </div>
+            <span class="crosslink-card__cta crosslink-card__cta--orange">
+              Scopri la divisione <span aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       CTA FINALE — dark, DM Serif sul titolo
+       (aggiunta rispetto alla versione precedente)
+  ═══════════════════════════════════════════════════ -->
+  <section class="cta-wrap" id="contatti-cta">
+    <div class="cta-bg" aria-hidden="true"></div>
+    <!-- Angoli decorativi — firma di sistema -->
+    <div class="mark tl" aria-hidden="true"></div>
+    <div class="mark tr" aria-hidden="true"></div>
+    <div class="mark bl" aria-hidden="true"></div>
+    <div class="mark br" aria-hidden="true"></div>
+
     <div class="container">
-        <div class="cta-inner">
-            <p class="cta-kicker r">Divisione termoformatura di floKi s.r.l.</p>
-            <h2 class="cta-h2 r r1">Scopri la nostra<br><span class="grad">divisione</span></h2>
-            <p class="cta-desc r r2">Visita il sito Optiform per le schede tecniche complete, richiedere un preventivo personalizzato o prenotare una dimostrazione pratica in sede a Treviglio.</p>
-
-            <div class="cta-btns r r3">
-                <a href="https://optiform.tech" target="_blank" rel="noopener" class="btn-cta">
-                    Vai su optiform.tech
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-                <a href="https://optiform.tech/contatti.html" target="_blank" rel="noopener" class="btn-ol">Richiedi informazioni</a>
-            </div>
-
-            <div class="trust r r4">
-                <div class="ti2"><div class="check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="2,5 4,7 8,3"/></svg></div>Demo in sede</div>
-                <div class="ti2"><div class="check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="2,5 4,7 8,3"/></svg></div>Assistenza tecnica</div>
-                <div class="ti2"><div class="check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><polyline points="2,5 4,7 8,3"/></svg></div>Made in Italy</div>
-            </div>
+      <div class="cta-inner">
+        <div class="cta-kicker">Inizia oggi</div>
+        <h2 class="cta-h2">
+          Parliamo della<br>
+          <span class="grad">tua macchina.</span>
+        </h2>
+        <p class="cta-desc">
+          Demo in sede, preventivo personalizzato o informazioni tecniche sui modelli.
+          Rispondiamo entro 24 ore lavorative.
+        </p>
+        <div class="cta-btns">
+          <a href="#contatti" class="btn-cta">
+            Richiedi informazioni
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="https://optiform.tech" target="_blank" rel="noopener" class="btn-ol">
+            Visita optiform.tech ↗
+          </a>
         </div>
+        <div class="trust">
+          <div class="ti2">
+            <div class="check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            Risposta entro 24h lavorative
+          </div>
+          <div class="ti2">
+            <div class="check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            Demo disponibile in sede
+          </div>
+          <div class="ti2">
+            <div class="check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            Made in Italy, Treviglio (BG)
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
+  <!-- ═══════════════════════════════════════════════════
+       CONTATTI — mappa + info
+  ═══════════════════════════════════════════════════ -->
+  <section id="contatti" class="section section--light contact-section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <div class="contact-text">
+          <div class="contact-text__lead reveal">
+            <span class="eyebrow" style="color: var(--op-green);">Richiedi informazioni</span>
+            <h2 class="contact-title">Parliamo della<br>tua esigenza.</h2>
+          </div>
+          <p class="contact-desc reveal reveal--delay">
+            Contattaci per una demo in sede, un preventivo personalizzato o informazioni
+            tecniche sui modelli. Rispondiamo entro 24 ore lavorative.
+          </p>
+
+          <div class="contact-info-card reveal reveal--delay-2"
+               style="border-left-color: var(--op-green);">
+            <table class="tech-table">
+              <tr>
+                <th>Sede</th>
+                <td>
+                  <a href="https://maps.app.goo.gl/TuFwgykwF8qx2DG1A" target="_blank"
+                     rel="noopener" class="link-hover" style="color: var(--op-green);">
+                    Via Redipuglia, 77<br>24047 Treviglio (BG)
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td>
+                  <a href="mailto:info@floki.it" class="link-hover"
+                     style="color: var(--op-green);">info@floki.it</a>
+                </td>
+              </tr>
+              <tr>
+                <th>Web</th>
+                <td>
+                  <a href="https://optiform.tech" target="_blank" rel="noopener"
+                     class="link-hover" style="color: var(--op-green);">optiform.tech</a>
+                </td>
+              </tr>
+              <tr>
+                <th>P.IVA</th>
+                <td><span class="text-mono">IT04278120169</span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="contact-map reveal reveal--right reveal--delay-3">
+          <div class="map-wrapper">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.0372333768073!2d9.592003189186206!3d45.50932909649313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781482f6b70fc15%3A0xb8d77e75ed8b5489!2sFloki%20s.r.l.!5e0!3m2!1sit!2sit!4v1774795457172!5m2!1sit!2sit"
+              style="border:0;width:100%;height:100%;"
+              allowfullscreen="" loading="lazy"
+              title="Sede floKi s.r.l. — Optiform">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════ -->
 <footer class="footer">
-    <div class="footer-brand"><span>Optiform</span> &nbsp;·&nbsp; floKi s.r.l.</div>
-    <div class="footer-links">
-        <a href="index.html">← floKi s.r.l.</a>
-        <a href="schede-elettroniche.html">Schede Elettroniche</a>
-        <a href="https://optiform.tech" target="_blank" rel="noopener">optiform.tech ↗</a>
+  <div class="container footer__container">
+
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__logo reveal">
+          <h3>flo<span class="text-accent">K</span>i</h3>
+          <span class="footer__logo-tag">Optiform Division</span>
+        </div>
+        <div class="footer__desc reveal reveal--delay">
+          <p>Optiform è la divisione termoformatura di floKi s.r.l. Termoformatrici
+             professionali progettate e assemblate a Treviglio (BG), con sistema
+             diagnostico integrato proprietario.</p>
+        </div>
+      </div>
+
+      <div class="footer__nav reveal reveal--delay-2">
+        <div class="footer__col">
+          <h4>Navigazione</h4>
+          <a href="#home">Home</a>
+          <a href="#perche-optiform">Perché Optiform</a>
+          <a href="#prodotti">Modelli</a>
+          <a href="#tecnologia">Tecnologia</a>
+          <a href="#contatti">Contatti</a>
+        </div>
+
+        <div class="footer__col">
+          <h4>Modelli</h4>
+          <a href="https://optiform.tech/k-53.html" target="_blank" rel="noopener">K53</a>
+          <a href="https://optiform.tech/k-75.html" target="_blank" rel="noopener">K75</a>
+          <a href="https://optiform.tech/k-75s.html" target="_blank" rel="noopener">K75S</a>
+          <a href="https://optiform.tech/prodotti.html" target="_blank" rel="noopener">Confronta →</a>
+        </div>
+
+        <div class="footer__col">
+          <h4>Gruppo floKi</h4>
+          <a href="index.html">floKi s.r.l.</a>
+          <a href="schede-elettroniche.html">Schede Elettroniche</a>
+          <a href="https://optiform.tech" target="_blank" rel="noopener">optiform.tech ↗</a>
+        </div>
+
+        <div class="footer__col">
+          <h4>Contatti</h4>
+          <a href="mailto:info@floki.it">info@floki.it</a>
+          <a href="https://maps.google.com/?q=Via+Redipuglia+77+24047+Treviglio+BG"
+             target="_blank" rel="noopener">
+            Via Redipuglia, 77<br>24047 Treviglio (BG)
+          </a>
+        </div>
+      </div>
     </div>
-    <!-- Indirizzo corretto: Via Redipuglia, 77 24047 Treviglio (BG) -->
-    <div class="footer-info">
-        Via Redipuglia, 77 — 24047 Treviglio (BG)<br>
-        P.IVA IT04278120169 · Made in Italy
+
+    <div class="footer__bottom reveal">
+      <p>© 2018–2026 floKi s.r.l. — Divisione Optiform. Tutti i diritti riservati</p>
+      <div class="footer__sys-info">
+        <span class="dot"></span>
+        <span>P.IVA IT04278120169</span>
+        <span class="dot"></span>
+        <span class="footer__credits">Made in Treviglio (BG) — Italy</span>
+      </div>
     </div>
+
+  </div>
 </footer>
 
+<button id="scroll-to-top" aria-label="Torna in cima">
+  <img src="img/K_floki_originale_VERDE.png" alt="">
+</button>
+
+<!-- Script dedicato alla pagina Optiform -->
 <script src="js/optiform.js"></script>
 </body>
 </html>

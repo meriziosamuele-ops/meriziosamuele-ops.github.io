@@ -2,6 +2,66 @@
    floKi s.r.l. — main.js
    ============================================================================= */
 
+/* =============================================================================
+   INCOLLA QUESTO BLOCCO ALL'INIZIO DI main.js
+   (prima della sezione "1. Navbar scroll state")
+   ============================================================================= */
+
+/* ---------------------------------------------------------------------------
+   0. Cursore custom — dot + ring magnetico
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+
+  /* Touch device: niente cursore custom */
+  if (window.matchMedia('(hover: none)').matches) return;
+
+  var dot  = document.querySelector('.cursor-dot');
+  var ring = document.querySelector('.cursor-ring');
+  if (!dot || !ring) return;
+
+  var dotX = 0, dotY = 0;
+  var ringX = 0, ringY = 0;
+  var rafId;
+
+  /* Segui il mouse con lerp sul ring */
+  document.addEventListener('mousemove', function (e) {
+    dotX = e.clientX;
+    dotY = e.clientY;
+    dot.style.left  = dotX + 'px';
+    dot.style.top   = dotY + 'px';
+  }, { passive: true });
+
+  function animateRing() {
+    ringX += (dotX - ringX) * 0.14;
+    ringY += (dotY - ringY) * 0.14;
+    ring.style.left = ringX + 'px';
+    ring.style.top  = ringY + 'px';
+    rafId = requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  /* Hover su elementi interattivi */
+  document.addEventListener('mouseover', function (e) {
+    if (e.target.closest('a, button, [data-cursor-hover], .srv2-card, .crosslink-card, .prj-card, .why-card')) {
+      document.body.classList.add('cursor-hover');
+    }
+  });
+  document.addEventListener('mouseout', function (e) {
+    if (e.target.closest('a, button, [data-cursor-hover], .srv2-card, .crosslink-card, .prj-card, .why-card')) {
+      document.body.classList.remove('cursor-hover');
+    }
+  });
+
+  /* Nasconde il cursore quando esce dalla finestra */
+  document.addEventListener('mouseleave', function () {
+    document.body.classList.add('cursor-out');
+  });
+  document.addEventListener('mouseenter', function () {
+    document.body.classList.remove('cursor-out');
+  });
+}());
+
 /* ---------------------------------------------------------------------------
    1. Navbar scroll state
 --------------------------------------------------------------------------- */

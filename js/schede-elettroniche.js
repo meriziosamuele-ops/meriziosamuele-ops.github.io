@@ -1,11 +1,83 @@
 /* =============================================================================
-   floKi s.r.l. — schede-elettroniche.js
-   Logica specifica della pagina Schede Elettroniche.
-   Non include dropdown né mobile nav (già gestiti da main.js).
+   floKi s.r.l. — schede-elettroniche.js  (rev 2 — allineato a main.js)
+   
+   Moduli:
+   0. Cursore custom (dot + ring) — identico a main.js
+   1. Navbar scroll state
+   2. Reveal on scroll — .r / .on  (classi CSS schede-elettroniche.css)
+   3. Reveal on scroll — .reveal / .is-visible  (classi CSS base.css)
+   4. Nav dropdown
+   5. Mobile navigation drawer
+   6. Counter animation — data-counter
+   7. Why-chain stagger
+   8. Stack badges stagger
+   9. Scroll-to-top
    ============================================================================= */
 
 /* ---------------------------------------------------------------------------
-   1. Reveal on scroll — elementi con classe .r
+   0. Cursore custom — dot + ring magnetico
+   (solo su device con hover, identico a main.js)
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+
+  if (window.matchMedia('(hover: none)').matches) return;
+
+  var dot  = document.querySelector('.cursor-dot');
+  var ring = document.querySelector('.cursor-ring');
+  if (!dot || !ring) return;
+
+  var dotX = 0, dotY = 0;
+  var ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', function (e) {
+    dotX = e.clientX;
+    dotY = e.clientY;
+    dot.style.left = dotX + 'px';
+    dot.style.top  = dotY + 'px';
+  }, { passive: true });
+
+  (function animateRing() {
+    ringX += (dotX - ringX) * 0.14;
+    ringY += (dotY - ringY) * 0.14;
+    ring.style.left = ringX + 'px';
+    ring.style.top  = ringY + 'px';
+    requestAnimationFrame(animateRing);
+  }());
+
+  document.addEventListener('mouseover', function (e) {
+    if (e.target.closest('a, button, [data-cursor-hover], .srv2-card, .crosslink-card, .prj-card, .why-card')) {
+      document.body.classList.add('cursor-hover');
+    }
+  });
+  document.addEventListener('mouseout', function (e) {
+    if (e.target.closest('a, button, [data-cursor-hover], .srv2-card, .crosslink-card, .prj-card, .why-card')) {
+      document.body.classList.remove('cursor-hover');
+    }
+  });
+  document.addEventListener('mouseleave', function () { document.body.classList.add('cursor-out'); });
+  document.addEventListener('mouseenter', function () { document.body.classList.remove('cursor-out'); });
+}());
+
+/* ---------------------------------------------------------------------------
+   1. Navbar scroll state
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+
+  var navbar = document.getElementById('navbar');
+  if (!navbar) return;
+
+  function onScroll() {
+    navbar.classList.toggle('is-scrolled', window.scrollY > 24);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}());
+
+/* ---------------------------------------------------------------------------
+   2. Reveal on scroll — .r / .on  (schede-elettroniche.css)
 --------------------------------------------------------------------------- */
 (function () {
   'use strict';
@@ -31,125 +103,224 @@
 }());
 
 /* ---------------------------------------------------------------------------
-   2. PCB diagram — animazione trace sequenziale
+   3. Reveal on scroll — .reveal / .is-visible  (base.css)
 --------------------------------------------------------------------------- */
 (function () {
   'use strict';
 
-  var traces = document.querySelectorAll('.pcb-trace');
-  if (!traces.length) return;
+  var reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
 
-  traces.forEach(function (trace, i) {
-    trace.style.opacity = '0';
-    trace.style.transition = 'opacity 0.4s ease';
-    setTimeout(function () {
-      trace.style.opacity = '1';
-    }, 200 + i * 80);
-  });
-}());
-
-/* ---------------------------------------------------------------------------
-   3. PCB chip tooltip — mostra data-label al hover
---------------------------------------------------------------------------- */
-(function () {
-  'use strict';
-
-  var chips = document.querySelectorAll('.pcb-chip[data-label]');
-  if (!chips.length) return;
-
-  chips.forEach(function (chip) {
-    chip.style.cursor = 'default';
-
-    chip.addEventListener('mouseenter', function () {
-      var label = chip.getAttribute('data-label');
-      if (!label) return;
-      var tip = document.createElement('div');
-      tip.className = 'pcb-tooltip';
-      tip.textContent = label;
-      tip.style.cssText = [
-        'position:absolute',
-        'bottom:calc(100% + 6px)',
-        'left:50%',
-        'transform:translateX(-50%)',
-        'background:#0d1628',
-        'color:rgba(6,182,212,0.9)',
-        'font-family:\'JetBrains Mono\',monospace',
-        'font-size:0.6rem',
-        'font-weight:600',
-        'letter-spacing:0.1em',
-        'padding:4px 8px',
-        'border:1px solid rgba(6,182,212,0.3)',
-        'border-radius:3px',
-        'white-space:nowrap',
-        'pointer-events:none',
-        'z-index:10',
-        'opacity:0',
-        'transition:opacity 0.2s ease'
-      ].join(';');
-      chip.style.position = 'relative';
-      chip.appendChild(tip);
-      requestAnimationFrame(function () { tip.style.opacity = '1'; });
-    });
-
-    chip.addEventListener('mouseleave', function () {
-      var tip = chip.querySelector('.pcb-tooltip');
-      if (!tip) return;
-      tip.style.opacity = '0';
-      setTimeout(function () { if (tip.parentNode) tip.parentNode.removeChild(tip); }, 200);
-    });
-  });
-}());
-
-/* ---------------------------------------------------------------------------
-   4. Statusbar — clock in tempo reale
---------------------------------------------------------------------------- */
-(function () {
-  'use strict';
-
-  var bar = document.querySelector('.pcb-statusbar');
-  if (!bar) return;
-
-  var clockSpan = document.createElement('span');
-  clockSpan.style.cssText = 'margin-left:auto;opacity:0.5;font-size:0.58rem;';
-  bar.appendChild(clockSpan);
-
-  function tick() {
-    var now = new Date();
-    var hh = String(now.getHours()).padStart(2, '0');
-    var mm = String(now.getMinutes()).padStart(2, '0');
-    var ss = String(now.getSeconds()).padStart(2, '0');
-    clockSpan.textContent = hh + ':' + mm + ':' + ss;
+  if (!('IntersectionObserver' in window)) {
+    reveals.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
   }
-  tick();
-  setInterval(tick, 1000);
+
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
+
+  reveals.forEach(function (el) { obs.observe(el); });
 }());
 
 /* ---------------------------------------------------------------------------
-   5. Step cards — stagger reveal più marcato
+   4. Nav dropdown — apertura/chiusura con click e Escape
 --------------------------------------------------------------------------- */
 (function () {
   'use strict';
 
-  var steps = document.querySelectorAll('.se-step');
-  if (!steps.length || !('IntersectionObserver' in window)) return;
+  document.querySelectorAll('.nav-dropdown').forEach(function (dd) {
+    var btn = dd.querySelector('.nav-dropdown__btn');
+    if (!btn) return;
 
-  steps.forEach(function (step, i) {
-    step.style.transitionDelay = (i % 2 === 0 ? 0 : 0.1) + 's';
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = dd.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open);
+    });
+
+    document.addEventListener('click', function () {
+      dd.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        dd.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
   });
 }());
 
 /* ---------------------------------------------------------------------------
-   6. Board diagnostica — animazione valori ciclica
+   5. Mobile navigation — drawer laterale con backdrop
 --------------------------------------------------------------------------- */
 (function () {
   'use strict';
 
-  var cyclesEl = document.querySelector('.board-diag__value:not(.board-diag__value--ok):not(.board-diag__value--warn)');
-  if (!cyclesEl) return;
+  var toggle   = document.getElementById('navToggle');
+  var panel    = document.getElementById('mobileNav');
+  if (!toggle || !panel) return;
 
-  var base = 48291;
-  setInterval(function () {
-    base += Math.floor(Math.random() * 3);
-    cyclesEl.textContent = base.toLocaleString('it-IT');
-  }, 3000);
+  var backdrop = document.getElementById('mobileNavBackdrop');
+  var links    = panel.querySelectorAll('.mobile-nav__links a, .mobile-nav__cta');
+
+  function setOpen(open) {
+    panel.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    toggle.setAttribute('aria-label', open ? 'Chiudi menu' : 'Apri menu');
+    document.body.classList.toggle('menu-open', open);
+
+    if (open) {
+      var first = panel.querySelector('.mobile-nav__links a');
+      if (first) {
+        window.requestAnimationFrame(function () {
+          try { first.focus(); } catch (err) {}
+        });
+      }
+    }
+  }
+
+  toggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    setOpen(!panel.classList.contains('is-open'));
+  });
+
+  if (backdrop) {
+    backdrop.addEventListener('click', function () { setOpen(false); });
+  }
+
+  links.forEach(function (a) {
+    a.addEventListener('click', function () { setOpen(false); });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && panel.classList.contains('is-open')) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+}());
+
+/* ---------------------------------------------------------------------------
+   6. Counter animation — data-counter
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+
+  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+  function animateCounter(el) {
+    var target   = parseInt(el.dataset.counter, 10);
+    var suffix   = el.dataset.suffix || '';
+    var duration = target <= 10 ? 700 : target <= 30 ? 900 : 1400;
+    if (isNaN(target)) return;
+    var startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var p = Math.min((ts - startTime) / duration, 1);
+      el.textContent = Math.round(easeOutCubic(p) * target) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  var counters = document.querySelectorAll('[data-counter]');
+  if (!counters.length) return;
+
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { animateCounter(e.target); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.35 });
+    counters.forEach(function (el) { obs.observe(el); });
+  } else {
+    counters.forEach(animateCounter);
+  }
+}());
+
+/* ---------------------------------------------------------------------------
+   7. Why-chain stagger — entra in sequenza
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+
+  var chain = document.querySelector('.why-card__chain');
+  if (!chain || !('IntersectionObserver' in window)) return;
+
+  var items = chain.querySelectorAll('span');
+  items.forEach(function (item) {
+    item.style.opacity   = '0';
+    item.style.transform = 'translateY(8px)';
+    item.style.transition = 'opacity 0.45s cubic-bezier(0.22,1,0.36,1), transform 0.45s cubic-bezier(0.22,1,0.36,1)';
+  });
+
+  new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) {
+      items.forEach(function (item, i) {
+        setTimeout(function () {
+          item.style.opacity   = '1';
+          item.style.transform = 'translateY(0)';
+        }, i * 75);
+      });
+    }
+  }, { threshold: 0.5 }).observe(chain);
+}());
+
+/* ---------------------------------------------------------------------------
+   8. Stack badges nel prj-showcase — entrano in sequenza
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+
+  if (!('IntersectionObserver' in window)) return;
+
+  var showcaseStack = document.querySelector('.prj-showcase__stack');
+  if (!showcaseStack) return;
+
+  var badges = showcaseStack.querySelectorAll('.stack-badge');
+  badges.forEach(function (b) {
+    b.style.opacity   = '0';
+    b.style.transform = 'translateY(6px)';
+    b.style.transition = 'opacity 0.4s cubic-bezier(0.22,1,0.36,1), transform 0.4s cubic-bezier(0.22,1,0.36,1)';
+  });
+
+  new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) {
+      badges.forEach(function (b, i) {
+        setTimeout(function () {
+          b.style.opacity   = '1';
+          b.style.transform = 'translateY(0)';
+        }, i * 80);
+      });
+    }
+  }, { threshold: 0.6 }).observe(showcaseStack);
+}());
+
+/* ---------------------------------------------------------------------------
+   9. Scroll-to-top — visibilità e click
+--------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+
+  var btn = document.getElementById('scroll-to-top');
+  if (!btn) return;
+
+  window.addEventListener('scroll', function () {
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }());
